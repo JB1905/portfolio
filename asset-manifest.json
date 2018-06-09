@@ -1,11 +1,10 @@
 {
-  "main.css": "static/css/main.d6407e84.css",
-  "main.css.map": "static/css/main.d6407e84.css.map",
-  "main.js": "static/js/main.1497b4b8.js",
-  "main.js.map": "static/js/main.1497b4b8.js.map",
+  "main.css": "static/css/main.22a98aed.css",
+  "main.css.map": "static/css/main.22a98aed.css.map",
+  "main.js": "static/js/main.4bac41e9.js",
+  "main.js.map": "static/js/main.4bac41e9.js.map",
   "static/media/atom.png": "static/media/atom.2041ba91.png",
   "static/media/bootstrap.png": "static/media/bootstrap.22aa4d50.png",
-  "static/media/cool-background.png": "static/media/cool-background.3c7e7cfa.png",
   "static/media/css.png": "static/media/css.e605b589.png",
   "static/media/electron.png": "static/media/electron.4df35abe.png",
   "static/media/github.png": "static/media/github.23b7069e.png",
@@ -19,6 +18,7 @@
   "static/media/react.png": "static/media/react.d7b0dfeb.png",
   "static/media/rwd.png": "static/media/rwd.f9812681.png",
   "static/media/sass.png": "static/media/sass.efa28760.png",
+  "static/media/trianglify.svg": "static/media/trianglify.553e86bd.svg",
   "static/media/webpack.png": "static/media/webpack.30efd0ef.png",
   "static/media/windows.png": "static/media/windows.dec63c00.png",
   "static/media/wordpress.png": "static/media/wordpress.b7f62e59.png"
