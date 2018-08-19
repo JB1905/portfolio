@@ -1,0 +1,128 @@
+.technologies a:active,
+.projects a:active,
+nav ul li a:not(.active):active {
+  box-shadow: 0 0 0 #0000;
+  transform: translateY(5px);
+}
+
+.background {
+  transition: transform 200ms linear;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0px;
+  background: url(./images/trianglify.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  width: 100%;
+  position: sticky;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.content {
+  padding: 0 30px;
+}
+
+.content > div {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.content > h2 {
+  padding: 0 8px;
+  max-width: 1240px;
+}
+
+h2 {
+  text-shadow: var(--shadow);
+  margin: 20px auto;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 700;
+  color: #f8f8f8;
+}
+
+.page__title {
+  animation-name: fade-in;
+  animation-duration: 400ms;
+}
+
+.container {
+  transform: scale(1);
+  opacity: 1;
+  transition: opacity 200ms ease 200ms, transform 400ms ease 200ms;
+}
+
+.container.zoom {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: opacity 200ms ease, transform 400ms ease;
+}
+
+.nav.mobile ul.opened {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0) translateZ(0);
+  }
+
+  50% {
+    transform: scale(1.08) translateZ(0);
+  }
+
+  75% {
+    transform: scale(0.92) translateZ(0);
+  }
+
+  100% {
+    transform: scale(1) translateZ(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translateY(40px) translateZ(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(40px) translateZ(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px) translateZ(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 30px !important;
+  }
+
+  .content > div {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 380px) {
+  nav > div {
+    padding: 0 14px;
+  }
+
+  .content {
+    padding: 0px 6px;
+    width: 100%;
+  }
+}
