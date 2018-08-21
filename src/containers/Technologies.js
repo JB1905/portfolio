@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { TECHNOLOGIES } from '../content/technologies';
-import { TechnologyItem } from '../components/Item';
+import { TechnologyItem } from '../components/Items';
 import { Title } from '../components/Title';
 
 export default class Technologies extends Component {

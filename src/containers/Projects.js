@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Title } from '../components/Title';
 import { PROJECTS } from '../content/projects';
-import { ProjectItem } from '../components/Item';
+import { ProjectItem } from '../components/Items';
 
 export default class Projects extends Component {
   state = { projects: null };
