@@ -33,12 +33,12 @@ export default class About extends Component {
                 transitionAppear={true}
                 transitionEnter={false}
                 transitionLeave={false}>
-                <img src={me} alt="me" />
+                <img src={me} alt="me" className="about__image" />
               </ReactCSSTransitionGroup>
             </Delay>
           </div>
 
-          <div>{this.state.paragraph}</div>
+          <div className="content__container">{this.state.paragraph}</div>
         </div>
       </React.Fragment>
     );

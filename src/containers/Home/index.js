@@ -13,9 +13,7 @@ export default class Home extends Component {
             transitionAppear={true}
             transitionEnter={false}
             transitionLeave={false}>
-            <h1>
-              Jakub<br />Biesiada
-            </h1>
+            <h1>Jakub Biesiada</h1>
           </ReactCSSTransitionGroup>
 
           <ReactCSSTransitionGroup

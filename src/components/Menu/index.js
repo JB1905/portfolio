@@ -3,7 +3,7 @@ import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ICONS } from '../../content/icons';
-import { Icons } from '../Icons';
+import { Icon } from '../Icon';
 
 import DesktopMenu from './Desktop';
 import MobileMenu from './Mobile';
@@ -48,7 +48,7 @@ export default class Menu extends Component {
         <div>
           <div className="icons">
             {ICONS.map((icon, index) => (
-              <Icons key={index} src={icon} index={index} />
+              <Icon key={index} src={icon} index={index} />
             ))}
           </div>
 

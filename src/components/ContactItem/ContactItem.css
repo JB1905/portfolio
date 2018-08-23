@@ -1,15 +1,6 @@
-.contact {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  color: #81248d;
-}
-
-.contact > div {
+.contact__item {
   animation-name: fade-in;
   animation-duration: 400ms;
-  text-align: center;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -17,49 +8,59 @@
   max-width: 620px;
   width: 100%;
   min-height: 150px;
-  background-color: #f8f8f8;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   border-radius: 6px;
   margin: 12px 10px;
   box-shadow: var(--shadow);
 }
 
-.contact h1 {
+.contact__icon {
+  flex: 1;
   margin-right: 10px;
   width: 30%;
   font-size: 74px;
 }
 
-.contact a {
-  font-weight: 300;
-  font-size: 26px;
-  color: #81248d;
+.contact__content {
+  text-align: left;
+  width: 70%;
 }
 
-.contact h3 {
+.contact__title {
   font-size: 20px;
   font-weight: 700;
-  text-align: left;
   margin: 0;
   margin-bottom: 10px;
 }
 
+.contact__link {
+  font-weight: 400;
+  font-size: 26px;
+  color: #65a2e0;
+}
+
 @media (max-width: 600px) {
-  .contact div > * {
+  .contact__item {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  .contact__item > * {
     text-align: center;
     width: 100%;
     margin: 0;
   }
 
-  .contact h1 {
-    margin-bottom: 8px !important;
+  .contact__icon {
+    margin: 14px 0;
   }
 
-  .contact a {
+  .contact__title {
+    margin-top: 8px;
+  }
+
+  .contact__link {
     font-size: 20px;
-  }
-
-  .content > div {
-    width: 100%;
-    padding-bottom: 30px;
   }
 }

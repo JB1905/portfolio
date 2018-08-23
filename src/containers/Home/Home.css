@@ -36,7 +36,7 @@
   padding-bottom: 20px;
   font-size: 120px;
   font-weight: 800;
-  color: #f8f8f8;
+  color: var(--primary-color);
   text-shadow: var(--shadow);
 }
 
@@ -48,7 +48,21 @@
 
 @media (max-width: 860px) {
   .home__title h1 {
-    font-size: 110px;
+    font-size: 120px;
+  }
+
+  @media only screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 667px) {
+    .home__title h1 {
+      font-size: 60px;
+    }
+
+    .home__title h2 {
+      font-size: 32px;
+    }
+
+    .home__container {
+      min-height: 0px;
+    }
   }
 }
 

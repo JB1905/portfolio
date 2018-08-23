@@ -8,12 +8,21 @@ nav {
 
 nav > div {
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 30px;
   max-width: 1240px;
   display: flex;
   align-items: center;
   height: 70px;
   width: 100%;
+}
+
+.technology__item:hover,
+.project__item:hover,
+.about__image:hover,
+nav ul li a:not(.active):active,
+.menu:active {
+  box-shadow: 0 0 3px #0005;
+  transform: translateY(5px);
 }
 
 nav ul.desktop {
@@ -36,49 +45,43 @@ nav li a {
   margin-left: 5px;
   transition: all 300ms ease;
   border-radius: 6px;
-  color: #f8f8f8;
+  color: var(--primary-color);
   font-weight: 700;
   text-decoration: none;
-  padding: 14px 16px;
+  padding: 12px 16px;
   text-transform: uppercase;
 }
 
 .nav .active {
-  background-color: #f8f8f8;
-  color: #81248d;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   box-shadow: var(--shadow);
 }
 
 .nav a:not(.active):hover {
-  color: #81248d;
+  color: var(--secondary-color);
   background-color: rgba(255, 255, 255, 0.8);
 }
 
 .menu {
-  color: #f8f8f8;
+  color: var(--primary-color);
   font-size: 22px;
   position: absolute;
-  right: 40px;
+  right: 30px;
   margin-top: 12px;
   animation-name: zoom-in;
   animation-duration: 400ms;
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
-  display: none;
+  display: flex;
   box-shadow: var(--shadow);
-  background-color: #f8f8f8;
   border-radius: 50%;
   width: 44px;
   height: 44px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  border: 3px solid #f8f8f8;
-  background: linear-gradient(90deg, #65a2e0, #81248d);
-}
-
-.menu:active {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  transform: translateY(5px);
+  border: 3px solid var(--primary-color);
+  background: linear-gradient(90deg, #65a2e0, var(--secondary-color));
 }
 
 .nav {
@@ -103,13 +106,11 @@ nav ul {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   height: 0px;
-  margin-top: 76px;
+  margin-top: 0px;
   display: flex;
   align-items: center;
-}
-
-.mobile > div {
-  height: calc(100vh - 76px);
+  margin-top: 70px;
+  height: calc(100vh - 70px);
 }
 
 .mobile ul {
@@ -122,15 +123,11 @@ nav ul {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .mobile ul {
   transition: visibility 500ms ease 500ms, opacity 300ms ease 0ms;
-}
-
-.menu {
-  display: flex;
 }
 
 .desktop.hidden {
@@ -144,6 +141,7 @@ nav ul {
 }
 
 .mobile a {
+  margin: 0;
   display: block;
 }
 
@@ -158,7 +156,16 @@ nav ul {
   transition: all 400ms ease;
 }
 
+.nav.mobile ul.opened {
+  opacity: 1;
+  transform: scale(1);
+}
+
 @media (max-width: 380px) {
+  nav > div {
+    padding: 0 14px;
+  }
+
   .menu {
     right: 14px;
   }

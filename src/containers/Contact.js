@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
-import { Title } from '../../components/Title';
-import { CONTACT } from '../../content/contact';
-import { ContactItem } from '../../components/Items';
-
-import './Contact.css';
+import { Title } from '../components/Title';
+import { CONTACT } from '../content/contact';
+import { ContactItem } from '../components/ContactItem';
 
 export default class Contact extends Component {
   render() {

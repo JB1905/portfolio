@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPhone, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPhone,
+  faEnvelope,
+  faBars,
+  faStar
+} from '@fortawesome/free-solid-svg-icons';
 
 import Menu from './components/Menu';
 import { Content } from './components/Content';
+import { Background } from './components/Background';
 
 import './App.css';
 
-library.add(faPhone, faEnvelope, faBars);
+library.add(faPhone, faEnvelope, faBars, faStar);
 
 export default class App extends Component {
   state = { x: 0, y: 0, scale: 1.09, height: null, offset: false };
@@ -16,6 +22,7 @@ export default class App extends Component {
   componentDidMount() {
     this.setHeight();
 
+    window.addEventListener('touchstart', this.onTouch);
     window.addEventListener('resize', this.setHeight);
     window.addEventListener('mousemove', this.onMouseMove);
     window.addEventListener('devicemotion', this.onDeviceMove);
@@ -39,26 +46,15 @@ export default class App extends Component {
     });
 
   render() {
-    const { x, y, scale, height, offset } = this.state;
+    const { height } = this.state;
 
     return (
       <Router basename={'/portfolio'}>
         <React.Fragment>
-          <div
-            className="background"
-            style={{
-              height: height,
-              transform: `scale(${scale}) translate3d(${x}px, ${y}px, 0)`
-            }}
-          />
+          <Background {...this.state} />
 
           <Menu offset={this.setOffset} height={height} />
-
-          <div
-            className={`container content ${offset ? 'zoom' : ''}`}
-            style={{ height: height - 76 }}>
-            <Content />
-          </div>
+          <Content {...this.state} />
         </React.Fragment>
       </Router>
     );

@@ -1,19 +1,17 @@
 .icons {
   z-index: 100;
   display: flex;
-  align-items: center;
-  height: 100%;
   width: 210px;
   position: relative;
 }
 
-.icons img {
+.icon__image {
   margin-right: 8px;
   animation-name: zoom-in;
   animation-duration: 400ms;
   box-shadow: var(--shadow);
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
-  background-color: #f8f8f8;
+  background-color: var(--primary-color);
   position: relative;
   padding: 3px;
   height: 44px;
@@ -21,7 +19,7 @@
   border-radius: 50%;
 }
 
-.icons img:active {
-  box-shadow: 0 0 0 #0000;
+.icon__image:active {
+  box-shadow: 0 0 3px #0005;
   transform: translateY(5px);
 }
