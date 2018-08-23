@@ -7,7 +7,7 @@ import './TechnologyItem.css';
 export const TechnologyItem = props => {
   let stars = [];
   for (let i = 0; i < props.item.stars; i++) {
-    stars.push(<FontAwesomeIcon className="star" icon="star" />);
+    stars.push(<FontAwesomeIcon className="star" icon="star" key={i} />);
   }
 
   return (
