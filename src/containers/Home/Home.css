@@ -19,7 +19,7 @@
 }
 
 .subtitle-appear {
-  opacity: 0;
+  opacity: 0.001;
 }
 
 .subtitle-appear.subtitle-appear-active {

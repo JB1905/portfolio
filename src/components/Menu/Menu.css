@@ -19,9 +19,13 @@ nav > div {
 .technology__item:hover,
 .project__item:hover,
 .about__image:hover,
-nav ul li a:not(.active):active,
 .menu:active {
   box-shadow: 0 0 3px #0005;
+  transform: translateY(5px);
+}
+
+nav ul li a:not(.active):active {
+  box-shadow: 0 0 0 #0000;
   transform: translateY(5px);
 }
 
@@ -81,7 +85,11 @@ nav li a {
   align-items: center;
   justify-content: center;
   border: 3px solid var(--primary-color);
-  background: linear-gradient(90deg, #65a2e0, var(--secondary-color));
+  background: linear-gradient(
+    90deg,
+    var(--theme-color),
+    var(--secondary-color)
+  );
 }
 
 .nav {
@@ -126,12 +134,8 @@ nav ul {
   max-width: 500px;
 }
 
-.mobile ul {
-  transition: visibility 500ms ease 500ms, opacity 300ms ease 0ms;
-}
-
 .desktop.hidden {
-  opacity: 0;
+  opacity: 0.001;
   visibility: hidden;
 }
 
@@ -147,7 +151,7 @@ nav ul {
 
 .list-appear {
   transform: translateY(40px);
-  opacity: 0.01;
+  opacity: 0.001;
 }
 
 .list-appear.list-appear-active {

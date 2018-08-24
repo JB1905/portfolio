@@ -40,7 +40,7 @@
   height: 100%;
   width: 100%;
   transition: opacity 300ms ease;
-  opacity: 0;
+  opacity: 0.001;
   position: absolute;
   top: 0;
 }
@@ -82,13 +82,14 @@
   width: 50%;
   font-size: 18px;
   color: #65a2e0;
+  color: var(--theme-color);
 }
 
 .project__links a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1020px) {
   .project__item {
     width: calc(100% / 2 - 20px);
     padding-top: calc((100% / 2 - 20px) / 5 * 3);

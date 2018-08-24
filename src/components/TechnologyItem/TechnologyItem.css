@@ -41,7 +41,7 @@
 
 .star {
   margin: 0 3px;
-  color: #65a2e0;
+  color: var(--theme-color);
 }
 
 .technology__about h3 {
@@ -65,7 +65,7 @@
   height: 100%;
   width: 100%;
   transition: opacity 300ms ease;
-  opacity: 0;
+  opacity: 0.001;
   position: absolute;
   top: 0;
 }

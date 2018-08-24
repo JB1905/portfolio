@@ -30,6 +30,7 @@ export default class About extends Component {
             <Delay wait={520}>
               <ReactCSSTransitionGroup
                 transitionName="image"
+                transitionAppearTimeout={0}
                 transitionAppear={true}
                 transitionEnter={false}
                 transitionLeave={false}>

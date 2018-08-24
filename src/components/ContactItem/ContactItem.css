@@ -37,7 +37,11 @@
 .contact__link {
   font-weight: 400;
   font-size: 26px;
-  color: #65a2e0;
+  color: var(--theme-color);
+}
+
+.contact__link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
