@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 import { Title } from '../components/Title';
 import { PROJECTS } from '../content/projects';
-import { ProjectItem } from '../components/Item';
+import { ProjectItem } from '../components/ProjectItem';
 
 export default class Projects extends Component {
   state = { projects: null };
 
   componentDidMount() {
-    const projects = PROJECTS.map((image, index) => (
-      <ProjectItem key={index} index={index} image={image} />
+    const projects = PROJECTS.map((item, index) => (
+      <ProjectItem key={index} index={index} item={item} />
     ));
 
     this.setState({ projects: projects });

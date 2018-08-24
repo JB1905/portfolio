@@ -10,16 +10,16 @@ export default class Home extends Component {
         <div className="home__title">
           <ReactCSSTransitionGroup
             transitionName="title"
+            transitionAppearTimeout={0}
             transitionAppear={true}
             transitionEnter={false}
             transitionLeave={false}>
-            <h1>
-              Jakub<br />Biesiada
-            </h1>
+            <h1>Jakub Biesiada</h1>
           </ReactCSSTransitionGroup>
 
           <ReactCSSTransitionGroup
             transitionName="subtitle"
+            transitionAppearTimeout={0}
             transitionAppear={true}
             transitionEnter={false}
             transitionLeave={false}>

@@ -1,31 +1,16 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+
+import { MenuItem } from '../MenuItem';
 
 export default class DesktopMenu extends Component {
   render() {
     return (
       <ul className={this.props.className}>
-        <li>
-          <NavLink exact to="/">
-            Start
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/about">O mnie</NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/technologies">Technologie</NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/projects">Projekty</NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/contact">Kontakt</NavLink>
-        </li>
+        <MenuItem link="/" title="Start" />
+        <MenuItem link="/about" title="O mnie" />
+        <MenuItem link="/technologies" title="Technologie" />
+        <MenuItem link="/projects" title="Projekty" />
+        <MenuItem link="/contact" title="Kontakt" />
       </ul>
     );
   }
