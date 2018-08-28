@@ -5,13 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ICONS } from '../../content/icons';
 import { Icon } from '../Icon';
 
-import DesktopMenu from './Desktop';
+import { DesktopMenu } from './Desktop';
 import MobileMenu from './Mobile';
 
 import './Menu.css';
 
 export default class Menu extends Component {
-  state = { isOpen: false, isMobile: null };
+  constructor() {
+    super();
+
+    this.state = { isOpen: false, isMobile: null };
+
+    this.nav = React.createRef();
+  }
 
   componentDidMount() {
     this.onResize();
@@ -19,7 +25,7 @@ export default class Menu extends Component {
   }
 
   onResize() {
-    if (this.refs.nav.offsetHeight > 74) {
+    if (this.nav.current.offsetHeight > 74) {
       this.setState({ isMobile: true });
       if (this.state.isOpen) this.isOffset(true);
     } else {
@@ -52,7 +58,7 @@ export default class Menu extends Component {
             ))}
           </div>
 
-          <div className="nav" ref="nav">
+          <div className="nav" ref={this.nav}>
             <DesktopMenu
               className={`desktop ${this.state.isMobile ? 'hidden' : ''}`}
             />
@@ -66,7 +72,10 @@ export default class Menu extends Component {
                 </Delay>
 
                 {this.state.isOpen ? (
-                  <MobileMenu toggleMenu={this.toggleMenu} />
+                  <MobileMenu
+                    height={this.props.height - 76}
+                    toggleMenu={this.toggleMenu}
+                  />
                 ) : null}
               </div>
             ) : null}

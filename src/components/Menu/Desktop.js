@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { MenuItem } from '../MenuItem';
+import { DesktopMenuItem } from '../DesktopMenuItem';
 
-export default class DesktopMenu extends Component {
-  render() {
-    return (
-      <ul className={this.props.className}>
-        <MenuItem link="/" title="Start" />
-        <MenuItem link="/about" title="O mnie" />
-        <MenuItem link="/technologies" title="Technologie" />
-        <MenuItem link="/projects" title="Projekty" />
-        <MenuItem link="/contact" title="Kontakt" />
-      </ul>
-    );
-  }
-}
+export const DesktopMenu = props => (
+  <ul className={props.className}>
+    <DesktopMenuItem link="/" title="Start" />
+    <DesktopMenuItem link="/about" title="O mnie" />
+    <DesktopMenuItem link="/technologies" title="Technologie" />
+    <DesktopMenuItem link="/projects" title="Projekty" />
+    <DesktopMenuItem link="/contact" title="Kontakt" />
+  </ul>
+);

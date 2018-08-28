@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const MenuItem = props => (
+export const DesktopMenuItem = props => (
   <li>
     <NavLink exact to={props.link}>
       {props.title}

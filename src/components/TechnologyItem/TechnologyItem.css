@@ -1,12 +1,12 @@
 .technology__item {
-  transition: box-shadow 200ms cubic-bezier(0.17, 0.67, 0.83, 0.67),
-    transform 150ms ease-in;
+  transition: box-shadow 200ms ease-in, transform 180ms ease-in;
   animation-name: zoom-in;
   animation-duration: 550ms;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateY(0) translateZ(0);
   background-color: var(--primary-color);
   padding-top: calc(100% / 5 - 20px);
   border-radius: 6px;
@@ -20,7 +20,7 @@
   opacity: 1;
   transition: opacity 300ms ease;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateZ(0);
   position: absolute;
   max-width: 70%;
   max-height: 70%;

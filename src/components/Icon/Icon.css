@@ -21,5 +21,5 @@
 
 .icon__image:active {
   box-shadow: 0 0 3px #0005;
-  transform: translateY(5px);
+  transform: translateY(5px) translateZ(0);
 }

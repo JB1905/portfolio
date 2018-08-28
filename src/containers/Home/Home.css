@@ -11,7 +11,7 @@
 }
 
 .title-appear {
-  transform: scale(0);
+  transform: scale(0) translateZ(0);
 }
 
 .title-appear.title-appear-active {
