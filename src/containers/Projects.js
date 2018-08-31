@@ -12,7 +12,7 @@ export default class Projects extends Component {
       <ProjectItem key={index} index={index} item={item} />
     ));
 
-    this.setState({ projects: projects });
+    this.setState({ projects });
   }
 
   render() {

@@ -12,7 +12,7 @@ export default class Technologies extends Component {
       <TechnologyItem key={index} index={index} item={item} />
     ));
 
-    this.setState({ technologies: technologies });
+    this.setState({ technologies });
   }
 
   render() {

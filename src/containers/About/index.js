@@ -17,7 +17,7 @@ export default class About extends Component {
       <Paragraph key={index} content={data.content} index={index} />
     ));
 
-    this.setState({ paragraph: paragraph });
+    this.setState({ paragraph });
   }
 
   render() {

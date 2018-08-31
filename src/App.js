@@ -28,7 +28,7 @@ export default class App extends Component {
     window.addEventListener('devicemotion', this.onDeviceMove);
   }
 
-  setOffset = offset => this.setState({ offset: offset });
+  setOffset = offset => this.setState({ offset });
   onTouch = e => e.preventDefault();
   setHeight = () => this.setState({ height: window.innerHeight });
 
@@ -46,14 +46,12 @@ export default class App extends Component {
     });
 
   render() {
-    const { height } = this.state;
-
     return (
       <Router basename={'/portfolio'}>
         <React.Fragment>
           <Background {...this.state} />
 
-          <Menu offset={this.setOffset} height={height} />
+          <Menu offset={this.setOffset} height={this.state.height} />
           <Content {...this.state} />
         </React.Fragment>
       </Router>
