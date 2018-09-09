@@ -40,7 +40,7 @@
 }
 
 .star {
-  margin: 0 3px;
+  margin: 0px 3px;
   color: var(--theme-color);
 }
 
@@ -67,7 +67,7 @@
   transition: opacity 300ms ease;
   opacity: 0.001;
   position: absolute;
-  top: 0;
+  top: 0px;
 }
 
 .technology__item:hover .technology__content {

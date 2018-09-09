@@ -21,7 +21,7 @@
 
 .content__container {
   flex: 1;
-  padding: 0 15px;
+  padding: 0px 15px;
   width: calc(100% / 3 * 2);
 }
 

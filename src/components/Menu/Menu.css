@@ -9,8 +9,8 @@ nav {
 }
 
 nav > div {
-  margin: 0 auto;
-  padding: 0 30px;
+  margin: 0px auto;
+  padding: 0px 30px;
   max-width: 1240px;
   display: flex;
   align-items: center;
@@ -22,13 +22,13 @@ nav > div {
 .project__item:hover,
 .menu:active {
   transition: box-shadow 200ms ease-in, transform 180ms ease-in;
-  box-shadow: 0 0 3px #0005;
+  box-shadow: 0px 0px 3px #0005;
   transform: translateY(5px) translateZ(0);
 }
 
 nav ul li a:not(.active):active {
   transition: box-shadow 200ms ease-in, transform 180ms ease-in;
-  box-shadow: 0 0 0 #0000;
+  box-shadow: 0px 0px 0px #0000;
   transform: translateY(5px) translateZ(0);
 }
 
@@ -126,9 +126,9 @@ nav ul {
 .mobile ul {
   text-align: center;
   transition: opacity 500ms ease 460ms transform 500ms ease 460ms;
-  padding: 0 20px;
+  padding: 0px 20px;
   left: 0px;
-  margin: 0 auto;
+  margin: 0px auto;
   width: 100%;
   display: flex;
   align-items: center;
@@ -147,7 +147,7 @@ nav ul {
 }
 
 .mobile a {
-  margin: 0;
+  margin: 0px;
   display: block;
 }
 
@@ -169,7 +169,7 @@ nav ul {
 
 @media (max-width: 380px) {
   nav > div {
-    padding: 0 14px;
+    padding: 0px 14px;
   }
 
   .menu {
