@@ -14,17 +14,11 @@ body {
   min-width: 300px;
 }
 
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: sans-serif;
-}
-
 *,
 *::before,
 *::after {
-  padding: 0px;
   margin: 0px;
+  padding: 0px;
   -webkit-tap-highlight-color: transparent;
   font-weight: 500;
   box-sizing: border-box;
