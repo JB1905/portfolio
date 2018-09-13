@@ -70,6 +70,10 @@
   .home__title h1 {
     font-size: 70px;
   }
+
+  .home__title h2 {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 380px) {
