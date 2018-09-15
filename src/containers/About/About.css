@@ -4,8 +4,7 @@
 }
 
 .about p {
-  animation-name: fade-in;
-  animation-duration: 400ms;
+  animation: fade-in 400ms ease;
 }
 
 .image-appear {
@@ -15,8 +14,7 @@
 
 .image-appear.image-appear-active {
   opacity: 1;
-  animation-name: zoom-in;
-  animation-duration: 500ms;
+  animation: falcon-landing 500ms ease;
 }
 
 .content__container {

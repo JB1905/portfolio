@@ -1,14 +1,13 @@
 .icons {
   z-index: 100;
   display: flex;
-  width: 210px;
+  width: 250px;
   position: relative;
 }
 
 .icon__image {
   margin-right: 8px;
-  animation-name: zoom-in;
-  animation-duration: 400ms;
+  animation: bounce-in 400ms ease;
   box-shadow: var(--shadow);
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
   background-color: var(--primary-color);

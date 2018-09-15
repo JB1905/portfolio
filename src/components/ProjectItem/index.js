@@ -1,5 +1,7 @@
 import React from 'react';
 import Delay from 'react-delay';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import './ProjectItem.css';
 
@@ -20,11 +22,15 @@ export const ProjectItem = props => (
 
         <div className="project__links">
           {props.item.linkSrc ? (
-            <a href={props.item.linkSrc}>Zobacz projekt</a>
+            <a href={props.item.linkSrc}>
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
           ) : null}
 
           {props.item.linkLive ? (
-            <a href={props.item.linkLive}>Zobacz na żywo</a>
+            <a href={props.item.linkLive}>
+              <FontAwesomeIcon icon="eye" />
+            </a>
           ) : null}
         </div>
       </div>

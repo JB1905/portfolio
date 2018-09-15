@@ -1,6 +1,5 @@
 .page__title {
   padding: 0px 8px;
   max-width: 1240px;
-  animation-name: fade-in;
-  animation-duration: 400ms;
+  animation: fade-in 400ms ease;
 }

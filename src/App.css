@@ -26,6 +26,7 @@
 }
 
 .container {
+  overflow-x: hidden;
   width: 100%;
   position: sticky;
   -webkit-overflow-scrolling: touch;
@@ -61,7 +62,7 @@ h2 {
   transition: opacity 300ms ease;
 }
 
-@keyframes zoom-in {
+@keyframes bounce-in {
   0% {
     transform: scale(0) translateZ(0);
   }
@@ -76,6 +77,22 @@ h2 {
 
   100% {
     transform: scale(1) translateZ(0);
+  }
+}
+
+@keyframes falcon-landing {
+  0% {
+    transform: scale(1.6) translateZ(0);
+    opacity: 0.001;
+  }
+
+  60% {
+    transform: scale(0.92) translateZ(0);
+  }
+
+  100% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
   }
 }
 

@@ -15,7 +15,7 @@
 }
 
 .title-appear.title-appear-active {
-  animation: zoom-in 500ms ease 200ms;
+  animation: falcon-landing 500ms ease 200ms;
 }
 
 .subtitle-appear {
@@ -51,7 +51,7 @@
     font-size: 120px;
   }
 
-  @media only screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 667px) {
+  @media screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 667px) {
     .home__title h1 {
       font-size: 60px;
     }

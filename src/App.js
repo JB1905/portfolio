@@ -5,7 +5,7 @@ import {
   faPhone,
   faEnvelope,
   faBars,
-  faStar
+  faEye
 } from '@fortawesome/free-solid-svg-icons';
 
 import Menu from './components/Menu';
@@ -14,7 +14,7 @@ import { Background } from './components/Background';
 
 import './App.css';
 
-library.add(faPhone, faEnvelope, faBars, faStar);
+library.add(faPhone, faEnvelope, faBars, faEye);
 
 export default class App extends Component {
   state = { x: 0, y: 0, scale: 1.09, height: null, offset: false };

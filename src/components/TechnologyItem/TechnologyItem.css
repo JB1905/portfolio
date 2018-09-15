@@ -1,7 +1,6 @@
 .technology__item {
   transition: box-shadow 200ms ease-in, transform 180ms ease-in;
-  animation-name: zoom-in;
-  animation-duration: 550ms;
+  animation: bounce-in 550ms ease;
   position: relative;
   display: flex;
   justify-content: center;
@@ -16,7 +15,6 @@
 }
 
 .technology__image {
-  cursor: pointer;
   opacity: 1;
   transition: opacity 300ms ease;
   top: 50%;
@@ -24,54 +22,6 @@
   position: absolute;
   max-width: 70%;
   max-height: 70%;
-}
-
-.technology__item:hover .technology__image {
-  opacity: 0.02;
-}
-
-.technology__about {
-  padding: 12px 16px;
-}
-
-.stars {
-  display: flex;
-  justify-content: center;
-}
-
-.star {
-  margin: 0px 3px;
-  color: var(--theme-color);
-}
-
-.technology__about h3 {
-  text-align: center;
-  margin-top: 10px;
-  color: var(--secondary-color);
-  font-size: 22px;
-}
-
-.technology__about p {
-  color: var(--secondary-color);
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.technology__content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  transition: opacity 300ms ease;
-  opacity: 0.001;
-  position: absolute;
-  top: 0px;
-}
-
-.technology__item:hover .technology__content {
-  opacity: 1;
 }
 
 @media (max-width: 1100px) {

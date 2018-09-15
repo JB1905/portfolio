@@ -1,6 +1,5 @@
 .contact__item {
-  animation-name: fade-in;
-  animation-duration: 400ms;
+  animation: fade-in 400ms ease;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
