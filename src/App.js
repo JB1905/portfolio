@@ -47,7 +47,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router basename={'/portfolio'}>
+      <Router basename="/portfolio">
         <React.Fragment>
           <Background {...this.state} />
 
