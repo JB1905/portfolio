@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Delay from 'react-delay';
 
 import me from '../../images/me.jpg';
@@ -28,14 +28,15 @@ export default class About extends Component {
         <div className="about">
           <div className="image__container">
             <Delay wait={520}>
-              <ReactCSSTransitionGroup
+              <CSSTransitionGroup
                 transitionName="image"
                 transitionAppearTimeout={0}
                 transitionAppear={true}
                 transitionEnter={false}
-                transitionLeave={false}>
+                transitionLeave={false}
+              >
                 <img src={me} alt="me" className="about__image" />
-              </ReactCSSTransitionGroup>
+              </CSSTransitionGroup>
             </Delay>
           </div>
 

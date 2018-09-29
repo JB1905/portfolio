@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 export default class MobileMenuItem extends Component {
   toggleMenu = () => this.props.toggle();
@@ -8,16 +8,17 @@ export default class MobileMenuItem extends Component {
   render() {
     return (
       <li>
-        <ReactCSSTransitionGroup
+        <CSSTransitionGroup
           transitionName="list"
           transitionAppearTimeout={0}
           transitionAppear={true}
           transitionEnter={false}
-          transitionLeave={false}>
+          transitionLeave={false}
+        >
           <NavLink exact to={this.props.link} onClick={this.toggleMenu}>
             {this.props.title}
           </NavLink>
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       </li>
     );
   }

@@ -50,19 +50,21 @@
   .home__title h1 {
     font-size: 120px;
   }
+}
 
-  @media screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 667px) {
-    .home__title h1 {
-      font-size: 60px;
-    }
+@media screen and (orientation: landscape)
+  and (min-device-width: 375px)
+  and (max-device-width: 767px) {
+  .home__title h1 {
+    font-size: 60px;
+  }
 
-    .home__title h2 {
-      font-size: 32px;
-    }
+  .home__title h2 {
+    font-size: 32px;
+  }
 
-    .home__container {
-      min-height: 0px;
-    }
+  .home__container {
+    min-height: 0px;
   }
 }
 
