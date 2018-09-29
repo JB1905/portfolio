@@ -96,7 +96,7 @@
 
 @media (max-width: 580px) {
   .project__item {
-    width: 100%;
-    padding-top: calc(100% / 5 * 3);
+    width: calc(100% - 20px);
+    padding-top: calc(calc(100% - 20px) / 5 * 3);
   }
 }
