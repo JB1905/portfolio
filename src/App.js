@@ -48,12 +48,12 @@ export default class App extends Component {
   render() {
     return (
       <Router basename="/portfolio">
-        <React.Fragment>
+        <>
           <Background {...this.state} />
 
           <Menu offset={this.setOffset} height={this.state.height} />
           <Content {...this.state} />
-        </React.Fragment>
+        </>
       </Router>
     );
   }

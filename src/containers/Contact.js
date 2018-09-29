@@ -5,7 +5,7 @@ import { CONTACT } from '../content/contact';
 import { ContactItem } from '../components/ContactItem';
 
 export const Contact = () => (
-  <React.Fragment>
+  <>
     <Title value="Kontakt" />
 
     <div className="contact">
@@ -25,5 +25,5 @@ export const Contact = () => (
         method="tel"
       />
     </div>
-  </React.Fragment>
+  </>
 );

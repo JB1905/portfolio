@@ -17,11 +17,11 @@ export default class Technologies extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Title value="Technologie" />
 
         <div className="technologies">{this.state.technologies}</div>
-      </React.Fragment>
+      </>
     );
   }
 }

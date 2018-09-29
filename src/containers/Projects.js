@@ -17,11 +17,11 @@ export default class Projects extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Title value="Projekty" />
 
         <div className="projects">{this.state.projects}</div>
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -22,7 +22,7 @@ export default class About extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Title value="O mnie" />
 
         <div className="about">
@@ -41,7 +41,7 @@ export default class About extends Component {
 
           <div className="content__container">{this.state.paragraph}</div>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

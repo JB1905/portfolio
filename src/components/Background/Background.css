@@ -2,7 +2,4 @@
   transition: transform 200ms linear;
   width: 100%;
   position: fixed;
-  background: url(../../images/trianglify.svg);
-  background-size: cover;
-  background-position: center;
 }
