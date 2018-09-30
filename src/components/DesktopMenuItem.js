@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const DesktopMenuItem = props => (
+export const DesktopMenuItem = ({ link, title }) => (
   <li>
-    <NavLink exact to={props.link}>
-      {props.title}
+    <NavLink exact to={link}>
+      {title}
     </NavLink>
   </li>
 );

@@ -5,30 +5,26 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import './ProjectItem.css';
 
-export const ProjectItem = props => (
-  <Delay wait={(props.index + 1) * 190 + 280}>
+export const ProjectItem = ({ index, item }) => (
+  <Delay wait={(index + 1) * 190 + 280}>
     <div className="project__item">
-      <img
-        src={props.item.image}
-        alt={props.item.name}
-        className="project__image"
-      />
+      <img src={item.image} alt={item.name} className="project__image" />
 
       <div className="project__content">
         <div className="project__about">
-          <h3>{props.item.name}</h3>
-          <p>{props.item.about}</p>
+          <h3>{item.name}</h3>
+          <p>{item.about}</p>
         </div>
 
         <div className="project__links">
-          {props.item.linkSrc ? (
-            <a href={props.item.linkSrc}>
+          {item.linkSrc ? (
+            <a href={item.linkSrc}>
               <FontAwesomeIcon icon={faGithub} />
             </a>
           ) : null}
 
-          {props.item.linkLive ? (
-            <a href={props.item.linkLive}>
+          {item.linkLive ? (
+            <a href={item.linkLive}>
               <FontAwesomeIcon icon="eye" />
             </a>
           ) : null}

@@ -6,6 +6,8 @@ export default class MobileMenuItem extends Component {
   toggleMenu = () => this.props.toggle();
 
   render() {
+    const { link, title } = this.props;
+
     return (
       <li>
         <CSSTransitionGroup
@@ -15,8 +17,8 @@ export default class MobileMenuItem extends Component {
           transitionEnter={false}
           transitionLeave={false}
         >
-          <NavLink exact to={this.props.link} onClick={this.toggleMenu}>
-            {this.props.title}
+          <NavLink exact to={link} onClick={this.toggleMenu}>
+            {title}
           </NavLink>
         </CSSTransitionGroup>
       </li>

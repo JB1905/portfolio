@@ -3,8 +3,8 @@ import Delay from 'react-delay';
 
 import './Title.css';
 
-export const Title = props => (
+export const Title = ({ value }) => (
   <Delay wait={100}>
-    <h2 className="page__title">{props.value}</h2>
+    <h2 className="page__title">{value}</h2>
   </Delay>
 );

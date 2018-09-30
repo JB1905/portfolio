@@ -4,17 +4,15 @@ import trianglify from '../../images/trianglify.svg';
 
 import './Background.css';
 
-export const Background = props => (
+export const Background = ({ height, scale, x, y }) => (
   <div
     className="background"
     style={{
       background: `url(${trianglify})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      height: props.height,
-      transform: `scale(${props.scale}) translate3d(${props.x}px, ${
-        props.y
-      }px, 0)`
+      height,
+      transform: `scale(${scale}) translate3d(${x}px, ${y}px, 0)`
     }}
   />
 );

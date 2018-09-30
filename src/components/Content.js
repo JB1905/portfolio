@@ -9,10 +9,10 @@ import Technologies from '../containers/Technologies';
 import Projects from '../containers/Projects';
 import { Contact } from '../containers/Contact';
 
-export const Content = props => (
+export const Content = ({ offset, height }) => (
   <div
-    className={`container content ${props.offset ? 'zoom' : ''}`}
-    style={{ height: props.height - 76 }}
+    className={`container content ${offset ? 'zoom' : ''}`}
+    style={{ height: height - 76 }}
   >
     <ScrollToTop>
       <Route exact path="/" component={Home} />

@@ -4,17 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './ContactItem.css';
 
-export const ContactItem = props => (
-  <Delay wait={props.delay}>
+export const ContactItem = ({ delay, icon, title, method, permalink }) => (
+  <Delay wait={delay}>
     <div className="contact__item">
-      <FontAwesomeIcon className="contact__icon" icon={props.icon} />
+      <FontAwesomeIcon className="contact__icon" icon={icon} />
 
       <div className="contact__content">
-        <h3 className="contact__title">{props.title}:</h3>
-        <a
-          href={`${props.method}:${props.permalink}`}
-          className="contact__link">
-          {props.permalink}
+        <h3 className="contact__title">{title}:</h3>
+        <a href={`${method}:${permalink}`} className="contact__link">
+          {permalink}
         </a>
       </div>
     </div>

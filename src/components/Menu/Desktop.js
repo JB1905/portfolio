@@ -2,8 +2,8 @@ import React from 'react';
 
 import { DesktopMenuItem } from '../DesktopMenuItem';
 
-export const DesktopMenu = props => (
-  <ul className={props.className}>
+export const DesktopMenu = ({ className }) => (
+  <ul className={className}>
     <DesktopMenuItem link="/" title="Start" />
     <DesktopMenuItem link="/about" title="O mnie" />
     <DesktopMenuItem link="/technologies" title="Technologie" />
