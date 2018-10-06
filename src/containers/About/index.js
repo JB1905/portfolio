@@ -5,10 +5,10 @@ import Delay from 'react-delay';
 import Title from '../../components/Title';
 import Paragraph from '../../components/Paragraph';
 
+import './About.scss';
+
 import me from '../../images/me.jpg';
 import { ABOUT } from '../../content/about';
-
-import './About.scss';
 
 export default class About extends Component {
   state = { paragraph: null };
