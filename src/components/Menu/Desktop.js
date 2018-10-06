@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { DesktopMenuItem } from '../DesktopMenuItem';
+import DesktopMenuItem from '../DesktopMenuItem';
 
-export const DesktopMenu = ({ className }) => (
+const DesktopMenu = ({ className }) => (
   <ul className={className}>
     <DesktopMenuItem link="/" title="Start" />
     <DesktopMenuItem link="/about" title="O mnie" />
@@ -11,3 +11,5 @@ export const DesktopMenu = ({ className }) => (
     <DesktopMenuItem link="/contact" title="Kontakt" />
   </ul>
 );
+
+export default DesktopMenu;

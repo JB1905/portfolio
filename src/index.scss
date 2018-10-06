@@ -24,6 +24,8 @@ body {
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   outline: 0px;
 }
 
@@ -33,6 +35,19 @@ p {
   margin-bottom: 22px;
   font-size: 22px;
   color: var(--primary-color);
+}
+
+h2 {
+  text-shadow: var(--shadow);
+  margin: 20px auto;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--primary-color);
+
+  @media (max-width: 680px) {
+    font-size: 30px;
+  }
 }
 
 h3 {

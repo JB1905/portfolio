@@ -9,17 +9,15 @@
 .switch-wrapper {
   height: 100%;
   position: relative;
-}
 
-.switch-wrapper > div {
-  width: 100%;
-  min-height: 100%;
-  position: absolute;
-  padding-bottom: 20px;
-}
+   > div {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    padding-bottom: 20px;
+  }
 
-@supports (padding-left: env(safe-area-inset-left)) {
-  .switch-wrapper > div {
+  @supports (padding-left: env(safe-area-inset-left)) {
     padding-bottom: calc(20px + env(safe-area-inset-left));
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
@@ -40,31 +38,31 @@
 
 .content {
   padding: 0px 30px;
-}
 
-.content > div {
-  max-width: 1240px;
-  margin: 0px auto;
-  padding-bottom: 20px;
-}
+   > div {
+    max-width: 1240px;
+    margin: 0px auto;
+    padding-bottom: 20px;
+  }
 
-h2 {
-  text-shadow: var(--shadow);
-  margin: 20px auto;
-  text-transform: uppercase;
-  font-size: 50px;
-  font-weight: 700;
-  color: var(--primary-color);
+  @media (max-width: 860px) {
+    padding: 0px 10px;
+  }
+
+  @media (max-width: 380px) {
+    padding: 0px 6px;
+    width: 100%;
+  }
 }
 
 .container {
   opacity: 1;
   transition: opacity 300ms ease 200ms;
-}
 
-.container.zoom {
-  opacity: 0.001;
-  transition: opacity 300ms ease;
+  &.zoom {
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
 }
 
 @keyframes bounce-in {
@@ -88,7 +86,7 @@ h2 {
 @keyframes falcon-landing {
   0% {
     transform: scale(1.6) translateZ(0);
-    opacity: 0.001;
+    opacity: 0;
   }
 
   60% {
@@ -104,35 +102,16 @@ h2 {
 @keyframes fade-in {
   0% {
     transform: translateY(40px) translateZ(0);
-    opacity: 0.001;
+    opacity: 0;
   }
 
   50% {
     transform: translateY(40px) translateZ(0);
-    opacity: 0.001;
+    opacity: 0;
   }
 
   100% {
     transform: translateY(0px) translateZ(0);
     opacity: 1;
-  }
-}
-
-@media (max-width: 860px) {
-  .content {
-    padding: 0px 10px;
-  }
-}
-
-@media (max-width: 680px) {
-  h2 {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 380px) {
-  .content {
-    padding: 0px 6px;
-    width: 100%;
   }
 }

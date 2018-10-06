@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { CSSTransitionGroup } from 'react-transition-group';
 import Delay from 'react-delay';
 
-import me from '../../images/me.jpg';
-import './About.css';
+import Title from '../../components/Title';
+import Paragraph from '../../components/Paragraph';
 
+import me from '../../images/me.jpg';
 import { ABOUT } from '../../content/about';
-import { Title } from '../../components/Title';
-import { Paragraph } from '../../components/Paragraph';
+
+import './About.scss';
 
 export default class About extends Component {
   state = { paragraph: null };

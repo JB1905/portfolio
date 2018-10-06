@@ -2,9 +2,9 @@ import React from 'react';
 
 import trianglify from '../../images/trianglify.svg';
 
-import './Background.css';
+import './Background.scss';
 
-export const Background = ({ height, scale, x, y }) => (
+const Background = ({ height, scale, x, y }) => (
   <div
     className="background"
     style={{
@@ -16,3 +16,5 @@ export const Background = ({ height, scale, x, y }) => (
     }}
   />
 );
+
+export default Background;

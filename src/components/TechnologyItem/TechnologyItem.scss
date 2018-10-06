@@ -12,6 +12,21 @@
   width: calc(100% / 5 - 20px);
   margin: 12px 10px;
   box-shadow: var(--shadow);
+
+  @media (max-width: 1100px) {
+    width: calc(100% / 4 - 20px);
+    padding-top: calc(100% / 4 - 20px);
+  }
+
+  @media (max-width: 860px) {
+    width: calc(100% / 3 - 20px);
+    padding-top: calc(100% / 3 - 20px);
+  }
+
+  @media (max-width: 600px) {
+    width: calc(100% / 2 - 20px);
+    padding-top: calc(100% / 2 - 20px);
+  }
 }
 
 .technology__image {
@@ -22,25 +37,4 @@
   position: absolute;
   max-width: 70%;
   max-height: 70%;
-}
-
-@media (max-width: 1100px) {
-  .technology__item {
-    width: calc(100% / 4 - 20px);
-    padding-top: calc(100% / 4 - 20px);
-  }
-}
-
-@media (max-width: 860px) {
-  .technology__item {
-    width: calc(100% / 3 - 20px);
-    padding-top: calc(100% / 3 - 20px);
-  }
-}
-
-@media (max-width: 600px) {
-  .technology__item {
-    width: calc(100% / 2 - 20px);
-    padding-top: calc(100% / 2 - 20px);
-  }
 }

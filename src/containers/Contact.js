@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Title } from '../components/Title';
-import { CONTACT } from '../content/contact';
-import { ContactItem } from '../components/ContactItem';
+import Title from '../components/Title';
+import ContactItem from '../components/ContactItem';
 
-export const Contact = () => (
+import { CONTACT } from '../content/contact';
+
+const Contact = () => (
   <>
     <Title value="Kontakt" />
 
@@ -27,3 +28,5 @@ export const Contact = () => (
     </div>
   </>
 );
+
+export default Contact;

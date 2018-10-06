@@ -9,10 +9,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import Menu from './components/Menu';
-import { Content } from './components/Content';
-import { Background } from './components/Background';
+import Content from './components/Content';
+import Background from './components/Background';
 
-import './App.css';
+import './App.scss';
 
 library.add(faPhone, faEnvelope, faBars, faEye);
 
@@ -22,14 +22,12 @@ export default class App extends Component {
   componentDidMount() {
     this.setHeight();
 
-    window.addEventListener('touchstart', this.onTouch);
     window.addEventListener('resize', this.setHeight);
     window.addEventListener('mousemove', this.onMouseMove);
     window.addEventListener('devicemotion', this.onDeviceMove);
   }
 
   setOffset = offset => this.setState({ offset });
-  onTouch = e => e.preventDefault();
   setHeight = () => this.setState({ height: window.innerHeight });
 
   onDeviceMove = e => {

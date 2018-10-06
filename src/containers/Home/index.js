@@ -1,9 +1,9 @@
 import React from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { CSSTransitionGroup } from 'react-transition-group';
 
-import './Home.css';
+import './Home.scss';
 
-export const Home = () => (
+const Home = () => (
   <div className="home__container">
     <div className="home__title">
       <CSSTransitionGroup
@@ -28,3 +28,5 @@ export const Home = () => (
     </div>
   </div>
 );
+
+export default Home;

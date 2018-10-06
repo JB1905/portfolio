@@ -1,10 +1,12 @@
 import React from 'react';
 import Delay from 'react-delay';
 
-import './Title.css';
+import './Title.scss';
 
-export const Title = ({ value }) => (
+const Title = ({ value }) => (
   <Delay wait={100}>
     <h2 className="page__title">{value}</h2>
   </Delay>
 );
+
+export default Title;

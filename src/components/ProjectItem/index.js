@@ -3,9 +3,9 @@ import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import './ProjectItem.css';
+import './ProjectItem.scss';
 
-export const ProjectItem = ({ index, item }) => (
+const ProjectItem = ({ index, item }) => (
   <Delay wait={(index + 1) * 190 + 280}>
     <div className="project__item">
       <img src={item.image} alt={item.name} className="project__image" />
@@ -33,3 +33,5 @@ export const ProjectItem = ({ index, item }) => (
     </div>
   </Delay>
 );
+
+export default ProjectItem;

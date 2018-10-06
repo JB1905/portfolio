@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import { Title } from '../components/Title';
+import Title from '../components/Title';
+import TechnologyItem from '../components/TechnologyItem';
+
 import { TECHNOLOGIES } from '../content/technologies';
-import { TechnologyItem } from '../components/TechnologyItem';
 
 export default class Technologies extends Component {
   state = { technologies: null };

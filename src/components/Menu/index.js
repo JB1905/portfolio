@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ICONS } from '../../content/icons';
-import { Icon } from '../Icon';
-
-import { DesktopMenu } from './Desktop';
+import NavBar from '../NavBar';
+import Icons from '../Icons';
+import DesktopMenu from './Desktop';
 import MobileMenu from './Mobile';
 
-import './Menu.css';
+import './Menu.scss';
 
 export default class Menu extends Component {
   constructor() {
@@ -50,38 +49,32 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <nav>
-        <div>
-          <div className="icons">
-            {ICONS.map((icon, index) => (
-              <Icon key={index} src={icon} index={index} />
-            ))}
-          </div>
+      <NavBar>
+        <Icons />
 
-          <div className="nav" ref={this.nav}>
-            <DesktopMenu
-              className={`desktop ${this.state.isMobile ? 'hidden' : ''}`}
-            />
+        <div className="nav" ref={this.nav}>
+          <DesktopMenu
+            className={`desktop ${this.state.isMobile ? 'hidden' : ''}`}
+          />
 
-            {this.state.isMobile ? (
-              <div className="mobile">
-                <Delay wait={200}>
-                  <button className="menu" onClick={this.toggleMenu}>
-                    <FontAwesomeIcon icon="bars" />
-                  </button>
-                </Delay>
+          {this.state.isMobile ? (
+            <div className="mobile">
+              <Delay wait={200}>
+                <button className="menu" onClick={this.toggleMenu}>
+                  <FontAwesomeIcon icon="bars" />
+                </button>
+              </Delay>
 
-                {this.state.isOpen ? (
-                  <MobileMenu
-                    height={this.props.height - 76}
-                    toggleMenu={this.toggleMenu}
-                  />
-                ) : null}
-              </div>
-            ) : null}
-          </div>
+              {this.state.isOpen ? (
+                <MobileMenu
+                  height={this.props.height - 76}
+                  toggleMenu={this.toggleMenu}
+                />
+              ) : null}
+            </div>
+          ) : null}
         </div>
-      </nav>
+      </NavBar>
     );
   }
 }

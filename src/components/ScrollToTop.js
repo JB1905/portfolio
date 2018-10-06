@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import { spring, AnimatedSwitch } from 'react-router-transition';
 import { withRouter } from 'react-router-dom';
 
-function fade(val) {
-  return spring(val, {
+const fade = val =>
+  spring(val, {
     stiffness: 300,
     damping: 30
   });
-}
 
 const transition = {
   atEnter: {
-    opacity: 0.001
+    opacity: 0
   },
 
   atLeave: {
-    opacity: fade(0.001)
+    opacity: fade(0)
   },
 
   atActive: {

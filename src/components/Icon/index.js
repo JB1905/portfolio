@@ -1,9 +1,9 @@
 import React from 'react';
 import Delay from 'react-delay';
 
-import './Icon.css';
+import './Icon.scss';
 
-export const Icon = ({ index, src }) => (
+const Icon = ({ index, src }) => (
   <Delay wait={(index + 1) * 120 + 360}>
     <a
       href={src.url}
@@ -15,3 +15,5 @@ export const Icon = ({ index, src }) => (
     </a>
   </Delay>
 );
+
+export default Icon;
