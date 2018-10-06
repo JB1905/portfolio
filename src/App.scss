@@ -15,12 +15,12 @@
     min-height: 100%;
     position: absolute;
     padding-bottom: 20px;
-  }
 
-  @supports (padding-left: env(safe-area-inset-left)) {
-    padding-bottom: calc(20px + env(safe-area-inset-left));
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+    @supports (padding-left: env(safe-area-inset-left)) {
+      padding-bottom: calc(20px + env(safe-area-inset-left));
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
   }
 }
 
