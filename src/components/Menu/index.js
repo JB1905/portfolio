@@ -9,6 +9,8 @@ import MobileMenu from './Mobile';
 
 import './Menu.scss';
 
+import { content } from '../../content';
+
 export default class Menu extends Component {
   constructor() {
     super();
@@ -55,6 +57,7 @@ export default class Menu extends Component {
         <div className="nav" ref={this.nav}>
           <DesktopMenu
             className={`desktop ${this.state.isMobile ? 'hidden' : ''}`}
+            content={content.menu}
           />
 
           {this.state.isMobile ? (
@@ -69,6 +72,7 @@ export default class Menu extends Component {
                 <MobileMenu
                   height={this.props.height - 76}
                   toggleMenu={this.toggleMenu}
+                  content={content.menu}
                 />
               ) : null}
             </div>

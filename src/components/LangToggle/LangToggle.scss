@@ -1,0 +1,13 @@
+.language {
+  background: linear-gradient(
+    90deg,
+    var(--theme-color),
+    var(--secondary-color)
+  );
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  cursor: pointer;
+}

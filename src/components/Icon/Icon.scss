@@ -1,13 +1,14 @@
-.icon__image {
-  margin-right: 8px;
+.icon__image,
+.language {
+  margin-right: 7px;
   animation: bounce-in 400ms ease;
   box-shadow: var(--shadow);
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
   background-color: var(--primary-color);
   position: relative;
   padding: 3px;
-  height: 44px;
-  width: 44px;
+  height: 42px;
+  width: 42px;
   border-radius: 50%;
 
   &:active {

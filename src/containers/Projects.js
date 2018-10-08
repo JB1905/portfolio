@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Title from '../components/Title';
 import ProjectItem from '../components/ProjectItem';
 
-import { PROJECTS } from '../content/projects';
+import { content } from '../content';
 
-export default class Projects extends Component {
-  state = { projects: null };
+const Projects = () => (
+  <>
+    <Title value={content.projects.title} />
 
-  componentDidMount() {
-    const projects = PROJECTS.map((item, index) => (
-      <ProjectItem key={index} index={index} item={item} />
-    ));
+    <div className="projects">
+      {content.projects.items.map((item, index) => (
+        <ProjectItem key={index} index={index} item={item} />
+      ))}
+    </div>
+  </>
+);
 
-    this.setState({ projects });
-  }
-
-  render() {
-    return (
-      <>
-        <Title value="Projekty" />
-
-        <div className="projects">{this.state.projects}</div>
-      </>
-    );
-  }
-}
+export default Projects;

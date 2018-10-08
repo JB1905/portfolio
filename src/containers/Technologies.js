@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Title from '../components/Title';
 import TechnologyItem from '../components/TechnologyItem';
 
-import { TECHNOLOGIES } from '../content/technologies';
+import { content } from '../content';
 
-export default class Technologies extends Component {
-  state = { technologies: null };
+const Technologies = () => (
+  <>
+    <Title value={content.technologies.title} />
 
-  componentDidMount() {
-    const technologies = TECHNOLOGIES.map((item, index) => (
-      <TechnologyItem key={index} index={index} item={item} />
-    ));
+    <div className="technologies">
+      {content.technologies.items.map((item, index) => (
+        <TechnologyItem key={index} index={index} item={item} />
+      ))}
+    </div>
+  </>
+);
 
-    this.setState({ technologies });
-  }
-
-  render() {
-    return (
-      <>
-        <Title value="Technologie" />
-
-        <div className="technologies">{this.state.technologies}</div>
-      </>
-    );
-  }
-}
+export default Technologies;

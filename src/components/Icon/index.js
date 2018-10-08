@@ -4,7 +4,7 @@ import Delay from 'react-delay';
 import './Icon.scss';
 
 const Icon = ({ index, src }) => (
-  <Delay wait={(index + 1) * 120 + 360}>
+  <Delay wait={(index + 1) * 120 + 600}>
     <a
       href={src.url}
       target="_blank"

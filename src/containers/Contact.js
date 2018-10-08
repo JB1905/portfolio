@@ -3,26 +3,26 @@ import React from 'react';
 import Title from '../components/Title';
 import ContactItem from '../components/ContactItem';
 
-import { CONTACT } from '../content/contact';
+import { content } from '../content';
 
 const Contact = () => (
   <>
-    <Title value="Kontakt" />
+    <Title value={content.contact.title} />
 
     <div className="contact">
       <ContactItem
         icon="envelope"
-        permalink={CONTACT.email}
+        permalink={content.contact.items.email.value}
         delay={520}
-        title="E-mail"
+        title={content.contact.items.email.method}
         method="mailto"
       />
 
       <ContactItem
         icon="phone"
-        permalink={CONTACT.phone}
+        permalink={content.contact.items.phone.value}
         delay={760}
-        title="Telefon"
+        title={content.contact.items.phone.method}
         method="tel"
       />
     </div>

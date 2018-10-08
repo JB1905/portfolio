@@ -9,31 +9,14 @@ export default class MobileMenu extends Component {
     return (
       <div style={{ height: this.props.height }}>
         <ul>
-          <MobileMenuItem link="/" title="Start" toggle={this.toggleMenu} />
-
-          <MobileMenuItem
-            link="/about"
-            title="O mnie"
-            toggle={this.toggleMenu}
-          />
-
-          <MobileMenuItem
-            link="/technologies"
-            title="Technologie"
-            toggle={this.toggleMenu}
-          />
-
-          <MobileMenuItem
-            link="/projects"
-            title="Projekty"
-            toggle={this.toggleMenu}
-          />
-
-          <MobileMenuItem
-            link="/contact"
-            title="Kontakt"
-            toggle={this.toggleMenu}
-          />
+          {this.props.content.links.map((item, index) => (
+            <MobileMenuItem
+              key={index}
+              link={item.link}
+              title={item.title}
+              toggle={this.toggleMenu}
+            />
+          ))}
         </ul>
       </div>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Delay from 'react-delay';
 
@@ -8,42 +8,34 @@ import Paragraph from '../../components/Paragraph';
 import './About.scss';
 
 import me from '../../images/me.jpg';
-import { ABOUT } from '../../content/about';
+import { content } from '../../content';
 
-export default class About extends Component {
-  state = { paragraph: null };
+const About = () => (
+  <>
+    <Title value={content.about.title} />
 
-  componentDidMount() {
-    const paragraph = ABOUT.map((data, index) => (
-      <Paragraph key={index} content={data.content} index={index} />
-    ));
+    <div className="about">
+      <div className="image__container">
+        <Delay wait={520}>
+          <CSSTransitionGroup
+            transitionName="image"
+            transitionAppearTimeout={0}
+            transitionAppear={true}
+            transitionEnter={false}
+            transitionLeave={false}
+          >
+            <img src={me} alt="me" className="about__image" />
+          </CSSTransitionGroup>
+        </Delay>
+      </div>
 
-    this.setState({ paragraph });
-  }
+      <div className="content__container">
+        {content.about.items.map((item, index) => (
+          <Paragraph key={index} content={item} index={index} />
+        ))}
+      </div>
+    </div>
+  </>
+);
 
-  render() {
-    return (
-      <>
-        <Title value="O mnie" />
-
-        <div className="about">
-          <div className="image__container">
-            <Delay wait={520}>
-              <CSSTransitionGroup
-                transitionName="image"
-                transitionAppearTimeout={0}
-                transitionAppear={true}
-                transitionEnter={false}
-                transitionLeave={false}
-              >
-                <img src={me} alt="me" className="about__image" />
-              </CSSTransitionGroup>
-            </Delay>
-          </div>
-
-          <div className="content__container">{this.state.paragraph}</div>
-        </div>
-      </>
-    );
-  }
-}
+export default About;
