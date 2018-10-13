@@ -70,11 +70,10 @@ export default class App extends Component {
           <Background {...this.state} />
 
           <LanguageContext.Provider value={this.state}>
-            <>
-              <Menu offset={this.setOffset} height={this.state.height} />
-              <Content {...this.state} />
-            </>
+            <Menu offset={this.setOffset} height={this.state.height} />
           </LanguageContext.Provider>
+
+          <Content {...this.state} />
         </>
       </Router>
     );
