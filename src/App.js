@@ -8,68 +8,60 @@ import {
   faEye
 } from '@fortawesome/free-solid-svg-icons';
 
+import Background from './components/Background';
 import Menu from './components/Menu';
 import Content from './components/Content';
-import Background from './components/Background';
 
 import './App.scss';
 
+import { content } from './content';
+
 library.add(faPhone, faEnvelope, faBars, faEye);
 
+export const LanguageContext = React.createContext();
+
 export default class App extends Component {
-  state = { x: 0, y: 0, scale: 1.09, height: null, offset: false };
+  constructor() {
+    super();
+
+    let language;
+
+    if (localStorage.language) {
+      language = localStorage.language;
+      this.switch(language);
+    } else {
+      language = content.getLanguage();
+    }
+
+    this.state = {
+      height: null,
+      offset: false,
+      language,
+      setLanguage: this.toggleLanguage
+    };
+  }
 
   componentDidMount() {
     this.setHeight();
 
     window.addEventListener('resize', this.setHeight);
-    window.addEventListener('mousemove', this.onMouseMove);
-    window.addEventListener('devicemotion', this.onDeviceMove);
   }
 
-  setOffset = offset => this.setState({ offset });
-  setHeight = () => this.setState({ height: window.innerHeight });
-
-  onDeviceMove = e => {
-    let x = e.accelerationIncludingGravity.x * 5;
-    let y = e.accelerationIncludingGravity.y * 5;
-
-    let stateX, stateY;
-
-    if (window.orientation === 90) {
-      stateX = (1.0 + x) / 2;
-      stateY = (1.0 - y) / 2;
-
-      y = stateX;
-      x = stateY;
-    } else if (window.orientation === -90) {
-      stateX = (1.0 - x) / 2;
-      stateY = (1.0 + y) / 2;
-
-      y = stateX;
-      x = stateY;
-    } else if (window.orientation === 0) {
-      stateY = (1.0 + y) / 2;
-      stateX = (1.0 + x) / 2;
-
-      y = stateY;
-      x = stateX;
-    } else if (window.orientation === 180) {
-      stateY = (1.0 - y) / 2;
-      stateX = (1.0 - x) / 2;
-
-      y = stateY;
-      x = stateX;
+  toggleLanguage = () => {
+    if (this.state.language === 'pl') {
+      localStorage.setItem('language', 'en');
+      content.setLanguage('en');
+      this.setState({ language: 'en' });
+    } else {
+      localStorage.setItem('language', 'pl');
+      content.setLanguage('pl');
+      this.setState({ language: 'pl' });
     }
-
-    this.setState({ x, y, scale: 1.3 });
   };
 
-  onMouseMove = e =>
-    this.setState({
-      x: -(e.clientX - window.innerWidth / 2) / 30,
-      y: -(e.clientY - window.innerHeight / 2) / 30
-    });
+  switch = language => content.setLanguage(language);
+  setOffset = offset => this.setState({ offset });
+  setHeight = () => this.setState({ height: window.innerHeight });
 
   render() {
     return (
@@ -77,8 +69,12 @@ export default class App extends Component {
         <>
           <Background {...this.state} />
 
-          <Menu offset={this.setOffset} height={this.state.height} />
-          <Content {...this.state} />
+          <LanguageContext.Provider value={this.state}>
+            <>
+              <Menu offset={this.setOffset} height={this.state.height} />
+              <Content {...this.state} />
+            </>
+          </LanguageContext.Provider>
         </>
       </Router>
     );

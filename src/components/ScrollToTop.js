@@ -2,24 +2,12 @@ import React, { Component } from 'react';
 import { spring, AnimatedSwitch } from 'react-router-transition';
 import { withRouter } from 'react-router-dom';
 
-const fade = val =>
-  spring(val, {
-    stiffness: 300,
-    damping: 30
-  });
+const fade = val => spring(val, { stiffness: 300, damping: 30 });
 
 const transition = {
-  atEnter: {
-    opacity: 0
-  },
-
-  atLeave: {
-    opacity: fade(0)
-  },
-
-  atActive: {
-    opacity: fade(1)
-  }
+  atEnter: { opacity: 0 },
+  atLeave: { opacity: fade(0) },
+  atActive: { opacity: fade(1) }
 };
 
 class ScrollToTop extends Component {

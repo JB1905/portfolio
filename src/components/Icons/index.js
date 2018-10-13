@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Icon from '../Icon';
 import LangToggle from '../LangToggle';
+import Icon from '../Icon';
 
 import './Icons.scss';
 
