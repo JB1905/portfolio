@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { spring, AnimatedSwitch } from 'react-router-transition';
 import { withRouter } from 'react-router-dom';
 
+import './ScrollToTop.scss';
+
 const fade = val => spring(val, { stiffness: 300, damping: 30 });
 
 const transition = {
@@ -13,10 +15,7 @@ const transition = {
 class ScrollToTop extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
-      setTimeout(
-        () => document.querySelector('.container').scrollTo(0, 0),
-        300
-      );
+      setTimeout(() => document.querySelector('.content').scrollTo(0, 0), 300);
     }
   }
 

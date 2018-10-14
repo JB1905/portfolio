@@ -1,17 +1,19 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import ScrollToTop from './ScrollToTop';
+import ScrollToTop from '../ScrollToTop';
 
-import Home from '../containers/Home';
-import About from '../containers/About';
-import Technologies from '../containers/Technologies';
-import Projects from '../containers/Projects';
-import Contact from '../containers/Contact';
+import Home from '../../containers/Home';
+import About from '../../containers/About';
+import Technologies from '../../containers/Technologies';
+import Projects from '../../containers/Projects';
+import Contact from '../../containers/Contact';
+
+import './Content.scss';
 
 const Content = ({ offset, height }) => (
   <div
-    className={`container content ${offset ? 'zoom' : ''}`}
+    className={`content ${offset ? 'zoom' : ''}`}
     style={{ height: height - 76 }}
   >
     <ScrollToTop>

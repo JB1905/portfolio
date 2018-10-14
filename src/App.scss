@@ -6,60 +6,8 @@
   align-items: center;
 }
 
-.switch-wrapper {
-  height: 100%;
-  position: relative;
-
-  > div {
-    width: 100%;
-    min-height: 100%;
-    position: absolute;
-    padding-bottom: 20px;
-
-    @supports (padding-left: env(safe-area-inset-left)) {
-      padding-bottom: calc(20px + env(safe-area-inset-left));
-      padding-left: env(safe-area-inset-left);
-      padding-right: env(safe-area-inset-right);
-    }
-  }
-}
-
 .contact {
   justify-content: center;
-}
-
-.content {
-  padding: 0 30px;
-
-  > div {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding-bottom: 20px;
-  }
-
-  @media (max-width: 860px) {
-    padding: 0 10px;
-  }
-
-  @media (max-width: 380px) {
-    padding: 0 6px;
-    width: 100%;
-  }
-}
-
-.container {
-  overflow-x: hidden;
-  width: 100%;
-  position: sticky;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
-  opacity: 1;
-  transition: opacity 300ms ease 200ms;
-
-  &.zoom {
-    opacity: 0;
-    transition: opacity 300ms ease;
-  }
 }
 
 @keyframes bounce-in {
