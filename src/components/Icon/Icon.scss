@@ -12,7 +12,7 @@
   border-radius: 50%;
 
   &:active {
-    box-shadow: 0px 0px 3px #0005;
+    box-shadow: 0 0 3px #0005;
     transform: translateY(5px) translateZ(0);
   }
 }

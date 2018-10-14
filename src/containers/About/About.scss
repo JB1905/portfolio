@@ -19,12 +19,12 @@
 
 .content__container {
   flex: 1;
-  padding: 0px 15px;
+  padding: 0 15px;
   width: calc(100% / 3 * 2);
 
   @media (max-width: 600px) {
     width: 100%;
-    padding: 0px 12px;
+    padding: 0 12px;
   }
 }
 
@@ -41,7 +41,7 @@
 }
 
 .about__image {
-  font-size: 0px;
+  font-size: 0;
   box-shadow: var(--shadow);
   background-color: var(--primary-color);
   height: auto;

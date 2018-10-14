@@ -10,7 +10,7 @@
   height: 100%;
   position: relative;
 
-   > div {
+  > div {
     width: 100%;
     min-height: 100%;
     position: absolute;
@@ -28,34 +28,31 @@
   justify-content: center;
 }
 
+.content {
+  padding: 0 30px;
+
+  > div {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+
+  @media (max-width: 860px) {
+    padding: 0 10px;
+  }
+
+  @media (max-width: 380px) {
+    padding: 0 6px;
+    width: 100%;
+  }
+}
+
 .container {
   overflow-x: hidden;
   width: 100%;
   position: sticky;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
-}
-
-.content {
-  padding: 0px 30px;
-
-   > div {
-    max-width: 1240px;
-    margin: 0px auto;
-    padding-bottom: 20px;
-  }
-
-  @media (max-width: 860px) {
-    padding: 0px 10px;
-  }
-
-  @media (max-width: 380px) {
-    padding: 0px 6px;
-    width: 100%;
-  }
-}
-
-.container {
   opacity: 1;
   transition: opacity 300ms ease 200ms;
 
@@ -111,7 +108,7 @@
   }
 
   100% {
-    transform: translateY(0px) translateZ(0);
+    transform: translateY(0) translateZ(0);
     opacity: 1;
   }
 }
