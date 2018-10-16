@@ -14,7 +14,7 @@
       opacity: 0;
       transform: scale(0);
 
-      &.image-appear-active {
+      &-active {
         opacity: 1;
         animation: falcon-landing 500ms ease;
       }

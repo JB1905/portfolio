@@ -2,7 +2,7 @@
   transform: translateY(40px) translateZ(0);
   opacity: 0;
 
-  &.list-appear-active {
+  &-active {
     transform: translateY(0) translateZ(0);
     opacity: 1;
     transition: all 400ms ease;
