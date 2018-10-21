@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DesktopMenuItem from '../DesktopMenuItem';
+import { DesktopMenuItem } from '../Items';
 
 const DesktopMenu = ({ className, content }) => (
   <ul className={className}>

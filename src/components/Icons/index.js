@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LangToggle from '../LangToggle';
-import Icon from '../Icon';
+import { IconItem } from '../Items';
 
 import './Icons.scss';
 
@@ -12,7 +12,7 @@ const Icons = () => (
     <LangToggle />
 
     {ICONS.map((icon, index) => (
-      <Icon key={index} src={icon} index={index} />
+      <IconItem key={index} src={icon} index={index} />
     ))}
   </div>
 );

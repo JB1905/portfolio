@@ -2,9 +2,9 @@ import React from 'react';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import './ContactItem.scss';
+import './Contact.scss';
 
-const ContactItem = ({ delay, icon, title, method, permalink }) => (
+const Contact = ({ delay, icon, title, method, permalink }) => (
   <Delay wait={delay}>
     <div className="contact__item">
       <FontAwesomeIcon className="contact__icon" icon={icon} />
@@ -19,4 +19,4 @@ const ContactItem = ({ delay, icon, title, method, permalink }) => (
   </Delay>
 );
 
-export default ContactItem;
+export default Contact;

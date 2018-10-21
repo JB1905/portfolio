@@ -1,0 +1,13 @@
+.view {
+  &.projects,
+  &.technologies,
+  &.contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &.contact {
+    justify-content: center;
+  }
+}

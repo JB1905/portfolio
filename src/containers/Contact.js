@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Title from '../components/Title';
-import ContactItem from '../components/ContactItem';
+import View from '../components/View';
+import { ContactItem } from '../components/Items';
 
 import { content } from '../content';
 
@@ -9,7 +10,7 @@ const Contact = () => (
   <>
     <Title value={content.contact.title} />
 
-    <div className="contact">
+    <View className="contact">
       <ContactItem
         icon="envelope"
         permalink={content.contact.items.email.value}
@@ -25,7 +26,7 @@ const Contact = () => (
         title={content.contact.items.phone.method}
         method="tel"
       />
-    </div>
+    </View>
   </>
 );
 

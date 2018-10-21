@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import './MobileMenuItem.scss';
+import './Mobile.scss';
 
-export default class MobileMenuItem extends Component {
+export default class Mobile extends Component {
   toggleMenu = () => this.props.toggle();
 
   render() {

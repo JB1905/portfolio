@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const DesktopMenuItem = ({ link, title }) => (
+const Desktop = ({ link, title }) => (
   <li>
     <NavLink exact to={link}>
       {title}
@@ -9,4 +9,4 @@ const DesktopMenuItem = ({ link, title }) => (
   </li>
 );
 
-export default DesktopMenuItem;
+export default Desktop;

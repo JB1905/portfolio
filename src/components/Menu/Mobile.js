@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import MobileMenuItem from '../MobileMenuItem';
+import { MobileMenuItem } from '../Items';
 
 export default class MobileMenu extends Component {
   toggleMenu = () => this.props.toggleMenu();
