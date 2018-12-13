@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Background.scss';
 
 import trianglify from '../../images/trianglify.svg';
 
-export default class Background extends Component {
-  state = { x: 0, y: 0, scale: 1.09 };
+export default function Background({ height }) {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [scale, setScale] = useState(1.09);
 
-  componentDidMount() {
-    window.addEventListener('mousemove', this.onMouseMove);
-    window.addEventListener('devicemotion', this.onDeviceMove);
-  }
-
-  onDeviceMove = e => {
+  const onDeviceMove = e => {
     let x = e.accelerationIncludingGravity.x * 5;
     let y = e.accelerationIncludingGravity.y * 5;
 
@@ -44,31 +40,32 @@ export default class Background extends Component {
       x = stateX;
     }
 
-    this.setState({ x, y, scale: 1.3 });
+    setPos({ x, y });
+    setScale(1.3);
   };
 
-  onMouseMove = e => {
-    this.setState({
+  const onMouseMove = e => {
+    setPos({
       x: -(e.clientX - window.innerWidth / 2) / 30,
       y: -(e.clientY - window.innerHeight / 2) / 30
     });
   };
 
-  render() {
-    const { scale, x, y } = this.state;
-    const { height } = this.props;
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('devicemotion', onDeviceMove);
+  }, []);
 
-    return (
-      <div
-        className="background"
-        style={{
-          background: `url(${trianglify})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height,
-          transform: `scale(${scale}) translate3d(${x}px, ${y}px, 0)`
-        }}
-      />
-    );
-  }
+  return (
+    <figure
+      className="background"
+      style={{
+        background: `url(${trianglify})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height,
+        transform: `scale(${scale}) translate3d(${pos.x}px, ${pos.y}px, 0)`
+      }}
+    />
+  );
 }

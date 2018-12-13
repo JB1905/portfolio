@@ -111,12 +111,11 @@
   align-items: center;
   justify-content: center;
   border: 3px solid var(--primary-color);
-  background:
-    linear-gradient(
-      90deg,
-      var(--theme-color),
-      var(--secondary-color)
-    );
+  background: linear-gradient(
+    90deg,
+    var(--theme-color),
+    var(--secondary-color)
+  );
 
   &:active {
     transition: box-shadow 200ms ease-in, transform 180ms ease-in;

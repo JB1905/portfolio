@@ -7,10 +7,10 @@ import './LangToggle.scss';
 
 const LangToggle = () => (
   <LanguageContext.Consumer>
-    {({ language, setLanguage }) => (
+    {({ language, toggleLanguage }) => (
       <Delay wait={600}>
         <div className="icon">
-          <button className="language" onClick={() => setLanguage()}>
+          <button className="language" onClick={toggleLanguage}>
             {language}
           </button>
         </div>

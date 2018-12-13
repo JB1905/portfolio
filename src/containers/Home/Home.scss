@@ -39,12 +39,10 @@
         text-shadow: var(--shadow);
 
         @media (max-width: 860px) {
-          font-size: 120px;
+          font-size: 14vw;
         }
 
-        @media screen and (orientation: landscape)
-          and (min-device-width: 375px)
-          and (max-device-width: 767px) {
+        @media screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 767px) {
           font-size: 60px;
         }
 
@@ -62,9 +60,7 @@
         font-size: 42px;
         text-align: right;
 
-        @media screen and (orientation: landscape)
-          and (min-device-width: 375px)
-          and (max-device-width: 767px) {
+        @media screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 767px) {
           font-size: 32px;
         }
 
@@ -74,9 +70,7 @@
       }
     }
 
-    @media screen and (orientation: landscape)
-      and (min-device-width: 375px)
-      and (max-device-width: 767px) {
+    @media screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 767px) {
       min-height: 0;
     }
 

@@ -1,16 +1,7 @@
-import Mobile from './Menu/Mobile';
-import Desktop from './Menu/Desktop';
-import Icon from './Icon';
+export { default as MobileMenuItem } from './Menu/Mobile';
+export { default as DesktopMenuItem } from './Menu/Desktop';
+export { default as IconItem } from './Icon';
 
-import Technology from './Technology';
-import Project from './Project';
-import Contact from './Contact';
-
-export {
-  Mobile as MobileMenuItem,
-  Desktop as DesktopMenuItem,
-  Icon as IconItem,
-  Technology as TechnologyItem,
-  Project as ProjectItem,
-  Contact as ContactItem
-};
+export { default as TechnologyItem } from './Technology';
+export { default as ProjectItem } from './Project';
+export { default as ContactItem } from './Contact';
