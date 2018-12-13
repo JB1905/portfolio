@@ -26,29 +26,29 @@ const Content = ({ offset, height, ...props }) => {
   );
 
   return (
-    <>
-      <main
-        className={`content ${offset && 'zoom'}`}
-        style={{ height: height - 76 }}
-      >
-        <TransitionGroup>
-          <CSSTransition
-            key={props.location.pathname !== active && props.location.key}
-            classNames="fade"
-            timeout={300}
-          >
-            <Switch location={props.location}>
-              <Route exact path="/" component={Home} />
-              <Route path="/about" component={About} />
-              <Route exact path="/technologies" component={Technologies} />
-              <Route exact path="/projects" component={Projects} />
-              <Route path="/contact" component={Contact} />
-              <Redirect from="*" to="/" />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
-      </main>
-    </>
+    <main
+      className={`content ${offset ? 'hidden' : ''}`}
+      style={{ height: height - 76 }}
+    >
+      <TransitionGroup>
+        <CSSTransition
+          key={props.location.pathname !== active && props.location.key}
+          classNames="fade"
+          timeout={300}
+        >
+          <Switch location={props.location}>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route exact path="/technologies" component={Technologies} />
+            <Route exact path="/projects" component={Projects} />
+            <Route path="/contact" component={Contact} />
+            <Redirect from="*" to="/" />
+          </Switch>
+        </CSSTransition>
+
+        <ModalContainer />
+      </TransitionGroup>
+    </main>
   );
 };
 

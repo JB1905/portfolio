@@ -2,8 +2,8 @@ import React from 'react';
 
 import './NavBar.scss';
 
-const NavBar = ({ className = '', children }) => (
-  <nav className={className}>
+const NavBar = ({ children }) => (
+  <nav>
     <div>{children}</div>
   </nav>
 );

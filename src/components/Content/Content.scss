@@ -8,7 +8,7 @@
   opacity: 1;
   transition: opacity 300ms ease 200ms;
 
-  &.zoom {
+  &.hidden {
     opacity: 0;
     transition: opacity 300ms ease;
   }
