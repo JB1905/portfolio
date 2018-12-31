@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-
 import Home from '../../containers/Home';
 import About from '../../containers/About';
 import Technologies from '../../containers/Technologies';
@@ -45,8 +44,6 @@ const Content = ({ offset, height, ...props }) => {
             <Redirect from="*" to="/" />
           </Switch>
         </CSSTransition>
-
-        <ModalContainer />
       </TransitionGroup>
     </main>
   );
