@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -11,74 +11,67 @@ import './Menu.scss';
 
 import { content } from '../../content';
 
-export default class Menu extends Component {
-  constructor() {
-    super();
+export default function Menu({ offset, update, height }) {
+  const ref = useRef(null);
 
-    this.state = { isOpen: false, isMobile: null };
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
-    this.nav = React.createRef();
-  }
+  useEffect(
+    () => {
+      onResize();
+      window.addEventListener('resize', () => onResize());
 
-  componentDidMount() {
-    this.onResize();
-    window.addEventListener('resize', () => this.onResize());
-  }
+      return window.removeEventListener('resize', () => onResize());
+    },
+    [update, isOpen]
+  );
 
-  onResize() {
-    if (this.nav.current.offsetHeight > 74) {
-      this.setState({ isMobile: true });
-      if (this.state.isOpen) this.isOffset(true);
+  function onResize() {
+    if (ref.current.offsetHeight > 74) {
+      setIsMobile(true);
+
+      if (isOpen) offset(true);
+      else offset(false);
     } else {
-      this.setState({ isMobile: false });
-      this.isOffset(false);
+      setIsMobile(false);
+      offset(false);
     }
   }
 
-  isOffset = value => this.props.offset(value);
-
-  toggleMenu = () => {
-    let isOpen;
-
-    if (!this.state.isOpen) isOpen = true;
-    else if (this.state.isOpen) isOpen = false;
-
-    if (this.state.isMobile) {
-      this.setState({ isOpen: isOpen });
-      this.isOffset(isOpen);
-    }
+  const toggleMenu = () => {
+    setIsOpen(isMobile ? !isOpen : isOpen);
+    offset(isMobile ? !isOpen : isOpen);
   };
 
-  render() {
-    return (
-      <NavBar>
-        <Icons />
+  return (
+    <NavBar>
+      <Icons />
 
-        <div className="nav" ref={this.nav}>
-          <DesktopMenu
-            className={`desktop ${this.state.isMobile ? 'hidden' : ''}`}
-            content={content.menu}
-          />
+      <div className="nav" ref={ref}>
+        <DesktopMenu
+          className={`desktop ${isMobile ? 'hidden' : ''}`}
+          content={content.menu}
+        />
 
-          {this.state.isMobile ? (
-            <div className="mobile">
-              <Delay wait={200}>
-                <button className="menu" onClick={this.toggleMenu}>
-                  <FontAwesomeIcon icon="bars" />
-                </button>
-              </Delay>
+        {isMobile && (
+          <div className="mobile">
+            <Delay wait={200}>
+              <button className="menu" onClick={toggleMenu}>
+                <FontAwesomeIcon icon="bars" />
+              </button>
+            </Delay>
 
-              {this.state.isOpen ? (
-                <MobileMenu
-                  height={this.props.height - 76}
-                  toggleMenu={this.toggleMenu}
-                  content={content.menu}
-                />
-              ) : null}
-            </div>
-          ) : null}
-        </div>
-      </NavBar>
-    );
-  }
+            {isOpen && (
+              <MobileMenu
+                height={height - 76}
+                toggleMenu={toggleMenu}
+                content={content.menu}
+              />
+            )}
+          </div>
+        )}
+      </div>
+    </NavBar>
+  );
 }

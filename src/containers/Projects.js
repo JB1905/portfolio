@@ -7,7 +7,7 @@ import { ProjectItem } from '../components/Items';
 import { content } from '../content';
 
 const Projects = () => (
-  <>
+  <article>
     <Title value={content.projects.title} />
 
     <View className="projects">
@@ -15,7 +15,7 @@ const Projects = () => (
         <ProjectItem key={index} index={index} item={item} />
       ))}
     </View>
-  </>
+  </article>
 );
 
 export default Projects;

@@ -7,7 +7,7 @@ import { TechnologyItem } from '../components/Items';
 import { content } from '../content';
 
 const Technologies = () => (
-  <>
+  <article>
     <Title value={content.technologies.title} />
 
     <View className="technologies">
@@ -15,7 +15,7 @@ const Technologies = () => (
         <TechnologyItem key={index} index={index} item={item} />
       ))}
     </View>
-  </>
+  </article>
 );
 
 export default Technologies;

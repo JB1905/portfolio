@@ -7,7 +7,7 @@ import { ContactItem } from '../components/Items';
 import { content } from '../content';
 
 const Contact = () => (
-  <>
+  <article>
     <Title value={content.contact.title} />
 
     <View className="contact">
@@ -27,7 +27,7 @@ const Contact = () => (
         method="tel"
       />
     </View>
-  </>
+  </article>
 );
 
 export default Contact;

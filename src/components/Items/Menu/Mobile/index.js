@@ -1,29 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 import './Mobile.scss';
 
-export default class Mobile extends Component {
-  toggleMenu = () => this.props.toggle();
+const Mobile = ({ link, toggle, title }) => (
+  <li>
+    <CSSTransition in appear classNames="list" timeout={400}>
+      <NavLink exact to={link} onClick={toggle}>
+        {title}
+      </NavLink>
+    </CSSTransition>
+  </li>
+);
 
-  render() {
-    const { link, title } = this.props;
-
-    return (
-      <li>
-        <CSSTransitionGroup
-          transitionName="list"
-          transitionAppearTimeout={0}
-          transitionAppear={true}
-          transitionEnter={false}
-          transitionLeave={false}
-        >
-          <NavLink exact to={link} onClick={this.toggleMenu}>
-            {title}
-          </NavLink>
-        </CSSTransitionGroup>
-      </li>
-    );
-  }
-}
+export default Mobile;

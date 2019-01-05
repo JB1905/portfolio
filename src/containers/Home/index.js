@@ -1,30 +1,18 @@
 import React from 'react';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 import './Home.scss';
 
 const Home = () => (
   <div className="home__container">
     <div className="home__title">
-      <CSSTransitionGroup
-        transitionName="title"
-        transitionAppearTimeout={0}
-        transitionAppear={true}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
+      <CSSTransition in appear timeout={750} classNames="title">
         <h1>Jakub Biesiada</h1>
-      </CSSTransitionGroup>
+      </CSSTransition>
 
-      <CSSTransitionGroup
-        transitionName="subtitle"
-        transitionAppearTimeout={0}
-        transitionAppear={true}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
+      <CSSTransition in appear timeout={950} classNames="subtitle">
         <h2>JavaScript Developer</h2>
-      </CSSTransitionGroup>
+      </CSSTransition>
     </div>
   </div>
 );

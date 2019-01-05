@@ -17,17 +17,17 @@ const Project = ({ index, item }) => (
         </div>
 
         <div className="project__links">
-          {item.linkSrc ? (
+          {item.linkSrc && (
             <a href={item.linkSrc}>
               <FontAwesomeIcon icon={faGithub} />
             </a>
-          ) : null}
+          )}
 
-          {item.linkLive ? (
+          {item.linkLive && (
             <a href={item.linkLive}>
               <FontAwesomeIcon icon="eye" />
             </a>
-          ) : null}
+          )}
         </div>
       </div>
     </div>

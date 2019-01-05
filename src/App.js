@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -20,62 +20,48 @@ library.add(faPhone, faEnvelope, faBars, faEye);
 
 export const LanguageContext = React.createContext();
 
-export default class App extends Component {
-  constructor() {
-    super();
+export default function App() {
+  const [height, setHeight] = useState(window.innerHeight);
+  const [offset, setOffset] = useState(false);
+  const [language, setLanguage] = useState(
+    localStorage.language || content.getLanguage()
+  );
 
-    let language;
+  useEffect(() => {
+    window.addEventListener('resize', () => setHeight(window.innerHeight));
 
-    if (localStorage.language) {
-      language = localStorage.language;
-      this.switch(language);
-    } else {
-      language = content.getLanguage();
-    }
+    return window.removeEventListener('resize', () =>
+      setHeight(window.innerHeight)
+    );
+  }, []);
 
-    this.state = {
-      height: null,
-      offset: false,
-      language,
-      setLanguage: this.toggleLanguage
-    };
-  }
+  content.setLanguage(language);
 
-  componentDidMount() {
-    this.setHeight();
-
-    window.addEventListener('resize', this.setHeight);
-  }
-
-  toggleLanguage = () => {
-    if (this.state.language === 'pl') {
+  const toggleLanguage = () => {
+    if (language === 'pl') {
       localStorage.setItem('language', 'en');
       content.setLanguage('en');
-      this.setState({ language: 'en' });
+      setLanguage('en');
     } else {
       localStorage.setItem('language', 'pl');
       content.setLanguage('pl');
-      this.setState({ language: 'pl' });
+      setLanguage('pl');
     }
   };
 
-  switch = language => content.setLanguage(language);
-  setOffset = offset => this.setState({ offset });
-  setHeight = () => this.setState({ height: window.innerHeight });
+  return (
+    <Router basename="/portfolio">
+      <Background height={height} />
 
-  render() {
-    return (
-      <Router basename="/portfolio">
-        <>
-          <Background {...this.state} />
+      <LanguageContext.Provider value={{ language, toggleLanguage }}>
+        <Menu
+          offset={ifOffset => setOffset(ifOffset)}
+          height={height}
+          update={language}
+        />
+      </LanguageContext.Provider>
 
-          <LanguageContext.Provider value={this.state}>
-            <Menu offset={this.setOffset} height={this.state.height} />
-          </LanguageContext.Provider>
-
-          <Content {...this.state} />
-        </>
-      </Router>
-    );
-  }
+      <Content offset={offset} height={height} />
+    </Router>
+  );
 }
