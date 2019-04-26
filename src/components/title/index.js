@@ -29,7 +29,7 @@ const Title = ({ children }) => {
       <h2
         style={{
           opacity: opacity,
-          transform: `scale(${scale})`
+          transform: `scale(${scale})`,
         }}
         className="page__title"
       >
