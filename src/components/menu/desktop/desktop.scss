@@ -1,0 +1,18 @@
+.desktop {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.desktop-menu-appear {
+    opacity: 0;
+
+    &-active {
+      animation: fade-in 400ms ease;
+      opacity: 1;
+    }
+  }
+}

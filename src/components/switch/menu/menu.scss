@@ -1,0 +1,30 @@
+.menu {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  cursor: pointer;
+  color: var(--white);
+  border-radius: 50%;
+  box-shadow: var(--depth);
+  font-size: var(--font-size-s);
+  border: 3px solid var(--white);
+  margin-right: env(safe-area-inset-right);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: box-shadow 100ms ease-in, transform 100ms ease-in;
+  animation: bounce-in 400ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 14px;
+  top: 13px;
+
+  &:active {
+    box-shadow: 0 0 3px #0005;
+    transform: translateY(5px) translateZ(0);
+  }
+
+  @media (min-width: 380px) {
+    right: 30px;
+  }
+}
