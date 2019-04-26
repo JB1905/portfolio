@@ -41,7 +41,7 @@ export default () => {
           className="background"
           style={{
             backgroundImage: `url(${image.publicURL})`,
-            transform: `scale(${scale}) translate3d(${pos.x}px, ${pos.y}px, 0)`
+            transform: `scale(${scale}) translate3d(${pos.x}px, ${pos.y}px, 0)`,
           }}
         />
       )}

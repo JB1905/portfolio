@@ -9,6 +9,8 @@
     "start": "npm run develop",
     "deploy": "gatsby build && gh-pages -d public -b master",
     "prettier": "prettier --write 'src/**/*.{js,scss}'",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "stylelint 'src/**/*.js' --fix",
     "stylelint": "stylelint 'src/**/*.scss' --fix"
   },
   "dependencies": {
@@ -42,9 +44,29 @@
     "react-transition-group": "^4.0.0"
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "gatsby-plugin-eslint": "^2.0.4",
+    "gatsby-plugin-stylelint": "^3.2.0",
     "gh-pages": "^2.0.1",
+    "husky": "^2.1.0",
+    "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,scss}": [
+      "npm run prettier",
+      "npm run lint",
+      "git add"
+    ]
   }
 }

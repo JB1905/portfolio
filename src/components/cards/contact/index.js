@@ -12,7 +12,7 @@ export const Contact = ({ delay, icon, title, method, permalink }) => (
 
       <div className="contact__content">
         <h3 className="contact__title">{title}:</h3>
-        
+
         <a href={`${method}:${permalink}`} className="contact__link">
           {permalink}
         </a>
