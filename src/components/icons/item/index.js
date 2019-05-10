@@ -1,6 +1,6 @@
 import React from 'react';
-import Delay from 'react-delay';
 import PropTypes from 'prop-types';
+import Delay from 'react-delay';
 
 import './icon.scss';
 
@@ -15,7 +15,7 @@ const Item = ({ item: { url, image }, index }) => (
 Item.propTypes = {
   item: PropTypes.shape({
     url: PropTypes.string,
-    image: PropTypes.string,
+    image: PropTypes.object,
     title: PropTypes.string
   }),
   index: PropTypes.number

@@ -1,6 +1,6 @@
 import React from 'react';
-import Delay from 'react-delay';
 import PropTypes from 'prop-types';
+import Delay from 'react-delay';
 
 const Paragraph = ({ content, index }) => (
   <Delay wait={(index + 1) * 240 + 520}>

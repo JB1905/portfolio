@@ -12,7 +12,7 @@ const Desktop = ({ link, title }) => (
 
 Desktop.propTypes = {
   link: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string.isRequired
 };
 
 export default Desktop;

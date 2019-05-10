@@ -22,7 +22,7 @@ DesktopMenu.defaultProps = {
 
 DesktopMenu.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.array
+  content: PropTypes.array.isRequired
 };
 
 export default DesktopMenu;

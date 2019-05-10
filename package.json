@@ -14,48 +14,50 @@
     "stylelint": "stylelint 'src/**/*.scss' --fix"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.17",
-    "@fortawesome/free-brands-svg-icons": "^5.8.1",
-    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "gatsby": "^2.3.31",
-    "gatsby-image": "^2.0.40",
+    "gatsby": "^2.4.3",
+    "gatsby-image": "^2.0.41",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-layout": "^1.0.15",
-    "gatsby-plugin-manifest": "^2.0.29",
-    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.2",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-robots-txt": "^1.4.0",
     "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.0.35",
-    "gatsby-source-filesystem": "^2.0.32",
+    "gatsby-plugin-sharp": "^2.0.37",
+    "gatsby-source-filesystem": "^2.0.33",
     "gatsby-source-graphql": "^2.0.18",
     "gatsby-transformer-json": "^2.1.11",
-    "gatsby-transformer-sharp": "^2.1.18",
+    "gatsby-transformer-sharp": "^2.1.19",
     "localStorage": "^1.0.4",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-delay": "^0.1.0",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0",
-    "react-normalize": "^0.4.0",
-    "react-transition-group": "^4.0.0"
+    "react-helmet": "^5.2.1",
+    "react-normalize": "^0.4.1",
+    "react-transition-group": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.2.0",
-    "eslint-plugin-react": "^7.12.4",
-    "gatsby-plugin-eslint": "^2.0.4",
+    "eslint-plugin-react": "^7.13.0",
+    "gatsby-plugin-eslint": "^2.0.5",
+    "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-stylelint": "^3.2.0",
     "gh-pages": "^2.0.1",
-    "husky": "^2.1.0",
-    "lint-staged": "^8.1.5",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.1.6",
     "prettier": "^1.17.0",
     "stylelint": "^10.0.1",
-    "stylelint-config-standard": "^18.3.0"
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-webpack-plugin": "^0.10.5"
   },
   "husky": {
     "hooks": {
@@ -63,9 +65,14 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,scss}": [
+    "src/**/*.{js}": [
       "npm run prettier",
-      "npm run lint",
+      "npm run eslint",
+      "git add"
+    ],
+    "src/**/*.{sass}": [
+      "npm run prettier",
+      "npm run stylelint",
       "git add"
     ]
   }

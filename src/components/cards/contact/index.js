@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PropTypes from 'prop-types';
 
 import './contact.scss';
 

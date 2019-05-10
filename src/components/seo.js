@@ -65,6 +65,18 @@ const SEO = ({ description, lang, meta, keywords, title }) => (
   />
 );
 
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
+`;
+
 SEO.defaultProps = {
   lang: 'en',
   meta: [],
@@ -80,15 +92,3 @@ SEO.propTypes = {
 };
 
 export default SEO;
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-      }
-    }
-  }
-`;
