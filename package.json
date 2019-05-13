@@ -10,7 +10,7 @@
     "deploy": "gatsby build && gh-pages -d public -b master",
     "prettier": "prettier --write 'src/**/*.{js,scss}'",
     "lint": "npm run eslint && npm run stylelint",
-    "eslint": "stylelint 'src/**/*.js' --fix",
+    "eslint": "eslint 'src/**/*.js' --fix",
     "stylelint": "stylelint 'src/**/*.scss' --fix"
   },
   "dependencies": {
