@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Delay from 'react-delay';
 import PropTypes from 'prop-types';
+import Delay from 'react-delay';
 
 import './title.scss';
 
@@ -8,17 +8,17 @@ const Title = ({ children }) => {
   const [opacity, setOpacity] = useState(1);
   const [scale, setScale] = useState(1);
 
-  const fadeOut = el => {
-    const scrolled = el.scrollTop / 100;
-
-    if (opacity > 0) {
-      setOpacity(opacity - scrolled);
-      setScale(scale - scrolled / 5);
-    }
-  };
-
   useEffect(() => {
     const observable = document.querySelector('.layout');
+
+    const fadeOut = el => {
+      const scrolled = el.scrollTop / 100;
+
+      if (opacity > 0) {
+        setOpacity(opacity - scrolled);
+        setScale(scale - scrolled / 5);
+      }
+    };
 
     observable.addEventListener('scroll', () => fadeOut(observable));
     observable.removeEventListener('scroll', () => fadeOut(observable));
@@ -29,7 +29,7 @@ const Title = ({ children }) => {
       <h2
         style={{
           opacity: opacity,
-          transform: `scale(${scale})`,
+          transform: `scale(${scale})`
         }}
         className="page__title"
       >

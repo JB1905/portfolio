@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import './background.scss';
 
-export default () => {
+const Background = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1.09);
 
@@ -41,10 +41,12 @@ export default () => {
           className="background"
           style={{
             backgroundImage: `url(${image.publicURL})`,
-            transform: `scale(${scale}) translate3d(${pos.x}px, ${pos.y}px, 0)`,
+            transform: `scale(${scale}) translate3d(${pos.x}px, ${pos.y}px, 0)`
           }}
         />
       )}
     />
   );
 };
+
+export default Background;
