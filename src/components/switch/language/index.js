@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import Delay from 'react-delay';
 
-import { Store } from '../../../layouts';
+import { Store } from 'layouts';
 
 import './language.scss';
 
-export default () => {
+const Language = () => {
   const { language, toggleLanguage } = useContext(Store);
 
   return (
@@ -23,3 +23,5 @@ export default () => {
     </Delay>
   );
 };
+
+export default Language;
