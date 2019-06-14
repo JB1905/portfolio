@@ -33,7 +33,7 @@ const About = ({ data }) => {
 
         <div className="content__container">
           {data[language].about.content.map((item, index) => (
-            <Paragraph key={index} content={item} index={index} />
+            <Paragraph key={item.id} content={item} index={index} />
           ))}
         </div>
       </Content>

@@ -11,7 +11,8 @@
     opacity: 0;
 
     &-active {
-      animation: fade-in 400ms ease;
+      animation: fade-in 400ms ease-in-out;
+      animation-fill-mode: forwards;
       opacity: 1;
     }
   }

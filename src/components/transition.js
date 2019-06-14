@@ -51,8 +51,6 @@ const Transition = ({ offset, children, location }) => {
         {status => (
           <main
             style={{
-              margin: '0 auto',
-              maxWidth: 1240,
               ...getTransitionStyles[status]
             }}
           >

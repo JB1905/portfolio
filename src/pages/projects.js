@@ -17,7 +17,12 @@ const Projects = ({ data }) => {
 
       <Content className="projects">
         {data.graphCmsData.projects.map((item, index) => (
-          <Project key={index} index={index} item={item} language={language} />
+          <Project
+            key={item.id}
+            index={index}
+            item={item}
+            language={language}
+          />
         ))}
       </Content>
     </article>
@@ -27,7 +32,8 @@ const Projects = ({ data }) => {
 export const query = graphql`
   {
     graphCmsData {
-      projects {
+      projects(where: { status: PUBLISHED }) {
+        id
         title
         liveLink
         srcLink
@@ -40,6 +46,9 @@ export const query = graphql`
         technologies {
           id
           name
+          image {
+            url
+          }
         }
       }
     }

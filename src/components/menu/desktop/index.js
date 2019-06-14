@@ -9,8 +9,8 @@ import './desktop.scss';
 const DesktopMenu = ({ className, content }) => (
   <CSSTransition in appear timeout={400} classNames="desktop-menu">
     <ul className={className}>
-      {content.map((item, index) => (
-        <Desktop key={index} link={item.link} title={item.title} />
+      {content.map(item => (
+        <Desktop key={item.id} link={item.link} title={item.title} />
       ))}
     </ul>
   </CSSTransition>

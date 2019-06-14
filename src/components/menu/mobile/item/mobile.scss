@@ -3,8 +3,8 @@
   opacity: 0;
 
   &-active {
+    transition: all 400ms ease-in-out;
     transform: translateY(0) translateZ(0);
     opacity: 1;
-    transition: all 400ms ease;
   }
 }
