@@ -2,8 +2,8 @@
   margin-right: 7px;
   box-shadow: var(--depth);
   background-color: var(--white);
-  transition: box-shadow 100ms ease-in, transform 100ms ease-in;
-  animation: bounce-in 400ms ease;
+  transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
+  animation: bounce-in 400ms ease-in-out;
   position: relative;
   border-radius: 50%;
   padding: 3px;

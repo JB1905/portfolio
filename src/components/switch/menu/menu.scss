@@ -11,7 +11,7 @@
   margin-right: env(safe-area-inset-right);
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
-  animation: bounce-in 400ms ease;
+  animation: bounce-in 400ms ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;

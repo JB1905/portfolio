@@ -24,7 +24,7 @@ const About = ({ data }) => {
         <div className="image__container">
           <Delay wait={520}>
             <figure>
-              <CSSTransition in appear timeout={500} classNames="image">
+              <CSSTransition in appear timeout={1000} classNames="image">
                 <Img fluid={data.image.childImageSharp.fluid} />
               </CSSTransition>
             </figure>
@@ -33,7 +33,7 @@ const About = ({ data }) => {
 
         <div className="content__container">
           {data[language].about.content.map((item, index) => (
-            <Paragraph key={item.id} content={item} index={index} />
+            <Paragraph key={index} content={item} index={index} />
           ))}
         </div>
       </Content>

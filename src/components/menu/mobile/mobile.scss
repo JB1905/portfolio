@@ -1,0 +1,37 @@
+.mobile {
+  width: 100%;
+  min-width: 320px;
+  z-index: 100;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  align-items: center;
+  position: absolute;
+
+  ul {
+    text-align: center;
+    transition: opacity 500ms ease 460ms transform 500ms ease 460ms;
+    padding: 0 20px;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 500px;
+
+    &.opened {
+      opacity: 1;
+      transform: scale(1) translateZ(0);
+    }
+
+    li {
+      margin-left: 0;
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
