@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Portfolio`,
@@ -15,6 +17,15 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-root-import`,
+      options: {
+        components: path.join(__dirname, `src/components`),
+        layouts: path.join(__dirname, `src/layouts`),
+        pages: path.join(__dirname, `src/pages`),
+        src: path.join(__dirname, `src`)
+      }
+    },
+    {
       resolve: `gatsby-source-graphql`,
       options: {
         typeName: `GRAPHCMS`,
@@ -25,8 +36,23 @@ module.exports = {
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: './src/images/favicon.ico'
+        logo: `./src/images/favicon.ico`
       }
+    },
+    {
+      resolve: `gatsby-plugin-eslint`,
+      options: {
+        test: path.join(`${__dirname}/src/**/*.js`),
+        exclude: /(node_modules|cache|public)/,
+        options: {
+          emitWarning: true,
+          failOnError: false
+        }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-stylelint`,
+      options: { files: [`src/**/*.scss`] }
     },
     `gatsby-transformer-json`,
     {
