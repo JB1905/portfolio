@@ -11,7 +11,7 @@ const Desktop = ({ link, title }) => (
 );
 
 Desktop.propTypes = {
-  link: PropTypes.string,
+  link: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 };
 

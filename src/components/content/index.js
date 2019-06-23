@@ -13,7 +13,7 @@ Content.defaultProps = {
 
 Content.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node.isRequired
 };
 
 export default Content;

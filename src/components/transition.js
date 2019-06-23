@@ -39,7 +39,7 @@ const Transition = ({ offset, children, location }) => {
   return (
     <TransitionGroup
       className={`layout ${offset ? 'hidden' : ''}`}
-      style={{ height: height }}
+      style={{ height }}
     >
       <ReactTransition
         key={location.pathname}
@@ -64,8 +64,8 @@ const Transition = ({ offset, children, location }) => {
 
 Transition.propTypes = {
   offset: PropTypes.bool,
-  children: PropTypes.node,
-  location: PropTypes.object
+  children: PropTypes.node.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 export default Transition;

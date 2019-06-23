@@ -17,8 +17,8 @@ Item.propTypes = {
     url: PropTypes.string,
     image: PropTypes.object,
     title: PropTypes.string
-  }),
-  index: PropTypes.number
+  }).isRequired,
+  index: PropTypes.number.isRequired
 };
 
 export default Item;

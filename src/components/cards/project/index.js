@@ -55,6 +55,7 @@ export const Project = ({ item, language, index }) => (
 );
 
 Project.propTypes = {
-  item: PropTypes.object,
-  index: PropTypes.number
+  item: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired
 };

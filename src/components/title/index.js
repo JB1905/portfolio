@@ -28,7 +28,7 @@ const Title = ({ children }) => {
     <Delay wait={100}>
       <h2
         style={{
-          opacity: opacity,
+          opacity,
           transform: `scale(${scale})`
         }}
         className="page__title"

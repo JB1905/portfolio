@@ -7,7 +7,7 @@ import Mobile from './item';
 import './mobile.scss';
 
 const MobileMenu = ({ height, content, toggleMenu }) => (
-  <div className="mobile" style={{ height: height }}>
+  <div className="mobile" style={{ height }}>
     <CSSTransition in appear classNames="list" timeout={1000}>
       <ul>
         {content.map((item, index) => (

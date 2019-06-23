@@ -13,7 +13,7 @@ export const Technology = ({ image, name, index }) => (
 );
 
 Technology.propTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string,
-  index: PropTypes.number
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired
 };

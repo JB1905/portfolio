@@ -22,9 +22,9 @@ export const Contact = ({ delay, icon, title, method, permalink }) => (
 );
 
 Contact.propTypes = {
-  delay: PropTypes.number,
-  icon: PropTypes.string,
-  title: PropTypes.string,
-  method: PropTypes.string,
-  permalink: PropTypes.string
+  delay: PropTypes.number.isRequired,
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  method: PropTypes.string.isRequired,
+  permalink: PropTypes.string.isRequired
 };

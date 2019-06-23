@@ -13,8 +13,8 @@ const Mobile = ({ link, toggle, title }) => (
 );
 
 Mobile.propTypes = {
-  link: PropTypes.string,
-  toggle: PropTypes.func,
+  link: PropTypes.string.isRequired,
+  toggle: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired
 };
 
