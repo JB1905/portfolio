@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Icons from 'components/icons';
 import { MenuSwitch } from 'components/switch';
-import { Store } from 'layouts';
+import { LanguageContext } from 'context';
 import NavBar from './bar';
 import DesktopMenu from './desktop';
 import MobileMenu from './mobile';
@@ -14,7 +14,7 @@ import './menu.scss';
 const Menu = ({ offset }) => {
   const ref = useRef();
 
-  const { language } = useContext(Store);
+  const { language } = useContext(LanguageContext);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(true);

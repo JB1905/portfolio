@@ -17,12 +17,18 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: `${__dirname}/src/components/layout`
+      }
+    },
+    {
       resolve: `gatsby-plugin-root-import`,
       options: {
         components: path.join(__dirname, `src/components`),
-        layouts: path.join(__dirname, `src/layouts`),
+        context: path.join(__dirname, `src/context`),
         pages: path.join(__dirname, `src/pages`),
-        src: path.join(__dirname, `src`)
+        src: path.join(__dirname, `src`),
       }
     },
     {
@@ -62,7 +68,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-layout`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

@@ -9,12 +9,12 @@ import Title from 'components/title';
 import Content from 'components/content';
 import Paragraph from 'components/paragraph';
 
-import { Store } from 'layouts';
+import { LanguageContext } from 'context';
 
 import './about.scss';
 
 const About = ({ data }) => {
-  const { language } = useContext(Store);
+  const { language } = useContext(LanguageContext);
 
   return (
     <article>

@@ -1,0 +1,50 @@
+.layout {
+  width: 100%;
+  z-index: 10;
+  padding: 0 16px;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  transition: opacity 300ms ease-in-out 200ms;
+  overflow-x: hidden;
+  overflow-y: auto;
+  opacity: 1;
+
+  &.hidden {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  main {
+    margin: 0 auto;
+    max-width: 1240px;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+
+    article {
+      padding: 0 0 24px;
+
+      @media (min-width: 860px) {
+        padding: 0 10px 24px;
+      }
+    }
+  }
+
+  @media (min-width: 380px) {
+    padding: 0 20px;
+  }
+
+  @media (min-width: 860px) {
+    padding: 0 30px;
+  }
+}
+
+.fade {
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0;
+      transition: opacity 200ms ease-in-out;
+    }
+  }
+}

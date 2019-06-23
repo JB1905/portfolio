@@ -17,6 +17,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     max-width: 500px;
 
@@ -31,6 +32,11 @@
 
       &:not(:last-child) {
         margin-bottom: 20px;
+      }
+
+      @media screen and (orientation: landscape) and (max-height: 470px) {
+        margin: 10px 10px 20px;
+        width: auto;
       }
     }
   }

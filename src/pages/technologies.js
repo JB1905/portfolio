@@ -6,10 +6,10 @@ import Title from 'components/title';
 import Content from 'components/content';
 import { Technology } from 'components/cards';
 
-import { Store } from 'layouts';
+import { LanguageContext } from 'context';
 
 const Technologies = ({ data }) => {
-  const { language } = useContext(Store);
+  const { language } = useContext(LanguageContext);
 
   return (
     <article>

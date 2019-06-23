@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import Delay from 'react-delay';
 
-import { Store } from 'layouts';
+import { LanguageContext } from 'context';
 
 import './language.scss';
 
 const Language = () => {
-  const { language, toggleLanguage } = useContext(Store);
+  const { language, toggleLanguage } = useContext(LanguageContext);
 
   return (
     <Delay wait={600}>

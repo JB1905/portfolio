@@ -26,9 +26,7 @@ const Transition = ({ offset, children, location }) => {
   const [height, setHeight] = useState(null);
 
   useEffect(() => {
-    const updateHeight = () => {
-      setHeight(window.innerHeight - 76);
-    };
+    const updateHeight = () => setHeight(window.innerHeight - 76);
 
     updateHeight();
 
