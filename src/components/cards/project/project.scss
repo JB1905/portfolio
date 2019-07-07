@@ -2,6 +2,7 @@
   &__image {
     top: 0;
     opacity: 1;
+    font-size: 0;
     cursor: pointer;
     border: 3px solid var(--white);
     transition: opacity 300ms ease-in-out;
@@ -96,17 +97,17 @@
   &__footer {
     display: flex;
     align-items: center;
-    padding: 0 16px 10px;
-    height: 46px;
+    padding: 0 16px;
   }
 
   &__technologies {
     padding: 0;
-    max-width: calc(100% - 100px);
-    font-size: 1.25rem;
+    height: 46px;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
+    max-width: calc(100% - 100px);
+    font-size: 1.25rem;
 
     img {
       width: 30px;
@@ -118,10 +119,12 @@
 
   &__links {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
     position: absolute;
+    height: 46px;
     right: 20px;
-    bottom: 14px;
+    bottom: 0;
 
     a {
       margin-left: 24px;

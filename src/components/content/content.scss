@@ -14,33 +14,37 @@
   }
 
   &.technologies {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(134px, 1fr));
 
-    @media screen and (min-width: 500px) {
+    @media (min-width: 500px) {
       grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
     }
 
-    @media screen and (min-width: 680px) {
+    @media (min-width: 680px) {
       grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
     }
 
-    @media screen and (min-width: 860px) {
+    @media (min-width: 860px) {
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
 
-    @media screen and (min-width: 1020px) {
+    @media (min-width: 1020px) {
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     }
   }
 
   &.projects {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
 
-    @media screen and (min-width: 500px) {
+    @media (min-width: 500px) {
       grid-template-columns: repeat(auto-fill, minmax(262px, 1fr));
     }
 
-    @media screen and (min-width: 680px) {
+    @media (min-width: 500px) and (orientation: landscape) {
+      grid-template-columns: repeat(auto-fill, minmax(254px, 1fr));
+    }
+
+    @media (min-width: 680px) {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   }

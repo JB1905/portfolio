@@ -65,7 +65,7 @@
         font-size: var(--font-size-xxl);
       }
 
-      @media screen and (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 767px) {
+      @media (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 767px) {
         font-size: 6rem;
       }
     }
