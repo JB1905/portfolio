@@ -2,9 +2,9 @@
   width: 100%;
   min-width: 320px;
   z-index: 100;
+  display: flex;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  display: flex;
   align-items: center;
   position: absolute;
 
@@ -34,7 +34,7 @@
         margin-bottom: 20px;
       }
 
-      @media screen and (orientation: landscape) and (max-height: 470px) {
+      @media (orientation: landscape) and (max-height: 470px) {
         margin: 10px 10px 20px;
         width: auto;
       }

@@ -77,6 +77,10 @@
       @media (min-width: 600px) {
         font-size: var(--font-size-l);
       }
+
+      @media (orientation: landscape) and (min-device-width: 375px) and (max-device-width: 767px) {
+        font-size: 3rem;
+      }
     }
   }
 }

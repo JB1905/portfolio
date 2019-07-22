@@ -9,7 +9,7 @@
   font-size: var(--font-size-s);
   border: 3px solid var(--white);
   margin-right: env(safe-area-inset-right);
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
   animation: bounce-in 400ms ease-in-out;
   display: flex;
