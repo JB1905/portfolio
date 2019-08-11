@@ -16,8 +16,8 @@ const Menu = ({ offset }) => {
 
   const { language } = useContext(LanguageContext);
 
-  const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const onResize = () => {
     if (ref.current.offsetHeight > 74) {

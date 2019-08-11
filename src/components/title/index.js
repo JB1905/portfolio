@@ -9,19 +9,23 @@ const Title = ({ children }) => {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const observable = document.querySelector('.layout');
+    const layout = document.querySelector('.layout');
 
-    const fadeOut = el => {
-      const scrolled = el.scrollTop / 100;
+    const fadeOut = () => {
+      const scrolled = layout.scrollTop / 100;
 
       if (opacity > 0) {
         setOpacity(opacity - scrolled);
-        setScale(scale - scrolled / 5);
+
+        if (layout.scrollTop >= 0) {
+          setScale(scale - scrolled / 5);
+        }
       }
     };
 
-    observable.addEventListener('scroll', () => fadeOut(observable));
-    observable.removeEventListener('scroll', () => fadeOut(observable));
+    layout.addEventListener('scroll', fadeOut);
+
+    return () => layout.removeEventListener('scroll', fadeOut);
   }, []);
 
   return (

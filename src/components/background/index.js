@@ -5,17 +5,8 @@ import './background.scss';
 
 const Background = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [scale, setScale] = useState(1.09);
 
   useEffect(() => {
-    const onDeviceMove = e => {
-      const x = e.accelerationIncludingGravity.x * 5;
-      const y = e.accelerationIncludingGravity.y * 5;
-
-      setPos({ x, y });
-      setScale(1.3);
-    };
-
     const onMouseMove = e => {
       setPos({
         x: -(e.clientX - window.innerWidth / 2) / 30,
@@ -24,7 +15,8 @@ const Background = () => {
     };
 
     window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('devicemotion', onDeviceMove);
+
+    return () => window.removeEventListener('mousemove', onMouseMove);
   }, []);
 
   return (
@@ -41,7 +33,7 @@ const Background = () => {
           className="background"
           style={{
             backgroundImage: `url(${image.publicURL})`,
-            transform: `scale(${scale}) translate3d(${pos.x}px, ${pos.y}px, 0)`
+            transform: `scale(1.09) translate3d(${pos.x}px, ${pos.y}px, 0)`
           }}
         />
       )}
