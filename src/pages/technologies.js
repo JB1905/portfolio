@@ -11,9 +11,11 @@ import { LanguageContext } from 'context';
 const Technologies = ({ data }) => {
   const { language } = useContext(LanguageContext);
 
+  const { title } = data[language].technologies;
+
   return (
     <article>
-      <Title>{language === 'pl' ? 'Technologie' : 'Technologies'}</Title>
+      <Title>{title}</Title>
 
       <Content className="technologies">
         {data.graphCmsData.technologies.map((item, index) => (
@@ -31,6 +33,18 @@ const Technologies = ({ data }) => {
 
 export const query = graphql`
   {
+    pl: languagesJson(lang: { eq: "pl" }) {
+      technologies {
+        title
+      }
+    }
+
+    en: languagesJson(lang: { eq: "en" }) {
+      technologies {
+        title
+      }
+    }
+
     graphCmsData {
       technologies(where: { status: PUBLISHED }) {
         id

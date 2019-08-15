@@ -1,44 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   TransitionGroup,
   Transition as ReactTransition
 } from 'react-transition-group';
-
-const timeout = 250;
-
-const getTransitionStyles = {
-  entering: {
-    position: 'absolute',
-    opacity: 0
-  },
-  entered: {
-    transition: `opacity ${timeout}ms ease`,
-    opacity: 1
-  },
-  exiting: {
-    transition: `all ${timeout}ms ease`,
-    opacity: 0
-  }
-};
+import { useViewport } from 'react-viewport-hooks';
 
 const Transition = ({ offset, children, location }) => {
-  const [height, setHeight] = useState(null);
+  const { vh } = useViewport();
 
   useEffect(() => {
-    const updateHeight = () => setHeight(window.innerHeight - 76);
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }, [vh]);
 
-    updateHeight();
+  const timeout = 250;
 
-    window.addEventListener('resize', () => updateHeight());
-    window.removeEventListener('resize', () => updateHeight());
-  }, []);
+  const getTransitionStyles = {
+    entering: {
+      position: 'absolute',
+      opacity: 0
+    },
+    entered: {
+      transition: `opacity ${timeout}ms ease`,
+      opacity: 1
+    },
+    exiting: {
+      transition: `all ${timeout}ms ease`,
+      opacity: 0
+    }
+  };
 
   return (
-    <TransitionGroup
-      className={`layout ${offset ? 'hidden' : ''}`}
-      style={{ height }}
-    >
+    <TransitionGroup className={`layout ${offset ? 'hidden' : ''}`}>
       <ReactTransition
         key={location.pathname}
         timeout={{

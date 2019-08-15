@@ -16,9 +16,11 @@ import './about.scss';
 const About = ({ data }) => {
   const { language } = useContext(LanguageContext);
 
+  const { title, content } = data[language].about;
+
   return (
     <article>
-      <Title>{language === 'pl' ? 'O mnie' : 'About'}</Title>
+      <Title>{title}</Title>
 
       <Content className="about">
         <div className="image__container">
@@ -32,7 +34,7 @@ const About = ({ data }) => {
         </div>
 
         <div className="content__container">
-          {data[language].about.content.map((item, index) => (
+          {content.map((item, index) => (
             <Paragraph key={index} content={item} index={index} />
           ))}
         </div>
@@ -53,12 +55,14 @@ export const query = graphql`
 
     pl: languagesJson(lang: { eq: "pl" }) {
       about {
+        title
         content
       }
     }
 
     en: languagesJson(lang: { eq: "en" }) {
       about {
+        title
         content
       }
     }

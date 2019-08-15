@@ -6,30 +6,64 @@ import { Contact } from 'components/cards';
 
 import { LanguageContext } from 'context';
 
-export default () => {
+export default ({ data }) => {
   const { language } = useContext(LanguageContext);
+
+  const { title, email, phone } = data[language].contact;
 
   return (
     <article>
-      <Title>{language === 'pl' ? 'Kontakt' : 'Contact'}</Title>
+      <Title>{title}</Title>
 
       <Content className="contact">
         <Contact
           icon="envelope"
           delay={520}
-          permalink="biesiadajakub@icloud.com"
-          title={language === 'pl' ? 'E-mail' : 'Email'}
+          permalink={email.value}
+          title={email.name}
           method="mailto"
         />
 
         <Contact
           icon="phone"
           delay={760}
-          permalink="+48 661 176 806"
-          title={language === 'pl' ? 'Telefon' : 'Phone'}
+          permalink={phone.value}
+          title={phone.name}
           method="tel"
         />
       </Content>
     </article>
   );
 };
+
+export const query = graphql`
+  {
+    pl: languagesJson(lang: { eq: "pl" }) {
+      contact {
+        title
+        email {
+          name
+          value
+        }
+        phone {
+          name
+          value
+        }
+      }
+    }
+
+    en: languagesJson(lang: { eq: "en" }) {
+      contact {
+        title
+        email {
+          name
+          value
+        }
+        phone {
+          name
+          value
+        }
+      }
+    }
+  }
+`;
