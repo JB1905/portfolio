@@ -1,43 +1,48 @@
 .mobile {
   width: 100%;
+  height: calc(100vh - 76px);
+  height: calc(var(--vh) - 76px);
   min-width: 320px;
+  max-width: 500px;
   z-index: 100;
   display: flex;
   overflow: auto;
+  flex-wrap: wrap;
   -webkit-overflow-scrolling: touch;
-  align-items: center;
+  transition: opacity 400ms ease-in-out;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
   position: absolute;
+  visibility: hidden;
+  padding: 0 20px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  opacity: 0;
 
-  ul {
-    text-align: center;
-    transition: opacity 500ms ease 460ms transform 500ms ease 460ms;
-    padding: 0 20px;
-    left: 0;
-    margin: 0 auto;
+  @media (orientation: landscape) and (max-height: 470px) {
+    flex-direction: row;
+  }
+
+  &.opened {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 400ms ease-in-out 200ms visibility 0ms none 1000ms;
+  }
+
+  li {
+    margin-left: 0;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 500px;
 
-    &.opened {
-      opacity: 1;
-      transform: scale(1) translateZ(0);
+    &:not(:last-child) {
+      margin-bottom: 20px;
     }
 
-    li {
-      margin-left: 0;
-      width: 100%;
-
-      &:not(:last-child) {
-        margin-bottom: 20px;
-      }
-
-      @media (orientation: landscape) and (max-height: 470px) {
-        margin: 10px 10px 20px;
-        width: auto;
-      }
+    @media (orientation: landscape) and (max-height: 470px) {
+      margin: 10px 10px 20px;
+      width: auto;
     }
   }
 }

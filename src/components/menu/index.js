@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Icons from 'components/icons';
 import { MenuSwitch } from 'components/switch';
 import { LanguageContext } from 'context';
-import NavBar from './bar';
 import DesktopMenu from './desktop';
 import MobileMenu from './mobile';
 
@@ -19,29 +18,35 @@ const Menu = ({ offset }) => {
   const [isMobile, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  const onResize = () => {
-    if (ref.current.offsetHeight > 74) {
-      setIsMobile(true);
+  const openMenu = () => {
+    setIsOpen(true);
+    offset(true);
+  };
 
-      if (isOpen) offset(true);
-      else offset(false);
-    } else {
-      setIsMobile(false);
-      offset(false);
-    }
+  const closeMenu = () => {
+    setIsOpen(false);
+    offset(false);
+  };
+
+  const toggleMenu = () => {
+    if (isOpen) closeMenu();
+    else openMenu();
   };
 
   useEffect(() => {
+    const onResize = () => {
+      const breakPoint = ref.current.offsetHeight > 74;
+
+      setIsMobile(breakPoint);
+      offset(breakPoint ? isOpen : false);
+    };
+
     onResize();
 
-    window.addEventListener('resize', () => onResize());
-    window.removeEventListener('resize', () => onResize());
-  }, [isOpen, language]);
+    window.addEventListener('resize', onResize);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    offset(!isOpen);
-  };
+    return () => window.removeEventListener('resize', onResize);
+  }, [isOpen, language]);
 
   return (
     <StaticQuery
@@ -63,26 +68,24 @@ const Menu = ({ offset }) => {
       `}
       render={data => (
         <>
-          <NavBar>
+          <header>
             <Icons />
 
-            <div className="nav" ref={ref}>
+            <nav className="nav" ref={ref}>
               <DesktopMenu
-                className={`desktop ${isMobile ? 'hidden' : ''}`}
+                className={`${isMobile ? 'hidden' : ''}`}
                 content={data[language].menu}
               />
 
               {isMobile && <MenuSwitch onClick={toggleMenu} />}
-            </div>
-          </NavBar>
+            </nav>
+          </header>
 
-          {isMobile && isOpen && (
-            <MobileMenu
-              height={window.innerHeight - 76}
-              content={data[language].menu}
-              toggleMenu={toggleMenu}
-            />
-          )}
+          <MobileMenu
+            className={`${isMobile ? '' : 'hidden'} ${isOpen ? 'opened' : ''}`}
+            content={data[language].menu}
+            toggleMenu={closeMenu}
+          />
         </>
       )}
     />
