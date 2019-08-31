@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { graphql } from 'gatsby';
 
 import Title from 'components/title';
 import Content from 'components/content';
