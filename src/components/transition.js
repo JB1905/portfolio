@@ -10,7 +10,9 @@ const Transition = ({ offset, children, location }) => {
   const { vh } = useViewport();
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    const matches = window.matchMedia('(display-mode: standalone)').matches;
+
+    document.body.style.setProperty('--vh', matches ? '100vh' : `${vh}px`);
   }, [vh]);
 
   const timeout = 250;
