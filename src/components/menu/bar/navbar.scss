@@ -1,0 +1,23 @@
+.navbar {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  height: 76px;
+  z-index: 10;
+  position: sticky;
+  width: 100%;
+  top: 0;
+
+  > div {
+    margin: 0 auto;
+    padding: 0 14px;
+    max-width: 1240px;
+    display: flex;
+    align-items: center;
+    height: 68px;
+    width: 100%;
+
+    @media (min-width: 380px) {
+      padding: 0 30px;
+    }
+  }
+}
