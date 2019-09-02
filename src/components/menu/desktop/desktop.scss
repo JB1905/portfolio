@@ -2,11 +2,6 @@
   display: flex;
   flex-wrap: wrap;
 
-  &.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-
   &.desktop-menu-appear {
     opacity: 0;
 

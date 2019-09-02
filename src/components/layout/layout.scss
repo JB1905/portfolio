@@ -1,8 +1,11 @@
 .layout {
-  width: 100%;
   z-index: 10;
   padding: 0 16px;
   position: relative;
+  width: 100%;
+  margin-top: env(safe-area-inset-top);
+  height: calc(100vh - 76px - env(safe-area-inset-top));
+  height: calc(var(--vh) - 76px - env(safe-area-inset-top));
   -webkit-overflow-scrolling: touch;
   transition: opacity 300ms ease-in-out 300ms;
   overflow-x: hidden;
@@ -17,8 +20,12 @@
   main {
     margin: 0 auto;
     max-width: 1240px;
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
 
     article {
       padding: 0 0 24px;
