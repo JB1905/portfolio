@@ -7,6 +7,7 @@ module.exports = {
     author: `Jakub Biesiada`,
     siteUrl: `http://localhost`
   },
+  pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
