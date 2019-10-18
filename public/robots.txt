@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://jb1905.github.io/sitemap.xml
+Host: https://jb1905.github.io

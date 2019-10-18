@@ -4,8 +4,8 @@
   position: relative;
   width: 100%;
   margin-top: env(safe-area-inset-top);
-  height: calc(100vh - 76px - env(safe-area-inset-top));
-  height: calc(var(--vh) - 76px - env(safe-area-inset-top));
+  height: calc(100vh - 76px);
+  height: calc(var(--vh) - 76px);
   -webkit-overflow-scrolling: touch;
   transition: opacity 300ms ease-in-out 300ms;
   overflow-x: hidden;

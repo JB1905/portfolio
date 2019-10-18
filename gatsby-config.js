@@ -5,7 +5,7 @@ module.exports = {
     title: `Portfolio`,
     description: `JavaScript Developer Portfolio`,
     author: `Jakub Biesiada`,
-    siteUrl: `http://localhost`
+    siteUrl: `https://jb1905.github.io`
   },
   pathPrefix: `/portfolio`,
   plugins: [
@@ -14,7 +14,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
+        path: path.join(__dirname, `src/images`)
       }
     },
     {
@@ -29,7 +29,7 @@ module.exports = {
         components: path.join(__dirname, `src/components`),
         context: path.join(__dirname, `src/context`),
         pages: path.join(__dirname, `src/pages`),
-        src: path.join(__dirname, `src`),
+        src: path.join(__dirname, `src`)
       }
     },
     {
@@ -57,10 +57,10 @@ module.exports = {
         }
       }
     },
-    {
-      resolve: `gatsby-plugin-stylelint`,
-      options: { files: [`src/**/*.scss`] }
-    },
+    // {
+    //   resolve: `gatsby-plugin-stylelint`,
+    //   options: { files: [`src/**/*.scss`] }
+    // },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,

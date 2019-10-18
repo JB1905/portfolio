@@ -48,7 +48,7 @@ export const query = graphql`
     image: file(relativePath: { eq: "me.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 360, quality: 100) {
-          ...GatsbyImageSharpFluid_noBase64
+          ...GatsbyImageSharpFluid
         }
       }
     }

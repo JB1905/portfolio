@@ -33,7 +33,7 @@ const Background = () => {
           className="background"
           style={{
             backgroundImage: `url(${image.publicURL})`,
-            transform: `scale(1.09) translate3d(${pos.x}px, ${pos.y}px, 0)`
+            transform: `scale(1.1) translate3d(${pos.x}px, ${pos.y}px, 0)`
           }}
         />
       )}

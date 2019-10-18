@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "portfolio",
+  "description": null,
+  "icons": {
+    "60": "/icons-79237a5afc0c41ea4f0efe08ba390d7d/firefox_app_60x60.png",
+    "128": "/icons-79237a5afc0c41ea4f0efe08ba390d7d/firefox_app_128x128.png",
+    "512": "/icons-79237a5afc0c41ea4f0efe08ba390d7d/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": null,
+    "url": null
+  }
+}
