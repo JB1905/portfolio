@@ -18,8 +18,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.6",
-    "gatsby": "2.16.5",
+    "@fortawesome/react-fontawesome": "^0.1.7",
+    "gatsby": "2.17.4",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-layout": "^1.1.13",
@@ -34,21 +34,21 @@
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-source-graphql": "^2.1.20",
     "gatsby-transformer-json": "^2.2.15",
-    "gatsby-transformer-sharp": "^2.2.23",
+    "gatsby-transformer-sharp": "^2.3.0",
     "localStorage": "^1.0.4",
-    "node-sass": "^4.12.0",
-    "react": "^16.10.2",
+    "node-sass": "^4.13.0",
+    "react": "^16.11.0",
     "react-delay": "^0.1.0",
-    "react-dom": "^16.10.2",
+    "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "react-normalize": "^0.4.3",
     "react-transition-group": "^4.3.0",
     "react-viewport-hooks": "^1.1.1"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
@@ -61,7 +61,7 @@
     "prettier": "^1.18.2",
     "stylelint": "^11.1.1",
     "stylelint-config-standard": "^19.0.0",
-    "stylelint-webpack-plugin": "^1.0.2"
+    "stylelint-webpack-plugin": "^1.0.3"
   },
   "husky": {
     "hooks": {

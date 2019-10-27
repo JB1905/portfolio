@@ -10,7 +10,7 @@ const Transition = ({ offset, children, location }) => {
   const { vh } = useViewport();
 
   useEffect(() => {
-    const matches = window.matchMedia('(display-mode: standalone)').matches;
+    const { matches } = window.matchMedia('(display-mode: standalone)');
 
     document.body.style.setProperty('--vh', matches ? '100vh' : `${vh}px`);
   }, [vh]);
