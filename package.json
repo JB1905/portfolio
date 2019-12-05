@@ -8,7 +8,6 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "type-check": "tsc --noEmit",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "prettier": "prettier --write 'src/**/*.{tsx,ts,scss}'",
     "lint": "npm run eslint && npm run stylelint",
@@ -82,15 +81,7 @@
     "extends": "react-app"
   },
   "lint-staged": {
-    "src/**/*.{tsx,ts}": [
-      "npm run prettier",
-      "npm run eslint",
-      "git add"
-    ],
-    "src/**/*.{sass}": [
-      "npm run prettier",
-      "npm run stylelint",
-      "git add"
-    ]
+    "src/**/*.{tsx,ts}": ["npm run prettier", "npm run eslint", "git add"],
+    "src/**/*.{sass}": ["npm run prettier", "npm run stylelint", "git add"]
   }
 }
