@@ -26,7 +26,7 @@
     "title": "About",
     "content": [
       "Hi! My name is Jakub Biesiada. I live in Kielce and I am a student in the 4th class of IT Technical School. When I was 13 years old, I have began interesting in programming, mostly in web technologies.",
-      "Actually, I focus on learning new solutions in JavaScript (TypeScript) for both front-end (React.js, Vue, Angular), back-end (Node.js, Express), desktop (Electron) and mobile (React Native + Expo).",
+      "Actually, I focus on learning new solutions in JavaScript (TypeScript) for both front-end (React.js, Vue, Angular, Svelte), back-end (Node.js, Express, Nest.js), desktop (Electron) and mobile (React Native + Expo, Ionic).",
       "I really want to develop my programming skills. In the near future I will start learning Kotlin and ReasonML. I am into new technologies especially Apple's software and hardware ecosystem.",
       "I love spending my free time drinking coffee and listening to good rock music or technology podcasts."
     ]

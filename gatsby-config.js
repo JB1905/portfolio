@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
@@ -9,6 +9,7 @@ module.exports = {
   },
   pathPrefix: `/portfolio`,
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -57,10 +58,10 @@ module.exports = {
         }
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-stylelint`,
-    //   options: { files: [`src/**/*.scss`] }
-    // },
+    {
+      resolve: `gatsby-plugin-stylelint`,
+      options: { files: [`src/**/*.scss`] }
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
