@@ -14,9 +14,9 @@ const Background = () => {
       });
     };
 
-    window.addEventListener(`mousemove`, onMouseMove);
+    window.addEventListener("mousemove", onMouseMove);
 
-    return () => window.removeEventListener(`mousemove`, onMouseMove);
+    return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
   return (

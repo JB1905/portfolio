@@ -6,10 +6,15 @@ import Desktop from "./item";
 
 import "./desktop.scss";
 
-const DesktopMenu = ({ className, content }) => (
+interface Props {
+  className: string;
+  content: any;
+}
+
+const DesktopMenu = ({ className, content }: Props) => (
   <CSSTransition in appear timeout={1000} classNames="desktop-menu">
     <ul className={`desktop ${className}`}>
-      {content.map((item, index) => (
+      {content.map((item, index: number) => (
         <Desktop key={index} link={item.link} title={item.title} />
       ))}
     </ul>

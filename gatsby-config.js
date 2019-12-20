@@ -50,7 +50,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
-        test: path.join(`${__dirname}/src/**/*.js`),
+        test: path.join(`${__dirname}/src/**/*.{tsx,ts}`),
         exclude: /(node_modules|cache|public)/,
         options: {
           emitWarning: true,

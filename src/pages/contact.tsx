@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 
-import Title from "components/title";
-import Content from "components/content";
-import { Contact } from "components/cards";
+import Title from "../components/title";
+import Content from "../components/content";
+import { Contact as ContactCard } from "../components/cards";
 
-import { LanguageContext } from "context";
+import { LanguageContext } from "../context";
 
-export default ({ data }) => {
+interface Props {}
+
+const Contact = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
 
   const { title, email, phone } = data[language].contact;
@@ -17,7 +19,7 @@ export default ({ data }) => {
       <Title>{title}</Title>
 
       <Content className="contact">
-        <Contact
+        <ContactCard
           icon="envelope"
           delay={520}
           permalink={email.value}
@@ -25,7 +27,7 @@ export default ({ data }) => {
           method="mailto"
         />
 
-        <Contact
+        <ContactCard
           icon="phone"
           delay={760}
           permalink={phone.value}
@@ -68,3 +70,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Contact;

@@ -3,13 +3,48 @@ import PropTypes from "prop-types";
 import Delay from "react-delay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import GraphImg from "graphcms-image";
 
 import "./project.scss";
 
-export const Project = ({ item, language, index }) => (
+interface Item {
+  date: string;
+  descriptionEn: string;
+  descriptionPl: string;
+  id: string;
+  image: {
+    handle: string;
+    height: number;
+    width: number;
+  };
+  liveLink: string;
+  srcLink: string;
+  technologies: [
+    {
+      id: string;
+      image: {
+        url: string;
+      };
+      name: string;
+    }
+  ];
+  title: string;
+}
+
+interface Props {
+  item: Item;
+  language: string;
+  index: number;
+}
+
+export const Project = ({ item, language, index }: Props) => (
   <Delay wait={(index + 1) * 190 + 280}>
     <div className="project__item">
-      <img src={item.image.url} alt={item.title} className="project__image" />
+      <GraphImg
+        image={item.image}
+        alt={item.title}
+        className="project__image"
+      />
 
       <div className="project__content">
         <section className="project__main">

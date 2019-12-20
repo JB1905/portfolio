@@ -6,7 +6,13 @@ import {
 } from "react-transition-group";
 import { useViewport } from "react-viewport-hooks";
 
-const Transition = ({ offset, children, location }) => {
+interface Props {
+  offset: boolean;
+  children: any;
+  location: any;
+}
+
+const Transition = ({ offset, children, location }: Props) => {
   const { vh } = useViewport();
 
   useEffect(() => {

@@ -2,7 +2,13 @@ import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 
-const Mobile = ({ link, toggle, title }) => (
+interface Props {
+  link: string;
+  toggle: () => void;
+  title: string;
+}
+
+const Mobile = ({ link, toggle, title }: Props) => (
   <li>
     <Link to={`${link}/`} activeClassName="active" onClick={toggle}>
       {title}

@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
-import Title from "components/title";
-import Content from "components/content";
-import { Project } from "components/cards";
+import Title from "../components/title";
+import Content from "../components/content";
+import { Project } from "../components/cards";
 
-import { LanguageContext } from "context";
+import { LanguageContext } from "../context";
 
-const Projects = ({ data }) => {
+interface Props {}
+
+const Projects = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
 
   const { title } = data[language].projects;
@@ -55,7 +57,9 @@ export const query = graphql`
         descriptionEn
         date
         image {
-          url
+          handle
+          width
+          height
         }
         technologies {
           id

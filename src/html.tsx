@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function HTML(props) {
+interface Props {}
+
+export default function HTML(props: Props) {
   return (
     <html {...props.htmlAttributes}>
       <head>

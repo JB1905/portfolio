@@ -5,12 +5,18 @@ import Mobile from "./item";
 
 import "./mobile.scss";
 
-const MobileMenu = ({ className, content, toggleMenu }) => (
+interface Props {
+  className: string;
+  content: any;
+  toggleMenu: () => void;
+}
+
+const MobileMenu = ({ className, content, toggleMenu }: Props) => (
   <ul className={`mobile ${className}`}>
-    {content.map((item, index) => (
+    {content.map((item, index: number) => (
       <Mobile
         key={index}
-        index={index}
+        // index={index}
         link={item.link}
         title={item.title}
         toggle={toggleMenu}

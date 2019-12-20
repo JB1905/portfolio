@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 
 import "./navbar.scss";
 
-const Bar = ({ children }) => (
+interface Props {}
+
+const Bar = ({ children }: Props) => (
   <nav className="navbar">
     <div>{children}</div>
   </nav>

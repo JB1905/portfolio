@@ -2,11 +2,12 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 
-import Icons from "components/icons";
-import { MenuSwitch } from "components/switch";
-import { LanguageContext } from "context";
+import Icons from "../icons";
+import { MenuSwitch } from "../switch";
 import DesktopMenu from "./desktop";
 import MobileMenu from "./mobile";
+
+import { LanguageContext } from "../../context";
 
 import "./menu.scss";
 

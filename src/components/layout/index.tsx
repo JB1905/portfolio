@@ -11,11 +11,12 @@ import {
   faEye
 } from "@fortawesome/free-solid-svg-icons";
 
-import { LanguageContext } from "context";
-import Menu from "components/menu";
-import Transition from "components/transition";
-import Background from "components/background";
-import SEO from "components/seo";
+import Menu from "../menu";
+import Transition from "../transition";
+import Background from "../background";
+import SEO from "../seo";
+
+import { LanguageContext } from "../../context";
 
 import "./global.scss";
 import "./animations.scss";
@@ -23,7 +24,9 @@ import "./layout.scss";
 
 library.add(faPhone, faEnvelope, faBars, faEye);
 
-const Layout = ({ children, location }) => {
+interface Props {}
+
+const Layout = ({ children, location }: Props) => {
   const [offset, setOffset] = useState(false);
   const [language, setLanguage] = useState(localStorage.language || `pl`);
 
@@ -44,6 +47,7 @@ const Layout = ({ children, location }) => {
           site {
             siteMetadata {
               author
+              description
             }
           }
         }
@@ -52,6 +56,8 @@ const Layout = ({ children, location }) => {
         <LanguageContext.Provider value={{ language, toggleLanguage }}>
           <SEO
             title={data.site.siteMetadata.author}
+            description={data.site.siteMetadata.description}
+            lang={language}
             keywords={[
               `front end`,
               `biesiada`,
@@ -60,7 +66,6 @@ const Layout = ({ children, location }) => {
               `developer`,
               `react`
             ]}
-            lang={language}
           />
 
           <Normalize />

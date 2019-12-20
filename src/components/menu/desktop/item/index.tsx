@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 
-const Desktop = ({ link, title }) => (
+interface Props {
+  link: string;
+  title: string;
+}
+
+const Desktop = ({ link, title }: Props) => (
   <li>
     <Link to={`${link}/`} activeClassName="active">
       {title}

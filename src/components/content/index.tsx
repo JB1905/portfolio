@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 
 import "./content.scss";
 
-const Content = ({ className, children }) => (
+interface Props {
+  className: string;
+}
+
+const Content = ({ className, children }: Props) => (
   <div className={`content ${className}`}>{children}</div>
 );
 

@@ -5,15 +5,17 @@ import { CSSTransition } from "react-transition-group";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
-import Title from "components/title";
-import Content from "components/content";
-import Paragraph from "components/paragraph";
+import Title from "../../components/title";
+import Content from "../../components/content";
+import Paragraph from "../../components/paragraph";
 
-import { LanguageContext } from "context";
+import { LanguageContext } from "../../context";
 
 import "./about.scss";
 
-const About = ({ data }) => {
+interface Props {}
+
+const About = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
 
   const { title, content } = data[language].about;
