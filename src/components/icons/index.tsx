@@ -6,7 +6,19 @@ import Item from "./item";
 
 import "./icons.scss";
 
-interface Props {}
+interface Props {
+  data: {
+    icons: [
+      {
+        id: number;
+        url: string;
+        image: {
+          url: string;
+        };
+      }
+    ];
+  };
+}
 
 const Icons = () => (
   <StaticQuery

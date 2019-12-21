@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, ReactChild } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Normalize from "react-normalize";
 import localStorage from "localStorage";
@@ -24,7 +23,10 @@ import "./layout.scss";
 
 library.add(faPhone, faEnvelope, faBars, faEye);
 
-interface Props {}
+interface Props {
+  children: ReactChild | ReactChild[];
+  location: Location;
+}
 
 const Layout = ({ children, location }: Props) => {
   const [offset, setOffset] = useState(false);
@@ -81,11 +83,6 @@ const Layout = ({ children, location }: Props) => {
       )}
     />
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  location: PropTypes.object.isRequired
 };
 
 export default Layout;

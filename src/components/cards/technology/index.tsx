@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Delay from "react-delay";
 
 import "./technology.scss";
@@ -17,9 +16,3 @@ export const Technology = ({ image, name, index }: Props) => (
     </div>
   </Delay>
 );
-
-Technology.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired
-};

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Title from "../components/title";
@@ -8,7 +7,47 @@ import { Project } from "../components/cards";
 
 import { LanguageContext } from "../context";
 
-interface Props {}
+interface Item {
+  date: string;
+  descriptionEn: string;
+  descriptionPl: string;
+  id: string;
+  image: {
+    handle: string;
+    height: number;
+    width: number;
+  };
+  liveLink: string;
+  srcLink: string;
+  technologies: [
+    {
+      id: string;
+      image: {
+        url: string;
+      };
+      name: string;
+    }
+  ];
+  title: string;
+}
+
+interface Props {
+  data: {
+    pl: {
+      projects: {
+        title: string;
+      };
+    };
+    en: {
+      projects: {
+        title: string;
+      };
+    };
+    graphCmsData: {
+      projects: Item[];
+    };
+  };
+}
 
 const Projects = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
@@ -72,9 +111,5 @@ export const query = graphql`
     }
   }
 `;
-
-Projects.propTypes = {
-  data: PropTypes.object.isRequired
-};
 
 export default Projects;

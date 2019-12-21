@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { StaticQuery, graphql } from "gatsby";
-import PropTypes from "prop-types";
 
 import Icons from "../icons";
 import { MenuSwitch } from "../switch";
@@ -11,8 +10,12 @@ import { LanguageContext } from "../../context";
 
 import "./menu.scss";
 
-const Menu = ({ offset }) => {
-  const ref = useRef();
+interface Props {
+  offset: (value: boolean) => void;
+}
+
+const Menu = ({ offset }: Props) => {
+  const ref = useRef<any>();
 
   const { language } = useContext(LanguageContext);
 
@@ -91,10 +94,6 @@ const Menu = ({ offset }) => {
       )}
     />
   );
-};
-
-Menu.propTypes = {
-  offset: PropTypes.func.isRequired
 };
 
 export default Menu;

@@ -1,9 +1,9 @@
 import React from "react";
 
 export const LanguageContext = React.createContext<{
-  language: string;
+  language: "pl" | "en";
   toggleLanguage: () => void;
 }>({
-  language: "",
+  language: "en",
   toggleLanguage: () => null
 });

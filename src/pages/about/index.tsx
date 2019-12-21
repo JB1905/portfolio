@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import Delay from "react-delay";
 import { CSSTransition } from "react-transition-group";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import Img, { FluidObject } from "gatsby-image";
 
 import Title from "../../components/title";
 import Content from "../../components/content";
@@ -13,7 +12,27 @@ import { LanguageContext } from "../../context";
 
 import "./about.scss";
 
-interface Props {}
+interface Props {
+  data: {
+    image: {
+      childImageSharp: {
+        fluid: FluidObject | FluidObject[];
+      };
+    };
+    pl: {
+      about: {
+        title: string;
+        content: string[];
+      };
+    };
+    en: {
+      about: {
+        title: string;
+        content: string[];
+      };
+    };
+  };
+}
 
 const About = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
@@ -36,7 +55,7 @@ const About = ({ data }: Props) => {
         </div>
 
         <div className="content__container">
-          {content.map((item, index) => (
+          {content.map((item: string, index: number) => (
             <Paragraph key={index} content={item} index={index} />
           ))}
         </div>
@@ -70,9 +89,5 @@ export const query = graphql`
     }
   }
 `;
-
-About.propTypes = {
-  data: PropTypes.object.isRequired
-};
 
 export default About;

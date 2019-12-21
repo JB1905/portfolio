@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Delay from "react-delay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -29,11 +28,3 @@ export const Contact = ({ delay, icon, title, method, permalink }: Props) => (
     </div>
   </Delay>
 );
-
-Contact.propTypes = {
-  delay: PropTypes.number.isRequired,
-  icon: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  method: PropTypes.string.isRequired,
-  permalink: PropTypes.string.isRequired
-};

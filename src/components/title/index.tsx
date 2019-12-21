@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect, ReactChild } from "react";
 import Delay from "react-delay";
 
 import "./title.scss";
 
-interface Props {}
+interface Props {
+  children: ReactChild | ReactChild[];
+}
 
 const Title = ({ children }: Props) => {
   const [opacity, setOpacity] = useState(1);
@@ -43,10 +44,6 @@ const Title = ({ children }: Props) => {
       </h2>
     </Delay>
   );
-};
-
-Title.propTypes = {
-  children: PropTypes.node.isRequired
 };
 
 export default Title;

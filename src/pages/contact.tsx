@@ -7,7 +7,36 @@ import { Contact as ContactCard } from "../components/cards";
 
 import { LanguageContext } from "../context";
 
-interface Props {}
+interface Props {
+  data: {
+    pl: {
+      contact: {
+        title: string;
+        email: {
+          name: string;
+          value: string;
+        };
+        phone: {
+          name: string;
+          value: string;
+        };
+      };
+    };
+    en: {
+      contact: {
+        title: string;
+        email: {
+          name: string;
+          value: string;
+        };
+        phone: {
+          name: string;
+          value: string;
+        };
+      };
+    };
+  };
+}
 
 const Contact = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);

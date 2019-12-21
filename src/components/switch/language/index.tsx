@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Delay from "react-delay";
 
-import { LanguageContext } from "context";
+import { LanguageContext } from "../../../context";
 
 import "./language.scss";
 

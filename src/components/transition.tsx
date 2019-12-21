@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, ReactChild } from "react";
 import {
   TransitionGroup,
   Transition as ReactTransition
@@ -8,8 +7,8 @@ import { useViewport } from "react-viewport-hooks";
 
 interface Props {
   offset: boolean;
-  children: any;
-  location: any;
+  children: ReactChild | ReactChild[];
+  location: Location;
 }
 
 const Transition = ({ offset, children, location }: Props) => {
@@ -23,7 +22,7 @@ const Transition = ({ offset, children, location }: Props) => {
 
   const timeout = 250;
 
-  const getTransitionStyles = {
+  const getTransitionStyles: any = {
     entering: {
       position: `absolute`,
       opacity: 0
@@ -59,12 +58,6 @@ const Transition = ({ offset, children, location }: Props) => {
       </ReactTransition>
     </TransitionGroup>
   );
-};
-
-Transition.propTypes = {
-  offset: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  location: PropTypes.object.isRequired
 };
 
 export default Transition;

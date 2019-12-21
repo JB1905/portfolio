@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Title from "../components/title";
@@ -8,7 +7,31 @@ import { Technology } from "../components/cards";
 
 import { LanguageContext } from "../context";
 
-interface Props {}
+interface Props {
+  data: {
+    pl: {
+      technologies: {
+        title: string;
+      };
+    };
+    en: {
+      technologies: {
+        title: string;
+      };
+    };
+    graphCmsData: {
+      technologies: [
+        {
+          id: number;
+          name: string;
+          image: {
+            url: string;
+          };
+        }
+      ];
+    };
+  };
+}
 
 const Technologies = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
@@ -40,11 +63,13 @@ export const query = graphql`
         title
       }
     }
+
     en: languagesJson(lang: { eq: "en" }) {
       technologies {
         title
       }
     }
+
     graphCmsData {
       technologies(where: { status: PUBLISHED }) {
         id
@@ -56,9 +81,5 @@ export const query = graphql`
     }
   }
 `;
-
-Technologies.propTypes = {
-  data: PropTypes.object.isRequired
-};
 
 export default Technologies;

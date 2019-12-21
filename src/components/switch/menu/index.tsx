@@ -1,11 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Delay from "react-delay";
 
 import "./menu.scss";
 
-const Menu = ({ onClick }) => (
+interface Props {
+  onClick: () => void;
+}
+
+const Menu = ({ onClick }: Props) => (
   <Delay wait={200}>
     <button
       type="button"
@@ -17,9 +20,5 @@ const Menu = ({ onClick }) => (
     </button>
   </Delay>
 );
-
-Menu.propTypes = {
-  onClick: PropTypes.func.isRequired
-};
 
 export default Menu;

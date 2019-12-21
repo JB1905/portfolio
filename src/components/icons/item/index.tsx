@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Delay from "react-delay";
 
 import "./icon.scss";
@@ -7,7 +6,9 @@ import "./icon.scss";
 interface Props {
   item: {
     url: string;
-    image: any;
+    image: {
+      url: string;
+    };
   };
   index: number;
 }
@@ -19,14 +20,5 @@ const Item = ({ item: { url, image }, index }: Props) => (
     </a>
   </Delay>
 );
-
-Item.propTypes = {
-  item: PropTypes.shape({
-    url: PropTypes.string,
-    image: PropTypes.object
-    // title: PropTypes.string
-  }).isRequired,
-  index: PropTypes.number.isRequired
-};
 
 export default Item;

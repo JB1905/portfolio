@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Delay from "react-delay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -88,9 +87,3 @@ export const Project = ({ item, language, index }: Props) => (
     </div>
   </Delay>
 );
-
-Project.propTypes = {
-  item: PropTypes.object.isRequired,
-  language: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired
-};

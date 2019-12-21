@@ -1,23 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactChild } from "react";
 
 import "./content.scss";
 
 interface Props {
   className: string;
+  children: ReactChild | ReactChild[];
 }
 
-const Content = ({ className, children }: Props) => (
+const Content = ({ className = "", children }: Props) => (
   <div className={`content ${className}`}>{children}</div>
 );
-
-Content.defaultProps = {
-  className: ``
-};
-
-Content.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired
-};
 
 export default Content;

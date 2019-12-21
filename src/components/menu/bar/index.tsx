@@ -1,18 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactChild } from "react";
 
 import "./navbar.scss";
 
-interface Props {}
+interface Props {
+  children: ReactChild | ReactChild[];
+}
 
 const Bar = ({ children }: Props) => (
   <nav className="navbar">
     <div>{children}</div>
   </nav>
 );
-
-Bar.propTypes = {
-  children: PropTypes.node.isRequired
-};
 
 export default Bar;

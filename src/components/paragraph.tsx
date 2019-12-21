@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Delay from "react-delay";
 
 interface Props {
@@ -12,10 +11,5 @@ const Paragraph = ({ content, index }: Props) => (
     <p>{content}</p>
   </Delay>
 );
-
-Paragraph.propTypes = {
-  content: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired
-};
 
 export default Paragraph;
