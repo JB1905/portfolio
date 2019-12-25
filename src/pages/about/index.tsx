@@ -48,7 +48,7 @@ const About = ({ data }: Props) => {
           <Delay wait={520}>
             <figure>
               <CSSTransition in appear timeout={1000} classNames="image">
-                <Img fluid={data.image.childImageSharp.fluid} />
+                {data.image && <Img fluid={data.image.childImageSharp.fluid} />}
               </CSSTransition>
             </figure>
           </Delay>
