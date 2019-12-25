@@ -5,10 +5,11 @@ before_script:
 
 node_js:
   - "10"
-  
+
 deploy:
   provider: script
   script: yarn install && yarn run deploy
+  github-token: $GITHUB_TOKEN
   skip_cleanup: true
   on:
     branch: master
