@@ -12,7 +12,8 @@
     "prettier": "prettier --write 'src/**/*.{tsx,ts,scss}'",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint 'src/**/*.ts'",
-    "stylelint": "stylelint 'src/**/*.scss' --fix"
+    "stylelint": "stylelint 'src/**/*.scss' --fix",
+    "test": "echo 'Run your tests here'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
