@@ -25,15 +25,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-root-import`,
-      options: {
-        components: path.join(__dirname, `src/components`),
-        context: path.join(__dirname, `src/context`),
-        pages: path.join(__dirname, `src/pages`),
-        src: path.join(__dirname, `src`)
-      }
-    },
-    {
       resolve: `gatsby-source-graphql`,
       options: {
         typeName: `GRAPHCMS`,
