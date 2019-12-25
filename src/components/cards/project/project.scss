@@ -1,13 +1,12 @@
 .project {
   &__image {
-    top: 0;
     opacity: 1;
     font-size: 0;
     cursor: pointer;
+    position: absolute;
     border: 3px solid var(--white);
     transition: opacity 300ms ease-in-out;
     border-radius: 6px;
-    position: absolute;
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -40,6 +39,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+
+    > div {
+      top: 0;
+      position: absolute !important;
+      height: 100%;
+      width: 100%;
+    }
 
     &:hover {
       box-shadow: 0 0 3px #0005;

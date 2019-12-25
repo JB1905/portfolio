@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
@@ -9,6 +9,7 @@ module.exports = {
   },
   pathPrefix: `/portfolio`,
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -21,15 +22,6 @@ module.exports = {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: `${__dirname}/src/components/layout`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-root-import`,
-      options: {
-        components: path.join(__dirname, `src/components`),
-        context: path.join(__dirname, `src/context`),
-        pages: path.join(__dirname, `src/pages`),
-        src: path.join(__dirname, `src`)
       }
     },
     {
@@ -49,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
-        test: path.join(`${__dirname}/src/**/*.js`),
+        test: path.join(`${__dirname}/src/**/*.{tsx,ts}`),
         exclude: /(node_modules|cache|public)/,
         options: {
           emitWarning: true,
@@ -57,10 +49,10 @@ module.exports = {
         }
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-stylelint`,
-    //   options: { files: [`src/**/*.scss`] }
-    // },
+    {
+      resolve: `gatsby-plugin-stylelint`,
+      options: { files: [`src/**/*.scss`] }
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
