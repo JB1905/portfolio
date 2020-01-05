@@ -2,6 +2,7 @@
   width: 42px;
   height: 42px;
   padding: 0;
+  top: 13px;
   cursor: pointer;
   color: var(--white);
   border-radius: 50%;
@@ -11,7 +12,6 @@
   margin-right: env(safe-area-inset-right);
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
-  top: calc(13px);
   animation: bounce-in 400ms ease-in-out;
   display: flex;
   align-items: center;
