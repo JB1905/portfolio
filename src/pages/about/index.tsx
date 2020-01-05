@@ -34,7 +34,7 @@ interface Props {
   };
 }
 
-const About = ({ data }: any) => {
+const About = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
 
   const { title, content } = data[language].about;
