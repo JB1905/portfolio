@@ -16,7 +16,7 @@ interface Props {
   data: {
     image: {
       childImageSharp: {
-        fluid: FluidObject | FluidObject[];
+        fluid: FluidObject;
       };
     };
     pl: {
