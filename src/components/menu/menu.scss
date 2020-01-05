@@ -1,20 +1,17 @@
 header {
   height: 76px;
   z-index: 10;
-  position: sticky;
   width: 100%;
-  top: env(safe-area-inset-top);
-  margin: 0 auto;
-  padding: 0 14px 8px;
-  max-width: 1240px;
   display: flex;
   align-items: center;
+  margin: env(safe-area-inset-top) auto 0;
+  padding: 0 14px 8px;
+  max-width: 1240px;
+  position: relative;
 
   @mixin notch($padding) {
-    @supports (padding-left: env(safe-area-inset-left)) {
-      padding-left: calc(#{$padding} + env(safe-area-inset-left));
-      padding-right: calc(#{$padding} + env(safe-area-inset-right));
-    }
+    padding-left: calc(#{$padding} + env(safe-area-inset-left));
+    padding-right: calc(#{$padding} + env(safe-area-inset-right));
   }
 
   @include notch(14px);

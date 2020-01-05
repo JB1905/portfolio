@@ -12,6 +12,7 @@ import {
 
 import Menu from "../menu";
 import Transition from "../transition";
+import MobileMenu from "../menu/mobile";
 import Background from "../background";
 import SEO from "../seo";
 

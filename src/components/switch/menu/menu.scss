@@ -11,13 +11,13 @@
   margin-right: env(safe-area-inset-right);
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   transition: box-shadow 100ms ease-in, transform 100ms ease-in;
+  top: calc(13px);
   animation: bounce-in 400ms ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   right: 14px;
-  top: 13px;
 
   &:active {
     box-shadow: 0 0 3px #0005;
