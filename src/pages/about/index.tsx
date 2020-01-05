@@ -14,11 +14,7 @@ import "./about.scss";
 
 interface Props {
   data: {
-    image: {
-      childImageSharp: {
-        fluid: FluidObject | FluidObject[];
-      };
-    };
+    image: any;
     pl: {
       about: {
         title: string;
@@ -44,15 +40,15 @@ const About = ({ data }: Props) => {
       <Title>{title}</Title>
 
       <Content className="about">
-        {/* <div className="image__container">
+        <div className="image__container">
           <Delay wait={520}>
             <figure>
               <CSSTransition in appear timeout={1000} classNames="image">
-                {data.image && <Img fluid={data.image.childImageSharp.fluid} />}
+                <Img fluid={data.image.childImageSharp.fluid} />
               </CSSTransition>
             </figure>
           </Delay>
-        </div> */}
+        </div>
 
         <div className="content__container">
           {content.map((item: string, index: number) => (
