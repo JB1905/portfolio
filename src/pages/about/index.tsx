@@ -14,7 +14,11 @@ import "./about.scss";
 
 interface Props {
   data: {
-    image: any;
+    image: {
+      childImageSharp: {
+        fluid: FluidObject | FluidObject[];
+      };
+    };
     pl: {
       about: {
         title: string;
@@ -30,7 +34,7 @@ interface Props {
   };
 }
 
-const About = ({ data }: Props) => {
+const About = ({ data }: any) => {
   const { language } = useContext(LanguageContext);
 
   const { title, content } = data[language].about;
@@ -44,7 +48,7 @@ const About = ({ data }: Props) => {
           <Delay wait={520}>
             <figure>
               <CSSTransition in appear timeout={1000} classNames="image">
-                <Img fluid={data.image.childImageSharp.fluid} />
+                {data.image && <Img fluid={data.image.childImageSharp.fluid} />}
               </CSSTransition>
             </figure>
           </Delay>
