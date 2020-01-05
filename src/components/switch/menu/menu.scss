@@ -2,6 +2,7 @@
   width: 42px;
   height: 42px;
   padding: 0;
+  top: 13px;
   cursor: pointer;
   color: var(--white);
   border-radius: 50%;
@@ -17,7 +18,6 @@
   justify-content: center;
   position: absolute;
   right: 14px;
-  top: 13px;
 
   &:active {
     box-shadow: 0 0 3px #0005;
