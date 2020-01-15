@@ -1665,10 +1665,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.0.tgz#225cbaac5fdb2b9ac651b02c070d8aa3c37cc812"
   integrity sha512-zwrxviZS08kRX40nqBrmERElF2vpw4IUTd5khkhBTfFH8AOaeoLVx48EC4+ZzS2/Iga7NevncqnsUSYjM4OWYA==
 
-"@types/node@^13.1.6":
-  version "13.1.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.6.tgz#076028d0b0400be8105b89a0a55550c86684ffec"
-  integrity sha512-Jg1F+bmxcpENHP23sVKkNuU3uaxPnsBMW0cLjleiikFKomJQbsn0Cqk2yDvQArqzZN6ABfBkZ0To7pQ8sLdWDg==
+"@types/node@^13.1.7":
+  version "13.1.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.7.tgz#db51d28b8dfacfe4fb2d0da88f5eb0a2eca00675"
+  integrity sha512-HU0q9GXazqiKwviVxg9SI/+t/nAsGkvLDkIdxz+ObejG2nX6Si00TeLqHMoS+a/1tjH7a8YpKVQwtgHuMQsldg==
 
 "@types/node@^7.0.11":
   version "7.10.9"
@@ -6280,10 +6280,10 @@ gatsby-plugin-manifest@^2.2.37:
     semver "^5.7.1"
     sharp "^0.23.4"
 
-gatsby-plugin-offline@^3.0.31:
-  version "3.0.31"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.0.31.tgz#bf72635ab1fad91bee9d1dde171ca063eb4ab348"
-  integrity sha512-e463Qxbh97lkuiD2Qw4UN0xiZMKUBMAksJ4KJWpkyAEJSPEnZtHBncRRsK5vZUeiSHElEiQo9/Wq9xXVT17I9Q==
+gatsby-plugin-offline@^3.0.32:
+  version "3.0.32"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.0.32.tgz#9907421e7359f79b22da7f654c4a69749cf136c5"
+  integrity sha512-TPVRhD4LaVcCLBMzdbPUZr4bb+dv1h/HMn7ryFozFafYJ1p7XuKv2VHtqNYpfL1UKiZnWIJmEWXxfcWszLoC4w==
   dependencies:
     "@babel/runtime" "^7.7.6"
     cheerio "^1.0.0-rc.3"
