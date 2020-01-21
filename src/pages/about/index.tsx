@@ -37,6 +37,8 @@ interface Props {
 const About = ({ data }: Props) => {
   const { language } = useContext(LanguageContext);
 
+  console.log(data);
+
   const { title, content } = data[language].about;
 
   return (
