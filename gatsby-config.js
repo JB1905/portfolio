@@ -5,9 +5,8 @@ module.exports = {
     title: `Portfolio`,
     description: `JavaScript Developer Portfolio`,
     author: `Jakub Biesiada`,
-    siteUrl: `https://jb1905.github.io`
+    siteUrl: `https://jb1905.github.io/portfolio`
   },
-  pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
