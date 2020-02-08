@@ -11674,10 +11674,10 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-viewport-hooks@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-viewport-hooks/-/react-viewport-hooks-1.1.1.tgz#a9c5dc554483237a1f3b96e098e44ece08014730"
-  integrity sha512-jjWXw1Isng5COKhLRtLrf9FZNKrdWd9mRgXg7fa9nBlQaH/t7R7Ypa++vO9mjfnzgMWPMeSCbtY8LYOBbOe6TQ==
+react-viewport-hooks@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-viewport-hooks/-/react-viewport-hooks-1.1.2.tgz#4241c8298752925bcaed303153fe307a9a15efdb"
+  integrity sha512-SjL7Rt2i630Ou5uoKEIjZWxCnNiDX5AFmeVvm62ZpkQWG6P++1ycCaKdODyC/Ds2ZIWz8JMKqVAPGLkdAQ08Mg==
 
 react@15:
   version "15.6.2"
