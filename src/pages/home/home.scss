@@ -29,7 +29,7 @@
       will-change: transform, opacity;
 
       &-active {
-        animation: falcon-landing 500ms ease-in-out 280ms;
+        animation: falcon-landing 500ms ease-in-out;
         animation-fill-mode: forwards;
       }
     }
@@ -39,7 +39,7 @@
       will-change: transform, opacity;
 
       &-active {
-        animation: fade-in 400ms ease-in-out 580ms;
+        animation: fade-in 400ms ease-in-out 300ms;
         animation-fill-mode: forwards;
       }
     }
