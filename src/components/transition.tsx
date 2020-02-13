@@ -1,41 +1,34 @@
-import React, { useEffect, ReactChild } from "react";
+import React, { useEffect } from "react";
 import {
   TransitionGroup,
   Transition as ReactTransition
 } from "react-transition-group";
 import { useViewport } from "react-viewport-hooks";
 
-interface Props {
-  offset: boolean;
-  children: ReactChild | ReactChild[];
+import { useMenu } from "../hooks/useMenu";
+import { useRouterTransition } from "../hooks/useRouterTransition";
+
+import { WrapperProps } from "../interfaces/WrapperProps";
+
+interface Props extends WrapperProps {
   location: Location;
 }
 
-const Transition = ({ offset, children, location }: Props) => {
+const Transition = ({ children, location }: Props) => {
   const { vh } = useViewport();
+
+  const {
+    offset
+    // isMobile, language , closeMenu, isOpen
+  } = useMenu();
+
+  const { timeout, getTransitionStyles } = useRouterTransition();
 
   useEffect(() => {
     const { matches } = window.matchMedia(`(display-mode: standalone)`);
 
     document.body.style.setProperty(`--vh`, matches ? `100vh` : `${vh}px`);
   }, [vh]);
-
-  const timeout = 250;
-
-  const getTransitionStyles: any = {
-    entering: {
-      position: `absolute`,
-      opacity: 0
-    },
-    entered: {
-      transition: `opacity ${timeout}ms ease`,
-      opacity: 1
-    },
-    exiting: {
-      transition: `all ${timeout}ms ease`,
-      opacity: 0
-    }
-  };
 
   return (
     <TransitionGroup className={`layout ${offset ? `hidden` : ``}`}>
@@ -56,6 +49,12 @@ const Transition = ({ offset, children, location }: Props) => {
           </main>
         )}
       </ReactTransition>
+
+      {/* <MobileMenu
+        className={`${isMobile ? `` : `hidden`} ${isOpen ? `opened` : ``}`}
+        content={data[language].menu}
+        toggleMenu={closeMenu}
+      /> */}
     </TransitionGroup>
   );
 };

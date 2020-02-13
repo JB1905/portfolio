@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
 import "./background.scss";
+import { useBackgroundPosition } from "../../hooks/useBackgroundPosition";
 
 const Background = () => {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      setPos({
-        x: -(e.clientX - window.innerWidth / 2) / 30,
-        y: -(e.clientY - window.innerHeight / 2) / 30
-      });
-    };
-
-    window.addEventListener("mousemove", onMouseMove);
-
-    return () => window.removeEventListener("mousemove", onMouseMove);
-  }, []);
+  const { pos } = useBackgroundPosition();
 
   return (
     <StaticQuery

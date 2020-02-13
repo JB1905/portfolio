@@ -1,7 +1,6 @@
-import React, { useState, ReactChild } from "react";
+import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Normalize from "react-normalize";
-import localStorage from "localStorage";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faPhone,
@@ -15,7 +14,10 @@ import Transition from "../transition";
 import Background from "../background";
 import SEO from "../seo";
 
-import { LanguageContext } from "../../context";
+import { LanguageProvider } from "../../providers/LanguageContext";
+import { MenuProvider } from "../../providers/MenuContext";
+
+import { WrapperProps } from "../../interfaces/WrapperProps";
 
 import "./global.scss";
 import "./animations.scss";
@@ -23,43 +25,28 @@ import "./layout.scss";
 
 library.add(faPhone, faEnvelope, faBars, faEye);
 
-interface Props {
-  children: ReactChild | ReactChild[];
+interface Props extends WrapperProps {
   location: Location;
 }
 
-const Layout = ({ children, location }: Props) => {
-  const [offset, setOffset] = useState(false);
-  const [language, setLanguage] = useState(localStorage.language || `pl`);
-
-  const toggleLanguage = () => {
-    if (language === `pl`) {
-      localStorage.setItem(`language`, `en`);
-      setLanguage(`en`);
-    } else {
-      localStorage.setItem(`language`, `pl`);
-      setLanguage(`pl`);
-    }
-  };
-
-  return (
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
-              author
-              description
-            }
+const Layout = ({ children, location }: Props) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            author
+            description
           }
         }
-      `}
-      render={data => (
-        <LanguageContext.Provider value={{ language, toggleLanguage }}>
+      }
+    `}
+    render={data => (
+      <LanguageProvider>
+        <MenuProvider>
           <SEO
             title={data.site.siteMetadata.author}
             description={data.site.siteMetadata.description}
-            lang={language}
             keywords={[
               `front end`,
               `biesiada`,
@@ -72,17 +59,15 @@ const Layout = ({ children, location }: Props) => {
 
           <Normalize />
 
-          <Menu offset={ifOffset => setOffset(ifOffset)} />
+          <Menu />
 
-          <Transition location={location} offset={offset}>
-            {children}
-          </Transition>
+          <Transition location={location}>{children}</Transition>
 
           <Background />
-        </LanguageContext.Provider>
-      )}
-    />
-  );
-};
+        </MenuProvider>
+      </LanguageProvider>
+    )}
+  />
+);
 
 export default Layout;

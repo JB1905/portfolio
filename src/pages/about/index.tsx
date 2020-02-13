@@ -8,7 +8,7 @@ import Title from "../../components/title";
 import Content from "../../components/content";
 import Paragraph from "../../components/paragraph";
 
-import { LanguageContext } from "../../context";
+import { LanguageContext } from "../../providers/LanguageContext";
 
 import "./about.scss";
 

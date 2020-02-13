@@ -1,13 +1,14 @@
-import React, { ReactChild } from "react";
+import React from "react";
+
+import { WrapperProps } from "../../interfaces/WrapperProps";
 
 import "./content.scss";
 
-interface Props {
+interface Props extends WrapperProps {
   className: string;
-  children: ReactChild | ReactChild[];
 }
 
-const Content = ({ className = "", children }: Props) => (
+const Content = ({ children, className = "" }: Props) => (
   <div className={`content ${className}`}>{children}</div>
 );
 

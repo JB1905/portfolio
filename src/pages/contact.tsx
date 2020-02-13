@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 
 import Title from "../components/title";
 import Content from "../components/content";
 import { Contact as ContactCard } from "../components/cards";
 
-import { LanguageContext } from "../context";
+import { useLanguages } from "../hooks/useLanguages";
 
 interface Props {
   data: {
@@ -39,7 +39,7 @@ interface Props {
 }
 
 const Contact = ({ data }: Props) => {
-  const { language } = useContext(LanguageContext);
+  const { language } = useLanguages();
 
   const { title, email, phone } = data[language].contact;
 

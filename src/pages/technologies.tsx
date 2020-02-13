@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 
 import Title from "../components/title";
 import Content from "../components/content";
 import { Technology } from "../components/cards";
 
-import { LanguageContext } from "../context";
+import { useLanguages } from "../hooks/useLanguages";
 
 interface Props {
   data: {
@@ -34,7 +34,7 @@ interface Props {
 }
 
 const Technologies = ({ data }: Props) => {
-  const { language } = useContext(LanguageContext);
+  const { language } = useLanguages();
 
   const { title } = data[language].technologies;
 

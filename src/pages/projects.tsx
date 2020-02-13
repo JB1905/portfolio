@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 
 import Title from "../components/title";
 import Content from "../components/content";
 import { Project } from "../components/cards";
 
-import { LanguageContext } from "../context";
+import { useLanguages } from "../hooks/useLanguages";
 
 interface Item {
   date: string;
@@ -50,7 +50,7 @@ interface Props {
 }
 
 const Projects = ({ data }: Props) => {
-  const { language } = useContext(LanguageContext);
+  const { language } = useLanguages();
 
   const { title } = data[language].projects;
 
