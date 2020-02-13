@@ -48,12 +48,12 @@ const Layout = ({ children, location }: Props) => (
             title={data.site.siteMetadata.author}
             description={data.site.siteMetadata.description}
             keywords={[
-              `front end`,
-              `biesiada`,
-              `jakub`,
-              `javascript`,
-              `developer`,
-              `react`
+              "front end",
+              "biesiada",
+              "jakub",
+              "javascript",
+              "developer",
+              "react"
             ]}
           />
 

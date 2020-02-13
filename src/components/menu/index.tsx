@@ -41,7 +41,7 @@ const Menu = () => {
 
             <nav className="nav" ref={ref}>
               <DesktopMenu
-                className={`${isMobile ? `hidden` : ``}`}
+                className={`${isMobile ? "hidden" : ""}`}
                 content={data[language].menu}
               />
 
@@ -50,7 +50,7 @@ const Menu = () => {
           </header>
 
           <MobileMenu
-            className={`${isMobile ? `` : `hidden`} ${isOpen ? `opened` : ``}`}
+            className={`${isMobile ? "" : "hidden"} ${isOpen ? "opened" : ""}`}
             content={data[language].menu}
             toggleMenu={closeMenu}
           />

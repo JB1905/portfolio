@@ -3,7 +3,7 @@ export const useRouterTransition = () => {
 
   const getTransitionStyles: any = {
     entering: {
-      position: `absolute`,
+      position: "absolute",
       opacity: 0
     },
     entered: {

@@ -22,13 +22,13 @@ const Transition = ({ children, location }: Props) => {
   const { timeout, getTransitionStyles } = useRouterTransition();
 
   useEffect(() => {
-    const { matches } = window.matchMedia(`(display-mode: standalone)`);
+    const { matches } = window.matchMedia("(display-mode: standalone)");
 
-    document.body.style.setProperty(`--vh`, matches ? `100vh` : `${vh}px`);
+    document.body.style.setProperty("--vh", matches ? "100vh" : `${vh}px`);
   }, [vh]);
 
   return (
-    <TransitionGroup className={`layout ${offset ? `hidden` : ``}`}>
+    <TransitionGroup className={`layout ${offset ? "hidden" : ""}`}>
       <ReactTransition
         key={location.pathname}
         timeout={{ enter: timeout, exit: timeout }}

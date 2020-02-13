@@ -6,4 +6,4 @@ declare global {
   }
 }
 
-export default () => (global.location = `/`);
+export default () => (global.location = "/");

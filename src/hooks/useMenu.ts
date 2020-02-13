@@ -42,9 +42,9 @@ export const useMenu = () => {
 
     onResize();
 
-    window.addEventListener(`resize`, onResize);
+    window.addEventListener("resize", onResize);
 
-    return () => window.removeEventListener(`resize`, onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, [isOpen, language, offset]);
 
   return {

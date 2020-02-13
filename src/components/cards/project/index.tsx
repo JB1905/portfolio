@@ -54,7 +54,7 @@ export const Project = ({ item, language, index }: Props) => (
           </div>
 
           <p className="project__description">
-            {language === `pl` ? item.descriptionPl : item.descriptionEn}
+            {language === "pl" ? item.descriptionPl : item.descriptionEn}
           </p>
         </section>
 

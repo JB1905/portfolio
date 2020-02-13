@@ -13,7 +13,7 @@ export const LanguageContext = React.createContext<{
 
 export const LanguageProvider = ({ children }: WrapperProps) => {
   const [language, setLanguage] = useState<"pl" | "en">(
-    localStorage.language || `pl`
+    localStorage.language || "pl"
   );
 
   return (

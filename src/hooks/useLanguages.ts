@@ -7,12 +7,12 @@ export const useLanguages = () => {
   const { language, setLanguage } = useContext(LanguageContext);
 
   const toggleLanguage = () => {
-    if (language === `pl`) {
-      localStorage.setItem(`language`, `en`);
-      setLanguage(`en`);
+    if (language === "pl") {
+      localStorage.setItem("language", "en");
+      setLanguage("en");
     } else {
-      localStorage.setItem(`language`, `pl`);
-      setLanguage(`pl`);
+      localStorage.setItem("language", "pl");
+      setLanguage("pl");
     }
   };
 
