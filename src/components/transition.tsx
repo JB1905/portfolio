@@ -17,10 +17,7 @@ interface Props extends WrapperProps {
 const Transition = ({ children, location }: Props) => {
   const { vh } = useViewport();
 
-  const {
-    offset
-    // isMobile, language , closeMenu, isOpen
-  } = useMenu();
+  const { offset } = useMenu();
 
   const { timeout, getTransitionStyles } = useRouterTransition();
 
@@ -34,27 +31,12 @@ const Transition = ({ children, location }: Props) => {
     <TransitionGroup className={`layout ${offset ? `hidden` : ``}`}>
       <ReactTransition
         key={location.pathname}
-        timeout={{
-          enter: timeout,
-          exit: timeout
-        }}
+        timeout={{ enter: timeout, exit: timeout }}
       >
         {status => (
-          <main
-            style={{
-              ...getTransitionStyles[status]
-            }}
-          >
-            {children}
-          </main>
+          <main style={{ ...getTransitionStyles[status] }}>{children}</main>
         )}
       </ReactTransition>
-
-      {/* <MobileMenu
-        className={`${isMobile ? `` : `hidden`} ${isOpen ? `opened` : ``}`}
-        content={data[language].menu}
-        toggleMenu={closeMenu}
-      /> */}
     </TransitionGroup>
   );
 };

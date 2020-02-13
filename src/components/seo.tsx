@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+
 import { useLanguages } from "../hooks/useLanguages";
 
 const detailsQuery = graphql`
