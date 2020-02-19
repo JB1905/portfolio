@@ -48,8 +48,8 @@
     "react-viewport-hooks": "^1.2.1"
   },
   "devDependencies": {
-    "@types/node": "^13.7.1",
-    "@types/react": "^16.9.19",
+    "@types/node": "^13.7.2",
+    "@types/react": "^16.9.20",
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
     "@types/react-transition-group": "^4.2.3",
