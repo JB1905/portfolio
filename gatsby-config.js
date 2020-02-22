@@ -66,15 +66,10 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-robots-txt`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            subsets: [`latin`, `latin-ext`],
-            variants: [`400`, `500`, `700`, `900`]
-          }
-        ]
+        fonts: [`roboto:400,500,700,900`],
+        display: 'swap'
       }
     },
     {
