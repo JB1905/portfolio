@@ -20,7 +20,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "gatsby": "2.19.21",
+    "gatsby": "2.19.22",
     "gatsby-image": "^2.2.41",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -48,8 +48,8 @@
     "react-viewport-hooks": "^1.2.2"
   },
   "devDependencies": {
-    "@types/node": "^13.7.4",
-    "@types/react": "^16.9.22",
+    "@types/node": "^13.7.5",
+    "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
     "@types/react-transition-group": "^4.2.4",
@@ -67,7 +67,7 @@
     "gatsby-plugin-stylelint": "^3.2.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.7",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0",
