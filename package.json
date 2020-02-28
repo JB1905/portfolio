@@ -20,7 +20,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "gatsby": "2.19.22",
+    "gatsby": "2.19.23",
     "gatsby-image": "^2.2.41",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -48,7 +48,7 @@
     "react-viewport-hooks": "^1.2.2"
   },
   "devDependencies": {
-    "@types/node": "^13.7.6",
+    "@types/node": "^13.7.7",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
