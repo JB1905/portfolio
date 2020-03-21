@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {
   TransitionGroup,
-  Transition as ReactTransition
+  Transition as ReactTransition,
 } from "react-transition-group";
 import { useViewport } from "react-viewport-hooks";
 
@@ -33,7 +33,7 @@ const Transition = ({ children, location }: Props) => {
         key={location.pathname}
         timeout={{ enter: timeout, exit: timeout }}
       >
-        {status => (
+        {(status) => (
           <main style={{ ...getTransitionStyles[status] }}>{children}</main>
         )}
       </ReactTransition>

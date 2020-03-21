@@ -61,7 +61,7 @@ export const Project = ({ item, language, index }: Props) => (
         <footer className="project__footer">
           {item.technologies ? (
             <ul className="project__technologies">
-              {item.technologies.map(technology => (
+              {item.technologies.map((technology) => (
                 <li key={technology.id}>
                   <img src={technology.image.url} alt={technology.name} />
                 </li>

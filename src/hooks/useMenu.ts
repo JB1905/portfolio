@@ -12,7 +12,7 @@ export const useMenu = () => {
     setIsMobile,
     isOpen,
     setIsOpen,
-    ref
+    ref,
   } = useContext(MenuContext);
 
   const { language } = useLanguages();
@@ -54,6 +54,6 @@ export const useMenu = () => {
     openMenu,
     closeMenu,
     toggleMenu,
-    ref
+    ref,
   };
 };

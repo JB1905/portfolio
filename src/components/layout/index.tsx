@@ -6,7 +6,7 @@ import {
   faPhone,
   faEnvelope,
   faBars,
-  faEye
+  faEye,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Menu from "../menu";
@@ -41,7 +41,7 @@ const Layout = ({ children, location }: Props) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <LanguageProvider>
         <MenuProvider>
           <SEO
@@ -53,7 +53,7 @@ const Layout = ({ children, location }: Props) => (
               "jakub",
               "javascript",
               "developer",
-              "react"
+              "react",
             ]}
           />
 

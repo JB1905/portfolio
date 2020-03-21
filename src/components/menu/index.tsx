@@ -34,7 +34,7 @@ const Menu = () => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <>
           <header>
             <Icons />

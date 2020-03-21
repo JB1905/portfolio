@@ -8,7 +8,7 @@ export const LanguageContext = React.createContext<{
   setLanguage: Dispatch<SetStateAction<"pl" | "en">>;
 }>({
   language: "en",
-  setLanguage: () => null
+  setLanguage: () => null,
 });
 
 export const LanguageProvider = ({ children }: WrapperProps) => {

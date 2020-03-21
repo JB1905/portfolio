@@ -17,7 +17,7 @@ export const MenuContext = React.createContext<{
   setIsMobile: () => null,
   isOpen: false,
   setIsOpen: () => null,
-  ref: null
+  ref: null,
 });
 
 export const MenuProvider = ({ children }: WrapperProps) => {
@@ -36,7 +36,7 @@ export const MenuProvider = ({ children }: WrapperProps) => {
         setIsMobile,
         isOpen,
         setIsOpen,
-        ref
+        ref,
       }}
     >
       {children}

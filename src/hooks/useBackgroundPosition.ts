@@ -7,7 +7,7 @@ export const useBackgroundPosition = () => {
     const onMouseMove = (e: MouseEvent) => {
       setPos({
         x: -(e.clientX - window.innerWidth / 2) / 30,
-        y: -(e.clientY - window.innerHeight / 2) / 30
+        y: -(e.clientY - window.innerHeight / 2) / 30,
       });
     };
 
