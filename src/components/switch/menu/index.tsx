@@ -1,8 +1,8 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Delay from "react-delay";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Delay from 'react-delay';
 
-import "./menu.scss";
+import './menu.scss';
 
 interface Props {
   onClick: () => void;

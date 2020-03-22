@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { WrapperProps } from "../../../interfaces/WrapperProps";
+import { WrapperProps } from '../../../interfaces/WrapperProps';
 
-import "./navbar.scss";
+import './navbar.scss';
 
 const Bar = ({ children }: WrapperProps) => (
   <nav className="navbar">

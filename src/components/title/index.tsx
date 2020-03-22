@@ -1,11 +1,11 @@
-import React from "react";
-import Delay from "react-delay";
+import React from 'react';
+import Delay from 'react-delay';
 
-import { useTitleAnimation } from "../../hooks/useTitleAnimation";
+import { useTitleAnimation } from '../../hooks/useTitleAnimation';
 
-import { WrapperProps } from "../../interfaces/WrapperProps";
+import { WrapperProps } from '../../interfaces/WrapperProps';
 
-import "./title.scss";
+import './title.scss';
 
 const Title = ({ children }: WrapperProps) => {
   const { opacity, scale } = useTitleAnimation();

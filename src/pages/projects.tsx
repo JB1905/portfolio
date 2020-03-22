@@ -1,11 +1,11 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Title from "../components/title";
-import Content from "../components/content";
-import { Project } from "../components/cards";
+import Title from '../components/title';
+import Content from '../components/content';
+import { Project } from '../components/cards';
 
-import { useLanguages } from "../hooks/useLanguages";
+import { useLanguages } from '../hooks/useLanguages';
 
 interface Item {
   date: string;

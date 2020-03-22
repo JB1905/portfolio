@@ -1,6 +1,6 @@
-import React, { useState, Dispatch, SetStateAction, useRef } from "react";
+import React, { useState, Dispatch, SetStateAction, useRef } from 'react';
 
-import { WrapperProps } from "../interfaces/WrapperProps";
+import { WrapperProps } from '../interfaces/WrapperProps';
 
 export const MenuContext = React.createContext<{
   offset: boolean;

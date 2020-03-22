@@ -1,10 +1,10 @@
-import React from "react";
-import Delay from "react-delay";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import GraphImg from "graphcms-image";
+import React from 'react';
+import Delay from 'react-delay';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import GraphImg from 'graphcms-image';
 
-import "./project.scss";
+import './project.scss';
 
 interface Item {
   date: string;
@@ -54,7 +54,7 @@ export const Project = ({ item, language, index }: Props) => (
           </div>
 
           <p className="project__description">
-            {language === "pl" ? item.descriptionPl : item.descriptionEn}
+            {language === 'pl' ? item.descriptionPl : item.descriptionEn}
           </p>
         </section>
 

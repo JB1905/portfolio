@@ -1,8 +1,8 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext } from 'react';
 
-import { MenuContext } from "../providers/MenuContext";
+import { MenuContext } from '../providers/MenuContext';
 
-import { useLanguages } from "./useLanguages";
+import { useLanguages } from './useLanguages';
 
 export const useMenu = () => {
   const {
@@ -42,9 +42,9 @@ export const useMenu = () => {
 
     onResize();
 
-    window.addEventListener("resize", onResize);
+    window.addEventListener('resize', onResize);
 
-    return () => window.removeEventListener("resize", onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, [isOpen, language, offset]);
 
   return {

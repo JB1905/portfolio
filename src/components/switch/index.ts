@@ -1,2 +1,2 @@
-export { default as LanguageSwitch } from "./language";
-export { default as MenuSwitch } from "./menu";
+export { default as LanguageSwitch } from './language';
+export { default as MenuSwitch } from './menu';

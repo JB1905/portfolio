@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
-import Delay from "react-delay";
-import { CSSTransition } from "react-transition-group";
-import { graphql } from "gatsby";
-import Img, { FluidObject } from "gatsby-image";
+import React, { useContext } from 'react';
+import Delay from 'react-delay';
+import { CSSTransition } from 'react-transition-group';
+import { graphql } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
 
-import Title from "../../components/title";
-import Content from "../../components/content";
-import Paragraph from "../../components/paragraph";
+import Title from '../../components/title';
+import Content from '../../components/content';
+import Paragraph from '../../components/paragraph';
 
-import { LanguageContext } from "../../providers/LanguageContext";
+import { LanguageContext } from '../../providers/LanguageContext';
 
-import "./about.scss";
+import './about.scss';
 
 interface Props {
   data: {

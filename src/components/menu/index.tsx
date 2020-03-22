@@ -1,15 +1,15 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Icons from "../icons";
-import { MenuSwitch } from "../switch";
-import DesktopMenu from "./desktop";
-import MobileMenu from "./mobile";
+import Icons from '../icons';
+import { MenuSwitch } from '../switch';
+import DesktopMenu from './desktop';
+import MobileMenu from './mobile';
 
-import { useLanguages } from "../../hooks/useLanguages";
-import { useMenu } from "../../hooks/useMenu";
+import { useLanguages } from '../../hooks/useLanguages';
+import { useMenu } from '../../hooks/useMenu';
 
-import "./menu.scss";
+import './menu.scss';
 
 const Menu = () => {
   const { language } = useLanguages();
@@ -41,7 +41,7 @@ const Menu = () => {
 
             <nav className="nav" ref={ref}>
               <DesktopMenu
-                className={`${isMobile ? "hidden" : ""}`}
+                className={`${isMobile ? 'hidden' : ''}`}
                 content={data[language].menu}
               />
 
@@ -50,7 +50,7 @@ const Menu = () => {
           </header>
 
           <MobileMenu
-            className={`${isMobile ? "" : "hidden"} ${isOpen ? "opened" : ""}`}
+            className={`${isMobile ? '' : 'hidden'} ${isOpen ? 'opened' : ''}`}
             content={data[language].menu}
             toggleMenu={closeMenu}
           />

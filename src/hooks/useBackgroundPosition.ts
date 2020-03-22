@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export const useBackgroundPosition = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -11,9 +11,9 @@ export const useBackgroundPosition = () => {
       });
     };
 
-    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener('mousemove', onMouseMove);
 
-    return () => window.removeEventListener("mousemove", onMouseMove);
+    return () => window.removeEventListener('mousemove', onMouseMove);
   }, []);
 
   return { pos };

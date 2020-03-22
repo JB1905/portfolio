@@ -1,9 +1,9 @@
-import React from "react";
-import Delay from "react-delay";
+import React from 'react';
+import Delay from 'react-delay';
 
-import { useLanguages } from "../../../hooks/useLanguages";
+import { useLanguages } from '../../../hooks/useLanguages';
 
-import "./language.scss";
+import './language.scss';
 
 const Language = () => {
   const { language, toggleLanguage } = useLanguages();

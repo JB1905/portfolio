@@ -1,10 +1,10 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import { LanguageSwitch } from "../switch";
-import Item from "./item";
+import { LanguageSwitch } from '../switch';
+import Item from './item';
 
-import "./icons.scss";
+import './icons.scss';
 
 interface Props {
   data: {

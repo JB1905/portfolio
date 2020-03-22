@@ -5,7 +5,7 @@ module.exports = {
     title: `Portfolio`,
     description: `JavaScript Developer Portfolio`,
     author: `Jakub Biesiada`,
-    siteUrl: `https://jb1905.github.io`
+    siteUrl: `https://jb1905.github.io`,
   },
   pathPrefix: `/portfolio`,
   plugins: [
@@ -15,28 +15,28 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: path.join(__dirname, `src/images`)
-      }
+        path: path.join(__dirname, `src/images`),
+      },
     },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: `${__dirname}/src/components/layout`
-      }
+        component: `${__dirname}/src/components/layout`,
+      },
     },
     {
       resolve: `gatsby-source-graphql`,
       options: {
         typeName: `GRAPHCMS`,
         fieldName: `graphCmsData`,
-        url: `https://api-euwest.graphcms.com/v1/cjtelsg9a6s8o01b92pe3zzbt/master`
-      }
+        url: `https://api-euwest.graphcms.com/v1/cjtelsg9a6s8o01b92pe3zzbt/master`,
+      },
     },
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: `./src/images/favicon.ico`
-      }
+        logo: `./src/images/favicon.ico`,
+      },
     },
     {
       resolve: `gatsby-plugin-eslint`,
@@ -45,40 +45,20 @@ module.exports = {
         exclude: /(node_modules|cache|public)/,
         options: {
           emitWarning: true,
-          failOnError: false
-        }
-      }
+          failOnError: false,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-stylelint`,
-      options: { files: [`src/**/*.scss`] }
+      options: { files: [`src/**/*.scss`] },
     },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/languages/`
-      }
-    },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-sass`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-robots-txt`,
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`roboto:400,500,700,900`],
-        display: 'swap'
-      }
-    },
-    {
-      resolve: `gatsby-plugin-react-svg`,
-      options: {
-        rule: {
-          include: /images/
-        }
-      }
+        path: `./src/languages/`,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -89,8 +69,28 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: `src/images/favicon.ico`
-      }
-    }
-  ]
+        icon: `src/images/favicon.ico`,
+      },
+    },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sass`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`roboto:400,500,700,900`],
+        display: "swap",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /images/,
+        },
+      },
+    },
+  ],
 };

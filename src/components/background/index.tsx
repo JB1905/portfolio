@@ -1,8 +1,8 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import "./background.scss";
-import { useBackgroundPosition } from "../../hooks/useBackgroundPosition";
+import './background.scss';
+import { useBackgroundPosition } from '../../hooks/useBackgroundPosition';
 
 const Background = () => {
   const { pos } = useBackgroundPosition();

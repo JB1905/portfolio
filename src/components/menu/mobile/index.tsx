@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Mobile from "./item";
+import Mobile from './item';
 
-import "./mobile.scss";
+import './mobile.scss';
 
 interface Props {
   className: string;
@@ -15,7 +15,7 @@ interface Props {
   toggleMenu: () => void;
 }
 
-const MobileMenu = ({ className = "", content, toggleMenu }: Props) => (
+const MobileMenu = ({ className = '', content, toggleMenu }: Props) => (
   <ul className={`mobile ${className}`}>
     {content.map((item, index: number) => (
       <Mobile

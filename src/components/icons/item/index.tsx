@@ -1,7 +1,7 @@
-import React from "react";
-import Delay from "react-delay";
+import React from 'react';
+import Delay from 'react-delay';
 
-import "./icon.scss";
+import './icon.scss';
 
 interface Props {
   item: {
