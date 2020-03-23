@@ -5,7 +5,7 @@ import { useLanguages } from '../../../hooks/useLanguages';
 
 import './language.scss';
 
-const Language = () => {
+const Language: React.FC = () => {
   const { language, toggleLanguage } = useLanguages();
 
   return (

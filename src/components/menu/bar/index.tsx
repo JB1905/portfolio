@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { WrapperProps } from '../../../interfaces/WrapperProps';
-
 import './navbar.scss';
 
-const Bar = ({ children }: WrapperProps) => (
+const Bar: React.FC = ({ children }) => (
   <nav className="navbar">
     <div>{children}</div>
   </nav>

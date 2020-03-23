@@ -34,7 +34,7 @@ interface Props {
   };
 }
 
-const About = ({ data }: Props) => {
+const About: React.FC<Props> = ({ data }) => {
   const { language } = useContext(LanguageContext);
 
   const { title, content } = data[language].about;

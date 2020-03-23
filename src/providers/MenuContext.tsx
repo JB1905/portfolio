@@ -1,7 +1,5 @@
 import React, { useState, Dispatch, SetStateAction, useRef } from 'react';
 
-import { WrapperProps } from '../interfaces/WrapperProps';
-
 export const MenuContext = React.createContext<{
   offset: boolean;
   setOffset: Dispatch<SetStateAction<boolean>>;
@@ -9,7 +7,7 @@ export const MenuContext = React.createContext<{
   setIsMobile: Dispatch<SetStateAction<boolean>>;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  ref: any;
+  ref?: React.MutableRefObject<HTMLElement | undefined>;
 }>({
   offset: false,
   setOffset: () => null,
@@ -17,15 +15,15 @@ export const MenuContext = React.createContext<{
   setIsMobile: () => null,
   isOpen: false,
   setIsOpen: () => null,
-  ref: null,
+  ref: undefined,
 });
 
-export const MenuProvider = ({ children }: WrapperProps) => {
+export const MenuProvider: React.FC = ({ children }) => {
   const [offset, setOffset] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  const ref = useRef<any>();
+  const ref = useRef<HTMLElement>();
 
   return (
     <MenuContext.Provider

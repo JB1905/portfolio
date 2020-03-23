@@ -15,7 +15,7 @@ interface Props {
   ];
 }
 
-const DesktopMenu = ({ className = '', content }: Props) => (
+const DesktopMenu: React.FC<Props> = ({ className = '', content }) => (
   <CSSTransition in appear timeout={1000} classNames="desktop-menu">
     <ul className={`desktop ${className}`}>
       {content.map((item, index: number) => (

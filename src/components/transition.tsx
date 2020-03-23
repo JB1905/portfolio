@@ -8,13 +8,11 @@ import { useViewport } from 'react-viewport-hooks';
 import { useMenu } from '../hooks/useMenu';
 import { useRouterTransition } from '../hooks/useRouterTransition';
 
-import { WrapperProps } from '../interfaces/WrapperProps';
-
-interface Props extends WrapperProps {
+interface Props {
   location: Location;
 }
 
-const Transition = ({ children, location }: Props) => {
+const Transition: React.FC<Props> = ({ children, location }) => {
   const { vh } = useViewport();
 
   const { offset } = useMenu();

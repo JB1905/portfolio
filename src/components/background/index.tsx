@@ -1,10 +1,11 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
-import './background.scss';
 import { useBackgroundPosition } from '../../hooks/useBackgroundPosition';
 
-const Background = () => {
+import './background.scss';
+
+const Background: React.FC = () => {
   const { pos } = useBackgroundPosition();
 
   return (

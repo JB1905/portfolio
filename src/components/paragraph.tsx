@@ -6,7 +6,7 @@ interface Props {
   index: number;
 }
 
-const Paragraph = ({ content, index }: Props) => (
+const Paragraph: React.FC<Props> = ({ content, index }) => (
   <Delay wait={(index + 1) * 240 + 520}>
     <p>{content}</p>
   </Delay>

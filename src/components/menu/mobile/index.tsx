@@ -15,7 +15,11 @@ interface Props {
   toggleMenu: () => void;
 }
 
-const MobileMenu = ({ className = '', content, toggleMenu }: Props) => (
+const MobileMenu: React.FC<Props> = ({
+  className = '',
+  content,
+  toggleMenu,
+}) => (
   <ul className={`mobile ${className}`}>
     {content.map((item, index: number) => (
       <Mobile

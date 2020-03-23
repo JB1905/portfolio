@@ -3,11 +3,9 @@ import Delay from 'react-delay';
 
 import { useTitleAnimation } from '../../hooks/useTitleAnimation';
 
-import { WrapperProps } from '../../interfaces/WrapperProps';
-
 import './title.scss';
 
-const Title = ({ children }: WrapperProps) => {
+const Title: React.FC = ({ children }) => {
   const { opacity, scale } = useTitleAnimation();
 
   return (

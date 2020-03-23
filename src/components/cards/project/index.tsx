@@ -36,7 +36,7 @@ interface Props {
   index: number;
 }
 
-export const Project = ({ item, language, index }: Props) => (
+export const Project: React.FC<Props> = ({ item, language, index }) => (
   <Delay wait={(index + 1) * 190 + 280}>
     <div className="project__item">
       <GraphImg

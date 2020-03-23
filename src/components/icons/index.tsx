@@ -20,8 +20,8 @@ interface Props {
   };
 }
 
-const Icons = () => (
-  <StaticQuery
+const Icons: React.FC = () => (
+  <StaticQuery<Props>
     query={graphql`
       query {
         data: graphCmsData {
@@ -35,7 +35,7 @@ const Icons = () => (
         }
       }
     `}
-    render={({ data }: Props) => (
+    render={({ data }) => (
       <div className="icons">
         <LanguageSwitch />
 

@@ -17,19 +17,17 @@ import SEO from '../seo';
 import { LanguageProvider } from '../../providers/LanguageContext';
 import { MenuProvider } from '../../providers/MenuContext';
 
-import { WrapperProps } from '../../interfaces/WrapperProps';
-
 import './global.scss';
 import './animations.scss';
 import './layout.scss';
 
 library.add(faPhone, faEnvelope, faBars, faEye);
 
-interface Props extends WrapperProps {
+interface Props {
   location: Location;
 }
 
-const Layout = ({ children, location }: Props) => (
+const Layout: React.FC<Props> = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -41,12 +39,12 @@ const Layout = ({ children, location }: Props) => (
         }
       }
     `}
-    render={(data) => (
+    render={({ site }) => (
       <LanguageProvider>
         <MenuProvider>
           <SEO
-            title={data.site.siteMetadata.author}
-            description={data.site.siteMetadata.description}
+            title={site.siteMetadata.author}
+            description={site.siteMetadata.description}
             keywords={[
               'front end',
               'biesiada',

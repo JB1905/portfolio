@@ -1,8 +1,6 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import localStorage from 'localStorage';
 
-import { WrapperProps } from '../interfaces/WrapperProps';
-
 export const LanguageContext = React.createContext<{
   language: 'pl' | 'en';
   setLanguage: Dispatch<SetStateAction<'pl' | 'en'>>;
@@ -11,7 +9,7 @@ export const LanguageContext = React.createContext<{
   setLanguage: () => null,
 });
 
-export const LanguageProvider = ({ children }: WrapperProps) => {
+export const LanguageProvider: React.FC = ({ children }) => {
   const [language, setLanguage] = useState<'pl' | 'en'>(
     localStorage.language || 'pl'
   );

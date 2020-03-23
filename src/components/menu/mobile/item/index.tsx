@@ -7,7 +7,7 @@ interface Props {
   title: string;
 }
 
-const Mobile = ({ link, toggle, title }: Props) => (
+const Mobile: React.FC<Props> = ({ link, toggle, title }) => (
   <li>
     <Link to={`${link}/`} activeClassName="active" onClick={toggle}>
       {title}

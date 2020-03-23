@@ -23,7 +23,12 @@ interface Props {
   title: string;
 }
 
-const SEO = ({ description, meta = [], keywords = [], title }: Props) => {
+const SEO: React.FC<Props> = ({
+  description,
+  meta = [],
+  keywords = [],
+  title,
+}) => {
   const { language } = useLanguages();
 
   return (

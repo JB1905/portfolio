@@ -8,7 +8,7 @@ interface Props {
   onClick: () => void;
 }
 
-const Menu = ({ onClick }: Props) => (
+const Menu: React.FC<Props> = ({ onClick }) => (
   <Delay wait={200}>
     <button
       type="button"

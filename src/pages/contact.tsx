@@ -38,7 +38,7 @@ interface Props {
   };
 }
 
-const Contact = ({ data }: Props) => {
+const Contact: React.FC<Props> = ({ data }) => {
   const { language } = useLanguages();
 
   const { title, email, phone } = data[language].contact;

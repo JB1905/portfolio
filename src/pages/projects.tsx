@@ -49,7 +49,7 @@ interface Props {
   };
 }
 
-const Projects = ({ data }: Props) => {
+const Projects: React.FC<Props> = ({ data }) => {
   const { language } = useLanguages();
 
   const { title } = data[language].projects;

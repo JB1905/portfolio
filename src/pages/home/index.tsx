@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import './home.scss';
 
-const Home = () => (
+const Home: React.FC = () => (
   <Delay wait={280}>
     <div className="home__container">
       <div className="home__title">
