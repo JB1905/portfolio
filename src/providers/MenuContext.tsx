@@ -7,7 +7,7 @@ export const MenuContext = React.createContext<{
   setIsMobile: Dispatch<SetStateAction<boolean>>;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  ref?: React.MutableRefObject<HTMLElement | undefined>;
+  ref?: any;
 }>({
   offset: false,
   setOffset: () => null,
@@ -15,7 +15,7 @@ export const MenuContext = React.createContext<{
   setIsMobile: () => null,
   isOpen: false,
   setIsOpen: () => null,
-  ref: undefined,
+  ref: null,
 });
 
 export const MenuProvider: React.FC = ({ children }) => {
@@ -23,7 +23,7 @@ export const MenuProvider: React.FC = ({ children }) => {
   const [isMobile, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  const ref = useRef<HTMLElement>();
+  const ref = useRef<any>();
 
   return (
     <MenuContext.Provider
