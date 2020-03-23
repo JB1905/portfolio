@@ -1,5 +1,3 @@
-const path = require(`path`);
-
 module.exports = {
   siteMetadata: {
     title: `Portfolio`,
@@ -15,7 +13,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: path.join(__dirname, `src/images`),
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -41,7 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
-        test: path.join(`${__dirname}/src/**/*.{tsx,ts}`),
+        test: `${__dirname}/src/**/*.{tsx,ts}`,
         exclude: /(node_modules|cache|public)/,
         options: {
           emitWarning: true,
@@ -51,7 +49,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-stylelint`,
-      options: { files: [`src/**/*.scss`] },
+      options: {
+        files: [`src/**/*.scss`],
+      },
     },
     `gatsby-transformer-json`,
     {
