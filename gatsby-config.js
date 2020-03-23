@@ -49,7 +49,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-stylelint`,
-      options: { files: [`src/**/*.scss`] },
+      options: {
+        files: [`src/**/*.scss`],
+      },
     },
     `gatsby-transformer-json`,
     {
