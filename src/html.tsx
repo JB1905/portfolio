@@ -5,7 +5,7 @@ interface Props {
   headComponents: any;
   bodyAttributes: any;
   preBodyComponents: any;
-  body: any;
+  body: string;
   postBodyComponents: any;
 }
 

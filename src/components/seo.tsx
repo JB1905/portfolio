@@ -4,6 +4,13 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import { useLanguages } from '../hooks/useLanguages';
 
+interface Props {
+  description: string;
+  meta: HTMLMetaElement;
+  keywords: string[];
+  title: string;
+}
+
 const detailsQuery = graphql`
   query DefaultSEOQuery {
     site {
@@ -15,13 +22,6 @@ const detailsQuery = graphql`
     }
   }
 `;
-
-interface Props {
-  description: string;
-  meta: HTMLMetaElement;
-  keywords: string[];
-  title: string;
-}
 
 const SEO: React.FC<Props> = ({
   description,
