@@ -7,7 +7,7 @@ export const MenuContext = React.createContext<{
   setIsMobile: Dispatch<SetStateAction<boolean>>;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  ref?: any;
+  ref: any;
 }>({
   offset: false,
   setOffset: () => null,

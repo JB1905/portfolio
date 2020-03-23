@@ -18,7 +18,7 @@ const detailsQuery = graphql`
 
 interface Props {
   description: string;
-  meta?: any;
+  meta: HTMLMetaElement;
   keywords: string[];
   title: string;
 }
@@ -34,14 +34,13 @@ const SEO: React.FC<Props> = ({
   return (
     <StaticQuery
       query={detailsQuery}
-      render={(data) => {
-        const metaDescription =
-          description || data.site.siteMetadata.description;
+      render={({ site }) => {
+        const metaDescription = description || site.siteMetadata.description;
 
         return (
           <Helmet
             title={title}
-            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            titleTemplate={`%s | ${site.siteMetadata.title}`}
             htmlAttributes={{ lang: language }}
             meta={[
               {
@@ -66,7 +65,7 @@ const SEO: React.FC<Props> = ({
               },
               {
                 name: 'twitter:creator',
-                content: data.site.siteMetadata.author,
+                content: site.siteMetadata.author,
               },
               {
                 name: 'twitter:title',
