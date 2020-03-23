@@ -10,10 +10,11 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GITHUB_TOKEN@github.com/JB1905/portfolio.git",
-    "prettier": "prettier --write '**/*.{tsx,ts,jsx,js,json,scss}'",
+    "prettier": "prettier --write 'src/**/*.{tsx,ts,scss,json}'",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint 'src/**/*.ts'",
-    "stylelint": "stylelint 'src/**/*.scss' --fix"
+    "stylelint": "stylelint 'src/**/*.scss' --fix",
+    "test": "echo 'Run your tests here'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
