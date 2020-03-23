@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "author": "Jakub Biesiada",
   "license": "MIT",
   "scripts": {
@@ -8,12 +8,12 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GITHUB_TOKEN@github.com/JB1905/portfolio.git",
-    "prettier": "prettier --write 'src/**/*.{tsx,ts,scss}'",
+    "prettier": "prettier --write '**/*.{tsx,ts,jsx,js,json,scss}'",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint 'src/**/*.ts'",
-    "stylelint": "stylelint 'src/**/*.scss' --fix",
-    "test": "echo 'Run your tests here'"
+    "stylelint": "stylelint 'src/**/*.scss' --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
