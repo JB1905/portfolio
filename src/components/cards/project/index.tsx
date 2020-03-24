@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import GraphImg from 'graphcms-image';
 
+import { Languages } from '../../../enums/Languages';
+
 import './project.scss';
 
 interface Item {
@@ -32,7 +34,7 @@ interface Item {
 
 interface Props {
   item: Item;
-  language: string;
+  language: Languages;
   index: number;
 }
 
@@ -54,7 +56,9 @@ export const Project: React.FC<Props> = ({ item, language, index }) => (
           </div>
 
           <p className="project__description">
-            {language === 'pl' ? item.descriptionPl : item.descriptionEn}
+            {language === Languages.Polish
+              ? item.descriptionPl
+              : item.descriptionEn}
           </p>
         </section>
 

@@ -3,16 +3,18 @@ import localStorage from 'localStorage';
 
 import { LanguageContext } from '../providers/LanguageContext';
 
+import { Languages } from '../enums/Languages';
+
 export const useLanguages = () => {
   const { language, setLanguage } = useContext(LanguageContext);
 
   const toggleLanguage = () => {
-    if (language === 'pl') {
-      localStorage.setItem('language', 'en');
-      setLanguage('en');
+    if (language === Languages.Polish) {
+      localStorage.setItem('language', Languages.English);
+      setLanguage(Languages.English);
     } else {
-      localStorage.setItem('language', 'pl');
-      setLanguage('pl');
+      localStorage.setItem('language', Languages.Polish);
+      setLanguage(Languages.Polish);
     }
   };
 
