@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import GraphImg from 'graphcms-image';
 
-import { Languages } from '../../../enums/Languages';
+import { Language } from '../../../enums/Language';
 
 import './project.scss';
 
@@ -56,7 +56,7 @@ export const Project: React.FC<Props> = ({ item, language, index }) => (
           </div>
 
           <p className="project__description">
-            {language === Languages.Polish
+            {language === Language.Polish
               ? item.descriptionPl
               : item.descriptionEn}
           </p>

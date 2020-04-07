@@ -1,19 +1,19 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import localStorage from 'localStorage';
 
-import { Languages } from '../enums/Languages';
+import { Language } from '../enums/Language';
 
 export const LanguageContext = React.createContext<{
-  language: Languages;
-  setLanguage: Dispatch<SetStateAction<Languages>>;
+  language: Language;
+  setLanguage: Dispatch<SetStateAction<Language>>;
 }>({
-  language: Languages.English,
+  language: Language.English,
   setLanguage: () => null,
 });
 
 export const LanguageProvider: React.FC = ({ children }) => {
-  const [language, setLanguage] = useState<Languages>(
-    localStorage.language || Languages.Polish
+  const [language, setLanguage] = useState<Language>(
+    localStorage.language || Language.Polish
   );
 
   return (
