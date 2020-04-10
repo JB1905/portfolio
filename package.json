@@ -46,7 +46,7 @@
     "react-helmet": "^6.0.0",
     "react-normalize": "^0.4.4",
     "react-transition-group": "^4.3.0",
-    "react-viewport-hooks": "^1.2.3-beta.1"
+    "react-viewport-hooks": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "^13.11.1",
