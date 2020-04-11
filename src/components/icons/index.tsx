@@ -36,13 +36,13 @@ const Icons: React.FC = () => (
       }
     `}
     render={({ data }) => (
-      <div className="icons">
+      <section className="icons">
         <LanguageSwitch />
 
         {data.icons.map((icon, index: number) => (
           <Item key={icon.id} item={icon} index={index} />
         ))}
-      </div>
+      </section>
     )}
   />
 );
