@@ -34,7 +34,7 @@ interface Item {
 
 interface Props {
   item: Item;
-  language: Languages;
+  language: Language;
   index: number;
 }
 
