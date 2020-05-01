@@ -36,7 +36,7 @@
     "gatsby-plugin-typescript": "^2.3.1",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-source-graphql": "^2.3.2",
-    "gatsby-transformer-json": "^2.3.1",
+    "gatsby-transformer-json": "^2.4.0",
     "gatsby-transformer-sharp": "^2.4.4",
     "graphcms-image": "^1.1.0-beta4",
     "localStorage": "^1.0.4",
