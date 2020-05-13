@@ -1,14 +1,27 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Portfolio`,
     description: `JavaScript Developer Portfolio`,
     author: `Jakub Biesiada`,
     siteUrl: `https://jb1905.github.io`,
+    keywords: [
+      "front end",
+      "biesiada",
+      "jakub",
+      "javascript",
+      "developer",
+      "react",
+    ],
   },
   pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-graphql-codegen`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,6 +41,9 @@ module.exports = {
         typeName: `GRAPHCMS`,
         fieldName: `graphCmsData`,
         url: `https://api-euwest.graphcms.com/v1/cjtelsg9a6s8o01b92pe3zzbt/master`,
+        headers: {
+          Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+        },
       },
     },
     {
@@ -48,7 +64,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-stylelint`,
+      resolve: `@danbruegge/gatsby-plugin-stylelint`,
       options: {
         files: [`src/**/*.scss`],
       },
@@ -81,7 +97,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`roboto:400,500,700,900`],
-        display: "swap",
+        display: `swap`,
       },
     },
     {
