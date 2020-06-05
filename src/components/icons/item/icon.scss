@@ -1,14 +1,17 @@
+@import "../../layout/mixins.scss";
+
 .icon {
   margin-right: 7px;
-  box-shadow: var(--depth);
   background-color: var(--white);
-  transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
   animation: bounce-in 400ms ease-in-out;
+  transition: transform 100ms ease-in;
   position: relative;
   border-radius: 50%;
   padding: 3px;
   height: 42px;
   width: 42px;
+
+  @include monument-effect;
 
   &__image {
     font-size: 0;
@@ -17,7 +20,10 @@
   }
 
   &:active {
-    box-shadow: 0 0 3px #0005;
     transform: translateY(5px) translateZ(0);
+
+    &::before {
+      opacity: 0;
+    }
   }
 }

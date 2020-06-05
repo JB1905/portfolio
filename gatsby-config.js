@@ -1,6 +1,4 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
@@ -32,7 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: `${__dirname}/src/components/layout`,
+        component: `${__dirname}/src/components/layout/index.tsx`,
       },
     },
     {
@@ -70,12 +68,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-json`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/languages/`,
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

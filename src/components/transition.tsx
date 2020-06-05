@@ -1,35 +1,41 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   TransitionGroup,
   Transition as ReactTransition,
 } from 'react-transition-group';
-import { useViewport } from 'react-viewport-hooks';
+import { TransitionStatus } from 'react-transition-group/Transition';
 
 import { useMenu } from '../hooks/useMenu';
-import { useRouterTransition } from '../hooks/useRouterTransition';
 
 interface Props {
-  location: Location;
+  readonly location: Location;
 }
 
 const Transition: React.FC<Props> = ({ children, location }) => {
-  const { vh } = useViewport();
+  const { isMainLayoutHidden } = useMenu();
 
-  const { offset } = useMenu();
+  const TIMEOUT = 250;
 
-  const { timeout, getTransitionStyles } = useRouterTransition();
-
-  useEffect(() => {
-    const { matches } = window.matchMedia('(display-mode: standalone)');
-
-    document.body.style.setProperty('--vh', matches ? '100vh' : `${vh}px`);
-  }, [vh]);
+  const getTransitionStyles = {
+    entering: {
+      position: 'absolute',
+      opacity: 0,
+    },
+    entered: {
+      transition: `opacity ${TIMEOUT}ms ease`,
+      opacity: 1,
+    },
+    exiting: {
+      transition: `all ${TIMEOUT}ms ease`,
+      opacity: 0,
+    },
+  } as Record<TransitionStatus, React.CSSProperties>;
 
   return (
-    <TransitionGroup className={`layout ${offset ? 'hidden' : ''}`}>
+    <TransitionGroup className={`layout ${isMainLayoutHidden ? 'hidden' : ''}`}>
       <ReactTransition
         key={location.pathname}
-        timeout={{ enter: timeout, exit: timeout }}
+        timeout={{ enter: TIMEOUT, exit: TIMEOUT }}
       >
         {(status) => (
           <main style={{ ...getTransitionStyles[status] }}>{children}</main>

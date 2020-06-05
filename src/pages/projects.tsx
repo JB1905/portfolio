@@ -1,91 +1,43 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 
+import SEO from '../components/seo';
 import Title from '../components/title';
 import Content from '../components/content';
 import { Project } from '../components/cards';
 
-import { useLanguages } from '../hooks/useLanguages';
-
-interface Item {
-  date: string;
-  descriptionEn: string;
-  descriptionPl: string;
-  id: string;
-  image: {
-    handle: string;
-    height: number;
-    width: number;
-  };
-  liveLink: string;
-  srcLink: string;
-  technologies: [
-    {
-      id: string;
-      image: {
-        url: string;
-      };
-      name: string;
-    }
-  ];
-  title: string;
-}
+import { ProjectsQuery } from '../../graphql-types';
 
 interface Props {
-  data: {
-    pl: {
-      projects: {
-        title: string;
-      };
-    };
-    en: {
-      projects: {
-        title: string;
-      };
-    };
-    graphCmsData: {
-      projects: Item[];
-    };
-  };
+  readonly data: ProjectsQuery;
 }
 
 const Projects: React.FC<Props> = ({ data }) => {
-  const { language } = useLanguages();
-
-  const { title } = data[language].projects;
+  const { t } = useTranslation('Projects');
 
   return (
     <article>
-      <Title>{title}</Title>
+      <SEO title={t('title')} />
+
+      <Title>{t('title')}</Title>
 
       <Content className="projects">
-        {data.graphCmsData.projects.map((item, index) => (
+        {/* {data.graphCmsData.projects.map((item, index) => (
           <Project
             key={item.id}
             index={index}
             item={item}
             language={language}
           />
-        ))}
+        ))} */}
       </Content>
     </article>
   );
 };
 
 export const query = graphql`
-  {
-    pl: languagesJson(lang: { eq: "pl" }) {
-      projects {
-        title
-      }
-    }
-
-    en: languagesJson(lang: { eq: "en" }) {
-      projects {
-        title
-      }
-    }
-
+  query Projects {
     graphCmsData {
       projects(where: { status: PUBLISHED }) {
         id

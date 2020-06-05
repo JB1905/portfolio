@@ -3,7 +3,7 @@ import React from 'react';
 import './content.scss';
 
 interface Props {
-  className: string;
+  readonly className: string;
 }
 
 const Content: React.FC<Props> = ({ children, className = '' }) => (

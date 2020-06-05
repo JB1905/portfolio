@@ -1,50 +1,39 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import { LanguageSwitch } from '../switch';
 import Item from './item';
 
+import { IconsQuery } from '../../../graphql-types';
+
 import './icons.scss';
 
-interface Props {
-  data: {
-    icons: [
-      {
-        id: number;
-        url: string;
-        image: {
-          url: string;
-        };
-      }
-    ];
-  };
-}
+const Icons: React.FC = () => {
+  const data = useStaticQuery<IconsQuery>(query);
 
-const Icons: React.FC = () => (
-  <StaticQuery<Props>
-    query={graphql`
-      query {
-        data: graphCmsData {
-          icons {
-            id
-            url
-            image {
-              url
-            }
-          }
+  return (
+    <section className="icons">
+      <LanguageSwitch />
+
+      {data.graphCmsData.icons.map((icon, index: number) => (
+        <Item key={icon.id} item={icon} index={index} />
+      ))}
+    </section>
+  );
+};
+
+export const query = graphql`
+  query Icons {
+    graphCmsData {
+      icons {
+        id
+        url
+        image {
+          url
         }
       }
-    `}
-    render={({ data }) => (
-      <section className="icons">
-        <LanguageSwitch />
-
-        {data.icons.map((icon, index: number) => (
-          <Item key={icon.id} item={icon} index={index} />
-        ))}
-      </section>
-    )}
-  />
-);
+    }
+  }
+`;
 
 export default Icons;

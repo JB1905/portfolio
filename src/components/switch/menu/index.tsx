@@ -5,7 +5,7 @@ import Delay from 'react-delay';
 import './menu.scss';
 
 interface Props {
-  onClick: () => void;
+  readonly onClick: () => void;
 }
 
 const Menu: React.FC<Props> = ({ onClick }) => (

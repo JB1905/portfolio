@@ -6,19 +6,20 @@ import Desktop from './item';
 import './desktop.scss';
 
 interface Props {
-  className: string;
-  content: [
-    {
-      title: string;
-      link: string;
-    }
-  ];
+  readonly className: string;
+  // content: [
+  //   {
+  //     title: string;
+  //     link: string;
+  //   }
+  // ];
+  readonly content: any[];
 }
 
 const DesktopMenu: React.FC<Props> = ({ className = '', content }) => (
   <CSSTransition in appear timeout={1000} classNames="desktop-menu">
     <ul className={`desktop ${className}`}>
-      {content.map((item, index: number) => (
+      {content.map((item, index) => (
         <Desktop key={index} link={item.link} title={item.title} />
       ))}
     </ul>

@@ -8,34 +8,10 @@ import { Language } from '../../../enums/Language';
 
 import './project.scss';
 
-interface Item {
-  date: string;
-  descriptionEn: string;
-  descriptionPl: string;
-  id: string;
-  image: {
-    handle: string;
-    height: number;
-    width: number;
-  };
-  liveLink: string;
-  srcLink: string;
-  technologies: [
-    {
-      id: string;
-      image: {
-        url: string;
-      };
-      name: string;
-    }
-  ];
-  title: string;
-}
-
 interface Props {
-  item: Item;
-  language: Language;
-  index: number;
+  readonly item: any;
+  readonly language: Language;
+  readonly index: number;
 }
 
 export const Project: React.FC<Props> = ({ item, language, index }) => (
@@ -63,7 +39,7 @@ export const Project: React.FC<Props> = ({ item, language, index }) => (
         </section>
 
         <footer className="project__footer">
-          {item.technologies ? (
+          {item.technologies && (
             <ul className="project__technologies">
               {item.technologies.map((technology) => (
                 <li key={technology.id}>
@@ -71,7 +47,7 @@ export const Project: React.FC<Props> = ({ item, language, index }) => (
                 </li>
               ))}
             </ul>
-          ) : null}
+          )}
 
           <div className="project__links">
             {item.srcLink && (

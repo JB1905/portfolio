@@ -1,3 +1,5 @@
+@import "../../layout/mixins.scss";
+
 .menu {
   width: 42px;
   height: 42px;
@@ -6,12 +8,11 @@
   cursor: pointer;
   color: var(--white);
   border-radius: 50%;
-  box-shadow: var(--depth);
   font-size: var(--font-size-s);
   border: 3px solid var(--white);
   margin-right: env(safe-area-inset-right);
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  transition: box-shadow 100ms ease-in, transform 100ms ease-in;
+  transition: transform 100ms ease-in;
   animation: bounce-in 400ms ease-in-out;
   display: flex;
   align-items: center;
@@ -19,9 +20,27 @@
   position: absolute;
   right: 14px;
 
+  // @include monument-effect;
+
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    transition: opacity 100ms ease-in;
+    left: -3px;
+    top: -3px;
+    width: inherit;
+    height: inherit;
+    box-shadow: var(--depth);
+    z-index: -1;
+  }
+
   &:active {
-    box-shadow: 0 0 3px #0005;
     transform: translateY(5px) translateZ(0);
+
+    &::before {
+      opacity: 0;
+    }
   }
 
   @media (min-width: 380px) {

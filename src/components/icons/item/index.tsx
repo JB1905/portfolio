@@ -4,13 +4,14 @@ import Delay from 'react-delay';
 import './icon.scss';
 
 interface Props {
-  item: {
-    url: string;
-    image: {
-      url: string;
-    };
-  };
-  index: number;
+  // item: {
+  //   url: string;
+  //   image: {
+  //     url: string;
+  //   };
+  // };
+  readonly item: any;
+  readonly index: number;
 }
 
 const Item: React.FC<Props> = ({ item: { url, image }, index }) => (

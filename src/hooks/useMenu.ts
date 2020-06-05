@@ -1,59 +1,56 @@
 import { useEffect, useContext } from 'react';
 
-import { MenuContext } from '../providers/MenuContext';
-
-import { useLanguages } from './useLanguages';
+import { MenuContext } from '../contexts/MenuContext';
 
 export const useMenu = () => {
   const {
-    offset,
-    setOffset,
+    isMainLayoutHidden,
+    setIsMainLayoutHidden,
     isMobile,
     setIsMobile,
     isOpen,
     setIsOpen,
-    ref,
+    // ref,
   } = useContext(MenuContext);
-
-  const { language } = useLanguages();
 
   const openMenu = () => {
     setIsOpen(true);
-    setOffset(true);
+
+    setIsMainLayoutHidden(true);
   };
 
   const closeMenu = () => {
     setIsOpen(false);
-    setOffset(false);
+
+    setIsMainLayoutHidden(false);
   };
 
   const toggleMenu = () => {
-    if (isOpen) closeMenu();
-    else openMenu();
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   };
 
   useEffect(() => {
-    const onResize = () => {
-      const breakPoint = ref.current.offsetHeight > 74;
-
-      setIsMobile(breakPoint);
-      setOffset(breakPoint ? isOpen : false);
-    };
-
-    onResize();
-
-    window.addEventListener('resize', onResize);
-
-    return () => window.removeEventListener('resize', onResize);
-  }, [isOpen, language, offset]);
+    // const onResize = () => {
+    //   const breakPoint = ref.current.offsetHeight > 74;
+    //   setIsMobile(breakPoint);
+    //   setIsMainLayoutHidden(breakPoint ? isOpen : false);
+    // };
+    // onResize();
+    // window.addEventListener('resize', onResize);
+    // return () => window.removeEventListener('resize', onResize);
+  }, [isOpen, isMainLayoutHidden]);
 
   return {
-    offset,
+    isMainLayoutHidden,
     isMobile,
     isOpen,
     openMenu,
     closeMenu,
     toggleMenu,
-    ref,
+    // ref,
   };
 };

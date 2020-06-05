@@ -1,12 +1,10 @@
 import React from 'react';
 import Delay from 'react-delay';
 
-import { useLanguages } from '../../../hooks/useLanguages';
-
 import './language.scss';
 
 const Language: React.FC = () => {
-  const { language, toggleLanguage } = useLanguages();
+  // const { language, toggleLanguage } = useLanguages();
 
   return (
     <Delay wait={600}>
@@ -15,9 +13,9 @@ const Language: React.FC = () => {
           type="button"
           className="language"
           aria-label="Switch language"
-          onClick={toggleLanguage}
+          // onClick={toggleLanguage}
         >
-          {language}
+          {/* {language} */}
         </button>
       </div>
     </Delay>
