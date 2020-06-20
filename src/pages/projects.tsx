@@ -9,28 +9,31 @@ import { Project } from '../components/cards';
 
 import { ProjectsQuery } from '../../graphql-types';
 
+import { Language } from '../enums/Language'; // TODO
+
 interface Props {
   readonly data: ProjectsQuery;
 }
 
 const Projects: React.FC<Props> = ({ data }) => {
-  const { t } = useTranslation('Projects');
+  const { t } = useTranslation();
 
   return (
     <article>
-      <SEO title={t('title')} />
+      <SEO title={t('projects.title')} />
 
-      <Title>{t('title')}</Title>
+      <Title>{t('projects.title')}</Title>
 
       <Content className="projects">
-        {/* {data.graphCmsData.projects.map((item, index) => (
+        {data.graphCmsData.projects.map((item, index) => (
           <Project
             key={item.id}
             index={index}
             item={item}
-            language={language}
+            language={Language.Polish}
+            // language={language}
           />
-        ))} */}
+        ))}
       </Content>
     </article>
   );

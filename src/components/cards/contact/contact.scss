@@ -9,11 +9,9 @@
     width: 100%;
     min-height: 150px;
     padding: 16px 0 30px;
-    animation: fade-in 400ms ease-in-out;
-    animation-fill-mode: forwards;
-    background-color: var(--white);
     color: var(--secondary);
-    border-radius: 6px;
+    background-color: var(--white);
+    border-radius: var(--rounded-corners);
     margin: 12px 0;
 
     @include monument-effect;

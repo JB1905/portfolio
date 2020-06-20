@@ -1,8 +1,9 @@
-import React from 'react';
-import Delay from 'react-delay';
+import React, { useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import GraphImg from 'graphcms-image';
+
+import { fadeIn } from '../../../animations/fadeIn';
 
 import { Language } from '../../../enums/Language';
 
@@ -14,9 +15,15 @@ interface Props {
   readonly index: number;
 }
 
-export const Project: React.FC<Props> = ({ item, language, index }) => (
-  <Delay wait={(index + 1) * 190 + 280}>
-    <div className="project__item">
+export const Project: React.FC<Props> = ({ item, language, index }) => {
+  const card = useRef(null);
+
+  useEffect(() => {
+    fadeIn(card.current, (index + 1) * 190 + 280);
+  }, []);
+
+  return (
+    <div className="project__item" ref={card}>
       <GraphImg
         image={item.image}
         alt={item.title}
@@ -65,5 +72,5 @@ export const Project: React.FC<Props> = ({ item, language, index }) => (
         </footer>
       </div>
     </div>
-  </Delay>
-);
+  );
+};

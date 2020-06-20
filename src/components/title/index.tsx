@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import Delay from 'react-delay';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+
+import { fadeIn } from '../../animations/fadeIn';
 
 import './title.scss';
 
 const Title: React.FC = ({ children }) => {
-  const [opacity, setOpacity] = useState(1);
-  const [scale, setScale] = useState(1);
+  const title = useRef(null);
 
   useEffect(() => {
-    const layout = document.querySelector('.layout')!;
+    fadeIn(title.current, 200);
+  }, []);
+
+  useEffect(() => {
+    const layout = document.querySelector('.layout') as HTMLElement;
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(
+      title.current,
+      { opacity: 1, scale: 1 },
+      { opacity: 0, scale: 0.5 }
+    );
 
     const fadeOut = () => {
-      const scrolled = layout.scrollTop / 100;
+      const scrolled = layout.scrollTop / 100; // 250
 
-      if (opacity > 0) {
-        setOpacity(opacity - scrolled);
-
-        if (layout.scrollTop >= 0) {
-          setScale(scale - scrolled / 5);
-        }
-      }
+      tl.progress(scrolled);
     };
 
     layout.addEventListener('scroll', fadeOut);
@@ -28,14 +35,9 @@ const Title: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <Delay wait={100}>
-      <h2
-        className="page__title"
-        style={{ opacity, transform: `scale(${scale})` }}
-      >
-        {children}
-      </h2>
-    </Delay>
+    <h2 ref={title} className="page__title">
+      {children}
+    </h2>
   );
 };
 

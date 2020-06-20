@@ -4,6 +4,7 @@ import {
   Transition as ReactTransition,
 } from 'react-transition-group';
 import { TransitionStatus } from 'react-transition-group/Transition';
+import sTrimmer from 's-trimmer';
 
 import { useMenu } from '../hooks/useMenu';
 
@@ -32,10 +33,13 @@ const Transition: React.FC<Props> = ({ children, location }) => {
   } as Record<TransitionStatus, React.CSSProperties>;
 
   return (
-    <TransitionGroup className={`layout ${isMainLayoutHidden ? 'hidden' : ''}`}>
+    <TransitionGroup
+      className={sTrimmer(`layout ${isMainLayoutHidden ? 'hidden' : ''}`)}
+    >
       <ReactTransition
         key={location.pathname}
         timeout={{ enter: TIMEOUT, exit: TIMEOUT }}
+        unmountOnExit
       >
         {(status) => (
           <main style={{ ...getTransitionStyles[status] }}>{children}</main>

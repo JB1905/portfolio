@@ -1,5 +1,6 @@
-import React from 'react';
-import Delay from 'react-delay';
+import React, { useRef, useEffect } from 'react';
+
+import { bounceIn } from '../../../animations/bounceIn';
 
 import './technology.scss';
 
@@ -9,9 +10,15 @@ interface Props {
   readonly index: number;
 }
 
-export const Technology: React.FC<Props> = ({ image, name, index }) => (
-  <Delay wait={(index + 1) * 110 + 400}>
-    <div className="technology__item">
+export const Technology: React.FC<Props> = ({ image, name, index }) => {
+  const card = useRef(null);
+
+  useEffect(() => {
+    bounceIn(card.current, (index + 1) * 110 + 400);
+  }, []);
+
+  return (
+    <div className="technology__item" ref={card}>
       <div>
         <img src={image} alt={name} className="technology__image" />
       </div>
@@ -20,5 +27,5 @@ export const Technology: React.FC<Props> = ({ image, name, index }) => (
         <p className="technology__name">{name.replace(/,/g, '\n')}</p>
       </div>
     </div>
-  </Delay>
-);
+  );
+};

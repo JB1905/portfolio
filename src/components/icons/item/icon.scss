@@ -2,28 +2,18 @@
 
 .icon {
   margin-right: 7px;
+  padding: var(--border-width);
+  height: var(--action-button-size);
+  width: var(--action-button-size);
   background-color: var(--white);
-  animation: bounce-in 400ms ease-in-out;
-  transition: transform 100ms ease-in;
   position: relative;
   border-radius: 50%;
-  padding: 3px;
-  height: 42px;
-  width: 42px;
 
   @include monument-effect;
 
   &__image {
     font-size: 0;
-    height: 36px;
-    width: 36px;
-  }
-
-  &:active {
-    transform: translateY(5px) translateZ(0);
-
-    &::before {
-      opacity: 0;
-    }
+    height: calc(var(--action-button-size) - var(--border-width) * 2);
+    width: calc(var(--action-button-size) - var(--border-width) * 2);
   }
 }

@@ -9,7 +9,7 @@ interface Props {
 
 const Mobile: React.FC<Props> = ({ link, toggle, title }) => (
   <li>
-    <Link to={`${link}/`} activeClassName="active" onClick={toggle}>
+    <Link to={link} activeClassName="active" onClick={toggle}>
       {title}
     </Link>
   </li>

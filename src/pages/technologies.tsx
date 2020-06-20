@@ -14,23 +14,23 @@ interface Props {
 }
 
 const Technologies: React.FC<Props> = ({ data }) => {
-  const { t } = useTranslation('Technologies');
+  const { t } = useTranslation();
 
   return (
     <article>
-      <SEO title={t('title')} />
+      <SEO title={t('technologies.title')} />
 
-      <Title>{t('title')}</Title>
+      <Title>{t('technologies.title')}</Title>
 
       <Content className="technologies">
-        {/* {data.graphCmsData.technologies.map((item, index) => (
+        {data.graphCmsData.technologies.map((item, index) => (
           <Technology
             key={item.id}
             index={index}
             name={item.name}
             image={item.image.url}
           />
-        ))} */}
+        ))}
       </Content>
     </article>
   );

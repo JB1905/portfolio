@@ -1,0 +1,50 @@
+{
+  "menu": [
+    {
+      "title": "Start",
+      "link": "/"
+    },
+    {
+      "title": "O mnie",
+      "link": "/about"
+    },
+    {
+      "title": "Technologie",
+      "link": "/technologies"
+    },
+    {
+      "title": "Projekty",
+      "link": "/projects"
+    },
+    {
+      "title": "Kontakt",
+      "link": "/contact"
+    }
+  ],
+  "about": {
+    "title": "O mnie",
+    "content": [
+      "Cześć! Nazywam się Jakub Biesiada. Mieszkam w Kielcach i jestem absolwentem technikum informatycznego. W wieku 13 lat zacząłem interesować się programowaniem, a w szczególności technologiami webowymi.",
+      "Obecnie skupiam na poznawaniu nowych rozwiązań związanych z językiem JavaScript (TypeScript) zarówno dla front-endu (React.js, Vue, Angular, Svelte, Web Components), back-endu (Node.js, Express, Nest.js, Deno), aplikacji desktopowych i mobilnych (Electron, React Native).",
+      "Bardzo ważny jest dla mnie ciągły rozwój, a także udział w tworzeniu projektów open-source. W najbliższym czasie chcę GSAP, Three.js, React Native Reanimated 2. Uwielbiam nowe technologie, w szczególności rozwiązania firmy z nadgryzionym jabłkiem w logo.",
+      "Wolny czas uwielbiam spędzać pijąć kawę i słuchając dobrej rockowej muzyki lub podcastów technologicznych."
+    ]
+  },
+  "technologies": {
+    "title": "Technologie"
+  },
+  "projects": {
+    "title": "Projekty"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "email": {
+      "name": "E-mail",
+      "//value": "biesiadajakub@icloud.com"
+    },
+    "phone": {
+      "name": "Telefon",
+      "//value": "+48 661 176 806"
+    }
+  }
+}

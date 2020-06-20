@@ -6,7 +6,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  transition: transform 200ms linear;
+  transform: scale(1.1);
   position: fixed;
 
   @media not all and (display-mode: standalone) {

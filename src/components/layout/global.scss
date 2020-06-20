@@ -18,6 +18,10 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
   --font-weight-black: 900;
+  --rounded-corners: 6px;
+  --navbar-height: 76px;
+  --action-button-size: 42px;
+  --border-width: 3px;
 }
 
 html {
@@ -49,7 +53,7 @@ p {
 
 h2 {
   margin: 20px auto;
-  font-size: 3rem;
+  // font-size: 3rem; // TODO
   text-shadow: var(--depth);
   text-transform: uppercase;
   font-weight: var(--font-weight-bold);

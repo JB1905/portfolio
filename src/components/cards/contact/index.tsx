@@ -1,7 +1,8 @@
-import React from 'react';
-import Delay from 'react-delay';
+import React, { useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
+import { fadeIn } from '../../../animations/fadeIn';
 
 import './contact.scss';
 
@@ -19,9 +20,15 @@ export const Contact: React.FC<Props> = ({
   title,
   method,
   permalink,
-}) => (
-  <Delay wait={delay}>
-    <div className="contact__item">
+}) => {
+  const card = useRef(null);
+
+  useEffect(() => {
+    fadeIn(card.current, delay);
+  }, []);
+
+  return (
+    <div className="contact__item" ref={card}>
       <FontAwesomeIcon className="contact__icon" icon={icon} />
 
       <div className="contact__content">
@@ -32,5 +39,5 @@ export const Contact: React.FC<Props> = ({
         </a>
       </div>
     </div>
-  </Delay>
-);
+  );
+};

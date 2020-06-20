@@ -1,23 +1,33 @@
-import React from 'react';
-import Delay from 'react-delay';
-import { CSSTransition } from 'react-transition-group';
+import React, { useRef, useEffect } from 'react';
+
+import falconLanding from '../../animations/falconLanding';
+import { fadeIn } from '../../animations/fadeIn';
 
 import './home.scss';
 
-const Home: React.FC = () => (
-  <Delay wait={280}>
-    <div className="home__container">
-      <div className="home__title">
-        <CSSTransition in appear timeout={2000} classNames="title">
-          <h1>Jakub Biesiada</h1>
-        </CSSTransition>
+const Home: React.FC = () => {
+  const title = useRef(null);
+  const subTitle = useRef(null);
 
-        <CSSTransition in appear timeout={2000} classNames="subtitle">
-          <h2>JavaScript Developer</h2>
-        </CSSTransition>
+  useEffect(() => {
+    falconLanding(title.current);
+
+    fadeIn(subTitle.current, 800);
+  }, []);
+
+  return (
+    <div className="home">
+      <div className="home__container">
+        <h1 className="home__title" ref={title}>
+          Jakub Biesiada
+        </h1>
+
+        <h2 className="home__sub-title" ref={subTitle}>
+          JavaScript Developer
+        </h2>
       </div>
     </div>
-  </Delay>
-);
+  );
+};
 
 export default Home;

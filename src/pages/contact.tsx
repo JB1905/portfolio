@@ -7,28 +7,30 @@ import Content from '../components/content';
 import { Contact as ContactCard } from '../components/cards';
 
 const Contact: React.FC = () => {
-  const { t } = useTranslation('Contact');
+  const { t } = useTranslation();
 
   return (
     <article>
-      <SEO title={t('title')} />
+      <SEO title={t('contact.title')} />
 
-      <Title>{t('title')}</Title>
+      <Title>{t('contact.title')}</Title>
 
       <Content className="contact">
         <ContactCard
           icon="envelope"
           delay={520}
-          permalink={t('email.value')}
-          title={t('email.name')}
+          // permalink={t('contact.email.value')}
+          title={t('contact.email.name')}
+          permalink="biesiadajakub@icloud.com"
           method="mailto"
         />
 
         <ContactCard
           icon="phone"
           delay={760}
-          permalink={t('phone.value')}
-          title={t('phone.name')}
+          // permalink={t('contact.phone.value')}
+          title={t('contact.phone.name')}
+          permalink="+48 661 176 806"
           method="tel"
         />
       </Content>

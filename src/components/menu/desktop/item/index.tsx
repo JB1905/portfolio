@@ -8,7 +8,7 @@ interface Props {
 
 const Desktop: React.FC<Props> = ({ link, title }) => (
   <li>
-    <Link to={`${link}/`} activeClassName="active">
+    <Link to={link} activeClassName="active">
       {title}
     </Link>
   </li>

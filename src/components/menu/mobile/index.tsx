@@ -1,4 +1,5 @@
 import React from 'react';
+import sTrimmer from 's-trimmer';
 
 import Mobile from './item';
 
@@ -6,24 +7,18 @@ import './mobile.scss';
 
 interface Props {
   readonly className: string;
-  // content: [
-  //   {
-  //     title: string;
-  //     link: string;
-  //   }
-  // ];
-  readonly content: any[];
+  readonly menuItems: any[];
   readonly toggleMenu: () => void;
 }
 
 const MobileMenu: React.FC<Props> = ({
   className = '',
-  content,
+  menuItems,
   toggleMenu,
 }) => (
-  <nav className={`mobile ${className}`}>
+  <nav className={sTrimmer(`mobile ${className}`)}>
     <ul>
-      {content.map((item, index) => (
+      {menuItems.map((item, index) => (
         <Mobile
           key={index}
           link={item.link}

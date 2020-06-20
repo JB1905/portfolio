@@ -10,7 +10,6 @@ export const useMenu = () => {
     setIsMobile,
     isOpen,
     setIsOpen,
-    // ref,
   } = useContext(MenuContext);
 
   const openMenu = () => {
@@ -34,14 +33,20 @@ export const useMenu = () => {
   };
 
   useEffect(() => {
-    // const onResize = () => {
-    //   const breakPoint = ref.current.offsetHeight > 74;
-    //   setIsMobile(breakPoint);
-    //   setIsMainLayoutHidden(breakPoint ? isOpen : false);
-    // };
-    // onResize();
-    // window.addEventListener('resize', onResize);
-    // return () => window.removeEventListener('resize', onResize);
+    const onResize = () => {
+      const breakPoint =
+        (document.querySelector('.nav') as HTMLElement).offsetHeight > 74;
+
+      setIsMobile(breakPoint);
+
+      setIsMainLayoutHidden(breakPoint ? isOpen : false);
+    };
+
+    onResize();
+
+    window.addEventListener('resize', onResize);
+
+    return () => window.removeEventListener('resize', onResize);
   }, [isOpen, isMainLayoutHidden]);
 
   return {
@@ -51,6 +56,5 @@ export const useMenu = () => {
     openMenu,
     closeMenu,
     toggleMenu,
-    // ref,
   };
 };

@@ -15,11 +15,11 @@ module.exports = {
       "react",
     ],
   },
-  pathPrefix: `/portfolio`,
+  // pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-graphql-codegen`,
+    // `gatsby-plugin-graphql-codegen`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,12 +42,6 @@ module.exports = {
         headers: {
           Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: `./src/images/favicon.ico`,
       },
     },
     {

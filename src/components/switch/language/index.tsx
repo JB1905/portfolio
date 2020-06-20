@@ -1,24 +1,32 @@
-import React from 'react';
-import Delay from 'react-delay';
+import React, { useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { bounceIn } from '../../../animations/bounceIn';
 
 import './language.scss';
 
 const Language: React.FC = () => {
-  // const { language, toggleLanguage } = useLanguages();
+  const { i18n } = useTranslation();
+
+  const languageToggle = useRef(null);
+
+  useEffect(() => {
+    bounceIn(languageToggle.current, 600);
+  }, []);
 
   return (
-    <Delay wait={600}>
-      <div className="icon">
-        <button
-          type="button"
-          className="language"
-          aria-label="Switch language"
-          // onClick={toggleLanguage}
-        >
-          {/* {language} */}
-        </button>
-      </div>
-    </Delay>
+    <div className="icon" ref={languageToggle}>
+      <button
+        type="button"
+        className="language"
+        aria-label="Switch language"
+        onClick={() =>
+          i18n.changeLanguage(i18n.language === 'pl' ? 'en' : 'pl')
+        }
+      >
+        {i18n.language}
+      </button>
+    </div>
   );
 };
 

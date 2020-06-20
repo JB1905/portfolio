@@ -1,5 +1,6 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
+import sTrimmer from 's-trimmer';
 
 import Icons from '../icons';
 import { MenuSwitch } from '../switch';
@@ -8,54 +9,46 @@ import MobileMenu from './mobile';
 
 import { useMenu } from '../../hooks/useMenu';
 
-import { MenuQuery } from '../../../graphql-types';
-
 import './menu.scss';
 
 const Menu: React.FC = () => {
-  const { toggleMenu, closeMenu, isMobile, isOpen, ref } = useMenu();
+  const { toggleMenu, closeMenu, isMobile, isOpen } = useMenu();
 
-  // const data = useStaticQuery<MenuQuery>(query);
+  const { t } = useTranslation();
+
+  // const menuItems = useMemo(
+  //   () => t('menu', { returnObjects: true }) as any[],
+  //   []
+  // ); // TODO
+
+  const menuItems = t<any[]>('menu', { returnObjects: true });
+
+  // const menuItems = []
 
   return (
     <>
       <header>
         <Icons />
 
-        <nav className="nav" ref={ref}>
-          {/* <DesktopMenu
+        <nav className="nav">
+          <DesktopMenu
             className={`${isMobile ? 'hidden' : ''}`}
-            // content={data[language].menu}
-          /> */}
+            menuItems={menuItems}
+          />
 
           {isMobile && <MenuSwitch onClick={toggleMenu} />}
         </nav>
       </header>
 
-      {/* <MobileMenu
-        className={`${isMobile ? '' : 'hidden'} ${isOpen ? 'opened' : ''}`}
-        // content={data[language].menu}
+      <MobileMenu
+        className={sTrimmer(
+          `${isMobile ? '' : 'hidden'} ${isOpen ? 'opened' : ''}`
+        )}
+        menuItems={menuItems}
         toggleMenu={closeMenu}
-      /> */}
+      />
     </>
   );
 };
-
-// export const query = graphql`
-//   query Menu {
-//     pl: languagesJson(lang: { eq: "pl" }) {
-//       menu {
-//         title
-//         link
-//       }
-//     }
-//     en: languagesJson(lang: { eq: "en" }) {
-//       menu {
-//         title
-//         link
-//       }
-//     }
-//   }
-// `;
 
 export default Menu;

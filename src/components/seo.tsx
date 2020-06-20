@@ -1,15 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-
-// import { useLanguages } from '../hooks/useLanguages';
+import { useTranslation } from 'react-i18next';
 
 import { DefaultSeoQuery } from '../../graphql-types';
 
 interface Props {
   readonly description?: string;
-  readonly meta?: HTMLMetaElement | any;
-  readonly keywords?: string[] | any;
+  readonly meta?: HTMLMetaElement;
+  readonly keywords?: string[];
   readonly title?: string;
 }
 
@@ -19,7 +18,7 @@ const SEO: React.FC<Props> = ({
   keywords = [],
   title,
 }) => {
-  // const { language } = useLanguages();
+  const { i18n } = useTranslation();
 
   const { site } = useStaticQuery<DefaultSeoQuery>(query);
 
@@ -29,7 +28,7 @@ const SEO: React.FC<Props> = ({
     <Helmet
       title={site.siteMetadata.author}
       titleTemplate={`%s | ${title || site.siteMetadata.title}`}
-      // htmlAttributes={{ lang: language }}
+      htmlAttributes={{ lang: i18n.language }}
       meta={[
         {
           name: 'description',
