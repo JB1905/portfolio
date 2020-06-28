@@ -6,6 +6,10 @@ import Title from '../components/title';
 import Content from '../components/content';
 import { Contact as ContactCard } from '../components/cards';
 
+import ContactForm from '../containers/contact-form';
+
+import { isFeatureEnabled } from '../features';
+
 const Contact: React.FC = () => {
   const { t } = useTranslation();
 
@@ -19,7 +23,6 @@ const Contact: React.FC = () => {
         <ContactCard
           icon="envelope"
           delay={520}
-          // permalink={t('contact.email.value')}
           title={t('contact.email.name')}
           permalink="biesiadajakub@icloud.com"
           method="mailto"
@@ -28,11 +31,12 @@ const Contact: React.FC = () => {
         <ContactCard
           icon="phone"
           delay={760}
-          // permalink={t('contact.phone.value')}
           title={t('contact.phone.name')}
           permalink="+48 661 176 806"
           method="tel"
         />
+
+        {isFeatureEnabled('contactForm') && <ContactForm />}
       </Content>
     </article>
   );

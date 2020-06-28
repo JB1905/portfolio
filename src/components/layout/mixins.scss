@@ -1,4 +1,4 @@
-@mixin monument-effect {
+@mixin monument-effect($hoverable, $clickable) {
   &::before {
     content: "";
     position: absolute;
@@ -10,5 +10,9 @@
     z-index: -1;
     left: 0;
     top: 0;
+
+    // @if $hoverable or $clickable {
+
+    // }
   }
 }

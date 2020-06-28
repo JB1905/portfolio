@@ -1,0 +1,48 @@
+@import "../../components/layout/mixins.scss";
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 620px; // TODO
+  // font-family: inherit;
+
+  &__input {
+    border: 0;
+    border-radius: var(--rounded-corners);
+    padding: var(--vertical-gap) var(--horizontal-gap);
+    margin: var(--vertical-gap) 0;
+    font-size: 2rem;
+    // aaa
+    box-shadow: var(--depth);
+    font-weight: 500;
+
+    &::placeholder {
+      opacity: 0.75;
+    }
+
+    // @include monument-effect;
+
+    &--textarea {
+      resize: none;
+      height: 200px;
+    }
+  }
+
+  &__button {
+    align-self: flex-end;
+    // padding: var(--vertical-gap) var(--horizontal-gap);
+    // font-size: 2rem;
+    margin: var(--vertical-gap) 0;
+    // aa
+    padding: var(--vertical-gap) var(--horizontal-gap);
+    border-radius: var(--rounded-corners);
+    box-shadow: var(--depth);
+    font-size: 2rem;
+    border: var(--border-width) solid var(--white);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    // text-transform: uppercase;
+    font-weight: 500;
+  }
+}

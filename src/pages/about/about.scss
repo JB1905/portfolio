@@ -20,13 +20,13 @@
 
   .image__container {
     display: flex;
-    margin: 12px auto 10px;
+    margin: var(--vertical-gap) auto 10px;
     max-width: 300px;
     height: 100%;
     width: 100%;
 
     @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
-      top: 12px;
+      top: var(--vertical-gap);
       margin: 0;
       position: sticky;
       max-width: 320px;
@@ -36,11 +36,11 @@
     figure {
       width: 100%;
       // max-width: 320px;
-      margin: 0 auto 12px;
+      margin: 0 auto var(--vertical-gap);
 
       @media (min-width: 600px),
         (max-width: 600px) and (orientation: landscape) {
-        margin: 12px 12px auto 0;
+        margin: var(--vertical-gap) var(--vertical-gap) auto 0;
         max-width: 100%;
       }
     }

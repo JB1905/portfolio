@@ -16,7 +16,7 @@
   &.technologies,
   &.projects {
     margin: 0;
-    padding: 12px 0;
+    padding: var(--vertical-gap) 0;
     display: grid;
     column-gap: 20px;
     row-gap: 24px;

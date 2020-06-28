@@ -20,11 +20,11 @@ const Title: React.FC = ({ children }) => {
     tl.fromTo(
       title.current,
       { opacity: 1, scale: 1 },
-      { opacity: 0, scale: 0.5 }
+      { opacity: 0, scale: 0.85 }
     );
 
     const fadeOut = () => {
-      const scrolled = layout.scrollTop / 100; // 250
+      const scrolled = layout.scrollTop / 100;
 
       tl.progress(scrolled);
     };

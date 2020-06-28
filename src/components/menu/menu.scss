@@ -55,7 +55,7 @@ ul {
       border-radius: var(--rounded-corners);
       text-transform: uppercase;
       text-decoration: none;
-      padding: 12px 16px;
+      padding: var(--vertical-gap) var(--horizontal-gap);
       position: relative;
 
       &.active {

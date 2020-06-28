@@ -2,7 +2,6 @@
 
 .project {
   &__image {
-    // opacity: 1;
     font-size: 0;
     cursor: pointer;
     position: absolute;
@@ -11,6 +10,7 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
+    opacity: 0;
   }
 
   &__content {
@@ -19,24 +19,21 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    opacity: 0;
+    // opacity: 0;
     top: 0;
   }
 
   &__item {
     height: 0;
-    background-color: var(--white);
-    font-weight: var(--font-weight-medium);
-    padding-top: calc(100% / 5 * 3);
-    position: relative;
-    // font-size: 3rem; // TODO
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    background-color: var(--white);
     border-radius: var(--rounded-corners);
-
-    @include monument-effect;
+    font-weight: var(--font-weight-medium);
+    padding-top: calc(100% / 5 * 3);
+    position: relative;
 
     > div {
       top: 0;
@@ -48,7 +45,7 @@
 
   &__main {
     flex: 1;
-    padding: 18px 16px 12px;
+    padding: 12px var(--horizontal-gap) var(--vertical-gap);
     overflow: auto;
   }
 
@@ -64,10 +61,10 @@
     max-width: 58px;
     padding: 4px 8px;
     position: absolute;
-    // border-radius: 4px; // TODO
-    color: var(--white);
+    border-radius: var(--rounded-corners);
     background-color: var(--primary);
-    // font-size: 1.25rem; // TODO
+    color: var(--white);
+    font-size: 1.25rem;
   }
 
   &__title {
@@ -75,8 +72,8 @@
     max-width: calc(100% - 64px);
     text-transform: uppercase;
     font-weight: var(--font-weight-black);
-    color: var(--secondary);
     font-size: var(--font-size-s);
+    color: var(--secondary);
   }
 
   &__description {
@@ -88,17 +85,17 @@
   &__footer {
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 var(--horizontal-gap) var(--vertical-gap);
   }
 
   &__technologies {
     padding: 0;
-    height: 46px;
+    height: 30px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     max-width: calc(100% - 100px);
-    // font-size: 1.25rem; // TODO
+    // font-size: 1.25rem;
 
     img {
       width: 30px;
@@ -113,9 +110,9 @@
     align-items: center;
     justify-content: flex-end;
     position: absolute;
-    height: 46px;
+    height: 30px;
     right: 20px;
-    bottom: 0;
+    bottom: 10px;
 
     a {
       margin-left: 24px;
