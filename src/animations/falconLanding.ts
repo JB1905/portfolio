@@ -6,7 +6,11 @@ const falconLanding = (el: any, delay = 0) => {
     autoAlpha: 0,
   });
 
-  const tl = gsap.timeline({ defaults: { ease: Back.easeInOut } });
+  const tl = gsap.timeline({
+    defaults: {
+      ease: Back.easeInOut,
+    },
+  });
 
   tl.to(el, {
     delay: delay / 1000 + 0.3,

@@ -7,7 +7,11 @@ export const bounceIn = (el: any, delay = 0) => {
   });
 
   const tl = gsap.timeline({
-    defaults: { ease: Back.easeOut, delay: delay / 1000 + 0.3, duration: 0.3 },
+    defaults: {
+      ease: Back.easeOut,
+      delay: delay / 1000 + 0.3,
+      duration: 0.3,
+    },
   });
 
   tl.to(el, {

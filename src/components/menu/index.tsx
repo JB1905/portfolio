@@ -16,14 +16,9 @@ const Menu: React.FC = () => {
 
   const { t } = useTranslation();
 
-  // const menuItems = useMemo(
-  //   () => t('menu', { returnObjects: true }) as any[],
-  //   []
-  // ); // TODO
-
-  const menuItems = t<any[]>('menu', { returnObjects: true });
-
-  // const menuItems = []
+  const menuItems = t<{ title: string; link: string }[]>('menu', {
+    returnObjects: true,
+  });
 
   return (
     <>

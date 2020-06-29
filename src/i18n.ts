@@ -10,7 +10,6 @@ i18n.use(LanguageDetector).init({
       translations: require('./locales/en/translations.json'),
     },
   },
-  // ns: ['translations'],
   defaultNS: 'translations',
 });
 

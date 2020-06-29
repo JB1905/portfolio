@@ -7,16 +7,16 @@ import Title from '../components/title';
 import Content from '../components/content';
 import { Project } from '../components/cards';
 
-import { ProjectsQuery } from '../../graphql-types';
+import { Language } from '../enums/Language';
 
-import { Language } from '../enums/Language'; // TODO
+import { ProjectsQuery } from '../../graphql-types';
 
 interface Props {
   readonly data: ProjectsQuery;
 }
 
 const Projects: React.FC<Props> = ({ data }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <article>
@@ -30,8 +30,7 @@ const Projects: React.FC<Props> = ({ data }) => {
             key={item.id}
             index={index}
             item={item}
-            language={Language.Polish}
-            // language={language}
+            language={i18n.language as Language}
           />
         ))}
       </Content>
