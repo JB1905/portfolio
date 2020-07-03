@@ -31,7 +31,7 @@
     "title": "About",
     "content": [
       "Hi 👋",
-      "My name is Jakub Biesiada. I live in Kielce and I am a graduate of IT technical school. I started my programming adventure at the age of 13 by writing simple programs in PHP.",
+      "My name is Jakub. I live in Kielce and I am a graduate of IT technical school. I started my programming adventure at the age of 13 by writing simple programs in PHP.",
       "Currently, the main direction of my development is front-end, in particular JavaScript (TypeScript), which does not mean that I abandoned the back-end path. On the contrary! I try to stay up to date with both the web world technologies (React.js, Vue, Angular, Svelte, Web Components) and server (Node.js, Express, Nest.js, Deno) as well as desktop and mobile applications (Electron, React Native).",
       "Continuous development and participation in creating open-source projects is very important to me. In the near future I want to learn more about techniques for creating complex animations in GSAP and Three.js, as well as prepare for new features in React Native Reanimated 2.",
       "In addition to programming, I love new technologies, in particular the company's solutions with a bitten apple in the logo and for many years I have been a satisfied macOS user and Beta software tester.",

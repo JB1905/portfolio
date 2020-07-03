@@ -21,12 +21,23 @@ export type Scalars = {
   JSON: any;
 };
 
+
+
+
+
+
+
+
+
+
+
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars['Boolean']>;
   ne?: Maybe<Scalars['Boolean']>;
   in?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
 };
+
 
 export type DateQueryOperatorInput = {
   eq?: Maybe<Scalars['Date']>;
@@ -81,12 +92,14 @@ export type Directory = Node & {
   internal: Internal;
 };
 
+
 export type DirectoryModifiedTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
+
 
 export type DirectoryAccessTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -95,12 +108,14 @@ export type DirectoryAccessTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+
 export type DirectoryChangeTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
+
 
 export type DirectoryBirthTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -109,6 +124,7 @@ export type DirectoryBirthTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+
 export type DirectoryAtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -116,12 +132,14 @@ export type DirectoryAtimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+
 export type DirectoryMtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
+
 
 export type DirectoryCtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -139,9 +157,11 @@ export type DirectoryConnection = {
   group: Array<DirectoryGroupConnection>;
 };
 
+
 export type DirectoryConnectionDistinctArgs = {
   field: DirectoryFieldsEnum;
 };
+
 
 export type DirectoryConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -155,7 +175,7 @@ export type DirectoryEdge = {
   previous?: Maybe<Directory>;
 };
 
-export type DirectoryFieldsEnum =
+export type DirectoryFieldsEnum = 
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -381,12 +401,14 @@ export type File = Node & {
   internal: Internal;
 };
 
+
 export type FileModifiedTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
+
 
 export type FileAccessTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -395,12 +417,14 @@ export type FileAccessTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+
 export type FileChangeTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
+
 
 export type FileBirthTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -409,6 +433,7 @@ export type FileBirthTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+
 export type FileAtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -416,12 +441,14 @@ export type FileAtimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+
 export type FileMtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
+
 
 export type FileCtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -439,9 +466,11 @@ export type FileConnection = {
   group: Array<FileGroupConnection>;
 };
 
+
 export type FileConnectionDistinctArgs = {
   field: FileFieldsEnum;
 };
+
 
 export type FileConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -455,7 +484,7 @@ export type FileEdge = {
   previous?: Maybe<File>;
 };
 
-export type FileFieldsEnum =
+export type FileFieldsEnum = 
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -752,6 +781,7 @@ export type Graphcms = {
   node?: Maybe<Graphcms_Node>;
 };
 
+
 export type GraphcmsAssetsArgs = {
   where?: Maybe<Graphcms_AssetWhereInput>;
   orderBy?: Maybe<Graphcms_AssetOrderByInput>;
@@ -761,6 +791,7 @@ export type GraphcmsAssetsArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+
 
 export type GraphcmsProjectsArgs = {
   where?: Maybe<Graphcms_ProjectWhereInput>;
@@ -772,6 +803,7 @@ export type GraphcmsProjectsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
+
 export type GraphcmsTechnologiesArgs = {
   where?: Maybe<Graphcms_TechnologyWhereInput>;
   orderBy?: Maybe<Graphcms_TechnologyOrderByInput>;
@@ -781,6 +813,7 @@ export type GraphcmsTechnologiesArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+
 
 export type GraphcmsIconsArgs = {
   where?: Maybe<Graphcms_IconWhereInput>;
@@ -792,21 +825,26 @@ export type GraphcmsIconsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
+
 export type GraphcmsAssetArgs = {
   where: Graphcms_AssetWhereUniqueInput;
 };
+
 
 export type GraphcmsProjectArgs = {
   where: Graphcms_ProjectWhereUniqueInput;
 };
 
+
 export type GraphcmsTechnologyArgs = {
   where: Graphcms_TechnologyWhereUniqueInput;
 };
 
+
 export type GraphcmsIconArgs = {
   where: Graphcms_IconWhereUniqueInput;
 };
+
 
 export type GraphcmsAssetsConnectionArgs = {
   where?: Maybe<Graphcms_AssetWhereInput>;
@@ -818,6 +856,7 @@ export type GraphcmsAssetsConnectionArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
+
 export type GraphcmsProjectsConnectionArgs = {
   where?: Maybe<Graphcms_ProjectWhereInput>;
   orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
@@ -827,6 +866,7 @@ export type GraphcmsProjectsConnectionArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+
 
 export type GraphcmsTechnologiesConnectionArgs = {
   where?: Maybe<Graphcms_TechnologyWhereInput>;
@@ -838,6 +878,7 @@ export type GraphcmsTechnologiesConnectionArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
+
 export type GraphcmsIconsConnectionArgs = {
   where?: Maybe<Graphcms_IconWhereInput>;
   orderBy?: Maybe<Graphcms_IconOrderByInput>;
@@ -847,6 +888,7 @@ export type GraphcmsIconsConnectionArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+
 
 export type GraphcmsNodeArgs = {
   id: Scalars['ID'];
@@ -886,6 +928,7 @@ export type Graphcms_Asset = Graphcms_Node & {
   url: Scalars['String'];
 };
 
+
 export type Graphcms_AssetImageProjectArgs = {
   where?: Maybe<Graphcms_ProjectWhereInput>;
   orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
@@ -895,6 +938,7 @@ export type Graphcms_AssetImageProjectArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+
 
 export type Graphcms_AssetImageTechnologyArgs = {
   where?: Maybe<Graphcms_TechnologyWhereInput>;
@@ -906,6 +950,7 @@ export type Graphcms_AssetImageTechnologyArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
+
 export type Graphcms_AssetImageIconArgs = {
   where?: Maybe<Graphcms_IconWhereInput>;
   orderBy?: Maybe<Graphcms_IconOrderByInput>;
@@ -915,6 +960,7 @@ export type Graphcms_AssetImageIconArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+
 
 export type Graphcms_AssetUrlArgs = {
   transformation?: Maybe<Graphcms_AssetTransformationInput>;
@@ -1004,7 +1050,7 @@ export type Graphcms_AssetEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_AssetOrderByInput =
+export type Graphcms_AssetOrderByInput = 
   | 'status_ASC'
   | 'status_DESC'
   | 'updatedAt_ASC'
@@ -1421,7 +1467,8 @@ export type Graphcms_BatchPayload = {
   count: Scalars['GRAPHCMS_Long'];
 };
 
-export type Graphcms_DocumentFileTypes =
+
+export type Graphcms_DocumentFileTypes = 
   | 'jpg'
   | 'odp'
   | 'ods'
@@ -1443,7 +1490,7 @@ export type Graphcms_DocumentOutputInput = {
   /**
    * Transforms a document into a desired file type.
    * See this matrix for format support:
-   *
+   * 
    * PDF:	jpg, odp, ods, odt, png, svg, txt, and webp
    * DOC:	docx, html, jpg, odt, pdf, png, svg, txt, and webp
    * DOCX:	doc, html, jpg, odt, pdf, png, svg, txt, and webp
@@ -1517,7 +1564,7 @@ export type Graphcms_IconEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_IconOrderByInput =
+export type Graphcms_IconOrderByInput = 
   | 'status_ASC'
   | 'status_DESC'
   | 'updatedAt_ASC'
@@ -1818,7 +1865,7 @@ export type Graphcms_IconWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
 };
 
-export type Graphcms_ImageFit =
+export type Graphcms_ImageFit = 
   /** Resizes the image to fit within the specified parameters without distorting, cropping, or changing the aspect ratio. */
   | 'clip'
   /**
@@ -1853,9 +1900,14 @@ export type Graphcms_ImageTransformationInput = {
   resize?: Maybe<Graphcms_ImageResizeInput>;
 };
 
-export type Graphcms_Locale = 'EN';
+export type Graphcms_Locale = 
+  | 'EN';
 
-export type Graphcms_MutationType = 'CREATED' | 'UPDATED' | 'DELETED';
+
+export type Graphcms_MutationType = 
+  | 'CREATED'
+  | 'UPDATED'
+  | 'DELETED';
 
 /** An object with an ID */
 export type Graphcms_Node = {
@@ -1889,6 +1941,7 @@ export type Graphcms_Project = Graphcms_Node & {
   date?: Maybe<Scalars['String']>;
   technologies?: Maybe<Array<Graphcms_Technology>>;
 };
+
 
 export type Graphcms_ProjectTechnologiesArgs = {
   where?: Maybe<Graphcms_TechnologyWhereInput>;
@@ -1961,7 +2014,7 @@ export type Graphcms_ProjectEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_ProjectOrderByInput =
+export type Graphcms_ProjectOrderByInput = 
   | 'status_ASC'
   | 'status_DESC'
   | 'updatedAt_ASC'
@@ -2307,14 +2360,10 @@ export type Graphcms_ProjectUpdateManyWithoutTechnologiesInput = {
   set?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
   disconnect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
   delete?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  update?: Maybe<
-    Array<Graphcms_ProjectUpdateWithWhereUniqueWithoutTechnologiesInput>
-  >;
+  update?: Maybe<Array<Graphcms_ProjectUpdateWithWhereUniqueWithoutTechnologiesInput>>;
   updateMany?: Maybe<Array<Graphcms_ProjectUpdateManyWithWhereNestedInput>>;
   deleteMany?: Maybe<Array<Graphcms_ProjectScalarWhereInput>>;
-  upsert?: Maybe<
-    Array<Graphcms_ProjectUpsertWithWhereUniqueWithoutTechnologiesInput>
-  >;
+  upsert?: Maybe<Array<Graphcms_ProjectUpsertWithWhereUniqueWithoutTechnologiesInput>>;
 };
 
 export type Graphcms_ProjectUpdateManyWithWhereNestedInput = {
@@ -2610,7 +2659,10 @@ export type Graphcms_ProjectWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
 };
 
-export type Graphcms_Status = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED';
+export type Graphcms_Status = 
+  | 'DRAFT'
+  | 'PUBLISHED'
+  | 'ARCHIVED';
 
 export type Graphcms_Technology = Graphcms_Node & {
   status: Graphcms_Status;
@@ -2621,6 +2673,7 @@ export type Graphcms_Technology = Graphcms_Node & {
   image?: Maybe<Graphcms_Asset>;
   project?: Maybe<Array<Graphcms_Project>>;
 };
+
 
 export type Graphcms_TechnologyProjectArgs = {
   where?: Maybe<Graphcms_ProjectWhereInput>;
@@ -2678,7 +2731,7 @@ export type Graphcms_TechnologyEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_TechnologyOrderByInput =
+export type Graphcms_TechnologyOrderByInput = 
   | 'status_ASC'
   | 'status_DESC'
   | 'updatedAt_ASC'
@@ -2847,14 +2900,10 @@ export type Graphcms_TechnologyUpdateManyWithoutImageInput = {
   set?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
   disconnect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
   delete?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  update?: Maybe<
-    Array<Graphcms_TechnologyUpdateWithWhereUniqueWithoutImageInput>
-  >;
+  update?: Maybe<Array<Graphcms_TechnologyUpdateWithWhereUniqueWithoutImageInput>>;
   updateMany?: Maybe<Array<Graphcms_TechnologyUpdateManyWithWhereNestedInput>>;
   deleteMany?: Maybe<Array<Graphcms_TechnologyScalarWhereInput>>;
-  upsert?: Maybe<
-    Array<Graphcms_TechnologyUpsertWithWhereUniqueWithoutImageInput>
-  >;
+  upsert?: Maybe<Array<Graphcms_TechnologyUpsertWithWhereUniqueWithoutImageInput>>;
 };
 
 export type Graphcms_TechnologyUpdateManyWithoutProjectInput = {
@@ -2863,14 +2912,10 @@ export type Graphcms_TechnologyUpdateManyWithoutProjectInput = {
   set?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
   disconnect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
   delete?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  update?: Maybe<
-    Array<Graphcms_TechnologyUpdateWithWhereUniqueWithoutProjectInput>
-  >;
+  update?: Maybe<Array<Graphcms_TechnologyUpdateWithWhereUniqueWithoutProjectInput>>;
   updateMany?: Maybe<Array<Graphcms_TechnologyUpdateManyWithWhereNestedInput>>;
   deleteMany?: Maybe<Array<Graphcms_TechnologyScalarWhereInput>>;
-  upsert?: Maybe<
-    Array<Graphcms_TechnologyUpsertWithWhereUniqueWithoutProjectInput>
-  >;
+  upsert?: Maybe<Array<Graphcms_TechnologyUpsertWithWhereUniqueWithoutProjectInput>>;
 };
 
 export type Graphcms_TechnologyUpdateManyWithWhereNestedInput = {
@@ -3039,9 +3084,11 @@ export type GraphQlSourceConnection = {
   group: Array<GraphQlSourceGroupConnection>;
 };
 
+
 export type GraphQlSourceConnectionDistinctArgs = {
   field: GraphQlSourceFieldsEnum;
 };
+
 
 export type GraphQlSourceConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -3055,7 +3102,7 @@ export type GraphQlSourceEdge = {
   previous?: Maybe<GraphQlSource>;
 };
 
-export type GraphQlSourceFieldsEnum =
+export type GraphQlSourceFieldsEnum = 
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3168,7 +3215,7 @@ export type GraphQlSourceSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type ImageCropFocus =
+export type ImageCropFocus = 
   | 'CENTER'
   | 'NORTH'
   | 'NORTHEAST'
@@ -3181,9 +3228,18 @@ export type ImageCropFocus =
   | 'ENTROPY'
   | 'ATTENTION';
 
-export type ImageFit = 'COVER' | 'CONTAIN' | 'FILL' | 'INSIDE' | 'OUTSIDE';
+export type ImageFit = 
+  | 'COVER'
+  | 'CONTAIN'
+  | 'FILL'
+  | 'INSIDE'
+  | 'OUTSIDE';
 
-export type ImageFormat = 'NO_CHANGE' | 'JPG' | 'PNG' | 'WEBP';
+export type ImageFormat = 
+  | 'NO_CHANGE'
+  | 'JPG'
+  | 'PNG'
+  | 'WEBP';
 
 export type ImageSharp = Node & {
   fixed?: Maybe<ImageSharpFixed>;
@@ -3199,6 +3255,7 @@ export type ImageSharp = Node & {
   children: Array<Node>;
   internal: Internal;
 };
+
 
 export type ImageSharpFixedArgs = {
   width?: Maybe<Scalars['Int']>;
@@ -3222,6 +3279,7 @@ export type ImageSharpFixedArgs = {
   trim?: Maybe<Scalars['Float']>;
 };
 
+
 export type ImageSharpResolutionsArgs = {
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
@@ -3243,6 +3301,7 @@ export type ImageSharpResolutionsArgs = {
   rotate?: Maybe<Scalars['Int']>;
   trim?: Maybe<Scalars['Float']>;
 };
+
 
 export type ImageSharpFluidArgs = {
   maxWidth?: Maybe<Scalars['Int']>;
@@ -3268,6 +3327,7 @@ export type ImageSharpFluidArgs = {
   srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
+
 export type ImageSharpSizesArgs = {
   maxWidth?: Maybe<Scalars['Int']>;
   maxHeight?: Maybe<Scalars['Int']>;
@@ -3291,6 +3351,7 @@ export type ImageSharpSizesArgs = {
   sizes?: Maybe<Scalars['String']>;
   srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
+
 
 export type ImageSharpResizeArgs = {
   width?: Maybe<Scalars['Int']>;
@@ -3323,9 +3384,11 @@ export type ImageSharpConnection = {
   group: Array<ImageSharpGroupConnection>;
 };
 
+
 export type ImageSharpConnectionDistinctArgs = {
   field: ImageSharpFieldsEnum;
 };
+
 
 export type ImageSharpConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -3339,7 +3402,7 @@ export type ImageSharpEdge = {
   previous?: Maybe<ImageSharp>;
 };
 
-export type ImageSharpFieldsEnum =
+export type ImageSharpFieldsEnum = 
   | 'fixed___base64'
   | 'fixed___tracedSVG'
   | 'fixed___aspectRatio'
@@ -3682,6 +3745,7 @@ export type IntQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
+
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
@@ -3723,7 +3787,7 @@ export type Potrace = {
   background?: Maybe<Scalars['String']>;
 };
 
-export type PotraceTurnPolicy =
+export type PotraceTurnPolicy = 
   | 'TURNPOLICY_BLACK'
   | 'TURNPOLICY_WHITE'
   | 'TURNPOLICY_LEFT'
@@ -3750,6 +3814,7 @@ export type Query = {
   allSitePlugin: SitePluginConnection;
   graphCmsData: Graphcms;
 };
+
 
 export type QueryFileArgs = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -3793,12 +3858,14 @@ export type QueryFileArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
+
 export type QueryAllFileArgs = {
   filter?: Maybe<FileFilterInput>;
   sort?: Maybe<FileSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
+
 
 export type QueryDirectoryArgs = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -3840,12 +3907,14 @@ export type QueryDirectoryArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
+
 export type QueryAllDirectoryArgs = {
   filter?: Maybe<DirectoryFilterInput>;
   sort?: Maybe<DirectorySortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
+
 
 export type QuerySitePageArgs = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -3863,6 +3932,7 @@ export type QuerySitePageArgs = {
   componentPath?: Maybe<StringQueryOperatorInput>;
 };
 
+
 export type QueryAllSitePageArgs = {
   filter?: Maybe<SitePageFilterInput>;
   sort?: Maybe<SitePageSortInput>;
@@ -3870,16 +3940,20 @@ export type QueryAllSitePageArgs = {
   limit?: Maybe<Scalars['Int']>;
 };
 
+
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  port?: Maybe<DateQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
 };
+
 
 export type QueryAllSiteArgs = {
   filter?: Maybe<SiteFilterInput>;
@@ -3887,6 +3961,7 @@ export type QueryAllSiteArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
+
 
 export type QueryImageSharpArgs = {
   fixed?: Maybe<ImageSharpFixedFilterInput>;
@@ -3901,12 +3976,14 @@ export type QueryImageSharpArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
+
 export type QueryAllImageSharpArgs = {
   filter?: Maybe<ImageSharpFilterInput>;
   sort?: Maybe<ImageSharpSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
+
 
 export type QueryGraphQlSourceArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -3917,12 +3994,14 @@ export type QueryGraphQlSourceArgs = {
   fieldName?: Maybe<StringQueryOperatorInput>;
 };
 
+
 export type QueryAllGraphQlSourceArgs = {
   filter?: Maybe<GraphQlSourceFilterInput>;
   sort?: Maybe<GraphQlSourceSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
+
 
 export type QuerySiteBuildMetadataArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -3932,12 +4011,14 @@ export type QuerySiteBuildMetadataArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
 };
 
+
 export type QueryAllSiteBuildMetadataArgs = {
   filter?: Maybe<SiteBuildMetadataFilterInput>;
   sort?: Maybe<SiteBuildMetadataSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
+
 
 export type QuerySitePluginArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -3955,6 +4036,7 @@ export type QuerySitePluginArgs = {
   packageJson?: Maybe<SitePluginPackageJsonFilterInput>;
 };
 
+
 export type QueryAllSitePluginArgs = {
   filter?: Maybe<SitePluginFilterInput>;
   sort?: Maybe<SitePluginSortInput>;
@@ -3965,15 +4047,26 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  pathPrefix?: Maybe<Scalars['String']>;
+  port?: Maybe<Scalars['Date']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
+  pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
+
 export type SiteBuildTimeArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SitePortArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -3987,6 +4080,7 @@ export type SiteBuildMetadata = Node & {
   internal: Internal;
   buildTime?: Maybe<Scalars['Date']>;
 };
+
 
 export type SiteBuildMetadataBuildTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -4004,9 +4098,11 @@ export type SiteBuildMetadataConnection = {
   group: Array<SiteBuildMetadataGroupConnection>;
 };
 
+
 export type SiteBuildMetadataConnectionDistinctArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
+
 
 export type SiteBuildMetadataConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -4020,7 +4116,7 @@ export type SiteBuildMetadataEdge = {
   previous?: Maybe<SiteBuildMetadata>;
 };
 
-export type SiteBuildMetadataFieldsEnum =
+export type SiteBuildMetadataFieldsEnum = 
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -4140,9 +4236,11 @@ export type SiteConnection = {
   group: Array<SiteGroupConnection>;
 };
 
+
 export type SiteConnectionDistinctArgs = {
   field: SiteFieldsEnum;
 };
+
 
 export type SiteConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -4156,15 +4254,17 @@ export type SiteEdge = {
   previous?: Maybe<Site>;
 };
 
-export type SiteFieldsEnum =
+export type SiteFieldsEnum = 
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___author'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___keywords'
-  | 'pathPrefix'
+  | 'port'
+  | 'host'
   | 'polyfill'
+  | 'pathPrefix'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -4255,8 +4355,10 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  port?: Maybe<DateQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -4297,9 +4399,11 @@ export type SitePageConnection = {
   group: Array<SitePageGroupConnection>;
 };
 
+
 export type SitePageConnectionDistinctArgs = {
   field: SitePageFieldsEnum;
 };
+
 
 export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -4313,7 +4417,7 @@ export type SitePageEdge = {
   previous?: Maybe<SitePage>;
 };
 
-export type SitePageFieldsEnum =
+export type SitePageFieldsEnum = 
   | 'path'
   | 'component'
   | 'internalComponentName'
@@ -4549,9 +4653,11 @@ export type SitePluginConnection = {
   group: Array<SitePluginGroupConnection>;
 };
 
+
 export type SitePluginConnectionDistinctArgs = {
   field: SitePluginFieldsEnum;
 };
+
 
 export type SitePluginConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -4565,7 +4671,7 @@ export type SitePluginEdge = {
   previous?: Maybe<SitePlugin>;
 };
 
-export type SitePluginFieldsEnum =
+export type SitePluginFieldsEnum = 
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -4775,9 +4881,7 @@ export type SitePluginPackageJsonFilterInput = {
   license?: Maybe<StringQueryOperatorInput>;
   dependencies?: Maybe<SitePluginPackageJsonDependenciesFilterListInput>;
   devDependencies?: Maybe<SitePluginPackageJsonDevDependenciesFilterListInput>;
-  peerDependencies?: Maybe<
-    SitePluginPackageJsonPeerDependenciesFilterListInput
-  >;
+  peerDependencies?: Maybe<SitePluginPackageJsonPeerDependenciesFilterListInput>;
   keywords?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -4891,7 +4995,9 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type SortOrderEnum = 'ASC' | 'DESC';
+export type SortOrderEnum = 
+  | 'ASC'
+  | 'DESC';
 
 export type StringQueryOperatorInput = {
   eq?: Maybe<Scalars['String']>;
@@ -4904,229 +5010,92 @@ export type StringQueryOperatorInput = {
 
 export type BackgroundQueryVariables = {};
 
+
 export type BackgroundQuery = { image?: Maybe<Pick<File, 'publicURL'>> };
 
 export type IconsQueryVariables = {};
 
-export type IconsQuery = {
-  graphCmsData: {
-    icons: Array<
-      Maybe<
-        Pick<Graphcms_Icon, 'id' | 'url'> & {
-          image?: Maybe<Pick<Graphcms_Asset, 'url'>>;
-        }
-      >
-    >;
-  };
-};
+
+export type IconsQuery = { graphCmsData: { icons: Array<Maybe<(
+      Pick<Graphcms_Icon, 'id' | 'url'>
+      & { image?: Maybe<Pick<Graphcms_Asset, 'url'>> }
+    )>> } };
 
 export type DefaultSeoQueryVariables = {};
 
-export type DefaultSeoQuery = {
-  site?: Maybe<{
-    siteMetadata?: Maybe<
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'author' | 'keywords'>
-    >;
-  }>;
-};
+
+export type DefaultSeoQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author' | 'keywords'>> }> };
 
 export type AboutQueryVariables = {};
 
-export type AboutQuery = {
-  image?: Maybe<{
-    childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }>;
-  }>;
-};
+
+export type AboutQuery = { image?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type ProjectsQueryVariables = {};
 
-export type ProjectsQuery = {
-  graphCmsData: {
-    projects: Array<
-      Maybe<
-        Pick<
-          Graphcms_Project,
-          | 'id'
-          | 'title'
-          | 'liveLink'
-          | 'srcLink'
-          | 'descriptionPl'
-          | 'descriptionEn'
-          | 'date'
-        > & {
-          image?: Maybe<Pick<Graphcms_Asset, 'handle' | 'width' | 'height'>>;
-          technologies?: Maybe<
-            Array<
-              Pick<Graphcms_Technology, 'id' | 'name'> & {
-                image?: Maybe<Pick<Graphcms_Asset, 'url'>>;
-              }
-            >
-          >;
-        }
-      >
-    >;
-  };
-};
+
+export type ProjectsQuery = { graphCmsData: { projects: Array<Maybe<(
+      Pick<Graphcms_Project, 'id' | 'title' | 'liveLink' | 'srcLink' | 'descriptionPl' | 'descriptionEn' | 'date'>
+      & { image?: Maybe<Pick<Graphcms_Asset, 'handle' | 'width' | 'height'>>, technologies?: Maybe<Array<(
+        Pick<Graphcms_Technology, 'id' | 'name'>
+        & { image?: Maybe<Pick<Graphcms_Asset, 'url'>> }
+      )>> }
+    )>> } };
 
 export type TechnologiesQueryVariables = {};
 
-export type TechnologiesQuery = {
-  graphCmsData: {
-    technologies: Array<
-      Maybe<
-        Pick<Graphcms_Technology, 'id' | 'name'> & {
-          image?: Maybe<Pick<Graphcms_Asset, 'url'>>;
-        }
-      >
-    >;
-  };
-};
 
-export type GatsbyImageSharpFixedFragment = Pick<
-  ImageSharpFixed,
-  'base64' | 'width' | 'height' | 'src' | 'srcSet'
->;
+export type TechnologiesQuery = { graphCmsData: { technologies: Array<Maybe<(
+      Pick<Graphcms_Technology, 'id' | 'name'>
+      & { image?: Maybe<Pick<Graphcms_Asset, 'url'>> }
+    )>> } };
 
-export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<
-  ImageSharpFixed,
-  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpFixed_WithWebpFragment = Pick<
-  ImageSharpFixed,
-  'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
->;
+export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = Pick<
-  ImageSharpFixed,
-  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
->;
+export type GatsbyImageSharpFixed_WithWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<
-  ImageSharpFixed,
-  'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<
-  ImageSharpFixed,
-  'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
->;
+export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpFluidFragment = Pick<
-  ImageSharpFluid,
-  'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-export type GatsbyImageSharpFluidLimitPresentationSizeFragment = {
-  maxHeight: ImageSharpFluid['presentationHeight'];
-  maxWidth: ImageSharpFluid['presentationWidth'];
-};
+export type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<
-  ImageSharpFluid,
-  'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 
-export type GatsbyImageSharpFluid_WithWebpFragment = Pick<
-  ImageSharpFluid,
-  | 'base64'
-  | 'aspectRatio'
-  | 'src'
-  | 'srcSet'
-  | 'srcWebp'
-  | 'srcSetWebp'
-  | 'sizes'
->;
+export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = Pick<
-  ImageSharpFluid,
-  | 'tracedSVG'
-  | 'aspectRatio'
-  | 'src'
-  | 'srcSet'
-  | 'srcWebp'
-  | 'srcSetWebp'
-  | 'sizes'
->;
+export type GatsbyImageSharpFluid_WithWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-export type GatsbyImageSharpFluid_NoBase64Fragment = Pick<
-  ImageSharpFluid,
-  'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = Pick<
-  ImageSharpFluid,
-  'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
->;
+export type GatsbyImageSharpFluid_NoBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-export type GatsbyImageSharpResolutionsFragment = Pick<
-  ImageSharpResolutions,
-  'base64' | 'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-export type GatsbyImageSharpResolutions_TracedSvgFragment = Pick<
-  ImageSharpResolutions,
-  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpResolutionsFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpResolutions_WithWebpFragment = Pick<
-  ImageSharpResolutions,
-  'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
->;
+export type GatsbyImageSharpResolutions_TracedSvgFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = Pick<
-  ImageSharpResolutions,
-  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
->;
+export type GatsbyImageSharpResolutions_WithWebpFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-export type GatsbyImageSharpResolutions_NoBase64Fragment = Pick<
-  ImageSharpResolutions,
-  'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = Pick<
-  ImageSharpResolutions,
-  'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
->;
+export type GatsbyImageSharpResolutions_NoBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpSizesFragment = Pick<
-  ImageSharpSizes,
-  'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-export type GatsbyImageSharpSizes_TracedSvgFragment = Pick<
-  ImageSharpSizes,
-  'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpSizesFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-export type GatsbyImageSharpSizes_WithWebpFragment = Pick<
-  ImageSharpSizes,
-  | 'base64'
-  | 'aspectRatio'
-  | 'src'
-  | 'srcSet'
-  | 'srcWebp'
-  | 'srcSetWebp'
-  | 'sizes'
->;
+export type GatsbyImageSharpSizes_TracedSvgFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<
-  ImageSharpSizes,
-  | 'tracedSVG'
-  | 'aspectRatio'
-  | 'src'
-  | 'srcSet'
-  | 'srcWebp'
-  | 'srcSetWebp'
-  | 'sizes'
->;
+export type GatsbyImageSharpSizes_WithWebpFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<
-  ImageSharpSizes,
-  'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<
-  ImageSharpSizes,
-  'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
->;
+export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
