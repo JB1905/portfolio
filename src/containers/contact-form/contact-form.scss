@@ -13,7 +13,6 @@
     padding: var(--vertical-gap) var(--horizontal-gap);
     margin: var(--vertical-gap) 0;
     font-size: 2rem;
-    // aaa
     box-shadow: var(--depth);
     font-weight: 500;
 
@@ -21,7 +20,7 @@
       opacity: 0.75;
     }
 
-    // @include monument-effect;
+    @include monument-effect;
 
     &--textarea {
       resize: none;
@@ -34,7 +33,6 @@
     // padding: var(--vertical-gap) var(--horizontal-gap);
     // font-size: 2rem;
     margin: var(--vertical-gap) 0;
-    // aa
     padding: var(--vertical-gap) var(--horizontal-gap);
     border-radius: var(--rounded-corners);
     box-shadow: var(--depth);

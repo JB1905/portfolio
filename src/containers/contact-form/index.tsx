@@ -15,18 +15,15 @@ const ContactForm: React.FC = () => {
       message: '',
     },
     onSubmit: async (values) => {
-      // alert(JSON.stringify(values, null, 2));
-      // console.log(values);
-      // try {
-      //   const data = axios({
-      //     method: "post",
-      //     url: process.env.GATSBY_CONTACT_FORM_ACTION!,
-      //     data: JSON.stringify(values)
-      //   })
-      //   console.log(data);
-      // } catch(err) {
-      //   console.log(err);
-      // }
+      try {
+        axios({
+          method: 'post',
+          url: process.env.GATSBY_CONTACT_FORM_ACTION!,
+          data: JSON.stringify(values),
+        });
+      } catch (err) {
+        console.log(err);
+      }
     },
   });
 
