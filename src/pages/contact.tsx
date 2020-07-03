@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
           icon="envelope"
           delay={520}
           title={t('contact.email.name')}
-          permalink="biesiadajakub@icloud.com"
+          permalink={t('contact.email.value')}
           method="mailto"
         />
 
@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
           icon="phone"
           delay={760}
           title={t('contact.phone.name')}
-          permalink="+48 661 176 806"
+          permalink={t('contact.phone.value')}
           method="tel"
         />
       </Content>
