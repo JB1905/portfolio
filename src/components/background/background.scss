@@ -9,7 +9,7 @@
   transition: transform 200ms linear;
   position: fixed;
 
-  // @media not all and (display-mode: standalone) {
-  //   height: -webkit-fill-available;
-  // }
+  @media not all and (display-mode: standalone) {
+    height: -webkit-fill-available;
+  }
 }
