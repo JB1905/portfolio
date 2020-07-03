@@ -35,7 +35,7 @@
 
     figure {
       width: 100%;
-      // max-width: 320px;
+      max-width: 320px;
       margin: 0 auto var(--vertical-gap);
 
       @media (min-width: 600px),
@@ -54,7 +54,7 @@
       border-radius: var(--rounded-corners);
       box-shadow: var(--depth);
 
-      // @include monument-effect;
+      @include monument-effect;
 
       > picture {
         width: 100%;

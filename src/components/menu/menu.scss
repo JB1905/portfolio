@@ -34,8 +34,8 @@ header {
 
 .desktop.hidden,
 .mobile.hidden {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 ul {
@@ -62,7 +62,7 @@ ul {
         color: var(--secondary);
         background-color: var(--white);
 
-        @include monument-effect; // TODO
+        @include monument-effect;
       }
 
       &:not(.active):hover {

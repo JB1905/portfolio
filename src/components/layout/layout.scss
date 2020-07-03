@@ -3,24 +3,24 @@
   display: flex;
   flex-direction: column;
 
-  // @media not all and (display-mode: standalone) {
-  //   height: -webkit-fill-available;
-  // }
+  @media not all and (display-mode: standalone) {
+    height: -webkit-fill-available;
+  }
 }
 
 .layout {
   flex: 1;
   z-index: 10;
   width: 100%;
-  padding: 0 var(--horizontal-gap);
   position: relative;
+  padding: 0 var(--horizontal-gap);
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   overflow-y: auto;
 
   main {
     margin: 0 auto;
-    max-width: 1220px; // TODO
+    max-width: 1220px;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
     padding-bottom: env(safe-area-inset-bottom);
@@ -29,7 +29,7 @@
       padding: 0 0 24px;
 
       @media (min-width: 860px) {
-        // padding: 0 10px 24px;
+        padding: 0 10px 24px;
       }
     }
   }

@@ -11,14 +11,12 @@
   margin-right: env(safe-area-inset-right);
   border: var(--border-width) solid var(--white);
   background: linear-gradient(135deg, var(--primary), var(--secondary));
+  top: calc((var(--navbar-height) - var(--action-button-size) - 8px) / 2);
+  right: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 14px;
-  top: calc(
-    (var(--navbar-height) - var(--action-button-size) - 8px) / 2
-  ); // TODO
 
   &::before {
     content: "";

@@ -13,15 +13,13 @@
     background-color: var(--white);
     border-radius: var(--rounded-corners);
     margin: var(--vertical-gap) 0;
-    // width: calc(100% / 3);
-    // max-width: 340px;
 
     @include monument-effect;
 
-    // @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
-    //   max-width: 620px; // TODO
-    //   padding: 0;
-    // }
+    @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+      max-width: 620px;
+      padding: 0;
+    }
   }
 
   &__icon {
@@ -29,9 +27,9 @@
     font-size: var(--font-size-xl);
     margin: 14px 0;
 
-    // @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
-    //   margin: 0;
-    // }
+    @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+      margin: 0;
+    }
   }
 
   &__content {
@@ -39,10 +37,10 @@
     width: 100%;
     margin: 0;
 
-    // @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
-    //   text-align: left;
-    //   width: 70%;
-    // }
+    @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+      text-align: left;
+      width: 70%;
+    }
   }
 
   &__title {
@@ -51,9 +49,9 @@
     margin-bottom: 10px;
     font-weight: var(--font-weight-bold);
 
-    // @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
-    //   margin-top: 0;
-    // }
+    @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+      margin-top: 0;
+    }
   }
 
   &__link {
@@ -65,8 +63,8 @@
       text-decoration: underline;
     }
 
-    // @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
-    //   font-size: var(--font-size-m);
-    // }
+    @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+      font-size: var(--font-size-m);
+    }
   }
 }
