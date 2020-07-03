@@ -2,6 +2,8 @@ import React from 'react';
 import Delay from 'react-delay';
 import { useTranslation } from 'react-i18next';
 
+import { Language as LanguageName } from '../../../enums/Language';
+
 import './language.scss';
 
 const Language: React.FC = () => {
@@ -15,7 +17,11 @@ const Language: React.FC = () => {
           className="language"
           aria-label={t('labels.toggle.language')}
           onClick={() =>
-            i18n.changeLanguage(i18n.language === 'pl' ? 'en' : 'pl')
+            i18n.changeLanguage(
+              i18n.language === LanguageName.Polish
+                ? LanguageName.English
+                : LanguageName.Polish
+            )
           }
         >
           {i18n.language}
