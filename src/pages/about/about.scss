@@ -1,5 +1,3 @@
-@import "../../components/layout/mixins.scss";
-
 .about {
   display: flex;
   flex-direction: column;
@@ -10,8 +8,11 @@
   }
 
   p {
-    line-height: 1.3;
-    font-weight: var(--font-weight-medium);
+    line-height: 1.4;
+    will-change: transform, opacity;
+    // font-weight: var(--font-weight-medium);
+    animation: fade-in 400ms ease-in-out;
+    animation-fill-mode: forwards;
 
     &:last-child {
       margin-bottom: 8px;
@@ -26,11 +27,22 @@
     width: 100%;
 
     @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
-      top: var(--vertical-gap);
       margin: 0;
       position: sticky;
       max-width: 320px;
       width: calc(100% / 3);
+      top: var(--vertical-gap);
+    }
+
+    .image-appear {
+      opacity: 0;
+      will-change: transform, opacity;
+
+      &-active {
+        opacity: 1;
+        animation: falcon-landing 500ms ease-in-out;
+        animation-fill-mode: forwards;
+      }
     }
 
     figure {
@@ -53,8 +65,6 @@
       padding-top: calc(100% - 2 * var(--border-width));
       border-radius: var(--rounded-corners);
       box-shadow: var(--depth);
-
-      @include monument-effect;
 
       > picture {
         width: 100%;

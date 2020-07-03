@@ -6,10 +6,6 @@ import Title from '../components/title';
 import Content from '../components/content';
 import { Contact as ContactCard } from '../components/cards';
 
-import ContactForm from '../containers/contact-form';
-
-import { isFeatureEnabled } from '../features';
-
 const Contact: React.FC = () => {
   const { t } = useTranslation();
 
@@ -35,8 +31,6 @@ const Contact: React.FC = () => {
           permalink="+48 661 176 806"
           method="tel"
         />
-
-        {isFeatureEnabled('contactForm') && <ContactForm />}
       </Content>
     </article>
   );

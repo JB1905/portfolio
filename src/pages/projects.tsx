@@ -27,7 +27,7 @@ const Projects: React.FC<Props> = ({ data }) => {
       <Content className="projects">
         {data.graphCmsData.projects.map((item, index) => (
           <Project
-            key={item.id}
+            key={item!.id}
             index={index}
             item={item}
             language={i18n.language as Language}

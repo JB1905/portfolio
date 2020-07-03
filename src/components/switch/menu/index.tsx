@@ -1,31 +1,28 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { bounceIn } from '../../../animations/bounceIn';
+import Delay from 'react-delay';
 
 import './menu.scss';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   readonly onClick: () => void;
 }
 
 const Menu: React.FC<Props> = ({ onClick }) => {
-  const menuToggle = useRef(null);
-
-  useEffect(() => {
-    bounceIn(menuToggle.current, 200);
-  }, []);
+  const { t } = useTranslation();
 
   return (
-    <button
-      type="button"
-      className="menu"
-      aria-label="Toggle mobile menu"
-      onClick={onClick}
-      ref={menuToggle}
-    >
-      <FontAwesomeIcon icon="bars" />
-    </button>
+    <Delay wait={200}>
+      <button
+        type="button"
+        className="menu"
+        aria-label={t('labels.toggle.menu')}
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon="bars" />
+      </button>
+    </Delay>
   );
 };
 

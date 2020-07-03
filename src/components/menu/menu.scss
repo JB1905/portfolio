@@ -34,8 +34,8 @@ header {
 
 .desktop.hidden,
 .mobile.hidden {
-  opacity: 0 !important;
-  visibility: hidden !important;
+  opacity: 0;
+  visibility: hidden;
 }
 
 ul {
@@ -53,21 +53,45 @@ ul {
       font-size: var(--font-size-s);
       font-weight: var(--font-weight-bold);
       border-radius: var(--rounded-corners);
+      padding: var(--vertical-gap) var(--horizontal-gap);
+      transition: all 300ms ease-in-out;
       text-transform: uppercase;
       text-decoration: none;
-      padding: var(--vertical-gap) var(--horizontal-gap);
       position: relative;
 
       &.active {
         color: var(--secondary);
         background-color: var(--white);
+      }
 
-        @include monument-effect;
+      &.active,
+      &:not(.active):active {
+        &::before {
+          content: "";
+          box-shadow: var(--depth);
+          position: absolute;
+          border-radius: inherit;
+          transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
       }
 
       &:not(.active):hover {
         color: var(--secondary);
         background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      &:not(.active):active {
+        transition: transform 300ms ease-in-out;
+        transform: translateY(5px) translateZ(0);
+
+        &::before {
+          transform: translateY(-5px) translateZ(0);
+          opacity: 0;
+        }
       }
     }
   }

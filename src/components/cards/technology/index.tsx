@@ -1,7 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-
-import { bounceIn } from '../../../animations/bounceIn';
+import React from 'react';
+import Delay from 'react-delay';
 
 import './technology.scss';
 
@@ -11,58 +9,16 @@ interface Props {
   readonly index: number;
 }
 
-export const Technology: React.FC<Props> = ({ image, name, index }) => {
-  const tCard = useRef(null);
-  const tImage = useRef(null);
-  const tContent = useRef(null);
-  const tName = useRef(null);
-
-  useEffect(() => {
-    bounceIn(tCard.current, (index + 1) * 110 + 400);
-  }, []);
-
-  const onMouseEnter = (e: any) => {
-    gsap.to(tCard.current, {
-      y: 5,
-    });
-
-    gsap.to(tImage.current, {
-      opacity: 0.04,
-    });
-
-    gsap.to(tContent.current, {
-      opacity: 1,
-    });
-
-    gsap.fromTo(
-      tName.current,
-      {
-        // scale: 0.5,
-        y: 40,
-      },
-      {
-        // scale: 1,
-        y: 0,
-      }
-    );
-  };
-
-  return (
-    <div className="technology__item" onMouseOver={onMouseEnter} ref={tCard}>
+export const Technology: React.FC<Props> = ({ image, name, index }) => (
+  <Delay wait={(index + 1) * 110 + 400}>
+    <div className="technology__item">
       <div>
-        <img
-          src={image}
-          alt={name}
-          className="technology__image"
-          ref={tImage}
-        />
+        <img src={image} alt={name} className="technology__image" />
       </div>
 
-      <div className="technology__content" ref={tContent}>
-        <p className="technology__name" ref={tName}>
-          {name.replace(/,/g, '\n')}
-        </p>
+      <div className="technology__content">
+        <p className="technology__name">{name.replace(/,/g, '\n')}</p>
       </div>
     </div>
-  );
-};
+  </Delay>
+);

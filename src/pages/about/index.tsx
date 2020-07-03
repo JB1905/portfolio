@@ -1,14 +1,14 @@
-import React, { useRef, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import Img, { FluidObject } from 'gatsby-image';
+import React from 'react';
+import Delay from 'react-delay';
 import { graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
+import { CSSTransition } from 'react-transition-group';
+import Img, { FluidObject } from 'gatsby-image';
 
 import SEO from '../../components/seo';
 import Title from '../../components/title';
 import Content from '../../components/content';
 import Paragraph from '../../components/paragraph';
-
-import falconLanding from '../../animations/falconLanding';
 
 import { AboutQuery } from '../../../graphql-types';
 
@@ -21,12 +21,6 @@ interface Props {
 const About: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation();
 
-  const image = useRef(null);
-
-  useEffect(() => {
-    falconLanding(image.current, 320);
-  }, []);
-
   return (
     <article>
       <SEO title={t('about.title')} />
@@ -35,11 +29,17 @@ const About: React.FC<Props> = ({ data }) => {
 
       <Content className="about">
         <div className="image__container">
-          <figure ref={image}>
-            {data.image && (
-              <Img fluid={data.image.childImageSharp!.fluid as FluidObject} />
-            )}
-          </figure>
+          <Delay wait={520}>
+            <figure>
+              <CSSTransition in appear timeout={1000} classNames="image">
+                {data.image && (
+                  <Img
+                    fluid={data.image.childImageSharp!.fluid as FluidObject}
+                  />
+                )}
+              </CSSTransition>
+            </figure>
+          </Delay>
         </div>
 
         <div className="content__container">

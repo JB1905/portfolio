@@ -19,6 +19,7 @@ import { MenuProvider } from '../../contexts/MenuContext';
 import i18n from '../../i18n';
 
 import './global.scss';
+import './animations.scss';
 import './layout.scss';
 
 library.add(faPhone, faEnvelope, faBars, faEye);

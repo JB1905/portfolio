@@ -15,8 +15,15 @@
   position: relative;
   padding: 0 var(--horizontal-gap);
   -webkit-overflow-scrolling: touch;
+  transition: opacity 300ms ease-in-out 300ms;
   overflow-x: hidden;
   overflow-y: auto;
+  opacity: 1;
+
+  &.hidden {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
 
   main {
     margin: 0 auto;
@@ -42,3 +49,14 @@
     padding: 0 30px;
   }
 }
+
+// .fade {
+//   &-exit {
+//     opacity: 1;
+
+//     &-active {
+//       opacity: 0;
+//       transition: opacity 200ms ease-in-out;
+//     }
+//   }
+// }

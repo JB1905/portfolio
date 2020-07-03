@@ -18,8 +18,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    transition: opacity 180ms ease-in;
     position: absolute;
-    visibility: hidden;
     opacity: 0;
     top: 0;
   }
@@ -33,6 +33,9 @@
     background-color: var(--white);
     border-radius: var(--rounded-corners);
     font-weight: var(--font-weight-medium);
+    animation: fade-in 400ms ease-in-out;
+    transform: translateY(0) translateZ(0);
+    transition: transform 180ms ease-in;
     padding-top: calc(100% / 5 * 3);
     position: relative;
 
@@ -50,13 +53,19 @@
     }
 
     &:hover {
+      transform: translateY(5px) translateZ(0);
+
       &::before {
-        // box-shadow: 0 0 3px #fff0;
-        transform: translateY(5px) translateZ(0);
+        transform: translateY(-5px) translateZ(0);
+        opacity: 0;
+      }
+
+      .project__content {
+        opacity: 1;
       }
 
       .project__image {
-        opacity: 0;
+        opacity: 0.04;
       }
     }
 

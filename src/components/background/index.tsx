@@ -1,22 +1,20 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { TweenMax, Linear } from 'gsap';
 
 import { BackgroundQuery } from '../../../graphql-types';
 
 import './background.scss';
 
 const Background: React.FC = () => {
-  const background = useRef(null);
-
   const { image } = useStaticQuery<BackgroundQuery>(query);
+
+  const [pos, setPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
-      TweenMax.to(background.current, 0.2, {
+      setPos({
         x: -(e.clientX - window.innerWidth / 2) / 30,
         y: -(e.clientY - window.innerHeight / 2) / 30,
-        ease: Linear.easeNone,
       });
     };
 
@@ -28,8 +26,10 @@ const Background: React.FC = () => {
   return (
     <figure
       className="background"
-      style={{ backgroundImage: `url(${image.publicURL})` }}
-      ref={background}
+      style={{
+        backgroundImage: `url(${image.publicURL})`,
+        transform: `scale(1.1) translate3d(${pos.x}px, ${pos.y}px, 0)`,
+      }}
     />
   );
 };

@@ -6,10 +6,10 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  transform: scale(1.1);
+  transition: transform 200ms linear;
   position: fixed;
 
-  @media not all and (display-mode: standalone) {
-    height: -webkit-fill-available;
-  }
+  // @media not all and (display-mode: standalone) {
+  //   height: -webkit-fill-available;
+  // }
 }
