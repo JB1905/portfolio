@@ -8,7 +8,7 @@ import './desktop.scss';
 
 interface Props {
   readonly className: string;
-  readonly menuItems: any[];
+  readonly menuItems: { title: string; link: string }[];
 }
 
 const DesktopMenu: React.FC<Props> = ({ className = '', menuItems }) => (

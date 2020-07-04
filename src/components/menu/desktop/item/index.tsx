@@ -6,14 +6,12 @@ interface Props {
   readonly title: string;
 }
 
-const Desktop: React.FC<Props> = ({ link, title }) => {
-  return (
-    <li>
-      <Link to={link} activeClassName="active">
-        {title}
-      </Link>
-    </li>
-  );
-};
+const Desktop: React.FC<Props> = ({ link, title }) => (
+  <li>
+    <Link to={link} activeClassName="active">
+      {title}
+    </Link>
+  </li>
+);
 
 export default Desktop;

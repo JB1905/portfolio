@@ -35,7 +35,7 @@ export const useMenu = () => {
   useEffect(() => {
     const onResize = () => {
       const breakPoint =
-        document.querySelector<HTMLElement>('.nav').offsetHeight > 74;
+        (document.querySelector('.nav') as HTMLElement).offsetHeight > 74;
 
       setIsMobile(breakPoint);
 
