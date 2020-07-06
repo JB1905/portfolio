@@ -36,13 +36,17 @@ export const useMenu = () => {
   useEffect(() => {
     const navbar = document.querySelector('.nav') as HTMLElement;
 
-    const resizeObserver = new ResizeObserver(() => {
+    const onResize = () => {
       const breakPoint = navbar.offsetHeight > 74;
 
       setIsMobile(breakPoint);
 
       setIsMainLayoutHidden(breakPoint ? isOpen : false);
-    });
+    };
+
+    onResize();
+
+    const resizeObserver = new ResizeObserver(onResize);
 
     resizeObserver.observe(navbar);
 
