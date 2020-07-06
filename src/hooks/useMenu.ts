@@ -32,11 +32,10 @@ export const useMenu = () => {
     }
   };
 
-  // TODO
   useEffect(() => {
     const navbar = document.querySelector('.nav') as HTMLElement;
 
-    const resizeObserver = new ResizeObserver((entries) => {
+    const resizeObserver = new ResizeObserver(() => {
       const breakPoint = navbar.offsetHeight > 74;
 
       setIsMobile(breakPoint);
@@ -48,23 +47,6 @@ export const useMenu = () => {
 
     return () => resizeObserver.unobserve(navbar);
   }, []);
-
-  useEffect(() => {
-    const onResize = () => {
-      const breakPoint =
-        (document.querySelector('.nav') as HTMLElement).offsetHeight > 74;
-
-      setIsMobile(breakPoint);
-
-      setIsMainLayoutHidden(breakPoint ? isOpen : false);
-    };
-
-    onResize();
-
-    window.addEventListener('resize', onResize);
-
-    return () => window.removeEventListener('resize', onResize);
-  }, [isOpen, isMainLayoutHidden]);
 
   return {
     isMainLayoutHidden,
