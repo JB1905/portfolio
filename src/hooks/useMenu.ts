@@ -1,4 +1,5 @@
 import { useEffect, useContext } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 
 import { MenuContext } from '../contexts/MenuContext';
 

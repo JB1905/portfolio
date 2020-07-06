@@ -1,11 +1,8 @@
 #gatsby-focus-wrapper {
-  min-height: 100vh;
+  height: 100%;
+  height: var(--vh);
   display: flex;
   flex-direction: column;
-
-  @media not all and (display-mode: standalone) {
-    min-height: -webkit-fill-available;
-  }
 }
 
 .layout {
