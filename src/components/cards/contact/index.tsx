@@ -6,11 +6,11 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import './contact.scss';
 
 interface Props {
-  delay: number;
-  icon: IconProp;
-  title: string;
-  method: string;
-  permalink: string;
+  readonly delay: number;
+  readonly icon: IconProp;
+  readonly title: string;
+  readonly method: string;
+  readonly permalink: string;
 }
 
 export const Contact: React.FC<Props> = ({

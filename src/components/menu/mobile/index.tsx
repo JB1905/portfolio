@@ -1,35 +1,33 @@
 import React from 'react';
+import sTrimmer from 's-trimmer';
 
 import Mobile from './item';
 
 import './mobile.scss';
 
 interface Props {
-  className: string;
-  content: [
-    {
-      title: string;
-      link: string;
-    }
-  ];
-  toggleMenu: () => void;
+  readonly className: string;
+  readonly menuItems: any[];
+  readonly toggleMenu: () => void;
 }
 
 const MobileMenu: React.FC<Props> = ({
   className = '',
-  content,
+  menuItems,
   toggleMenu,
 }) => (
-  <ul className={`mobile ${className}`}>
-    {content.map((item, index: number) => (
-      <Mobile
-        key={index}
-        link={item.link}
-        title={item.title}
-        toggle={toggleMenu}
-      />
-    ))}
-  </ul>
+  <nav className={sTrimmer(`mobile ${className}`)}>
+    <ul>
+      {menuItems.map((item, index) => (
+        <Mobile
+          key={index}
+          link={item.link}
+          title={item.title}
+          toggle={toggleMenu}
+        />
+      ))}
+    </ul>
+  </nav>
 );
 
 export default MobileMenu;

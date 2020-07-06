@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 interface Props {
-  link: string;
-  toggle: () => void;
-  title: string;
+  readonly link: string;
+  readonly toggle: () => void;
+  readonly title: string;
 }
 
 const Mobile: React.FC<Props> = ({ link, toggle, title }) => (
   <li>
-    <Link to={`${link}/`} activeClassName="active" onClick={toggle}>
+    <Link to={link} activeClassName="active" onClick={toggle}>
       {title}
     </Link>
   </li>

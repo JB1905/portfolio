@@ -18,7 +18,12 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
   --font-weight-black: 900;
-  --vh: 100vh;
+  --rounded-corners: 6px;
+  --navbar-height: 76px;
+  --action-button-size: 42px;
+  --border-width: 3px;
+  --horizontal-gap: 16px;
+  --vertical-gap: 12px;
 }
 
 html {
@@ -43,15 +48,14 @@ body {
 p {
   margin-top: 8px;
   margin-bottom: 22px;
-  letter-spacing: 0.5px;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
   color: var(--white);
 }
 
 h2 {
-  text-shadow: var(--depth);
   margin: 20px auto;
   font-size: 3rem;
+  text-shadow: var(--depth);
   text-transform: uppercase;
   font-weight: var(--font-weight-bold);
   color: var(--white);

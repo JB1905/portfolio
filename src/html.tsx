@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 interface Props {
-  htmlAttributes: any;
-  headComponents: any;
-  bodyAttributes: any;
-  preBodyComponents: any;
-  body: string;
-  postBodyComponents: any;
+  readonly htmlAttributes: HTMLAttributes<HTMLHtmlElement>;
+  readonly headComponents: HTMLHeadElement;
+  readonly bodyAttributes: HTMLAttributes<HTMLBodyElement>;
+  readonly preBodyComponents: HTMLElement;
+  readonly body: string;
+  readonly postBodyComponents: HTMLElement;
 }
 
 const HTML: React.FC<Props> = (props) => (

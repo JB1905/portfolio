@@ -3,22 +3,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Delay from 'react-delay';
 
 import './menu.scss';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
-  onClick: () => void;
+  readonly onClick: () => void;
 }
 
-const Menu: React.FC<Props> = ({ onClick }) => (
-  <Delay wait={200}>
-    <button
-      type="button"
-      className="menu"
-      aria-label="Toggle mobile menu"
-      onClick={onClick}
-    >
-      <FontAwesomeIcon icon="bars" />
-    </button>
-  </Delay>
-);
+const Menu: React.FC<Props> = ({ onClick }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Delay wait={200}>
+      <button
+        type="button"
+        className="menu"
+        aria-label={t('labels.toggle.menu')}
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon="bars" />
+      </button>
+    </Delay>
+  );
+};
 
 export default Menu;

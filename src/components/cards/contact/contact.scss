@@ -6,14 +6,25 @@
     flex-wrap: wrap;
     width: 100%;
     min-height: 150px;
-    padding: 16px 0 30px;
-    box-shadow: var(--depth);
     animation: fade-in 400ms ease-in-out;
     animation-fill-mode: forwards;
-    background-color: var(--white);
+    padding: var(--horizontal-gap) 0 30px;
     color: var(--secondary);
-    border-radius: 6px;
-    margin: 12px 0;
+    background-color: var(--white);
+    border-radius: var(--rounded-corners);
+    margin: var(--vertical-gap) 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      box-shadow: var(--depth);
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      left: 0;
+      top: 0;
+    }
 
     @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
       max-width: 620px;

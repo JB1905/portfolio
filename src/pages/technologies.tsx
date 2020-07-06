@@ -1,54 +1,34 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 
+import SEO from '../components/seo';
 import Title from '../components/title';
 import Content from '../components/content';
 import { Technology } from '../components/cards';
 
-import { useLanguages } from '../hooks/useLanguages';
+import { TechnologiesQuery } from '../../graphql-types';
 
 interface Props {
-  data: {
-    pl: {
-      technologies: {
-        title: string;
-      };
-    };
-    en: {
-      technologies: {
-        title: string;
-      };
-    };
-    graphCmsData: {
-      technologies: [
-        {
-          id: number;
-          name: string;
-          image: {
-            url: string;
-          };
-        }
-      ];
-    };
-  };
+  readonly data: TechnologiesQuery;
 }
 
 const Technologies: React.FC<Props> = ({ data }) => {
-  const { language } = useLanguages();
-
-  const { title } = data[language].technologies;
+  const { t } = useTranslation();
 
   return (
     <article>
-      <Title>{title}</Title>
+      <SEO title={t('technologies.title')} />
+
+      <Title>{t('technologies.title')}</Title>
 
       <Content className="technologies">
         {data.graphCmsData.technologies.map((item, index) => (
           <Technology
-            key={item.id}
+            key={item!.id}
             index={index}
-            name={item.name}
-            image={item.image.url}
+            name={item!.name}
+            image={item!.image!.url}
           />
         ))}
       </Content>
@@ -57,19 +37,7 @@ const Technologies: React.FC<Props> = ({ data }) => {
 };
 
 export const query = graphql`
-  {
-    pl: languagesJson(lang: { eq: "pl" }) {
-      technologies {
-        title
-      }
-    }
-
-    en: languagesJson(lang: { eq: "en" }) {
-      technologies {
-        title
-      }
-    }
-
+  query Technologies {
     graphCmsData {
       technologies(where: { status: PUBLISHED }) {
         id

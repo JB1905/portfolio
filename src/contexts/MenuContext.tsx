@@ -1,40 +1,35 @@
-import React, { useState, Dispatch, SetStateAction, useRef } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 
 export const MenuContext = React.createContext<{
-  offset: boolean;
-  setOffset: Dispatch<SetStateAction<boolean>>;
+  isMainLayoutHidden: boolean;
+  setIsMainLayoutHidden: Dispatch<SetStateAction<boolean>>;
   isMobile: boolean;
   setIsMobile: Dispatch<SetStateAction<boolean>>;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  ref: any;
 }>({
-  offset: false,
-  setOffset: () => null,
+  isMainLayoutHidden: false,
+  setIsMainLayoutHidden: () => null,
   isMobile: true,
   setIsMobile: () => null,
   isOpen: false,
   setIsOpen: () => null,
-  ref: null,
 });
 
 export const MenuProvider: React.FC = ({ children }) => {
-  const [offset, setOffset] = useState(false);
+  const [isMainLayoutHidden, setIsMainLayoutHidden] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-
-  const ref = useRef<any>();
 
   return (
     <MenuContext.Provider
       value={{
-        offset,
-        setOffset,
+        isMainLayoutHidden,
+        setIsMainLayoutHidden,
         isMobile,
         setIsMobile,
         isOpen,
         setIsOpen,
-        ref,
       }}
     >
       {children}

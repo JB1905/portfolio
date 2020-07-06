@@ -1,62 +1,50 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
+import sTrimmer from 's-trimmer';
 
 import Icons from '../icons';
 import { MenuSwitch } from '../switch';
 import DesktopMenu from './desktop';
 import MobileMenu from './mobile';
 
-import { useLanguages } from '../../hooks/useLanguages';
 import { useMenu } from '../../hooks/useMenu';
+
+import { MenuItem } from '../../interfaces/MenuItem';
 
 import './menu.scss';
 
 const Menu: React.FC = () => {
-  const { language } = useLanguages();
+  const { toggleMenu, closeMenu, isMobile, isOpen } = useMenu();
 
-  const { toggleMenu, closeMenu, isMobile, isOpen, ref } = useMenu();
+  const { t } = useTranslation();
+
+  const menuItems = t<MenuItem[]>('menu', {
+    returnObjects: true,
+  });
 
   return (
-    <StaticQuery
-      query={graphql`
-        {
-          pl: languagesJson(lang: { eq: "pl" }) {
-            menu {
-              title
-              link
-            }
-          }
-          en: languagesJson(lang: { eq: "en" }) {
-            menu {
-              title
-              link
-            }
-          }
-        }
-      `}
-      render={(data) => (
-        <>
-          <header>
-            <Icons />
+    <>
+      <header>
+        <Icons />
 
-            <nav className="nav" ref={ref}>
-              <DesktopMenu
-                className={`${isMobile ? 'hidden' : ''}`}
-                content={data[language].menu}
-              />
-
-              {isMobile && <MenuSwitch onClick={toggleMenu} />}
-            </nav>
-          </header>
-
-          <MobileMenu
-            className={`${isMobile ? '' : 'hidden'} ${isOpen ? 'opened' : ''}`}
-            content={data[language].menu}
-            toggleMenu={closeMenu}
+        <nav className="nav">
+          <DesktopMenu
+            className={`${isMobile ? 'hidden' : ''}`}
+            menuItems={menuItems}
           />
-        </>
-      )}
-    />
+
+          {isMobile && <MenuSwitch onClick={toggleMenu} />}
+        </nav>
+      </header>
+
+      <MobileMenu
+        className={sTrimmer(
+          `${isMobile ? '' : 'hidden'} ${isOpen ? 'opened' : ''}`
+        )}
+        menuItems={menuItems}
+        toggleMenu={closeMenu}
+      />
+    </>
   );
 };
 

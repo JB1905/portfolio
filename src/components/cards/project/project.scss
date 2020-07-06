@@ -1,12 +1,11 @@
 .project {
   &__image {
-    opacity: 1;
     font-size: 0;
     cursor: pointer;
     position: absolute;
-    border: 3px solid var(--white);
+    border: var(--border-width) solid var(--white);
     transition: opacity 300ms ease-in-out;
-    border-radius: 6px;
+    border-radius: var(--rounded-corners);
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -17,7 +16,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    transition: opacity 300ms ease-in-out;
+    transition: opacity 180ms ease-in;
     position: absolute;
     opacity: 0;
     top: 0;
@@ -25,31 +24,39 @@
 
   &__item {
     height: 0;
-    animation: fade-in 400ms ease-in-out;
-    background-color: var(--white);
-    font-weight: var(--font-weight-medium);
-    transform: translateY(0) translateZ(0);
-    transition: box-shadow 200ms ease-in, transform 180ms ease-in;
-    padding-top: calc(100% / 5 * 3);
-    box-shadow: var(--depth);
-    position: relative;
-    font-size: 3rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
+    background-color: var(--white);
+    border-radius: var(--rounded-corners);
+    font-weight: var(--font-weight-medium);
+    animation: fade-in 400ms ease-in-out;
+    transform: translateY(0) translateZ(0);
+    transition: transform 180ms ease-in;
+    padding-top: calc(100% / 5 * 3);
+    position: relative;
 
-    > div {
-      top: 0;
-      position: absolute !important;
-      height: 100%;
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      transition: transform 180ms ease-in, opacity 180ms ease-in;
+      box-shadow: var(--depth);
       width: 100%;
+      height: 100%;
+      z-index: -1;
+      left: 0;
+      top: 0;
     }
 
     &:hover {
-      box-shadow: 0 0 3px #0005;
       transform: translateY(5px) translateZ(0);
+
+      &::before {
+        transform: translateY(-5px) translateZ(0);
+        opacity: 0;
+      }
 
       .project__content {
         opacity: 1;
@@ -59,11 +66,18 @@
         opacity: 0.04;
       }
     }
+
+    > div {
+      top: 0;
+      position: absolute !important;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   &__main {
     flex: 1;
-    padding: 18px 16px 12px;
+    padding: 12px var(--horizontal-gap) var(--vertical-gap);
     overflow: auto;
   }
 
@@ -79,9 +93,9 @@
     max-width: 58px;
     padding: 4px 8px;
     position: absolute;
-    border-radius: 4px;
-    color: var(--white);
+    border-radius: var(--rounded-corners);
     background-color: var(--primary);
+    color: var(--white);
     font-size: 1.25rem;
   }
 
@@ -90,8 +104,8 @@
     max-width: calc(100% - 64px);
     text-transform: uppercase;
     font-weight: var(--font-weight-black);
-    color: var(--secondary);
     font-size: var(--font-size-s);
+    color: var(--secondary);
   }
 
   &__description {
@@ -103,12 +117,12 @@
   &__footer {
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 var(--horizontal-gap) var(--vertical-gap);
   }
 
   &__technologies {
     padding: 0;
-    height: 46px;
+    height: 30px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -128,9 +142,9 @@
     align-items: center;
     justify-content: flex-end;
     position: absolute;
-    height: 46px;
+    height: 30px;
     right: 20px;
-    bottom: 0;
+    bottom: 10px;
 
     a {
       margin-left: 24px;

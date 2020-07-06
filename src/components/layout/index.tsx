@@ -1,6 +1,6 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import Normalize from 'react-normalize';
+import { I18nextProvider } from 'react-i18next';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faPhone,
@@ -14,8 +14,9 @@ import Transition from '../transition';
 import Background from '../background';
 import SEO from '../seo';
 
-import { LanguageProvider } from '../../providers/LanguageContext';
-import { MenuProvider } from '../../providers/MenuContext';
+import { MenuProvider } from '../../contexts/MenuContext';
+
+import i18n from '../../i18n';
 
 import './global.scss';
 import './animations.scss';
@@ -24,48 +25,23 @@ import './layout.scss';
 library.add(faPhone, faEnvelope, faBars, faEye);
 
 interface Props {
-  location: Location;
+  readonly location: Location;
 }
 
 const Layout: React.FC<Props> = ({ children, location }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            author
-            description
-          }
-        }
-      }
-    `}
-    render={({ site }) => (
-      <LanguageProvider>
-        <MenuProvider>
-          <SEO
-            title={site.siteMetadata.author}
-            description={site.siteMetadata.description}
-            keywords={[
-              'front end',
-              'biesiada',
-              'jakub',
-              'javascript',
-              'developer',
-              'react',
-            ]}
-          />
+  <I18nextProvider i18n={i18n}>
+    <MenuProvider>
+      <SEO />
 
-          <Normalize />
+      <Normalize />
 
-          <Menu />
+      <Menu />
 
-          <Transition location={location}>{children}</Transition>
+      <Transition location={location}>{children}</Transition>
 
-          <Background />
-        </MenuProvider>
-      </LanguageProvider>
-    )}
-  />
+      <Background />
+    </MenuProvider>
+  </I18nextProvider>
 );
 
 export default Layout;

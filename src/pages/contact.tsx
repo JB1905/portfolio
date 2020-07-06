@@ -1,103 +1,39 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 
+import SEO from '../components/seo';
 import Title from '../components/title';
 import Content from '../components/content';
 import { Contact as ContactCard } from '../components/cards';
 
-import { useLanguages } from '../hooks/useLanguages';
-
-interface Props {
-  data: {
-    pl: {
-      contact: {
-        title: string;
-        email: {
-          name: string;
-          value: string;
-        };
-        phone: {
-          name: string;
-          value: string;
-        };
-      };
-    };
-    en: {
-      contact: {
-        title: string;
-        email: {
-          name: string;
-          value: string;
-        };
-        phone: {
-          name: string;
-          value: string;
-        };
-      };
-    };
-  };
-}
-
-const Contact: React.FC<Props> = ({ data }) => {
-  const { language } = useLanguages();
-
-  const { title, email, phone } = data[language].contact;
+const Contact: React.FC = () => {
+  const { t } = useTranslation();
 
   return (
     <article>
-      <Title>{title}</Title>
+      <SEO title={t('contact.title')} />
+
+      <Title>{t('contact.title')}</Title>
 
       <Content className="contact">
         <ContactCard
           icon="envelope"
           delay={520}
-          permalink={email.value}
-          title={email.name}
+          title={t('contact.email.name')}
+          permalink={t('contact.email.value')}
           method="mailto"
         />
 
         <ContactCard
           icon="phone"
           delay={760}
-          permalink={phone.value}
-          title={phone.name}
+          title={t('contact.phone.name')}
+          permalink={t('contact.phone.value')}
           method="tel"
         />
       </Content>
     </article>
   );
 };
-
-export const query = graphql`
-  {
-    pl: languagesJson(lang: { eq: "pl" }) {
-      contact {
-        title
-        email {
-          name
-          value
-        }
-        phone {
-          name
-          value
-        }
-      }
-    }
-
-    en: languagesJson(lang: { eq: "en" }) {
-      contact {
-        title
-        email {
-          name
-          value
-        }
-        phone {
-          name
-          value
-        }
-      }
-    }
-  }
-`;
 
 export default Contact;

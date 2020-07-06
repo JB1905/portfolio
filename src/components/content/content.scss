@@ -2,13 +2,21 @@
   &.about,
   &.contact {
     display: flex;
+  }
+
+  &.about {
     flex-wrap: wrap;
+  }
+
+  &.contact {
+    align-items: center;
+    flex-direction: column;
   }
 
   &.technologies,
   &.projects {
     margin: 0;
-    padding: 12px 0;
+    padding: var(--vertical-gap) 0;
     display: grid;
     column-gap: 20px;
     row-gap: 24px;
@@ -30,7 +38,7 @@
     }
 
     @media (min-width: 1020px) {
-      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
     }
   }
 
@@ -48,9 +56,5 @@
     @media (min-width: 680px) {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-  }
-
-  &.contact {
-    justify-content: center;
   }
 }

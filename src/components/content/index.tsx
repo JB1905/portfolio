@@ -1,13 +1,14 @@
 import React from 'react';
+import sTrimmer from 's-trimmer';
 
 import './content.scss';
 
 interface Props {
-  className: string;
+  readonly className: string;
 }
 
 const Content: React.FC<Props> = ({ children, className = '' }) => (
-  <div className={`content ${className}`}>{children}</div>
+  <div className={sTrimmer(`content ${className}`)}>{children}</div>
 );
 
 export default Content;
