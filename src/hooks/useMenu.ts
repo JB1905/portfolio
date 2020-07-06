@@ -32,6 +32,23 @@ export const useMenu = () => {
     }
   };
 
+  // TODO
+  useEffect(() => {
+    const navbar = document.querySelector('.nav') as HTMLElement;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      const breakPoint = navbar.offsetHeight > 74;
+
+      setIsMobile(breakPoint);
+
+      setIsMainLayoutHidden(breakPoint ? isOpen : false);
+    });
+
+    resizeObserver.observe(navbar);
+
+    return () => resizeObserver.unobserve(navbar);
+  }, []);
+
   useEffect(() => {
     const onResize = () => {
       const breakPoint =

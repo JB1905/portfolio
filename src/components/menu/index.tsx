@@ -9,6 +9,8 @@ import MobileMenu from './mobile';
 
 import { useMenu } from '../../hooks/useMenu';
 
+import { MenuItem } from '../../interfaces/MenuItem';
+
 import './menu.scss';
 
 const Menu: React.FC = () => {
@@ -16,7 +18,7 @@ const Menu: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const menuItems = t<{ title: string; link: string }[]>('menu', {
+  const menuItems = t<MenuItem[]>('menu', {
     returnObjects: true,
   });
 

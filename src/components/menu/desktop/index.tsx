@@ -4,11 +4,13 @@ import sTrimmer from 's-trimmer';
 
 import Desktop from './item';
 
+import { MenuItem } from '../../../interfaces/MenuItem';
+
 import './desktop.scss';
 
 interface Props {
   readonly className: string;
-  readonly menuItems: { title: string; link: string }[];
+  readonly menuItems: MenuItem[];
 }
 
 const DesktopMenu: React.FC<Props> = ({ className = '', menuItems }) => (

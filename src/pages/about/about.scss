@@ -10,7 +10,7 @@
   p {
     line-height: 1.4;
     will-change: transform, opacity;
-    // font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
     animation: fade-in 400ms ease-in-out;
     animation-fill-mode: forwards;
 
