@@ -15,7 +15,9 @@
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint 'src/**/*.ts'",
     "stylelint": "stylelint 'src/**/*.scss' --fix",
-    "test": "echo 'Run your tests here'"
+    "test": "echo 'Run your tests here'",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
@@ -49,7 +51,8 @@
     "react-i18next": "^11.7.0",
     "react-normalize": "^0.4.4",
     "react-transition-group": "^4.4.1",
-    "s-trimmer": "^1.0.0"
+    "s-trimmer": "^1.0.0",
+    "snyk": "^1.360.0"
   },
   "devDependencies": {
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
@@ -93,5 +96,6 @@
       "npm run prettier",
       "npm run stylelint"
     ]
-  }
+  },
+  "snyk": true
 }
