@@ -47,7 +47,7 @@ export const useMenu = () => {
     resizeObserver.observe(navbar);
 
     return () => resizeObserver.unobserve(navbar);
-  }, []);
+  }, [isOpen]);
 
   return {
     isMainLayoutHidden,
