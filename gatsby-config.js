@@ -15,7 +15,7 @@ module.exports = {
       "react",
     ],
   },
-  // pathPrefix: `/portfolio`,
+  pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
