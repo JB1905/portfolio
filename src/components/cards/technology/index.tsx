@@ -17,7 +17,10 @@ export const Technology: React.FC<Props> = ({ image, name, index }) => (
       </div>
 
       <div className="technology__content">
-        <p className="technology__name">{name.replace(/,/g, '\n')}</p>
+        <p
+          className="technology__name"
+          dangerouslySetInnerHTML={{ __html: name.replace(/,/g, '<br />') }}
+        />
       </div>
     </div>
   </Delay>
