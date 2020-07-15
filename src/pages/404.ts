@@ -1,9 +1,10 @@
-declare global {
-  namespace NodeJS {
-    interface Global {
-      location: string;
-    }
-  }
-}
+import { useEffect } from 'react';
+import { navigate } from 'gatsby';
 
-export default () => (global.location = '/');
+export default () => {
+  useEffect(() => {
+    navigate('/your-redirect/');
+  }, []);
+
+  return null;
+};
