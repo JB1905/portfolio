@@ -23,14 +23,6 @@ const Contact: React.FC = () => {
           permalink={t('contact.email.value')}
           method="mailto"
         />
-
-        <ContactCard
-          icon="phone"
-          delay={760}
-          title={t('contact.phone.name')}
-          permalink={t('contact.phone.value')}
-          method="tel"
-        />
       </Content>
     </article>
   );
