@@ -6,9 +6,10 @@ import Content from './Content';
 
 interface Props {
   readonly title: string;
+  readonly className: string;
 }
 
-const Page: React.FC<Props> = ({ children, title, className }) => (
+const Page: React.FC<Props> = ({ children, title, className = '' }) => (
   <article>
     <SEO title={title} />
 
