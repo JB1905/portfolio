@@ -1,8 +1,6 @@
 import React from 'react';
 import Delay from 'react-delay';
 
-import './technology.scss';
-
 interface Props {
   readonly image: string;
   readonly name: string;

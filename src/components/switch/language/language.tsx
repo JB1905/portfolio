@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 import { Language as LanguageName } from '../../../enums/Language';
 
-import './language.scss';
-
 const Language: React.FC = () => {
   const { t, i18n } = useTranslation();
 

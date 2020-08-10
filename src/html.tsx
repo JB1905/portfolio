@@ -1,4 +1,6 @@
 import React, { HTMLAttributes } from 'react';
+// import checkIsPwa from 'check-is-pwa';
+import sTrimmer from 's-trimmer';
 
 interface Props {
   readonly htmlAttributes: HTMLAttributes<HTMLHtmlElement>;
@@ -19,10 +21,14 @@ const HTML: React.FC<Props> = (props) => (
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"
       />
-      <meta
+      {/* <meta
         name="viewport"
-        content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
-      />
+        content={sTrimmer(
+          'viewport-fit=cover',
+          checkIsPwa() &&
+            'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0'
+        )}
+      /> */}
 
       {props.headComponents}
     </head>

@@ -4152,6 +4152,11 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
+check-is-pwa@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/check-is-pwa/-/check-is-pwa-0.0.0.tgz#3d4f8a6b50062bed68b7bd967999b1ea7ead277f"
+  integrity sha512-1MVRVLGpZDkzL7cZMeNOlMX8IPGw0eh5wsP+VMJ7JHHWDAV4loJpkfaFYQMFQ2oMhl5RWSVreLZKtETRWnl1QA==
+
 cheerio@^1.0.0-rc.3:
   version "1.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-1.0.0-rc.3.tgz#094636d425b2e9c0f4eb91a46c05630c9a1a8bf6"

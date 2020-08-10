@@ -1,8 +1,6 @@
 import React from 'react';
 import Delay from 'react-delay';
 
-import './icon.scss';
-
 interface Props {
   readonly item: any;
   readonly index: number;

@@ -3,8 +3,6 @@ import sTrimmer from 's-trimmer';
 
 import Mobile from './item';
 
-import './mobile.scss';
-
 interface Props {
   readonly className: string;
   readonly menuItems: any[];

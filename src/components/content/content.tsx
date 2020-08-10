@@ -1,8 +1,6 @@
 import React from 'react';
 import sTrimmer from 's-trimmer';
 
-import './content.scss';
-
 interface Props {
   readonly className: string;
 }

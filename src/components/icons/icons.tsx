@@ -6,8 +6,6 @@ import Item from './item';
 
 import { IconsQuery } from '../../../graphql-types';
 
-import './icons.scss';
-
 const Icons: React.FC = () => {
   const data = useStaticQuery<IconsQuery>(query);
 

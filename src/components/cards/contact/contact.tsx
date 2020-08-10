@@ -3,8 +3,6 @@ import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import './contact.scss';
-
 interface Props {
   readonly delay: number;
   readonly icon: IconProp;

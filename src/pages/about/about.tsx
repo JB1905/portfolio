@@ -12,8 +12,6 @@ import Paragraph from '../../components/paragraph';
 
 import { AboutQuery } from '../../../graphql-types';
 
-import './about.scss';
-
 interface Props {
   readonly data: AboutQuery;
 }

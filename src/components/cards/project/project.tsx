@@ -6,8 +6,6 @@ import GraphImg from 'graphcms-image';
 
 import { Language } from '../../../enums/Language';
 
-import './project.scss';
-
 interface Props {
   readonly item: any;
   readonly language: Language;

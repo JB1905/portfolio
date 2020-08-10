@@ -11,8 +11,6 @@ import { useMenu } from '../../hooks/useMenu';
 
 import { MenuItem } from '../../interfaces/MenuItem';
 
-import './menu.scss';
-
 const Menu: React.FC = () => {
   const { toggleMenu, closeMenu, isMobile, isOpen } = useMenu();
 

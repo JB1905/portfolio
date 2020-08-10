@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Delay from 'react-delay';
+import { useTranslation } from 'react-i18next';
 
 import './menu.scss';
-import { useTranslation } from 'react-i18next';
 
 interface Props {
   readonly onClick: () => void;

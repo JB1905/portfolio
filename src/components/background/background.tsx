@@ -3,8 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { BackgroundQuery } from '../../../graphql-types';
 
-import './background.scss';
-
 const Background: React.FC = () => {
   const { image } = useStaticQuery<BackgroundQuery>(query);
 
