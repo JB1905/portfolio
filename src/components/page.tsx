@@ -5,11 +5,12 @@ import Title from './Title';
 import Content from './Content';
 
 interface Props {
+  readonly children: React.ReactNode;
   readonly title: string;
   readonly className: string;
 }
 
-const Page: React.FC<Props> = ({ children, title, className = '' }) => (
+const Page = ({ children, title, className = '' }: Props) => (
   <article>
     <SEO title={title} />
 

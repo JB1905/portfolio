@@ -9,7 +9,7 @@ interface Props {
   readonly postBodyComponents: HTMLElement;
 }
 
-const HTML: React.FC<Props> = (props) => (
+const HTML = (props: Props) => (
   <html {...props.htmlAttributes}>
     <head>
       <meta charSet="utf-8" />

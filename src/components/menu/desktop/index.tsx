@@ -1,4 +1,3 @@
-import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import sTrimmer from 's-trimmer';
 
@@ -13,7 +12,7 @@ interface Props {
   readonly menuItems: MenuItem[];
 }
 
-const DesktopMenu: React.FC<Props> = ({ className = '', menuItems }) => (
+const DesktopMenu = ({ className = '', menuItems }: Props) => (
   <CSSTransition in appear timeout={1000} classNames="desktop-menu">
     <ul className={sTrimmer(`desktop ${className}`)}>
       {menuItems.map((item, index) => (

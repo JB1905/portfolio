@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import sTrimmer from 's-trimmer';
 
@@ -13,7 +12,7 @@ import { MenuItem } from '../../interfaces/MenuItem';
 
 import './menu.scss';
 
-const Menu: React.FC = () => {
+const Menu = () => {
   const { toggleMenu, closeMenu, isMobile, isOpen } = useMenu();
 
   const { t } = useTranslation();
@@ -29,7 +28,7 @@ const Menu: React.FC = () => {
 
         <nav className="nav">
           <DesktopMenu
-            className={`${isMobile ? 'hidden' : ''}`}
+            className={isMobile ? 'hidden' : ''} // TODO check
             menuItems={menuItems}
           />
 

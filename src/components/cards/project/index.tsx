@@ -1,4 +1,3 @@
-import React from 'react';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -9,12 +8,12 @@ import { Language } from '../../../enums/Language';
 import './project.scss';
 
 interface Props {
-  readonly item: any;
+  readonly item: any; // TODO add type
   readonly language: Language;
   readonly index: number;
 }
 
-export const Project: React.FC<Props> = ({ item, language, index }) => (
+export const Project = ({ item, language, index }: Props) => (
   <Delay wait={(index + 1) * 190 + 280}>
     <div className="project__item">
       <GraphImg
@@ -41,6 +40,7 @@ export const Project: React.FC<Props> = ({ item, language, index }) => (
         <footer className="project__footer">
           {item.technologies && (
             <ul className="project__technologies">
+              {/* TODO fix type */}
               {item.technologies.map((technology) => (
                 <li key={technology.id}>
                   <img src={technology.image.url} alt={technology.name} />

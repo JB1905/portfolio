@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
@@ -12,18 +11,15 @@ interface Props {
   readonly title?: string;
 }
 
-const SEO: React.FC<Props> = ({
-  description,
-  meta = [],
-  keywords = [],
-  title,
-}) => {
+const SEO = ({ description, meta = [], keywords = [], title }: Props) => {
   const { i18n } = useTranslation();
 
   const { site } = useStaticQuery<DefaultSeoQuery>(query);
 
+  // TODO
   const metaDescription = description || site.siteMetadata.description;
 
+  // TODO
   return (
     <Helmet
       title={site.siteMetadata.author}

@@ -18,6 +18,7 @@
     }
   },
   "rules": {
+    "react/react-in-jsx-scope": "off", // TODO
     "react/no-unescaped-entities": "off",
     "react/prop-types": "off",
     "no-unused-vars": "off"

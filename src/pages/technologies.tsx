@@ -1,4 +1,3 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +10,7 @@ interface Props {
   readonly data: TechnologiesQuery;
 }
 
-const Technologies: React.FC<Props> = ({ data }) => {
+const Technologies = ({ data }: Props) => {
   const { t } = useTranslation();
 
   return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import Delay from 'react-delay';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +17,7 @@ interface Props {
   readonly data: AboutQuery;
 }
 
-const About: React.FC<Props> = ({ data }) => {
+const About = ({ data }: Props) => {
   const { t } = useTranslation();
 
   return (

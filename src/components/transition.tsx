@@ -10,10 +10,28 @@ import sTrimmer from 's-trimmer';
 import { useMenu } from '../hooks/useMenu';
 
 interface Props {
+  readonly children: React.ReactNode;
   readonly location: Location;
 }
 
-const Transition: React.FC<Props> = ({ children, location }) => {
+const TIMEOUT = 250;
+
+const getTransitionStyles = {
+  entering: {
+    position: 'absolute',
+    opacity: 0,
+  },
+  entered: {
+    transition: `opacity ${TIMEOUT}ms ease`,
+    opacity: 1,
+  },
+  exiting: {
+    transition: `all ${TIMEOUT}ms ease`,
+    opacity: 0,
+  },
+} as Record<TransitionStatus, React.CSSProperties>;
+
+const Transition = ({ children, location }: Props) => {
   const { vh } = useViewport();
 
   useEffect(() => {
@@ -23,23 +41,6 @@ const Transition: React.FC<Props> = ({ children, location }) => {
   }, [vh]);
 
   const { isMainLayoutHidden } = useMenu();
-
-  const TIMEOUT = 250;
-
-  const getTransitionStyles = {
-    entering: {
-      position: 'absolute',
-      opacity: 0,
-    },
-    entered: {
-      transition: `opacity ${TIMEOUT}ms ease`,
-      opacity: 1,
-    },
-    exiting: {
-      transition: `all ${TIMEOUT}ms ease`,
-      opacity: 0,
-    },
-  } as Record<TransitionStatus, React.CSSProperties>;
 
   return (
     <TransitionGroup

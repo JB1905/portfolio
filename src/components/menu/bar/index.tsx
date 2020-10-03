@@ -2,7 +2,11 @@ import React from 'react';
 
 import './navbar.scss';
 
-const Bar: React.FC = ({ children }) => (
+interface Props {
+  readonly children: React.ReactNode;
+}
+
+const Bar = ({ children }: Props) => (
   <nav className="navbar">
     <div>{children}</div>
   </nav>

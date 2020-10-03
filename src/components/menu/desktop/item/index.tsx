@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'gatsby';
 
 interface Props {
@@ -6,7 +5,7 @@ interface Props {
   readonly title: string;
 }
 
-const Desktop: React.FC<Props> = ({ link, title }) => (
+const Desktop = ({ link, title }: Props) => (
   <li>
     <Link to={link} activeClassName="active">
       {title}

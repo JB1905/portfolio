@@ -1,4 +1,3 @@
-import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { LanguageSwitch } from '../switch';
@@ -8,14 +7,15 @@ import { IconsQuery } from '../../../graphql-types';
 
 import './icons.scss';
 
-const Icons: React.FC = () => {
+const Icons = () => {
   const data = useStaticQuery<IconsQuery>(query);
 
   return (
     <section className="icons">
       <LanguageSwitch />
 
-      {data.graphCmsData.icons.map((icon, index: number) => (
+      {data.graphCmsData.icons.map((icon, index) => (
+        // TODO fix type
         <Item key={icon.id} item={icon} index={index} />
       ))}
     </section>
