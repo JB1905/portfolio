@@ -9,17 +9,14 @@ interface ContextProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-// TODO
-const defaultValues = {
+export const MenuContext = React.createContext<ContextProps>({
   isMainLayoutHidden: false,
   setIsMainLayoutHidden: () => null,
   isMobile: true,
   setIsMobile: () => null,
   isOpen: false,
   setIsOpen: () => null,
-};
-
-export const MenuContext = React.createContext<ContextProps>(defaultValues);
+});
 
 interface Props {
   readonly children: React.ReactNode;

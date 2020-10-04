@@ -1,4 +1,5 @@
-require("dotenv").config();
+// TODO
+// require("dotenv").config();
 
 module.exports = {
   siteMetadata: {

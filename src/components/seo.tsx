@@ -2,19 +2,19 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
-import { DefaultSeoQuery } from '../../graphql-types';
+import { SeoQuery } from '../../graphql-types';
 
 interface Props {
-  readonly description?: string;
-  readonly meta?: HTMLMetaElement;
-  readonly keywords?: string[];
   readonly title?: string;
+  readonly description?: string;
+  readonly meta?: HTMLMetaElement[];
+  readonly keywords?: string[];
 }
 
-const SEO = ({ description, meta = [], keywords = [], title }: Props) => {
+const SEO = ({ title, description, meta = [], keywords = [] }: Props) => {
   const { i18n } = useTranslation();
 
-  const { site } = useStaticQuery<DefaultSeoQuery>(query);
+  const { site } = useStaticQuery<SeoQuery>(query);
 
   // TODO
   const metaDescription = description || site.siteMetadata.description;
@@ -26,38 +26,38 @@ const SEO = ({ description, meta = [], keywords = [], title }: Props) => {
       titleTemplate={`%s | ${title || site.siteMetadata.title}`}
       htmlAttributes={{ lang: i18n.language }}
       meta={[
-        {
-          name: 'description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:title',
-          content: title,
-        },
-        {
-          property: 'og:description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary',
-        },
-        {
-          name: 'twitter:creator',
-          content: site.siteMetadata.author,
-        },
-        {
-          name: 'twitter:title',
-          content: title,
-        },
-        {
-          name: 'twitter:description',
-          content: metaDescription,
-        },
+        // {
+        //   name: 'description',
+        //   content: metaDescription,
+        // },
+        // {
+        //   property: 'og:title',
+        //   content: title,
+        // },
+        // {
+        //   property: 'og:description',
+        //   content: metaDescription,
+        // },
+        // {
+        //   property: 'og:type',
+        //   content: 'website',
+        // },
+        // {
+        //   name: 'twitter:card',
+        //   content: 'summary',
+        // },
+        // {
+        //   name: 'twitter:creator',
+        //   content: site.siteMetadata.author,
+        // },
+        // {
+        //   name: 'twitter:title',
+        //   content: title,
+        // },
+        // {
+        //   name: 'twitter:description',
+        //   content: metaDescription,
+        // },
       ]
         .concat(
           keywords.length > 0
@@ -73,7 +73,7 @@ const SEO = ({ description, meta = [], keywords = [], title }: Props) => {
 };
 
 export const query = graphql`
-  query DefaultSEO {
+  query SEO {
     site {
       siteMetadata {
         title

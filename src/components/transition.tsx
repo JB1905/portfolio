@@ -4,7 +4,7 @@ import {
   Transition as ReactTransition,
 } from 'react-transition-group';
 import { TransitionStatus } from 'react-transition-group/Transition';
-import { useViewport } from 'react-viewport-hooks';
+// import { useViewport } from 'react-viewport-hooks';
 import sTrimmer from 's-trimmer';
 
 import { useMenu } from '../hooks/useMenu';
@@ -32,13 +32,14 @@ const getTransitionStyles = {
 } as Record<TransitionStatus, React.CSSProperties>;
 
 const Transition = ({ children, location }: Props) => {
-  const { vh } = useViewport();
+  // TODO
+  // const { vh } = useViewport();
 
-  useEffect(() => {
-    const { matches } = window.matchMedia('(display-mode: standalone)');
+  // useEffect(() => {
+  //   const { matches } = window.matchMedia('(display-mode: standalone)');
 
-    document.body.style.setProperty('--vh', matches ? '100vh' : `${vh}px`);
-  }, [vh]);
+  //   document.body.style.setProperty('--vh', matches ? '100vh' : `${vh}px`);
+  // }, [vh]);
 
   const { isMainLayoutHidden } = useMenu();
 

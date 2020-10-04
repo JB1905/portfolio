@@ -13,7 +13,7 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GITHUB_TOKEN@github.com/JB1905/portfolio.git",
     "prettier": "prettier --write 'src/**/*.{tsx,ts,scss,json}'",
     "lint": "npm run eslint && npm run stylelint",
-    "eslint": "eslint 'src/**/*.ts'",
+    "eslint": "eslint 'src/**/*.{tsx,ts}'",
     "stylelint": "stylelint 'src/**/*.scss' --fix",
     "commit": "git-cz",
     "test": "echo 'Run your tests here'"
@@ -41,7 +41,7 @@
     "gatsby-transformer-json": "^2.4.13",
     "gatsby-transformer-sharp": "^2.5.16",
     "graphcms-image": "^1.1.0-beta4",
-    "i18next": "^19.8.0",
+    "i18next": "^19.8.1",
     "i18next-browser-languagedetector": "^6.0.1",
     "node-sass": "^4.14.1",
     "react": "^17.0.0-rc.2",
