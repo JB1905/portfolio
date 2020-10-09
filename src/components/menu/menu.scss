@@ -3,7 +3,8 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  height: var(--navbar-height);
+  // min-height: var(--navbar-height); // todo
+  height: var(--navbar-height); // todo
   margin: env(safe-area-inset-top) auto 0;
   padding: 0 14px 8px;
   max-width: 1240px;
