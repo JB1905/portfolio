@@ -28,7 +28,7 @@ const Menu = () => {
 
         <nav className="nav">
           <DesktopMenu
-            className={isMobile ? 'hidden' : ''} // TODO check
+            className={isMobile ? 'hidden' : ''}
             menuItems={menuItems}
           />
 
