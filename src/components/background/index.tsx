@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { BackgroundQuery } from '../../../graphql-types';
@@ -27,7 +27,7 @@ const Background = () => {
     <figure
       className="background"
       style={{
-        backgroundImage: `url(${image.publicURL})`, // TODO fix type
+        backgroundImage: `url(${image?.publicURL})`,
         transform: `scale(1.1) translate3d(${pos.x}px, ${pos.y}px, 0)`,
       }}
     />

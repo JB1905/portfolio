@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import SEO from './seo';
 import Title from './Title';

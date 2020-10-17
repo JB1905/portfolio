@@ -15,8 +15,7 @@ const Icons = () => {
       <LanguageSwitch />
 
       {data.graphCmsData.icons.map((icon, index) => (
-        // TODO fix type
-        <Item key={icon.id} item={icon} index={index} />
+        <Item key={icon!.id} item={icon} index={index} />
       ))}
     </section>
   );
