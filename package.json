@@ -41,7 +41,7 @@
     "gatsby-transformer-json": "^2.4.11",
     "gatsby-transformer-sharp": "^2.5.13",
     "graphcms-image": "^1.1.0-beta4",
-    "i18next": "^19.7.0",
+    "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.0.1",
     "node-sass": "^4.14.1",
     "react-delay": "^0.1.0",
