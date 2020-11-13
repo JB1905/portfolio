@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Normalize from 'react-normalize';
 import { I18nextProvider } from 'react-i18next';
 import { library } from '@fortawesome/fontawesome-svg-core';

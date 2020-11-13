@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import sTrimmer from 's-trimmer';
 
 import './content.scss';

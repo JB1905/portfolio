@@ -1,3 +1,4 @@
+import React from 'react';
 import sTrimmer from 's-trimmer';
 
 import Mobile from './item';

@@ -1,3 +1,4 @@
+import React from 'react';
 import Delay from 'react-delay';
 import { CSSTransition } from 'react-transition-group';
 

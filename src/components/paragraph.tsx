@@ -1,3 +1,4 @@
+import React from 'react';
 import Delay from 'react-delay';
 
 interface Props {

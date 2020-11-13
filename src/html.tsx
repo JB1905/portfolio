@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 
 interface Props {
   readonly htmlAttributes: HTMLAttributes<HTMLHtmlElement>;
