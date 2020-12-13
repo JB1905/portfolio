@@ -13,7 +13,7 @@ interface Props {
   readonly data: ProjectsQuery;
 }
 
-const Projects: React.FC<Props> = ({ data }) => {
+const Projects = ({ data }: Props) => {
   const { t, i18n } = useTranslation();
 
   return (

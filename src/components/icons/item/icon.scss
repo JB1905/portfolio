@@ -26,6 +26,8 @@
     font-size: 0;
     height: calc(var(--action-button-size) - var(--border-width) * 2);
     width: calc(var(--action-button-size) - var(--border-width) * 2);
+    border-radius: inherit;
+    overflow: hidden;
   }
 
   &:active {

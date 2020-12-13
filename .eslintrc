@@ -10,6 +10,9 @@
     "browser": true,
     "node": true
   },
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",

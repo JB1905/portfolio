@@ -3,7 +3,11 @@ import Delay from 'react-delay';
 
 import './title.scss';
 
-const Title: React.FC = ({ children }) => {
+interface Props {
+  readonly children: React.ReactNode;
+}
+
+const Title = ({ children }: Props) => {
   const [opacity, setOpacity] = useState(1);
   const [scale, setScale] = useState(1);
 

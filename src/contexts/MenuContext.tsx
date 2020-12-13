@@ -1,13 +1,15 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 
-export const MenuContext = React.createContext<{
-  isMainLayoutHidden: boolean;
+interface ContextProps {
+  readonly isMainLayoutHidden: boolean;
   setIsMainLayoutHidden: Dispatch<SetStateAction<boolean>>;
-  isMobile: boolean;
+  readonly isMobile: boolean;
   setIsMobile: Dispatch<SetStateAction<boolean>>;
-  isOpen: boolean;
+  readonly isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-}>({
+}
+
+export const MenuContext = React.createContext<ContextProps>({
   isMainLayoutHidden: false,
   setIsMainLayoutHidden: () => null,
   isMobile: true,
@@ -16,23 +18,23 @@ export const MenuContext = React.createContext<{
   setIsOpen: () => null,
 });
 
-export const MenuProvider: React.FC = ({ children }) => {
+interface Props {
+  readonly children: React.ReactNode;
+}
+
+export const MenuProvider = ({ children }: Props) => {
   const [isMainLayoutHidden, setIsMainLayoutHidden] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <MenuContext.Provider
-      value={{
-        isMainLayoutHidden,
-        setIsMainLayoutHidden,
-        isMobile,
-        setIsMobile,
-        isOpen,
-        setIsOpen,
-      }}
-    >
-      {children}
-    </MenuContext.Provider>
-  );
+  const value: ContextProps = {
+    isMainLayoutHidden,
+    setIsMainLayoutHidden,
+    isMobile,
+    setIsMobile,
+    isOpen,
+    setIsOpen,
+  };
+
+  return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Page from '../components/page';
 import { Contact as ContactCard } from '../components/cards';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const { t } = useTranslation();
 
   return (

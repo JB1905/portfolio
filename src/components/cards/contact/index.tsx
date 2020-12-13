@@ -13,13 +13,7 @@ interface Props {
   readonly permalink: string;
 }
 
-export const Contact: React.FC<Props> = ({
-  delay,
-  icon,
-  title,
-  method,
-  permalink,
-}) => (
+export const Contact = ({ delay, icon, title, method, permalink }: Props) => (
   <Delay wait={delay}>
     <div className="contact__item">
       <FontAwesomeIcon className="contact__icon" icon={icon} />

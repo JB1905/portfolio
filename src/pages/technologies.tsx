@@ -11,7 +11,7 @@ interface Props {
   readonly data: TechnologiesQuery;
 }
 
-const Technologies: React.FC<Props> = ({ data }) => {
+const Technologies = ({ data }: Props) => {
   const { t } = useTranslation();
 
   return (

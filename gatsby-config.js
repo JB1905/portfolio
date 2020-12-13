@@ -15,6 +15,10 @@ module.exports = {
       "react",
     ],
   },
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH: true,
+  },
   pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
@@ -38,7 +42,7 @@ module.exports = {
       options: {
         typeName: `GRAPHCMS`,
         fieldName: `graphCmsData`,
-        url: `https://api-euwest.graphcms.com/v1/cjtelsg9a6s8o01b92pe3zzbt/master`,
+        url: process.env.GRAPHCMS_ENDPOINT,
         headers: {
           Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
         },

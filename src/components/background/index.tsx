@@ -5,7 +5,7 @@ import { BackgroundQuery } from '../../../graphql-types';
 
 import './background.scss';
 
-const Background: React.FC = () => {
+const Background = () => {
   const { image } = useStaticQuery<BackgroundQuery>(query);
 
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -27,7 +27,7 @@ const Background: React.FC = () => {
     <figure
       className="background"
       style={{
-        backgroundImage: `url(${image.publicURL})`,
+        backgroundImage: `url(${image?.publicURL})`,
         transform: `scale(1.1) translate3d(${pos.x}px, ${pos.y}px, 0)`,
       }}
     />
