@@ -3,11 +3,13 @@ import sTrimmer from 's-trimmer';
 
 import Mobile from './item';
 
+import { MenuItem } from '../../../interfaces/MenuItem';
+
 import './mobile.scss';
 
 interface Props {
   readonly className: string;
-  readonly menuItems: any[]; // TODO fix type
+  readonly menuItems: MenuItem[];
   toggleMenu: () => void;
 }
 

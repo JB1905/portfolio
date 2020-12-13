@@ -16,7 +16,6 @@ const Language = () => {
           type="button"
           className="language"
           aria-label={t('labels.toggle.language')}
-          // TODO clean up
           onClick={() =>
             i18n.changeLanguage(
               i18n.language === LanguageName.Polish

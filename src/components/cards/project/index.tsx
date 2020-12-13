@@ -11,7 +11,7 @@ import { ProjectsQuery } from '../../../../graphql-types';
 import './project.scss';
 
 interface Props {
-  readonly item: ProjectsQuery['graphCmsData']['projects'][0];
+  readonly item: ProjectsQuery['graphCmsData']['projects'][number];
   readonly language: Language;
   readonly index: number;
 }
