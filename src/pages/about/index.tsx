@@ -43,7 +43,7 @@ const About = ({ data }: Props) => {
         </div>
 
         <div className="content__container">
-          {t<string[]>('about.content', { returnObjects: true }).map(
+          {(t('about.content', { returnObjects: true }) as string[]).map(
             (item, index) => (
               <Paragraph key={index} content={item!} index={index} />
             )
