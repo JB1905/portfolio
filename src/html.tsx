@@ -27,7 +27,7 @@ const HTML = (props: Props) => (
       {props.headComponents}
     </head>
 
-    <body {...props.bodyAttributes} ontouchstart="">
+    <body {...props.bodyAttributes}>
       {props.preBodyComponents}
 
       <noscript key="noscript" id="gatsby-noscript">

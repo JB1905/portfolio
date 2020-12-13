@@ -21,7 +21,6 @@
     }
   },
   "rules": {
-    "react/react-in-jsx-scope": "off", // TODO: remove after stable React 17 release
     "react/no-unescaped-entities": "off",
     "react/prop-types": "off",
     "no-unused-vars": "off"
