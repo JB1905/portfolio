@@ -5,7 +5,7 @@ module.exports = {
     title: `Portfolio`,
     description: `JavaScript Developer Portfolio`,
     author: `Jakub Biesiada`,
-    siteUrl: `https://jb1905.github.io`,
+    siteUrl: `https://jb1905.github.io/portfolio`,
     keywords: [
       "front end",
       "biesiada",
