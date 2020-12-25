@@ -2,7 +2,7 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    title: `Portfolio`,
+    title: `Jakub Biesiada - Portfolio`,
     description: `JavaScript Developer Portfolio`,
     author: `Jakub Biesiada`,
     siteUrl: `https://jb1905.github.io`,
@@ -70,7 +70,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Jakub Biesiada - Portfolio`,
-        short_name: `Portfolio`,
+        short_name: `Jakub Biesiada`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
