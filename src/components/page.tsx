@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import SEO from './seo';
-import Title from './Title';
-import Content from './Content';
+import Title from './title';
+import Content from './content';
 
 interface Props {
   readonly children: React.ReactNode;
