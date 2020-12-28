@@ -6,6 +6,7 @@
   width: 100%;
   display: flex;
   overflow: auto;
+  scroll-behavior: smooth;
   align-items: center;
   height: calc(100% - var(--navbar-height) - env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
@@ -43,7 +44,7 @@
       }
 
       @media (orientation: landscape) and (max-height: 470px) {
-        margin: 15px 10px !important;
+        margin: 15px 10px !important; // TODO
         width: auto;
       }
     }
