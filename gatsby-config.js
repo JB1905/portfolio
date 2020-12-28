@@ -76,6 +76,24 @@ module.exports = {
         theme_color: `#2d2faf`,
         display: `standalone`,
         icon: `src/images/favicon.ico`,
+        shortcuts: [
+          {
+            name: "About",
+            url: "/about",
+          },
+          {
+            name: "Technologies",
+            url: "/technologies",
+          },
+          {
+            name: "Projects",
+            url: "/projects",
+          },
+          {
+            name: "Contact",
+            url: "/contact",
+          },
+        ],
       },
     },
     `gatsby-plugin-offline`,
