@@ -8,6 +8,7 @@
   overflow: auto;
   align-items: center;
   height: calc(100% - var(--navbar-height) - env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
   position: absolute;
 
   ul {
