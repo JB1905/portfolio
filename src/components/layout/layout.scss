@@ -1,5 +1,4 @@
 #gatsby-focus-wrapper {
-  height: 100%;
   height: var(--vh);
   display: flex;
   flex-direction: column;
@@ -29,6 +28,7 @@
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
     padding-bottom: env(safe-area-inset-bottom);
+    min-height: calc(100% - env(safe-area-inset-bottom)); // TODO
 
     article {
       padding: 0 0 24px;

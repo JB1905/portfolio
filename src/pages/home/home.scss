@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: env(safe-area-inset-bottom);
+    // bottom: env(safe-area-inset-bottom);
 
     @media (min-width: 380px) and (orientation: portrait) {
       min-height: 480px;
