@@ -57,6 +57,20 @@ ul {
       text-decoration: none;
       position: relative;
 
+      &::before {
+        content: "";
+        box-shadow: var(--depth);
+        position: absolute;
+        border-radius: inherit;
+        transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+        transform: translateY(-5px) translateZ(0);
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
       &.active {
         color: var(--secondary);
         background-color: var(--white);
@@ -65,15 +79,8 @@ ul {
       &.active,
       &:not(.active):active {
         &::before {
-          content: "";
-          box-shadow: var(--depth);
-          position: absolute;
-          border-radius: inherit;
-          transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
+          transform: translateY(0) translateZ(0);
+          opacity: 1;
         }
       }
 
