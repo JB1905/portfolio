@@ -44,6 +44,10 @@ body {
   font-family: var(--font-family);
   background-color: var(--primary);
   font-size: 1.6rem;
+
+  @media (display-mode: standalone) {
+    user-select: none;
+  }
 }
 
 *,
