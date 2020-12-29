@@ -18,44 +18,44 @@ const Projects = ({ data }: Props) => {
 
   return (
     <Page title={t('projects.title')} className="projects">
-      {data.graphCmsData.projects.map((item, index) => (
+      {/* {data.graphCmsData.projects.map((item, index) => (
         <Project
           key={item!.id}
           index={index}
           item={item}
           language={i18n.language as Language}
         />
-      ))}
+      ))} */}
     </Page>
   );
 };
 
-export const query = graphql`
-  query Projects {
-    graphCmsData {
-      projects(where: { status: PUBLISHED }) {
-        id
-        title
-        liveLink
-        srcLink
-        descriptionPl
-        descriptionEn
-        date
-        image {
-          handle
-          width
-          height
-        }
-        technologies {
-          id
-          name
-          image {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query Projects {
+//     graphCmsData {
+//       projects(where: { status: PUBLISHED }) {
+//         id
+//         title
+//         liveLink
+//         srcLink
+//         descriptionPl
+//         descriptionEn
+//         date
+//         image {
+//           handle
+//           width
+//           height
+//         }
+//         technologies {
+//           id
+//           name
+//           image {
+//             url
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default Projects;
