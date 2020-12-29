@@ -28,6 +28,7 @@ export const query = graphql`
       icons {
         id
         url
+        title
         image {
           url
         }
