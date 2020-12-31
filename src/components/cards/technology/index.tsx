@@ -12,9 +12,7 @@ interface Props {
 export const Technology = ({ image, name, index }: Props) => (
   <Delay wait={(index + 1) * 110 + 400}>
     <div className="technology__item">
-      <div>
-        <img src={image} alt={name} className="technology__image" />
-      </div>
+      <img src={image} alt={name} className="technology__image" />
 
       <div className="technology__content">
         <p
