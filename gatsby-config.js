@@ -15,10 +15,6 @@ module.exports = {
       "react",
     ],
   },
-  // flags: {
-  //   FAST_DEV: true,
-  //   FAST_REFRESH: true,
-  // },
   pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
