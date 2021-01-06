@@ -1,10 +1,15 @@
 language: node_js
 
+# yarn global add?
 before_script:
   - npm install -g gatsby-cli
 
 node_js:
   - "10"
+
+# notifications:
+#   webhooks:
+#     - 
 
 deploy:
   provider: script

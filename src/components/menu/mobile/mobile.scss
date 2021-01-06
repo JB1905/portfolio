@@ -7,9 +7,11 @@
   display: flex;
   overflow: auto;
   scroll-behavior: smooth;
-  align-items: center;
+  // align-items: center;
+  // min-height: 380px;
   height: calc(100% - var(--navbar-height) - env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
+  min-width: 320px;
   position: absolute;
 
   ul {
@@ -22,7 +24,6 @@
     min-width: 320px;
     max-width: 500px;
     display: flex;
-    flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     flex-direction: column;
@@ -30,9 +31,13 @@
     -webkit-overflow-scrolling: touch;
     text-align: center;
     padding: 0 20px;
+    min-height: 380px;
 
     @media (orientation: landscape) and (max-height: 470px) {
       flex-direction: row;
+      flex-wrap: wrap;
+      align-content: center;
+      min-height: 260px;
     }
 
     li {

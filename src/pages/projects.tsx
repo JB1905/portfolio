@@ -16,6 +16,8 @@ interface Props {
 const Projects = ({ data }: Props) => {
   const { t, i18n } = useTranslation();
 
+  console.log(data);
+
   return (
     <Page title={t('projects.title')} className="projects">
       {/* {data.graphCmsData.projects.map((item, index) => (
@@ -30,32 +32,31 @@ const Projects = ({ data }: Props) => {
   );
 };
 
-// export const query = graphql`
-//   query Projects {
-//     graphCmsData {
-//       projects(where: { status: PUBLISHED }) {
-//         id
-//         title
-//         liveLink
-//         srcLink
-//         descriptionPl
-//         descriptionEn
-//         date
-//         image {
-//           handle
-//           width
-//           height
-//         }
-//         technologies {
-//           id
-//           name
-//           image {
-//             url
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query Projects {
+    graphCmsData {
+      projects(locales: [pl, en]) {
+        id
+        title
+        # liveLink
+        srcLink
+        description
+        year
+        image {
+          handle
+          width
+          height
+        }
+        technologies {
+          id
+          name
+          image {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default Projects;

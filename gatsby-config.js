@@ -15,15 +15,15 @@ module.exports = {
       "react",
     ],
   },
-  flags: {
-    FAST_DEV: true,
-    FAST_REFRESH: true,
-  },
+  // flags: {
+  //   FAST_DEV: true,
+  //   FAST_REFRESH: true,
+  // },
   pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-graphql-codegen`,
+    // `gatsby-plugin-graphql-codegen`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

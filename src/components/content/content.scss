@@ -50,6 +50,7 @@
     }
 
     @media (min-width: 500px) and (orientation: landscape) {
+      // TODO
       grid-template-columns: repeat(auto-fill, minmax(254px, 1fr));
     }
 
