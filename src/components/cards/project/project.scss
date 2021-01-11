@@ -79,6 +79,7 @@
     flex: 1;
     padding: 12px var(--horizontal-gap) var(--vertical-gap);
     overflow: auto;
+    scroll-behavior: smooth;
   }
 
   &__header {

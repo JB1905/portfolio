@@ -8,15 +8,15 @@ import { IconsQuery } from '../../../graphql-types';
 
 import './icons.scss';
 
-const Icons: React.FC = () => {
+const Icons = () => {
   const data = useStaticQuery<IconsQuery>(query);
 
   return (
     <section className="icons">
       <LanguageSwitch />
 
-      {data.graphCmsData.icons.map((icon, index: number) => (
-        <Item key={icon.id} item={icon} index={index} />
+      {data.graphCmsData.icons.map((icon, index) => (
+        <Item key={icon!.id} item={icon} index={index} />
       ))}
     </section>
   );

@@ -1,5 +1,5 @@
 :root {
-  --vh: -webkit-fill-available;
+  --vh: 100vh;
   --primary: #2d2faf;
   --secondary: #8140b1;
   --white: #f8f8f8;
@@ -25,6 +25,14 @@
   --border-width: 3px;
   --horizontal-gap: 16px;
   --vertical-gap: 12px;
+
+  @supports (-webkit-touch-callout: none) {
+    --vh: -webkit-fill-available;
+
+    @media (display-mode: standalone) {
+      --vh: 100vh;
+    }
+  }
 }
 
 html {
@@ -36,6 +44,10 @@ body {
   font-family: var(--font-family);
   background-color: var(--primary);
   font-size: 1.6rem;
+
+  @media (display-mode: standalone) {
+    user-select: none;
+  }
 }
 
 *,

@@ -6,7 +6,7 @@ import { Language as LanguageName } from '../../../enums/Language';
 
 import './language.scss';
 
-const Language: React.FC = () => {
+const Language = () => {
   const { t, i18n } = useTranslation();
 
   return (

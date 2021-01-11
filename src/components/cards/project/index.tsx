@@ -6,58 +6,60 @@ import GraphImg from 'graphcms-image';
 
 import { Language } from '../../../enums/Language';
 
+import { ProjectsQuery } from '../../../../graphql-types';
+
 import './project.scss';
 
 interface Props {
-  readonly item: any;
+  readonly item: ProjectsQuery['graphCmsData']['projects'][number];
   readonly language: Language;
   readonly index: number;
 }
 
-export const Project: React.FC<Props> = ({ item, language, index }) => (
+export const Project = ({ item, language, index }: Props) => (
   <Delay wait={(index + 1) * 190 + 280}>
     <div className="project__item">
       <GraphImg
-        image={item.image}
-        alt={item.title}
+        image={item!.image}
+        alt={item!.title}
         className="project__image"
       />
 
       <div className="project__content">
         <section className="project__main">
           <div className="project__header">
-            <h3 className="project__title">{item.title}</h3>
+            <h3 className="project__title">{item!.title}</h3>
 
-            <time className="project__time">{item.date}</time>
+            <time className="project__time">{item!.date}</time>
           </div>
 
           <p className="project__description">
             {language === Language.Polish
-              ? item.descriptionPl
-              : item.descriptionEn}
+              ? item!.descriptionPl
+              : item!.descriptionEn}
           </p>
         </section>
 
         <footer className="project__footer">
-          {item.technologies && (
+          {item!.technologies && (
             <ul className="project__technologies">
-              {item.technologies.map((technology) => (
+              {item!.technologies.map((technology) => (
                 <li key={technology.id}>
-                  <img src={technology.image.url} alt={technology.name} />
+                  <img src={technology.image!.url} alt={technology.name} />
                 </li>
               ))}
             </ul>
           )}
 
           <div className="project__links">
-            {item.srcLink && (
-              <a href={item.srcLink} aria-label="Source preview">
+            {item!.srcLink && (
+              <a href={item!.srcLink} aria-label="Source preview">
                 <FontAwesomeIcon icon={faGithub} />
               </a>
             )}
 
-            {item.liveLink && (
-              <a href={item.liveLink} aria-label="Live preview">
+            {item!.liveLink && (
+              <a href={item!.liveLink} aria-label="Live preview">
                 <FontAwesomeIcon icon="eye" />
               </a>
             )}

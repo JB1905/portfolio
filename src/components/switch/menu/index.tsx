@@ -1,15 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTranslation } from 'react-i18next';
 import Delay from 'react-delay';
 
 import './menu.scss';
-import { useTranslation } from 'react-i18next';
 
 interface Props {
-  readonly onClick: () => void;
+  onClick: () => void;
 }
 
-const Menu: React.FC<Props> = ({ onClick }) => {
+const Menu = ({ onClick }: Props) => {
   const { t } = useTranslation();
 
   return (

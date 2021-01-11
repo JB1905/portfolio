@@ -9,7 +9,7 @@ interface Props {
   readonly index: number;
 }
 
-export const Technology: React.FC<Props> = ({ image, name, index }) => (
+export const Technology = ({ image, name, index }: Props) => (
   <Delay wait={(index + 1) * 110 + 400}>
     <div className="technology__item">
       <div>

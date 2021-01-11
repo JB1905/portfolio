@@ -6,7 +6,7 @@ interface Props {
   readonly title: string;
 }
 
-const Desktop: React.FC<Props> = ({ link, title }) => (
+const Desktop = ({ link, title }: Props) => (
   <li>
     <Link to={link} activeClassName="active">
       {title}

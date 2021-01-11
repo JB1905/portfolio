@@ -3,33 +3,33 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
-import { DefaultSeoQuery } from '../../graphql-types';
+import { SeoQuery } from '../../graphql-types';
+
+type Meta = React.DetailedHTMLProps<
+  React.MetaHTMLAttributes<HTMLMetaElement>,
+  HTMLMetaElement
+>[];
 
 interface Props {
-  readonly description?: string;
-  readonly meta?: HTMLMetaElement;
-  readonly keywords?: string[];
   readonly title?: string;
+  readonly description?: string;
+  readonly meta?: Meta;
+  readonly keywords?: string[];
 }
 
-const SEO: React.FC<Props> = ({
-  description,
-  meta = [],
-  keywords = [],
-  title,
-}) => {
+const SEO = ({ title, description, meta = [], keywords = [] }: Props) => {
   const { i18n } = useTranslation();
 
-  const { site } = useStaticQuery<DefaultSeoQuery>(query);
+  const { site } = useStaticQuery<SeoQuery>(query);
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || site!.siteMetadata!.description;
 
   return (
     <Helmet
-      title={site.siteMetadata.author}
-      titleTemplate={`%s | ${title || site.siteMetadata.title}`}
+      title={site!.siteMetadata!.author!}
+      titleTemplate={`%s | ${title || site!.siteMetadata!.title}`}
       htmlAttributes={{ lang: i18n.language }}
-      meta={[
+      meta={([
         {
           name: 'description',
           content: metaDescription,
@@ -52,7 +52,7 @@ const SEO: React.FC<Props> = ({
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata.author,
+          content: site!.siteMetadata!.author,
         },
         {
           name: 'twitter:title',
@@ -62,7 +62,7 @@ const SEO: React.FC<Props> = ({
           name: 'twitter:description',
           content: metaDescription,
         },
-      ]
+      ] as Meta)
         .concat(
           keywords.length > 0
             ? {
@@ -77,7 +77,7 @@ const SEO: React.FC<Props> = ({
 };
 
 export const query = graphql`
-  query DefaultSEO {
+  query SEO {
     site {
       siteMetadata {
         title

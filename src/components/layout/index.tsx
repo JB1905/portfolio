@@ -25,10 +25,11 @@ import './layout.scss';
 library.add(faPhone, faEnvelope, faBars, faEye);
 
 interface Props {
+  readonly children: React.ReactNode;
   readonly location: Location;
 }
 
-const Layout: React.FC<Props> = ({ children, location }) => (
+const Layout = ({ children, location }: Props) => (
   <I18nextProvider i18n={i18n}>
     <MenuProvider>
       <SEO />

@@ -15,6 +15,10 @@ module.exports = {
       "react",
     ],
   },
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH: true,
+  },
   pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
@@ -38,7 +42,7 @@ module.exports = {
       options: {
         typeName: `GRAPHCMS`,
         fieldName: `graphCmsData`,
-        url: `https://api-euwest.graphcms.com/v1/cjtelsg9a6s8o01b92pe3zzbt/master`,
+        url: process.env.GRAPHCMS_ENDPOINT,
         headers: {
           Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
         },
@@ -66,12 +70,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Jakub Biesiada - Portfolio`,
-        short_name: `Portfolio`,
+        short_name: `Jakub Biesiada`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#2d2faf`,
+        theme_color: `#2d2faf`,
         display: `standalone`,
-        icon: `src/images/favicon.ico`,
+        icon: `static/favicon.ico`,
       },
     },
     `gatsby-plugin-offline`,
