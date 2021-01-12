@@ -16,56 +16,60 @@ interface Props {
   readonly index: number;
 }
 
-export const Project = ({ item, language, index }: Props) => (
-  <Delay wait={(index + 1) * 190 + 280}>
-    <div className="project__item">
-      <GraphImg
-        image={item!.image}
-        alt={item!.title}
-        className="project__image"
-      />
+export const Project = ({ item, language, index }: Props) => {
+  const currentLocalizationData = item.localizations.find(
+    ({ locale }) => locale === language
+  );
 
-      <div className="project__content">
-        <section className="project__main">
-          <div className="project__header">
-            <h3 className="project__title">{item!.title}</h3>
+  return (
+    <Delay wait={(index + 1) * 190 + 280}>
+      <div className="project__item">
+        <GraphImg
+          image={item.image}
+          alt={item.title}
+          className="project__image"
+        />
 
-            <time className="project__time">{item!.date}</time>
-          </div>
+        <div className="project__content">
+          <section className="project__main">
+            <div className="project__header">
+              <h3 className="project__title">{item.title}</h3>
 
-          <p className="project__description">
-            {language === Language.Polish
-              ? item!.descriptionPl
-              : item!.descriptionEn}
-          </p>
-        </section>
+              {item.year && <time className="project__time">{item.year}</time>}
+            </div>
 
-        <footer className="project__footer">
-          {item!.technologies && (
-            <ul className="project__technologies">
-              {item!.technologies.map((technology) => (
-                <li key={technology.id}>
-                  <img src={technology.image!.url} alt={technology.name} />
-                </li>
-              ))}
-            </ul>
-          )}
+            <p className="project__description">
+              {currentLocalizationData?.description}
+            </p>
+          </section>
 
-          <div className="project__links">
-            {item!.srcLink && (
-              <a href={item!.srcLink} aria-label="Source preview">
-                <FontAwesomeIcon icon={faGithub} />
-              </a>
+          <footer className="project__footer">
+            {item.technologies && (
+              <ul className="project__technologies">
+                {item.technologies.map((technology) => (
+                  <li key={technology.id}>
+                    <img src={technology.image.url} alt={technology.name} />
+                  </li>
+                ))}
+              </ul>
             )}
 
-            {item!.liveLink && (
-              <a href={item!.liveLink} aria-label="Live preview">
-                <FontAwesomeIcon icon="eye" />
-              </a>
-            )}
-          </div>
-        </footer>
+            <div className="project__links">
+              {item.srcLink && (
+                <a href={item.srcLink} aria-label="Source preview">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              )}
+
+              {item.liveLink && (
+                <a href={item.liveLink} aria-label="Live preview">
+                  <FontAwesomeIcon icon="eye" />
+                </a>
+              )}
+            </div>
+          </footer>
+        </div>
       </div>
-    </div>
-  </Delay>
-);
+    </Delay>
+  );
+};

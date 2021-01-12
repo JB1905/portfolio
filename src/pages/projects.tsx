@@ -16,18 +16,16 @@ interface Props {
 const Projects = ({ data }: Props) => {
   const { t, i18n } = useTranslation();
 
-  console.log(data);
-
   return (
     <Page title={t('projects.title')} className="projects">
-      {/* {data.graphCmsData.projects.map((item, index) => (
+      {data.graphCmsData.projects.map((item, index) => (
         <Project
           key={item!.id}
           index={index}
           item={item}
           language={i18n.language as Language}
         />
-      ))} */}
+      ))}
     </Page>
   );
 };
@@ -38,10 +36,13 @@ export const query = graphql`
       projects(locales: [pl, en]) {
         id
         title
-        # liveLink
+        liveLink
         srcLink
-        description
         year
+        localizations(includeCurrent: true) {
+          locale
+          description
+        }
         image {
           handle
           width

@@ -14,12 +14,29 @@ export type Scalars = {
   Date: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
-  GRAPHCMS_DateTime: any;
   /**
-   * The `Long` scalar type represents non-fractional signed whole numeric values.
-   * Long can represent values between -(2^63) and 2^63 - 1.
+   * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
+   * date-timeformat outlined in section 5.6 of the RFC 3339 profile of the ISO 8601
+   * standard for representationof dates and times using the Gregorian calendar.
+   */
+  GRAPHCMS_DateTime: any;
+  /** Raw JSON value */
+  GRAPHCMS_Json: any;
+  /**
+   * The Long scalar type represents non-fractional signed whole numeric values. Long
+   * can represent values between -(2^63) and 2^63 - 1.
    */
   GRAPHCMS_Long: any;
+  GRAPHCMS_Hex: any;
+  GRAPHCMS_RGBAHue: any;
+  GRAPHCMS_RGBATransparency: any;
+  /**
+   * A date string, such as 2007-12-03 (YYYY-MM-DD), compliant with ISO 8601 standard
+   * for representation of dates using the Gregorian calendar.
+   */
+  GRAPHCMS_Date: any;
+  /** Slate-compatible RichText AST */
+  GRAPHCMS_RichTextAST: any;
 };
 
 
@@ -31,6 +48,12 @@ export type Scalars = {
 
 
 
+
+export type AvifOptions = {
+  quality?: Maybe<Scalars['Int']>;
+  lossless?: Maybe<Scalars['Boolean']>;
+  speed?: Maybe<Scalars['Int']>;
+};
 
 export type BlurredOptions = {
   /** Width of the generated low-res preview. Default is 20px */
@@ -405,6 +428,9 @@ export type File = Node & {
   blocks?: Maybe<Scalars['Int']>;
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type ImageSharp */
+  childrenImageSharp?: Maybe<Array<Maybe<ImageSharp>>>;
+  /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   childImageSharp?: Maybe<ImageSharp>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -530,6 +556,99 @@ export type FileFieldsEnum =
   | 'blksize'
   | 'blocks'
   | 'publicURL'
+  | 'childrenImageSharp'
+  | 'childrenImageSharp___fixed___base64'
+  | 'childrenImageSharp___fixed___tracedSVG'
+  | 'childrenImageSharp___fixed___aspectRatio'
+  | 'childrenImageSharp___fixed___width'
+  | 'childrenImageSharp___fixed___height'
+  | 'childrenImageSharp___fixed___src'
+  | 'childrenImageSharp___fixed___srcSet'
+  | 'childrenImageSharp___fixed___srcWebp'
+  | 'childrenImageSharp___fixed___srcSetWebp'
+  | 'childrenImageSharp___fixed___originalName'
+  | 'childrenImageSharp___resolutions___base64'
+  | 'childrenImageSharp___resolutions___tracedSVG'
+  | 'childrenImageSharp___resolutions___aspectRatio'
+  | 'childrenImageSharp___resolutions___width'
+  | 'childrenImageSharp___resolutions___height'
+  | 'childrenImageSharp___resolutions___src'
+  | 'childrenImageSharp___resolutions___srcSet'
+  | 'childrenImageSharp___resolutions___srcWebp'
+  | 'childrenImageSharp___resolutions___srcSetWebp'
+  | 'childrenImageSharp___resolutions___originalName'
+  | 'childrenImageSharp___fluid___base64'
+  | 'childrenImageSharp___fluid___tracedSVG'
+  | 'childrenImageSharp___fluid___aspectRatio'
+  | 'childrenImageSharp___fluid___src'
+  | 'childrenImageSharp___fluid___srcSet'
+  | 'childrenImageSharp___fluid___srcWebp'
+  | 'childrenImageSharp___fluid___srcSetWebp'
+  | 'childrenImageSharp___fluid___sizes'
+  | 'childrenImageSharp___fluid___originalImg'
+  | 'childrenImageSharp___fluid___originalName'
+  | 'childrenImageSharp___fluid___presentationWidth'
+  | 'childrenImageSharp___fluid___presentationHeight'
+  | 'childrenImageSharp___sizes___base64'
+  | 'childrenImageSharp___sizes___tracedSVG'
+  | 'childrenImageSharp___sizes___aspectRatio'
+  | 'childrenImageSharp___sizes___src'
+  | 'childrenImageSharp___sizes___srcSet'
+  | 'childrenImageSharp___sizes___srcWebp'
+  | 'childrenImageSharp___sizes___srcSetWebp'
+  | 'childrenImageSharp___sizes___sizes'
+  | 'childrenImageSharp___sizes___originalImg'
+  | 'childrenImageSharp___sizes___originalName'
+  | 'childrenImageSharp___sizes___presentationWidth'
+  | 'childrenImageSharp___sizes___presentationHeight'
+  | 'childrenImageSharp___gatsbyImageData'
+  | 'childrenImageSharp___original___width'
+  | 'childrenImageSharp___original___height'
+  | 'childrenImageSharp___original___src'
+  | 'childrenImageSharp___resize___src'
+  | 'childrenImageSharp___resize___tracedSVG'
+  | 'childrenImageSharp___resize___width'
+  | 'childrenImageSharp___resize___height'
+  | 'childrenImageSharp___resize___aspectRatio'
+  | 'childrenImageSharp___resize___originalName'
+  | 'childrenImageSharp___id'
+  | 'childrenImageSharp___parent___id'
+  | 'childrenImageSharp___parent___parent___id'
+  | 'childrenImageSharp___parent___parent___children'
+  | 'childrenImageSharp___parent___children'
+  | 'childrenImageSharp___parent___children___id'
+  | 'childrenImageSharp___parent___children___children'
+  | 'childrenImageSharp___parent___internal___content'
+  | 'childrenImageSharp___parent___internal___contentDigest'
+  | 'childrenImageSharp___parent___internal___description'
+  | 'childrenImageSharp___parent___internal___fieldOwners'
+  | 'childrenImageSharp___parent___internal___ignoreType'
+  | 'childrenImageSharp___parent___internal___mediaType'
+  | 'childrenImageSharp___parent___internal___owner'
+  | 'childrenImageSharp___parent___internal___type'
+  | 'childrenImageSharp___children'
+  | 'childrenImageSharp___children___id'
+  | 'childrenImageSharp___children___parent___id'
+  | 'childrenImageSharp___children___parent___children'
+  | 'childrenImageSharp___children___children'
+  | 'childrenImageSharp___children___children___id'
+  | 'childrenImageSharp___children___children___children'
+  | 'childrenImageSharp___children___internal___content'
+  | 'childrenImageSharp___children___internal___contentDigest'
+  | 'childrenImageSharp___children___internal___description'
+  | 'childrenImageSharp___children___internal___fieldOwners'
+  | 'childrenImageSharp___children___internal___ignoreType'
+  | 'childrenImageSharp___children___internal___mediaType'
+  | 'childrenImageSharp___children___internal___owner'
+  | 'childrenImageSharp___children___internal___type'
+  | 'childrenImageSharp___internal___content'
+  | 'childrenImageSharp___internal___contentDigest'
+  | 'childrenImageSharp___internal___description'
+  | 'childrenImageSharp___internal___fieldOwners'
+  | 'childrenImageSharp___internal___ignoreType'
+  | 'childrenImageSharp___internal___mediaType'
+  | 'childrenImageSharp___internal___owner'
+  | 'childrenImageSharp___internal___type'
   | 'childImageSharp___fixed___base64'
   | 'childImageSharp___fixed___tracedSVG'
   | 'childImageSharp___fixed___aspectRatio'
@@ -744,6 +863,7 @@ export type FileFilterInput = {
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenImageSharp?: Maybe<ImageSharpFilterListInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -777,20 +897,47 @@ export type FloatQueryOperatorInput = {
 };
 
 export type Graphcms = {
-  assets: Array<Maybe<Graphcms_Asset>>;
-  projects: Array<Maybe<Graphcms_Project>>;
-  technologies: Array<Maybe<Graphcms_Technology>>;
-  icons: Array<Maybe<Graphcms_Icon>>;
-  asset?: Maybe<Graphcms_Asset>;
-  project?: Maybe<Graphcms_Project>;
-  technology?: Maybe<Graphcms_Technology>;
-  icon?: Maybe<Graphcms_Icon>;
-  assetsConnection: Graphcms_AssetConnection;
-  projectsConnection: Graphcms_ProjectConnection;
-  technologiesConnection: Graphcms_TechnologyConnection;
-  iconsConnection: Graphcms_IconConnection;
   /** Fetches an object given its ID */
   node?: Maybe<Graphcms_Node>;
+  /** Retrieve multiple assets */
+  assets: Array<Graphcms_Asset>;
+  /** Retrieve a single asset */
+  asset?: Maybe<Graphcms_Asset>;
+  /** Retrieve multiple assets using the Relay connection interface */
+  assetsConnection: Graphcms_AssetConnection;
+  /** Retrieve document version */
+  assetVersion?: Maybe<Graphcms_DocumentVersion>;
+  /** Retrieve multiple icons */
+  icons: Array<Graphcms_Icon>;
+  /** Retrieve a single icon */
+  icon?: Maybe<Graphcms_Icon>;
+  /** Retrieve multiple icons using the Relay connection interface */
+  iconsConnection: Graphcms_IconConnection;
+  /** Retrieve document version */
+  iconVersion?: Maybe<Graphcms_DocumentVersion>;
+  /** Retrieve multiple projects */
+  projects: Array<Graphcms_Project>;
+  /** Retrieve a single project */
+  project?: Maybe<Graphcms_Project>;
+  /** Retrieve multiple projects using the Relay connection interface */
+  projectsConnection: Graphcms_ProjectConnection;
+  /** Retrieve document version */
+  projectVersion?: Maybe<Graphcms_DocumentVersion>;
+  /** Retrieve multiple technologies */
+  technologies: Array<Graphcms_Technology>;
+  /** Retrieve a single technology */
+  technology?: Maybe<Graphcms_Technology>;
+  /** Retrieve multiple technologies using the Relay connection interface */
+  technologiesConnection: Graphcms_TechnologyConnection;
+  /** Retrieve document version */
+  technologyVersion?: Maybe<Graphcms_DocumentVersion>;
+};
+
+
+export type GraphcmsNodeArgs = {
+  id: Scalars['ID'];
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
@@ -802,59 +949,15 @@ export type GraphcmsAssetsArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
-};
-
-
-export type GraphcmsProjectsArgs = {
-  where?: Maybe<Graphcms_ProjectWhereInput>;
-  orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
-  skip?: Maybe<Scalars['Int']>;
-  after?: Maybe<Scalars['String']>;
-  before?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
-
-export type GraphcmsTechnologiesArgs = {
-  where?: Maybe<Graphcms_TechnologyWhereInput>;
-  orderBy?: Maybe<Graphcms_TechnologyOrderByInput>;
-  skip?: Maybe<Scalars['Int']>;
-  after?: Maybe<Scalars['String']>;
-  before?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
-
-export type GraphcmsIconsArgs = {
-  where?: Maybe<Graphcms_IconWhereInput>;
-  orderBy?: Maybe<Graphcms_IconOrderByInput>;
-  skip?: Maybe<Scalars['Int']>;
-  after?: Maybe<Scalars['String']>;
-  before?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
 export type GraphcmsAssetArgs = {
   where: Graphcms_AssetWhereUniqueInput;
-};
-
-
-export type GraphcmsProjectArgs = {
-  where: Graphcms_ProjectWhereUniqueInput;
-};
-
-
-export type GraphcmsTechnologyArgs = {
-  where: Graphcms_TechnologyWhereUniqueInput;
-};
-
-
-export type GraphcmsIconArgs = {
-  where: Graphcms_IconWhereUniqueInput;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
@@ -866,28 +969,33 @@ export type GraphcmsAssetsConnectionArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
-export type GraphcmsProjectsConnectionArgs = {
-  where?: Maybe<Graphcms_ProjectWhereInput>;
-  orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
+export type GraphcmsAssetVersionArgs = {
+  where: Graphcms_VersionWhereInput;
+};
+
+
+export type GraphcmsIconsArgs = {
+  where?: Maybe<Graphcms_IconWhereInput>;
+  orderBy?: Maybe<Graphcms_IconOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
-export type GraphcmsTechnologiesConnectionArgs = {
-  where?: Maybe<Graphcms_TechnologyWhereInput>;
-  orderBy?: Maybe<Graphcms_TechnologyOrderByInput>;
-  skip?: Maybe<Scalars['Int']>;
-  after?: Maybe<Scalars['String']>;
-  before?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
+export type GraphcmsIconArgs = {
+  where: Graphcms_IconWhereUniqueInput;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
@@ -899,49 +1007,17 @@ export type GraphcmsIconsConnectionArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
-export type GraphcmsNodeArgs = {
-  id: Scalars['ID'];
-};
-
-export type Graphcms_AggregateAsset = {
-  count: Scalars['Int'];
-};
-
-export type Graphcms_AggregateIcon = {
-  count: Scalars['Int'];
-};
-
-export type Graphcms_AggregateProject = {
-  count: Scalars['Int'];
-};
-
-export type Graphcms_AggregateTechnology = {
-  count: Scalars['Int'];
-};
-
-export type Graphcms_Asset = Graphcms_Node & {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
-  id: Scalars['ID'];
-  handle: Scalars['String'];
-  fileName: Scalars['String'];
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageProject?: Maybe<Array<Graphcms_Project>>;
-  imageTechnology?: Maybe<Array<Graphcms_Technology>>;
-  imageIcon?: Maybe<Array<Graphcms_Icon>>;
-  /** Get the url for the asset with provided transformations applied. */
-  url: Scalars['String'];
+export type GraphcmsIconVersionArgs = {
+  where: Graphcms_VersionWhereInput;
 };
 
 
-export type Graphcms_AssetImageProjectArgs = {
+export type GraphcmsProjectsArgs = {
   where?: Maybe<Graphcms_ProjectWhereInput>;
   orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
@@ -949,10 +1025,37 @@ export type Graphcms_AssetImageProjectArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
-export type Graphcms_AssetImageTechnologyArgs = {
+export type GraphcmsProjectArgs = {
+  where: Graphcms_ProjectWhereUniqueInput;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
+};
+
+
+export type GraphcmsProjectsConnectionArgs = {
+  where?: Maybe<Graphcms_ProjectWhereInput>;
+  orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
+};
+
+
+export type GraphcmsProjectVersionArgs = {
+  where: Graphcms_VersionWhereInput;
+};
+
+
+export type GraphcmsTechnologiesArgs = {
   where?: Maybe<Graphcms_TechnologyWhereInput>;
   orderBy?: Maybe<Graphcms_TechnologyOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
@@ -960,9 +1063,181 @@ export type Graphcms_AssetImageTechnologyArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
 };
 
 
+export type GraphcmsTechnologyArgs = {
+  where: Graphcms_TechnologyWhereUniqueInput;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
+};
+
+
+export type GraphcmsTechnologiesConnectionArgs = {
+  where?: Maybe<Graphcms_TechnologyWhereInput>;
+  orderBy?: Maybe<Graphcms_TechnologyOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: Graphcms_Stage;
+  locales?: Array<Graphcms_Locale>;
+};
+
+
+export type GraphcmsTechnologyVersionArgs = {
+  where: Graphcms_VersionWhereInput;
+};
+
+export type Graphcms__FilterKind = 
+  | 'search'
+  | 'AND'
+  | 'OR'
+  | 'NOT'
+  | 'eq'
+  | 'eq_not'
+  | 'in'
+  | 'not_in'
+  | 'lt'
+  | 'lte'
+  | 'gt'
+  | 'gte'
+  | 'contains'
+  | 'not_contains'
+  | 'starts_with'
+  | 'not_starts_with'
+  | 'ends_with'
+  | 'not_ends_with'
+  | 'contains_all'
+  | 'contains_some'
+  | 'contains_none'
+  | 'relational_single'
+  | 'relational_every'
+  | 'relational_some'
+  | 'relational_none';
+
+export type Graphcms__MutationInputFieldKind = 
+  | 'scalar'
+  | 'richText'
+  | 'enum'
+  | 'relation'
+  | 'union'
+  | 'virtual';
+
+export type Graphcms__MutationKind = 
+  | 'create'
+  | 'publish'
+  | 'unpublish'
+  | 'update'
+  | 'upsert'
+  | 'delete'
+  | 'updateMany'
+  | 'publishMany'
+  | 'unpublishMany'
+  | 'deleteMany';
+
+export type Graphcms__OrderDirection = 
+  | 'asc'
+  | 'desc';
+
+export type Graphcms__RelationInputCardinality = 
+  | 'one'
+  | 'many';
+
+export type Graphcms__RelationInputKind = 
+  | 'create'
+  | 'update';
+
+export type Graphcms__RelationKind = 
+  | 'regular'
+  | 'union';
+
+export type Graphcms__SystemDateTimeFieldVariation = 
+  | 'base'
+  | 'localization'
+  | 'combined';
+
+export type Graphcms_Aggregate = {
+  count: Scalars['Int'];
+};
+
+/** Asset system model */
+export type Graphcms_Asset = Graphcms_Node & {
+  /** System stage field */
+  stage: Graphcms_Stage;
+  /** System Locale field */
+  locale: Graphcms_Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<Graphcms_Asset>;
+  /** Get the document in other stages */
+  documentInStages: Array<Graphcms_Asset>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** The file handle */
+  handle: Scalars['String'];
+  /** The file name */
+  fileName: Scalars['String'];
+  /** The height of the file */
+  height?: Maybe<Scalars['Float']>;
+  /** The file width */
+  width?: Maybe<Scalars['Float']>;
+  /** The file size */
+  size?: Maybe<Scalars['Float']>;
+  /** The mime type of the file */
+  mimeType?: Maybe<Scalars['String']>;
+  imageIcon: Array<Graphcms_Icon>;
+  imageTechnology: Array<Graphcms_Technology>;
+  imageProject: Array<Graphcms_Project>;
+  /** List of Asset versions */
+  history: Array<Graphcms_Version>;
+  /** Get the url for the asset with provided transformations applied. */
+  url: Scalars['String'];
+};
+
+
+/** Asset system model */
+export type Graphcms_AssetLocalizationsArgs = {
+  locales?: Array<Graphcms_Locale>;
+  includeCurrent?: Scalars['Boolean'];
+};
+
+
+/** Asset system model */
+export type Graphcms_AssetDocumentInStagesArgs = {
+  stages?: Array<Graphcms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+/** Asset system model */
+export type Graphcms_AssetCreatedAtArgs = {
+  variation?: Graphcms_SystemDateTimeFieldVariation;
+};
+
+
+/** Asset system model */
+export type Graphcms_AssetUpdatedAtArgs = {
+  variation?: Graphcms_SystemDateTimeFieldVariation;
+};
+
+
+/** Asset system model */
+export type Graphcms_AssetPublishedAtArgs = {
+  variation?: Graphcms_SystemDateTimeFieldVariation;
+};
+
+
+/** Asset system model */
 export type Graphcms_AssetImageIconArgs = {
   where?: Maybe<Graphcms_IconWhereInput>;
   orderBy?: Maybe<Graphcms_IconOrderByInput>;
@@ -971,11 +1246,54 @@ export type Graphcms_AssetImageIconArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  locales?: Maybe<Array<Graphcms_Locale>>;
 };
 
 
+/** Asset system model */
+export type Graphcms_AssetImageTechnologyArgs = {
+  where?: Maybe<Graphcms_TechnologyWhereInput>;
+  orderBy?: Maybe<Graphcms_TechnologyOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  locales?: Maybe<Array<Graphcms_Locale>>;
+};
+
+
+/** Asset system model */
+export type Graphcms_AssetImageProjectArgs = {
+  where?: Maybe<Graphcms_ProjectWhereInput>;
+  orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  locales?: Maybe<Array<Graphcms_Locale>>;
+};
+
+
+/** Asset system model */
+export type Graphcms_AssetHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<Graphcms_Stage>;
+};
+
+
+/** Asset system model */
 export type Graphcms_AssetUrlArgs = {
   transformation?: Maybe<Graphcms_AssetTransformationInput>;
+};
+
+export type Graphcms_AssetConnectInput = {
+  /** Document to connect */
+  where: Graphcms_AssetWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<Graphcms_ConnectPositionInput>;
 };
 
 /** A connection to a list of items. */
@@ -983,75 +1301,60 @@ export type Graphcms_AssetConnection = {
   /** Information to aid in pagination. */
   pageInfo: Graphcms_PageInfo;
   /** A list of edges. */
-  edges: Array<Maybe<Graphcms_AssetEdge>>;
-  aggregate: Graphcms_AggregateAsset;
+  edges: Array<Graphcms_AssetEdge>;
+  aggregate: Graphcms_Aggregate;
 };
 
 export type Graphcms_AssetCreateInput = {
-  status?: Maybe<Graphcms_Status>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   handle: Scalars['String'];
   fileName: Scalars['String'];
   height?: Maybe<Scalars['Float']>;
   width?: Maybe<Scalars['Float']>;
   size?: Maybe<Scalars['Float']>;
   mimeType?: Maybe<Scalars['String']>;
-  imageProject?: Maybe<Graphcms_ProjectCreateManyWithoutImageInput>;
-  imageTechnology?: Maybe<Graphcms_TechnologyCreateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconCreateManyWithoutImageInput>;
+  imageIcon?: Maybe<Graphcms_IconCreateManyInlineInput>;
+  imageTechnology?: Maybe<Graphcms_TechnologyCreateManyInlineInput>;
+  imageProject?: Maybe<Graphcms_ProjectCreateManyInlineInput>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: Maybe<Graphcms_AssetCreateLocalizationsInput>;
 };
 
-export type Graphcms_AssetCreateOneWithoutImageIconInput = {
-  upload?: Maybe<Graphcms_AssetUploadWithoutImageIconInput>;
-  create?: Maybe<Graphcms_AssetCreateWithoutImageIconInput>;
+export type Graphcms_AssetCreateLocalizationDataInput = {
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  handle: Scalars['String'];
+  fileName: Scalars['String'];
+  height?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_AssetCreateLocalizationInput = {
+  /** Localization input */
+  data: Graphcms_AssetCreateLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_AssetCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: Maybe<Array<Graphcms_AssetCreateLocalizationInput>>;
+};
+
+export type Graphcms_AssetCreateManyInlineInput = {
+  /** Create and connect multiple existing Asset documents */
+  create?: Maybe<Array<Graphcms_AssetCreateInput>>;
+  /** Connect multiple existing Asset documents */
+  connect?: Maybe<Array<Graphcms_AssetWhereUniqueInput>>;
+};
+
+export type Graphcms_AssetCreateOneInlineInput = {
+  /** Create and connect one Asset document */
+  create?: Maybe<Graphcms_AssetCreateInput>;
+  /** Connect one existing Asset document */
   connect?: Maybe<Graphcms_AssetWhereUniqueInput>;
-};
-
-export type Graphcms_AssetCreateOneWithoutImageProjectInput = {
-  upload?: Maybe<Graphcms_AssetUploadWithoutImageProjectInput>;
-  create?: Maybe<Graphcms_AssetCreateWithoutImageProjectInput>;
-  connect?: Maybe<Graphcms_AssetWhereUniqueInput>;
-};
-
-export type Graphcms_AssetCreateOneWithoutImageTechnologyInput = {
-  upload?: Maybe<Graphcms_AssetUploadWithoutImageTechnologyInput>;
-  create?: Maybe<Graphcms_AssetCreateWithoutImageTechnologyInput>;
-  connect?: Maybe<Graphcms_AssetWhereUniqueInput>;
-};
-
-export type Graphcms_AssetCreateWithoutImageIconInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle: Scalars['String'];
-  fileName: Scalars['String'];
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageProject?: Maybe<Graphcms_ProjectCreateManyWithoutImageInput>;
-  imageTechnology?: Maybe<Graphcms_TechnologyCreateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetCreateWithoutImageProjectInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle: Scalars['String'];
-  fileName: Scalars['String'];
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageTechnology?: Maybe<Graphcms_TechnologyCreateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconCreateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetCreateWithoutImageTechnologyInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle: Scalars['String'];
-  fileName: Scalars['String'];
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageProject?: Maybe<Graphcms_ProjectCreateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconCreateManyWithoutImageInput>;
 };
 
 /** An edge in a connection. */
@@ -1062,205 +1365,9 @@ export type Graphcms_AssetEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_AssetOrderByInput = 
-  | 'status_ASC'
-  | 'status_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'handle_ASC'
-  | 'handle_DESC'
-  | 'fileName_ASC'
-  | 'fileName_DESC'
-  | 'height_ASC'
-  | 'height_DESC'
-  | 'width_ASC'
-  | 'width_DESC'
-  | 'size_ASC'
-  | 'size_DESC'
-  | 'mimeType_ASC'
-  | 'mimeType_DESC';
-
-export type Graphcms_AssetPreviousValues = {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
-  id: Scalars['ID'];
-  handle: Scalars['String'];
-  fileName: Scalars['String'];
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_AssetSubscriptionPayload = {
-  mutation: Graphcms_MutationType;
-  node?: Maybe<Graphcms_Asset>;
-  updatedFields?: Maybe<Array<Scalars['String']>>;
-  previousValues?: Maybe<Graphcms_AssetPreviousValues>;
-};
-
-export type Graphcms_AssetSubscriptionWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: Maybe<Array<Graphcms_AssetSubscriptionWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: Maybe<Array<Graphcms_AssetSubscriptionWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<Graphcms_AssetSubscriptionWhereInput>>;
-  /** The subscription event gets dispatched when it's listed in mutation_in */
-  mutation_in?: Maybe<Array<Graphcms_MutationType>>;
-  /** The subscription event gets only dispatched when one of the updated fields names is included in this list */
-  updatedFields_contains?: Maybe<Scalars['String']>;
-  /** The subscription event gets only dispatched when all of the field names included in this list have been updated */
-  updatedFields_contains_every?: Maybe<Array<Scalars['String']>>;
-  /** The subscription event gets only dispatched when some of the field names included in this list have been updated */
-  updatedFields_contains_some?: Maybe<Array<Scalars['String']>>;
-  node?: Maybe<Graphcms_AssetWhereInput>;
-};
-
-/** Transformations for Assets */
-export type Graphcms_AssetTransformationInput = {
-  image?: Maybe<Graphcms_ImageTransformationInput>;
-  document?: Maybe<Graphcms_DocumentTransformationInput>;
-  /** Pass `true` if you want to validate the passed transformation parameters */
-  validateOptions?: Maybe<Scalars['Boolean']>;
-};
-
-export type Graphcms_AssetUpdateInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageProject?: Maybe<Graphcms_ProjectUpdateManyWithoutImageInput>;
-  imageTechnology?: Maybe<Graphcms_TechnologyUpdateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconUpdateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUpdateManyMutationInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_AssetUpdateOneWithoutImageIconInput = {
-  create?: Maybe<Graphcms_AssetCreateWithoutImageIconInput>;
-  connect?: Maybe<Graphcms_AssetWhereUniqueInput>;
-  disconnect?: Maybe<Scalars['Boolean']>;
-  delete?: Maybe<Scalars['Boolean']>;
-  update?: Maybe<Graphcms_AssetUpdateWithoutImageIconDataInput>;
-  upsert?: Maybe<Graphcms_AssetUpsertWithoutImageIconInput>;
-};
-
-export type Graphcms_AssetUpdateOneWithoutImageProjectInput = {
-  create?: Maybe<Graphcms_AssetCreateWithoutImageProjectInput>;
-  connect?: Maybe<Graphcms_AssetWhereUniqueInput>;
-  disconnect?: Maybe<Scalars['Boolean']>;
-  delete?: Maybe<Scalars['Boolean']>;
-  update?: Maybe<Graphcms_AssetUpdateWithoutImageProjectDataInput>;
-  upsert?: Maybe<Graphcms_AssetUpsertWithoutImageProjectInput>;
-};
-
-export type Graphcms_AssetUpdateOneWithoutImageTechnologyInput = {
-  create?: Maybe<Graphcms_AssetCreateWithoutImageTechnologyInput>;
-  connect?: Maybe<Graphcms_AssetWhereUniqueInput>;
-  disconnect?: Maybe<Scalars['Boolean']>;
-  delete?: Maybe<Scalars['Boolean']>;
-  update?: Maybe<Graphcms_AssetUpdateWithoutImageTechnologyDataInput>;
-  upsert?: Maybe<Graphcms_AssetUpsertWithoutImageTechnologyInput>;
-};
-
-export type Graphcms_AssetUpdateWithoutImageIconDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageProject?: Maybe<Graphcms_ProjectUpdateManyWithoutImageInput>;
-  imageTechnology?: Maybe<Graphcms_TechnologyUpdateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUpdateWithoutImageProjectDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageTechnology?: Maybe<Graphcms_TechnologyUpdateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconUpdateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUpdateWithoutImageTechnologyDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  handle?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Float']>;
-  mimeType?: Maybe<Scalars['String']>;
-  imageProject?: Maybe<Graphcms_ProjectUpdateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconUpdateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUploadInput = {
-  url: Scalars['String'];
-  status?: Maybe<Graphcms_Status>;
-  imageProject?: Maybe<Graphcms_ProjectCreateManyWithoutImageInput>;
-  imageTechnology?: Maybe<Graphcms_TechnologyCreateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconCreateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUploadWithoutImageIconInput = {
-  url: Scalars['String'];
-  status?: Maybe<Graphcms_Status>;
-  imageProject?: Maybe<Graphcms_ProjectCreateManyWithoutImageInput>;
-  imageTechnology?: Maybe<Graphcms_TechnologyCreateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUploadWithoutImageProjectInput = {
-  url: Scalars['String'];
-  status?: Maybe<Graphcms_Status>;
-  imageTechnology?: Maybe<Graphcms_TechnologyCreateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconCreateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUploadWithoutImageTechnologyInput = {
-  url: Scalars['String'];
-  status?: Maybe<Graphcms_Status>;
-  imageProject?: Maybe<Graphcms_ProjectCreateManyWithoutImageInput>;
-  imageIcon?: Maybe<Graphcms_IconCreateManyWithoutImageInput>;
-};
-
-export type Graphcms_AssetUpsertWithoutImageIconInput = {
-  update: Graphcms_AssetUpdateWithoutImageIconDataInput;
-  create: Graphcms_AssetCreateWithoutImageIconInput;
-};
-
-export type Graphcms_AssetUpsertWithoutImageProjectInput = {
-  update: Graphcms_AssetUpdateWithoutImageProjectDataInput;
-  create: Graphcms_AssetCreateWithoutImageProjectInput;
-};
-
-export type Graphcms_AssetUpsertWithoutImageTechnologyInput = {
-  update: Graphcms_AssetUpdateWithoutImageTechnologyDataInput;
-  create: Graphcms_AssetCreateWithoutImageTechnologyInput;
-};
-
-export type Graphcms_AssetWhereInput = {
+/** Identifies documents */
+export type Graphcms_AssetManyWhereInput = {
+  /** Contains search across all appropriate fields. */
   _search?: Maybe<Scalars['String']>;
   /** Logical AND on all given filters. */
   AND?: Maybe<Array<Graphcms_AssetWhereInput>>;
@@ -1268,28 +1375,25 @@ export type Graphcms_AssetWhereInput = {
   OR?: Maybe<Array<Graphcms_AssetWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
   NOT?: Maybe<Array<Graphcms_AssetWhereInput>>;
-  status?: Maybe<Graphcms_Status>;
+  id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
-  status_not?: Maybe<Graphcms_Status>;
+  id_not?: Maybe<Scalars['ID']>;
   /** All values that are contained in given list. */
-  status_in?: Maybe<Array<Graphcms_Status>>;
+  id_in?: Maybe<Array<Scalars['ID']>>;
   /** All values that are not contained in given list. */
-  status_not_in?: Maybe<Array<Graphcms_Status>>;
-  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are not equal to given value. */
   createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
@@ -1305,6 +1409,219 @@ export type Graphcms_AssetWhereInput = {
   createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  imageIcon_every?: Maybe<Graphcms_IconWhereInput>;
+  imageIcon_some?: Maybe<Graphcms_IconWhereInput>;
+  imageIcon_none?: Maybe<Graphcms_IconWhereInput>;
+  imageTechnology_every?: Maybe<Graphcms_TechnologyWhereInput>;
+  imageTechnology_some?: Maybe<Graphcms_TechnologyWhereInput>;
+  imageTechnology_none?: Maybe<Graphcms_TechnologyWhereInput>;
+  imageProject_every?: Maybe<Graphcms_ProjectWhereInput>;
+  imageProject_some?: Maybe<Graphcms_ProjectWhereInput>;
+  imageProject_none?: Maybe<Graphcms_ProjectWhereInput>;
+};
+
+export type Graphcms_AssetOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'handle_ASC'
+  | 'handle_DESC'
+  | 'fileName_ASC'
+  | 'fileName_DESC'
+  | 'height_ASC'
+  | 'height_DESC'
+  | 'width_ASC'
+  | 'width_DESC'
+  | 'size_ASC'
+  | 'size_DESC'
+  | 'mimeType_ASC'
+  | 'mimeType_DESC';
+
+/** Transformations for Assets */
+export type Graphcms_AssetTransformationInput = {
+  image?: Maybe<Graphcms_ImageTransformationInput>;
+  document?: Maybe<Graphcms_DocumentTransformationInput>;
+  /** Pass true if you want to validate the passed transformation parameters */
+  validateOptions?: Maybe<Scalars['Boolean']>;
+};
+
+export type Graphcms_AssetUpdateInput = {
+  handle?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+  imageIcon?: Maybe<Graphcms_IconUpdateManyInlineInput>;
+  imageTechnology?: Maybe<Graphcms_TechnologyUpdateManyInlineInput>;
+  imageProject?: Maybe<Graphcms_ProjectUpdateManyInlineInput>;
+  /** Manage document localizations */
+  localizations?: Maybe<Graphcms_AssetUpdateLocalizationsInput>;
+};
+
+export type Graphcms_AssetUpdateLocalizationDataInput = {
+  handle?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_AssetUpdateLocalizationInput = {
+  data: Graphcms_AssetUpdateLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_AssetUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: Maybe<Array<Graphcms_AssetCreateLocalizationInput>>;
+  /** Localizations to update */
+  update?: Maybe<Array<Graphcms_AssetUpdateLocalizationInput>>;
+  upsert?: Maybe<Array<Graphcms_AssetUpsertLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: Maybe<Array<Graphcms_Locale>>;
+};
+
+export type Graphcms_AssetUpdateManyInlineInput = {
+  /** Create and connect multiple Asset documents */
+  create?: Maybe<Array<Graphcms_AssetCreateInput>>;
+  /** Connect multiple existing Asset documents */
+  connect?: Maybe<Array<Graphcms_AssetConnectInput>>;
+  /** Override currently-connected documents with multiple existing Asset documents */
+  set?: Maybe<Array<Graphcms_AssetWhereUniqueInput>>;
+  /** Update multiple Asset documents */
+  update?: Maybe<Array<Graphcms_AssetUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Asset documents */
+  upsert?: Maybe<Array<Graphcms_AssetUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple Asset documents */
+  disconnect?: Maybe<Array<Graphcms_AssetWhereUniqueInput>>;
+  /** Delete multiple Asset documents */
+  delete?: Maybe<Array<Graphcms_AssetWhereUniqueInput>>;
+};
+
+export type Graphcms_AssetUpdateManyInput = {
+  fileName?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+  /** Optional updates to localizations */
+  localizations?: Maybe<Graphcms_AssetUpdateManyLocalizationsInput>;
+};
+
+export type Graphcms_AssetUpdateManyLocalizationDataInput = {
+  fileName?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_AssetUpdateManyLocalizationInput = {
+  data: Graphcms_AssetUpdateManyLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_AssetUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<Graphcms_AssetUpdateManyLocalizationInput>>;
+};
+
+export type Graphcms_AssetUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: Graphcms_AssetWhereInput;
+  /** Update many input */
+  data: Graphcms_AssetUpdateManyInput;
+};
+
+export type Graphcms_AssetUpdateOneInlineInput = {
+  /** Create and connect one Asset document */
+  create?: Maybe<Graphcms_AssetCreateInput>;
+  /** Update single Asset document */
+  update?: Maybe<Graphcms_AssetUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Asset document */
+  upsert?: Maybe<Graphcms_AssetUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing Asset document */
+  connect?: Maybe<Graphcms_AssetWhereUniqueInput>;
+  /** Disconnect currently connected Asset document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected Asset document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type Graphcms_AssetUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_AssetWhereUniqueInput;
+  /** Document to update */
+  data: Graphcms_AssetUpdateInput;
+};
+
+export type Graphcms_AssetUpsertInput = {
+  /** Create document if it didn't exist */
+  create: Graphcms_AssetCreateInput;
+  /** Update document if it exists */
+  update: Graphcms_AssetUpdateInput;
+};
+
+export type Graphcms_AssetUpsertLocalizationInput = {
+  update: Graphcms_AssetUpdateLocalizationDataInput;
+  create: Graphcms_AssetCreateLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_AssetUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_AssetWhereUniqueInput;
+  /** Upsert data */
+  data: Graphcms_AssetUpsertInput;
+};
+
+/** Identifies documents */
+export type Graphcms_AssetWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<Graphcms_AssetWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<Graphcms_AssetWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<Graphcms_AssetWhereInput>>;
   id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
   id_not?: Maybe<Scalars['ID']>;
@@ -1312,14 +1629,6 @@ export type Graphcms_AssetWhereInput = {
   id_in?: Maybe<Array<Scalars['ID']>>;
   /** All values that are not contained in given list. */
   id_not_in?: Maybe<Array<Scalars['ID']>>;
-  /** All values less than the given value. */
-  id_lt?: Maybe<Scalars['ID']>;
-  /** All values less than or equal the given value. */
-  id_lte?: Maybe<Scalars['ID']>;
-  /** All values greater than the given value. */
-  id_gt?: Maybe<Scalars['ID']>;
-  /** All values greater than or equal the given value. */
-  id_gte?: Maybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: Maybe<Scalars['ID']>;
   /** All values not containing the given string. */
@@ -1330,8 +1639,53 @@ export type Graphcms_AssetWhereInput = {
   id_not_starts_with?: Maybe<Scalars['ID']>;
   /** All values ending with the given string. */
   id_ends_with?: Maybe<Scalars['ID']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   handle?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   handle_not?: Maybe<Scalars['String']>;
@@ -1339,14 +1693,6 @@ export type Graphcms_AssetWhereInput = {
   handle_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
   handle_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  handle_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  handle_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  handle_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  handle_gte?: Maybe<Scalars['String']>;
   /** All values containing the given string. */
   handle_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
@@ -1357,7 +1703,7 @@ export type Graphcms_AssetWhereInput = {
   handle_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
   handle_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   handle_not_ends_with?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
@@ -1366,14 +1712,6 @@ export type Graphcms_AssetWhereInput = {
   fileName_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
   fileName_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  fileName_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  fileName_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  fileName_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  fileName_gte?: Maybe<Scalars['String']>;
   /** All values containing the given string. */
   fileName_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
@@ -1384,7 +1722,7 @@ export type Graphcms_AssetWhereInput = {
   fileName_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
   fileName_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   fileName_not_ends_with?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['Float']>;
   /** All values that are not equal to given value. */
@@ -1438,14 +1776,6 @@ export type Graphcms_AssetWhereInput = {
   mimeType_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
   mimeType_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  mimeType_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  mimeType_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  mimeType_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  mimeType_gte?: Maybe<Scalars['String']>;
   /** All values containing the given string. */
   mimeType_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
@@ -1456,28 +1786,53 @@ export type Graphcms_AssetWhereInput = {
   mimeType_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
   mimeType_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   mimeType_not_ends_with?: Maybe<Scalars['String']>;
-  imageProject_every?: Maybe<Graphcms_ProjectWhereInput>;
-  imageProject_some?: Maybe<Graphcms_ProjectWhereInput>;
-  imageProject_none?: Maybe<Graphcms_ProjectWhereInput>;
-  imageTechnology_every?: Maybe<Graphcms_TechnologyWhereInput>;
-  imageTechnology_some?: Maybe<Graphcms_TechnologyWhereInput>;
-  imageTechnology_none?: Maybe<Graphcms_TechnologyWhereInput>;
   imageIcon_every?: Maybe<Graphcms_IconWhereInput>;
   imageIcon_some?: Maybe<Graphcms_IconWhereInput>;
   imageIcon_none?: Maybe<Graphcms_IconWhereInput>;
+  imageTechnology_every?: Maybe<Graphcms_TechnologyWhereInput>;
+  imageTechnology_some?: Maybe<Graphcms_TechnologyWhereInput>;
+  imageTechnology_none?: Maybe<Graphcms_TechnologyWhereInput>;
+  imageProject_every?: Maybe<Graphcms_ProjectWhereInput>;
+  imageProject_some?: Maybe<Graphcms_ProjectWhereInput>;
+  imageProject_none?: Maybe<Graphcms_ProjectWhereInput>;
 };
 
+/** References Asset record uniquely */
 export type Graphcms_AssetWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
-  handle?: Maybe<Scalars['String']>;
 };
 
 export type Graphcms_BatchPayload = {
   /** The number of nodes that have been affected by the Batch operation. */
   count: Scalars['GRAPHCMS_Long'];
 };
+
+/** Representing a color value comprising of HEX, RGBA and css color values */
+export type Graphcms_Color = {
+  hex: Scalars['GRAPHCMS_Hex'];
+  rgba: Graphcms_Rgba;
+  css: Scalars['String'];
+};
+
+/** Accepts either HEX or RGBA color value. At least one of hex or rgba value should be passed. If both are passed RGBA is used. */
+export type Graphcms_ColorInput = {
+  hex?: Maybe<Scalars['GRAPHCMS_Hex']>;
+  rgba?: Maybe<Graphcms_RgbaInput>;
+};
+
+export type Graphcms_ConnectPositionInput = {
+  /** Connect document after specified document */
+  after?: Maybe<Scalars['ID']>;
+  /** Connect document before specified document */
+  before?: Maybe<Scalars['ID']>;
+  /** Connect document at first position */
+  start?: Maybe<Scalars['Boolean']>;
+  /** Connect document at last position */
+  end?: Maybe<Scalars['Boolean']>;
+};
+
 
 
 export type Graphcms_DocumentFileTypes = 
@@ -1490,8 +1845,8 @@ export type Graphcms_DocumentFileTypes =
   | 'txt'
   | 'webp'
   | 'docx'
-  | 'html'
   | 'pdf'
+  | 'html'
   | 'doc'
   | 'xlsx'
   | 'xls'
@@ -1534,13 +1889,59 @@ export type Graphcms_DocumentTransformationInput = {
   output?: Maybe<Graphcms_DocumentOutputInput>;
 };
 
-export type Graphcms_Icon = Graphcms_Node & {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
+export type Graphcms_DocumentVersion = {
   id: Scalars['ID'];
-  url?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_Asset>;
+  stage: Graphcms_Stage;
+  revision: Scalars['Int'];
+  createdAt: Scalars['GRAPHCMS_DateTime'];
+  data?: Maybe<Scalars['GRAPHCMS_Json']>;
+};
+
+
+export type Graphcms_Icon = Graphcms_Node & {
+  /** System stage field */
+  stage: Graphcms_Stage;
+  /** Get the document in other stages */
+  documentInStages: Array<Graphcms_Icon>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  title: Scalars['String'];
+  image: Graphcms_Asset;
+  url: Scalars['String'];
+  /** List of Icon versions */
+  history: Array<Graphcms_Version>;
+};
+
+
+export type Graphcms_IconDocumentInStagesArgs = {
+  stages?: Array<Graphcms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type Graphcms_IconImageArgs = {
+  locales?: Maybe<Array<Graphcms_Locale>>;
+};
+
+
+export type Graphcms_IconHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<Graphcms_Stage>;
+};
+
+export type Graphcms_IconConnectInput = {
+  /** Document to connect */
+  where: Graphcms_IconWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<Graphcms_ConnectPositionInput>;
 };
 
 /** A connection to a list of items. */
@@ -1548,24 +1949,30 @@ export type Graphcms_IconConnection = {
   /** Information to aid in pagination. */
   pageInfo: Graphcms_PageInfo;
   /** A list of edges. */
-  edges: Array<Maybe<Graphcms_IconEdge>>;
-  aggregate: Graphcms_AggregateIcon;
+  edges: Array<Graphcms_IconEdge>;
+  aggregate: Graphcms_Aggregate;
 };
 
 export type Graphcms_IconCreateInput = {
-  status?: Maybe<Graphcms_Status>;
-  url?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetCreateOneWithoutImageIconInput>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  title: Scalars['String'];
+  image: Graphcms_AssetCreateOneInlineInput;
+  url: Scalars['String'];
 };
 
-export type Graphcms_IconCreateManyWithoutImageInput = {
-  create?: Maybe<Array<Graphcms_IconCreateWithoutImageInput>>;
+export type Graphcms_IconCreateManyInlineInput = {
+  /** Create and connect multiple existing Icon documents */
+  create?: Maybe<Array<Graphcms_IconCreateInput>>;
+  /** Connect multiple existing Icon documents */
   connect?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
 };
 
-export type Graphcms_IconCreateWithoutImageInput = {
-  status?: Maybe<Graphcms_Status>;
-  url?: Maybe<Scalars['String']>;
+export type Graphcms_IconCreateOneInlineInput = {
+  /** Create and connect one Icon document */
+  create?: Maybe<Graphcms_IconCreateInput>;
+  /** Connect one existing Icon document */
+  connect?: Maybe<Graphcms_IconWhereUniqueInput>;
 };
 
 /** An edge in a connection. */
@@ -1576,202 +1983,9 @@ export type Graphcms_IconEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_IconOrderByInput = 
-  | 'status_ASC'
-  | 'status_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'url_ASC'
-  | 'url_DESC';
-
-export type Graphcms_IconPreviousValues = {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
-  id: Scalars['ID'];
-  url?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_IconScalarWhereInput = {
-  _search?: Maybe<Scalars['String']>;
-  /** Logical AND on all given filters. */
-  AND?: Maybe<Array<Graphcms_IconScalarWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: Maybe<Array<Graphcms_IconScalarWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<Graphcms_IconScalarWhereInput>>;
-  status?: Maybe<Graphcms_Status>;
-  /** All values that are not equal to given value. */
-  status_not?: Maybe<Graphcms_Status>;
-  /** All values that are contained in given list. */
-  status_in?: Maybe<Array<Graphcms_Status>>;
-  /** All values that are not contained in given list. */
-  status_not_in?: Maybe<Array<Graphcms_Status>>;
-  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  createdAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  createdAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  createdAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  createdAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  id?: Maybe<Scalars['ID']>;
-  /** All values that are not equal to given value. */
-  id_not?: Maybe<Scalars['ID']>;
-  /** All values that are contained in given list. */
-  id_in?: Maybe<Array<Scalars['ID']>>;
-  /** All values that are not contained in given list. */
-  id_not_in?: Maybe<Array<Scalars['ID']>>;
-  /** All values less than the given value. */
-  id_lt?: Maybe<Scalars['ID']>;
-  /** All values less than or equal the given value. */
-  id_lte?: Maybe<Scalars['ID']>;
-  /** All values greater than the given value. */
-  id_gt?: Maybe<Scalars['ID']>;
-  /** All values greater than or equal the given value. */
-  id_gte?: Maybe<Scalars['ID']>;
-  /** All values containing the given string. */
-  id_contains?: Maybe<Scalars['ID']>;
-  /** All values not containing the given string. */
-  id_not_contains?: Maybe<Scalars['ID']>;
-  /** All values starting with the given string. */
-  id_starts_with?: Maybe<Scalars['ID']>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: Maybe<Scalars['ID']>;
-  /** All values ending with the given string. */
-  id_ends_with?: Maybe<Scalars['ID']>;
-  /** All values not ending with the given string. */
-  id_not_ends_with?: Maybe<Scalars['ID']>;
-  url?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  url_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  url_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  url_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  url_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  url_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  url_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  url_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  url_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  url_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  url_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  url_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  url_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  url_not_ends_with?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_IconSubscriptionPayload = {
-  mutation: Graphcms_MutationType;
-  node?: Maybe<Graphcms_Icon>;
-  updatedFields?: Maybe<Array<Scalars['String']>>;
-  previousValues?: Maybe<Graphcms_IconPreviousValues>;
-};
-
-export type Graphcms_IconSubscriptionWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: Maybe<Array<Graphcms_IconSubscriptionWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: Maybe<Array<Graphcms_IconSubscriptionWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<Graphcms_IconSubscriptionWhereInput>>;
-  /** The subscription event gets dispatched when it's listed in mutation_in */
-  mutation_in?: Maybe<Array<Graphcms_MutationType>>;
-  /** The subscription event gets only dispatched when one of the updated fields names is included in this list */
-  updatedFields_contains?: Maybe<Scalars['String']>;
-  /** The subscription event gets only dispatched when all of the field names included in this list have been updated */
-  updatedFields_contains_every?: Maybe<Array<Scalars['String']>>;
-  /** The subscription event gets only dispatched when some of the field names included in this list have been updated */
-  updatedFields_contains_some?: Maybe<Array<Scalars['String']>>;
-  node?: Maybe<Graphcms_IconWhereInput>;
-};
-
-export type Graphcms_IconUpdateInput = {
-  status?: Maybe<Graphcms_Status>;
-  url?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetUpdateOneWithoutImageIconInput>;
-};
-
-export type Graphcms_IconUpdateManyDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  url?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_IconUpdateManyMutationInput = {
-  status?: Maybe<Graphcms_Status>;
-  url?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_IconUpdateManyWithoutImageInput = {
-  create?: Maybe<Array<Graphcms_IconCreateWithoutImageInput>>;
-  connect?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
-  set?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
-  disconnect?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
-  delete?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
-  update?: Maybe<Array<Graphcms_IconUpdateWithWhereUniqueWithoutImageInput>>;
-  updateMany?: Maybe<Array<Graphcms_IconUpdateManyWithWhereNestedInput>>;
-  deleteMany?: Maybe<Array<Graphcms_IconScalarWhereInput>>;
-  upsert?: Maybe<Array<Graphcms_IconUpsertWithWhereUniqueWithoutImageInput>>;
-};
-
-export type Graphcms_IconUpdateManyWithWhereNestedInput = {
-  where: Graphcms_IconScalarWhereInput;
-  data: Graphcms_IconUpdateManyDataInput;
-};
-
-export type Graphcms_IconUpdateWithoutImageDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  url?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_IconUpdateWithWhereUniqueWithoutImageInput = {
-  where: Graphcms_IconWhereUniqueInput;
-  data: Graphcms_IconUpdateWithoutImageDataInput;
-};
-
-export type Graphcms_IconUpsertWithWhereUniqueWithoutImageInput = {
-  where: Graphcms_IconWhereUniqueInput;
-  update: Graphcms_IconUpdateWithoutImageDataInput;
-  create: Graphcms_IconCreateWithoutImageInput;
-};
-
-export type Graphcms_IconWhereInput = {
+/** Identifies documents */
+export type Graphcms_IconManyWhereInput = {
+  /** Contains search across all appropriate fields. */
   _search?: Maybe<Scalars['String']>;
   /** Logical AND on all given filters. */
   AND?: Maybe<Array<Graphcms_IconWhereInput>>;
@@ -1779,28 +1993,25 @@ export type Graphcms_IconWhereInput = {
   OR?: Maybe<Array<Graphcms_IconWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
   NOT?: Maybe<Array<Graphcms_IconWhereInput>>;
-  status?: Maybe<Graphcms_Status>;
+  id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
-  status_not?: Maybe<Graphcms_Status>;
+  id_not?: Maybe<Scalars['ID']>;
   /** All values that are contained in given list. */
-  status_in?: Maybe<Array<Graphcms_Status>>;
+  id_in?: Maybe<Array<Scalars['ID']>>;
   /** All values that are not contained in given list. */
-  status_not_in?: Maybe<Array<Graphcms_Status>>;
-  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are not equal to given value. */
   createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
@@ -1816,33 +2027,56 @@ export type Graphcms_IconWhereInput = {
   createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  id?: Maybe<Scalars['ID']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are not equal to given value. */
-  id_not?: Maybe<Scalars['ID']>;
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are contained in given list. */
-  id_in?: Maybe<Array<Scalars['ID']>>;
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
   /** All values that are not contained in given list. */
-  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
   /** All values less than the given value. */
-  id_lt?: Maybe<Scalars['ID']>;
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values less than or equal the given value. */
-  id_lte?: Maybe<Scalars['ID']>;
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than the given value. */
-  id_gt?: Maybe<Scalars['ID']>;
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than or equal the given value. */
-  id_gte?: Maybe<Scalars['ID']>;
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  title_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  title_not_in?: Maybe<Array<Scalars['String']>>;
   /** All values containing the given string. */
-  id_contains?: Maybe<Scalars['ID']>;
+  title_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
-  id_not_contains?: Maybe<Scalars['ID']>;
+  title_not_contains?: Maybe<Scalars['String']>;
   /** All values starting with the given string. */
-  id_starts_with?: Maybe<Scalars['ID']>;
+  title_starts_with?: Maybe<Scalars['String']>;
   /** All values not starting with the given string. */
-  id_not_starts_with?: Maybe<Scalars['ID']>;
+  title_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
-  id_ends_with?: Maybe<Scalars['ID']>;
-  /** All values not ending with the given string. */
-  id_not_ends_with?: Maybe<Scalars['ID']>;
+  title_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: Maybe<Scalars['String']>;
+  image?: Maybe<Graphcms_AssetWhereInput>;
   url?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   url_not?: Maybe<Scalars['String']>;
@@ -1850,14 +2084,6 @@ export type Graphcms_IconWhereInput = {
   url_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
   url_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  url_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  url_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  url_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  url_gte?: Maybe<Scalars['String']>;
   /** All values containing the given string. */
   url_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
@@ -1868,13 +2094,215 @@ export type Graphcms_IconWhereInput = {
   url_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
   url_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   url_not_ends_with?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetWhereInput>;
 };
 
+export type Graphcms_IconOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'url_ASC'
+  | 'url_DESC';
+
+export type Graphcms_IconUpdateInput = {
+  title?: Maybe<Scalars['String']>;
+  image?: Maybe<Graphcms_AssetUpdateOneInlineInput>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_IconUpdateManyInlineInput = {
+  /** Create and connect multiple Icon documents */
+  create?: Maybe<Array<Graphcms_IconCreateInput>>;
+  /** Connect multiple existing Icon documents */
+  connect?: Maybe<Array<Graphcms_IconConnectInput>>;
+  /** Override currently-connected documents with multiple existing Icon documents */
+  set?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
+  /** Update multiple Icon documents */
+  update?: Maybe<Array<Graphcms_IconUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Icon documents */
+  upsert?: Maybe<Array<Graphcms_IconUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple Icon documents */
+  disconnect?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
+  /** Delete multiple Icon documents */
+  delete?: Maybe<Array<Graphcms_IconWhereUniqueInput>>;
+};
+
+export type Graphcms_IconUpdateManyInput = {
+  /** No fields in updateMany data input */
+  _?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_IconUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: Graphcms_IconWhereInput;
+  /** Update many input */
+  data: Graphcms_IconUpdateManyInput;
+};
+
+export type Graphcms_IconUpdateOneInlineInput = {
+  /** Create and connect one Icon document */
+  create?: Maybe<Graphcms_IconCreateInput>;
+  /** Update single Icon document */
+  update?: Maybe<Graphcms_IconUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Icon document */
+  upsert?: Maybe<Graphcms_IconUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing Icon document */
+  connect?: Maybe<Graphcms_IconWhereUniqueInput>;
+  /** Disconnect currently connected Icon document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected Icon document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type Graphcms_IconUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_IconWhereUniqueInput;
+  /** Document to update */
+  data: Graphcms_IconUpdateInput;
+};
+
+export type Graphcms_IconUpsertInput = {
+  /** Create document if it didn't exist */
+  create: Graphcms_IconCreateInput;
+  /** Update document if it exists */
+  update: Graphcms_IconUpdateInput;
+};
+
+export type Graphcms_IconUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_IconWhereUniqueInput;
+  /** Upsert data */
+  data: Graphcms_IconUpsertInput;
+};
+
+/** Identifies documents */
+export type Graphcms_IconWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<Graphcms_IconWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<Graphcms_IconWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<Graphcms_IconWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  title_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  title_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  title_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: Maybe<Scalars['String']>;
+  image?: Maybe<Graphcms_AssetWhereInput>;
+  url?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  url_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  url_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  url_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  url_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  url_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  url_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  url_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  url_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  url_not_ends_with?: Maybe<Scalars['String']>;
+};
+
+/** References Icon record uniquely */
 export type Graphcms_IconWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
 };
 
 export type Graphcms_ImageFit = 
@@ -1912,19 +2340,39 @@ export type Graphcms_ImageTransformationInput = {
   resize?: Maybe<Graphcms_ImageResizeInput>;
 };
 
+
+/** Locale system enumeration */
 export type Graphcms_Locale = 
-  | 'EN';
+  /** System locale */
+  | 'en'
+  | 'pl';
+
+/** Representing a geolocation point with latitude and longitude */
+export type Graphcms_Location = {
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+  distance: Scalars['Float'];
+};
 
 
-export type Graphcms_MutationType = 
-  | 'CREATED'
-  | 'UPDATED'
-  | 'DELETED';
+/** Representing a geolocation point with latitude and longitude */
+export type Graphcms_LocationDistanceArgs = {
+  from: Graphcms_LocationInput;
+};
+
+/** Input for a geolocation point with latitude and longitude */
+export type Graphcms_LocationInput = {
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+};
+
 
 /** An object with an ID */
 export type Graphcms_Node = {
   /** The id of the object. */
   id: Scalars['ID'];
+  /** The Stage of an object */
+  stage: Graphcms_Stage;
 };
 
 /** Information about pagination in a connection. */
@@ -1937,21 +2385,69 @@ export type Graphcms_PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
   /** When paginating forwards, the cursor to continue. */
   endCursor?: Maybe<Scalars['String']>;
+  /** Number of items in the current page. */
+  pageSize?: Maybe<Scalars['Int']>;
 };
 
 export type Graphcms_Project = Graphcms_Node & {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
+  /** System stage field */
+  stage: Graphcms_Stage;
+  /** System Locale field */
+  locale: Graphcms_Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<Graphcms_Project>;
+  /** Get the document in other stages */
+  documentInStages: Array<Graphcms_Project>;
+  /** The unique identifier */
   id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   title: Scalars['String'];
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
+  description: Scalars['String'];
+  image: Graphcms_Asset;
+  technologies: Array<Graphcms_Technology>;
+  year?: Maybe<Scalars['String']>;
   srcLink?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_Asset>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  technologies?: Maybe<Array<Graphcms_Technology>>;
+  liveLink?: Maybe<Scalars['String']>;
+  /** List of Project versions */
+  history: Array<Graphcms_Version>;
+};
+
+
+export type Graphcms_ProjectLocalizationsArgs = {
+  locales?: Array<Graphcms_Locale>;
+  includeCurrent?: Scalars['Boolean'];
+};
+
+
+export type Graphcms_ProjectDocumentInStagesArgs = {
+  stages?: Array<Graphcms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type Graphcms_ProjectCreatedAtArgs = {
+  variation?: Graphcms_SystemDateTimeFieldVariation;
+};
+
+
+export type Graphcms_ProjectUpdatedAtArgs = {
+  variation?: Graphcms_SystemDateTimeFieldVariation;
+};
+
+
+export type Graphcms_ProjectPublishedAtArgs = {
+  variation?: Graphcms_SystemDateTimeFieldVariation;
+};
+
+
+export type Graphcms_ProjectImageArgs = {
+  locales?: Maybe<Array<Graphcms_Locale>>;
 };
 
 
@@ -1963,6 +2459,21 @@ export type Graphcms_ProjectTechnologiesArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  locales?: Maybe<Array<Graphcms_Locale>>;
+};
+
+
+export type Graphcms_ProjectHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<Graphcms_Stage>;
+};
+
+export type Graphcms_ProjectConnectInput = {
+  /** Document to connect */
+  where: Graphcms_ProjectWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<Graphcms_ConnectPositionInput>;
 };
 
 /** A connection to a list of items. */
@@ -1970,52 +2481,54 @@ export type Graphcms_ProjectConnection = {
   /** Information to aid in pagination. */
   pageInfo: Graphcms_PageInfo;
   /** A list of edges. */
-  edges: Array<Maybe<Graphcms_ProjectEdge>>;
-  aggregate: Graphcms_AggregateProject;
+  edges: Array<Graphcms_ProjectEdge>;
+  aggregate: Graphcms_Aggregate;
 };
 
 export type Graphcms_ProjectCreateInput = {
-  status?: Maybe<Graphcms_Status>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   title: Scalars['String'];
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
+  /** description input for default locale (en) */
+  description: Scalars['String'];
+  image: Graphcms_AssetCreateOneInlineInput;
+  technologies?: Maybe<Graphcms_TechnologyCreateManyInlineInput>;
+  year?: Maybe<Scalars['String']>;
   srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetCreateOneWithoutImageProjectInput>;
-  technologies?: Maybe<Graphcms_TechnologyCreateManyWithoutProjectInput>;
+  liveLink?: Maybe<Scalars['String']>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: Maybe<Graphcms_ProjectCreateLocalizationsInput>;
 };
 
-export type Graphcms_ProjectCreateManyWithoutImageInput = {
-  create?: Maybe<Array<Graphcms_ProjectCreateWithoutImageInput>>;
+export type Graphcms_ProjectCreateLocalizationDataInput = {
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  description: Scalars['String'];
+};
+
+export type Graphcms_ProjectCreateLocalizationInput = {
+  /** Localization input */
+  data: Graphcms_ProjectCreateLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_ProjectCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: Maybe<Array<Graphcms_ProjectCreateLocalizationInput>>;
+};
+
+export type Graphcms_ProjectCreateManyInlineInput = {
+  /** Create and connect multiple existing Project documents */
+  create?: Maybe<Array<Graphcms_ProjectCreateInput>>;
+  /** Connect multiple existing Project documents */
   connect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
 };
 
-export type Graphcms_ProjectCreateManyWithoutTechnologiesInput = {
-  create?: Maybe<Array<Graphcms_ProjectCreateWithoutTechnologiesInput>>;
-  connect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-};
-
-export type Graphcms_ProjectCreateWithoutImageInput = {
-  status?: Maybe<Graphcms_Status>;
-  title: Scalars['String'];
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  technologies?: Maybe<Graphcms_TechnologyCreateManyWithoutProjectInput>;
-};
-
-export type Graphcms_ProjectCreateWithoutTechnologiesInput = {
-  status?: Maybe<Graphcms_Status>;
-  title: Scalars['String'];
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetCreateOneWithoutImageProjectInput>;
+export type Graphcms_ProjectCreateOneInlineInput = {
+  /** Create and connect one Project document */
+  create?: Maybe<Graphcms_ProjectCreateInput>;
+  /** Connect one existing Project document */
+  connect?: Maybe<Graphcms_ProjectWhereUniqueInput>;
 };
 
 /** An edge in a connection. */
@@ -2026,408 +2539,9 @@ export type Graphcms_ProjectEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_ProjectOrderByInput = 
-  | 'status_ASC'
-  | 'status_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'title_ASC'
-  | 'title_DESC'
-  | 'descriptionPl_ASC'
-  | 'descriptionPl_DESC'
-  | 'liveLink_ASC'
-  | 'liveLink_DESC'
-  | 'srcLink_ASC'
-  | 'srcLink_DESC'
-  | 'descriptionEn_ASC'
-  | 'descriptionEn_DESC'
-  | 'date_ASC'
-  | 'date_DESC';
-
-export type Graphcms_ProjectPreviousValues = {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
-  id: Scalars['ID'];
-  title: Scalars['String'];
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_ProjectScalarWhereInput = {
-  _search?: Maybe<Scalars['String']>;
-  /** Logical AND on all given filters. */
-  AND?: Maybe<Array<Graphcms_ProjectScalarWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: Maybe<Array<Graphcms_ProjectScalarWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<Graphcms_ProjectScalarWhereInput>>;
-  status?: Maybe<Graphcms_Status>;
-  /** All values that are not equal to given value. */
-  status_not?: Maybe<Graphcms_Status>;
-  /** All values that are contained in given list. */
-  status_in?: Maybe<Array<Graphcms_Status>>;
-  /** All values that are not contained in given list. */
-  status_not_in?: Maybe<Array<Graphcms_Status>>;
-  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  createdAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  createdAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  createdAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  createdAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  id?: Maybe<Scalars['ID']>;
-  /** All values that are not equal to given value. */
-  id_not?: Maybe<Scalars['ID']>;
-  /** All values that are contained in given list. */
-  id_in?: Maybe<Array<Scalars['ID']>>;
-  /** All values that are not contained in given list. */
-  id_not_in?: Maybe<Array<Scalars['ID']>>;
-  /** All values less than the given value. */
-  id_lt?: Maybe<Scalars['ID']>;
-  /** All values less than or equal the given value. */
-  id_lte?: Maybe<Scalars['ID']>;
-  /** All values greater than the given value. */
-  id_gt?: Maybe<Scalars['ID']>;
-  /** All values greater than or equal the given value. */
-  id_gte?: Maybe<Scalars['ID']>;
-  /** All values containing the given string. */
-  id_contains?: Maybe<Scalars['ID']>;
-  /** All values not containing the given string. */
-  id_not_contains?: Maybe<Scalars['ID']>;
-  /** All values starting with the given string. */
-  id_starts_with?: Maybe<Scalars['ID']>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: Maybe<Scalars['ID']>;
-  /** All values ending with the given string. */
-  id_ends_with?: Maybe<Scalars['ID']>;
-  /** All values not ending with the given string. */
-  id_not_ends_with?: Maybe<Scalars['ID']>;
-  title?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  title_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  title_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  title_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  title_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  title_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  title_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  title_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  title_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  title_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  title_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  title_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  title_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  title_not_ends_with?: Maybe<Scalars['String']>;
-  descriptionPl?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  descriptionPl_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  descriptionPl_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  descriptionPl_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  descriptionPl_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  descriptionPl_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  descriptionPl_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  descriptionPl_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  descriptionPl_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  descriptionPl_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  descriptionPl_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  descriptionPl_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  descriptionPl_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  descriptionPl_not_ends_with?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  liveLink_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  liveLink_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  liveLink_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  liveLink_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  liveLink_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  liveLink_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  liveLink_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  liveLink_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  liveLink_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  liveLink_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  liveLink_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  liveLink_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  liveLink_not_ends_with?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  srcLink_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  srcLink_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  srcLink_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  srcLink_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  srcLink_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  srcLink_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  srcLink_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  srcLink_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  srcLink_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  srcLink_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  srcLink_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  srcLink_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  srcLink_not_ends_with?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  descriptionEn_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  descriptionEn_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  descriptionEn_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  descriptionEn_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  descriptionEn_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  descriptionEn_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  descriptionEn_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  descriptionEn_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  descriptionEn_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  descriptionEn_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  descriptionEn_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  descriptionEn_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  descriptionEn_not_ends_with?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  date_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  date_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  date_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  date_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  date_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  date_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  date_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  date_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  date_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  date_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  date_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  date_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  date_not_ends_with?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_ProjectSubscriptionPayload = {
-  mutation: Graphcms_MutationType;
-  node?: Maybe<Graphcms_Project>;
-  updatedFields?: Maybe<Array<Scalars['String']>>;
-  previousValues?: Maybe<Graphcms_ProjectPreviousValues>;
-};
-
-export type Graphcms_ProjectSubscriptionWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: Maybe<Array<Graphcms_ProjectSubscriptionWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: Maybe<Array<Graphcms_ProjectSubscriptionWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<Graphcms_ProjectSubscriptionWhereInput>>;
-  /** The subscription event gets dispatched when it's listed in mutation_in */
-  mutation_in?: Maybe<Array<Graphcms_MutationType>>;
-  /** The subscription event gets only dispatched when one of the updated fields names is included in this list */
-  updatedFields_contains?: Maybe<Scalars['String']>;
-  /** The subscription event gets only dispatched when all of the field names included in this list have been updated */
-  updatedFields_contains_every?: Maybe<Array<Scalars['String']>>;
-  /** The subscription event gets only dispatched when some of the field names included in this list have been updated */
-  updatedFields_contains_some?: Maybe<Array<Scalars['String']>>;
-  node?: Maybe<Graphcms_ProjectWhereInput>;
-};
-
-export type Graphcms_ProjectUpdateInput = {
-  status?: Maybe<Graphcms_Status>;
-  title?: Maybe<Scalars['String']>;
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetUpdateOneWithoutImageProjectInput>;
-  technologies?: Maybe<Graphcms_TechnologyUpdateManyWithoutProjectInput>;
-};
-
-export type Graphcms_ProjectUpdateManyDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  title?: Maybe<Scalars['String']>;
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_ProjectUpdateManyMutationInput = {
-  status?: Maybe<Graphcms_Status>;
-  title?: Maybe<Scalars['String']>;
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_ProjectUpdateManyWithoutImageInput = {
-  create?: Maybe<Array<Graphcms_ProjectCreateWithoutImageInput>>;
-  connect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  set?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  disconnect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  delete?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  update?: Maybe<Array<Graphcms_ProjectUpdateWithWhereUniqueWithoutImageInput>>;
-  updateMany?: Maybe<Array<Graphcms_ProjectUpdateManyWithWhereNestedInput>>;
-  deleteMany?: Maybe<Array<Graphcms_ProjectScalarWhereInput>>;
-  upsert?: Maybe<Array<Graphcms_ProjectUpsertWithWhereUniqueWithoutImageInput>>;
-};
-
-export type Graphcms_ProjectUpdateManyWithoutTechnologiesInput = {
-  create?: Maybe<Array<Graphcms_ProjectCreateWithoutTechnologiesInput>>;
-  connect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  set?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  disconnect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  delete?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
-  update?: Maybe<Array<Graphcms_ProjectUpdateWithWhereUniqueWithoutTechnologiesInput>>;
-  updateMany?: Maybe<Array<Graphcms_ProjectUpdateManyWithWhereNestedInput>>;
-  deleteMany?: Maybe<Array<Graphcms_ProjectScalarWhereInput>>;
-  upsert?: Maybe<Array<Graphcms_ProjectUpsertWithWhereUniqueWithoutTechnologiesInput>>;
-};
-
-export type Graphcms_ProjectUpdateManyWithWhereNestedInput = {
-  where: Graphcms_ProjectScalarWhereInput;
-  data: Graphcms_ProjectUpdateManyDataInput;
-};
-
-export type Graphcms_ProjectUpdateWithoutImageDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  title?: Maybe<Scalars['String']>;
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  technologies?: Maybe<Graphcms_TechnologyUpdateManyWithoutProjectInput>;
-};
-
-export type Graphcms_ProjectUpdateWithoutTechnologiesDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  title?: Maybe<Scalars['String']>;
-  descriptionPl?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  srcLink?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetUpdateOneWithoutImageProjectInput>;
-};
-
-export type Graphcms_ProjectUpdateWithWhereUniqueWithoutImageInput = {
-  where: Graphcms_ProjectWhereUniqueInput;
-  data: Graphcms_ProjectUpdateWithoutImageDataInput;
-};
-
-export type Graphcms_ProjectUpdateWithWhereUniqueWithoutTechnologiesInput = {
-  where: Graphcms_ProjectWhereUniqueInput;
-  data: Graphcms_ProjectUpdateWithoutTechnologiesDataInput;
-};
-
-export type Graphcms_ProjectUpsertWithWhereUniqueWithoutImageInput = {
-  where: Graphcms_ProjectWhereUniqueInput;
-  update: Graphcms_ProjectUpdateWithoutImageDataInput;
-  create: Graphcms_ProjectCreateWithoutImageInput;
-};
-
-export type Graphcms_ProjectUpsertWithWhereUniqueWithoutTechnologiesInput = {
-  where: Graphcms_ProjectWhereUniqueInput;
-  update: Graphcms_ProjectUpdateWithoutTechnologiesDataInput;
-  create: Graphcms_ProjectCreateWithoutTechnologiesInput;
-};
-
-export type Graphcms_ProjectWhereInput = {
+/** Identifies documents */
+export type Graphcms_ProjectManyWhereInput = {
+  /** Contains search across all appropriate fields. */
   _search?: Maybe<Scalars['String']>;
   /** Logical AND on all given filters. */
   AND?: Maybe<Array<Graphcms_ProjectWhereInput>>;
@@ -2435,28 +2549,25 @@ export type Graphcms_ProjectWhereInput = {
   OR?: Maybe<Array<Graphcms_ProjectWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
   NOT?: Maybe<Array<Graphcms_ProjectWhereInput>>;
-  status?: Maybe<Graphcms_Status>;
+  id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
-  status_not?: Maybe<Graphcms_Status>;
+  id_not?: Maybe<Scalars['ID']>;
   /** All values that are contained in given list. */
-  status_in?: Maybe<Array<Graphcms_Status>>;
+  id_in?: Maybe<Array<Scalars['ID']>>;
   /** All values that are not contained in given list. */
-  status_not_in?: Maybe<Array<Graphcms_Status>>;
-  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are not equal to given value. */
   createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
@@ -2472,33 +2583,36 @@ export type Graphcms_ProjectWhereInput = {
   createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  id?: Maybe<Scalars['ID']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are not equal to given value. */
-  id_not?: Maybe<Scalars['ID']>;
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are contained in given list. */
-  id_in?: Maybe<Array<Scalars['ID']>>;
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
   /** All values that are not contained in given list. */
-  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
   /** All values less than the given value. */
-  id_lt?: Maybe<Scalars['ID']>;
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values less than or equal the given value. */
-  id_lte?: Maybe<Scalars['ID']>;
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than the given value. */
-  id_gt?: Maybe<Scalars['ID']>;
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than or equal the given value. */
-  id_gte?: Maybe<Scalars['ID']>;
-  /** All values containing the given string. */
-  id_contains?: Maybe<Scalars['ID']>;
-  /** All values not containing the given string. */
-  id_not_contains?: Maybe<Scalars['ID']>;
-  /** All values starting with the given string. */
-  id_starts_with?: Maybe<Scalars['ID']>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: Maybe<Scalars['ID']>;
-  /** All values ending with the given string. */
-  id_ends_with?: Maybe<Scalars['ID']>;
-  /** All values not ending with the given string. */
-  id_not_ends_with?: Maybe<Scalars['ID']>;
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   title?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   title_not?: Maybe<Scalars['String']>;
@@ -2506,14 +2620,6 @@ export type Graphcms_ProjectWhereInput = {
   title_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
   title_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  title_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  title_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  title_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  title_gte?: Maybe<Scalars['String']>;
   /** All values containing the given string. */
   title_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
@@ -2524,62 +2630,31 @@ export type Graphcms_ProjectWhereInput = {
   title_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
   title_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   title_not_ends_with?: Maybe<Scalars['String']>;
-  descriptionPl?: Maybe<Scalars['String']>;
+  image?: Maybe<Graphcms_AssetWhereInput>;
+  technologies_every?: Maybe<Graphcms_TechnologyWhereInput>;
+  technologies_some?: Maybe<Graphcms_TechnologyWhereInput>;
+  technologies_none?: Maybe<Graphcms_TechnologyWhereInput>;
+  year?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
-  descriptionPl_not?: Maybe<Scalars['String']>;
+  year_not?: Maybe<Scalars['String']>;
   /** All values that are contained in given list. */
-  descriptionPl_in?: Maybe<Array<Scalars['String']>>;
+  year_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
-  descriptionPl_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  descriptionPl_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  descriptionPl_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  descriptionPl_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  descriptionPl_gte?: Maybe<Scalars['String']>;
+  year_not_in?: Maybe<Array<Scalars['String']>>;
   /** All values containing the given string. */
-  descriptionPl_contains?: Maybe<Scalars['String']>;
+  year_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
-  descriptionPl_not_contains?: Maybe<Scalars['String']>;
+  year_not_contains?: Maybe<Scalars['String']>;
   /** All values starting with the given string. */
-  descriptionPl_starts_with?: Maybe<Scalars['String']>;
+  year_starts_with?: Maybe<Scalars['String']>;
   /** All values not starting with the given string. */
-  descriptionPl_not_starts_with?: Maybe<Scalars['String']>;
+  year_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
-  descriptionPl_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  descriptionPl_not_ends_with?: Maybe<Scalars['String']>;
-  liveLink?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  liveLink_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  liveLink_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  liveLink_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  liveLink_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  liveLink_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  liveLink_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  liveLink_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  liveLink_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  liveLink_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  liveLink_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  liveLink_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  liveLink_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  liveLink_not_ends_with?: Maybe<Scalars['String']>;
+  year_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  year_not_ends_with?: Maybe<Scalars['String']>;
   srcLink?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   srcLink_not?: Maybe<Scalars['String']>;
@@ -2587,14 +2662,6 @@ export type Graphcms_ProjectWhereInput = {
   srcLink_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
   srcLink_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  srcLink_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  srcLink_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  srcLink_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  srcLink_gte?: Maybe<Scalars['String']>;
   /** All values containing the given string. */
   srcLink_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
@@ -2605,89 +2672,437 @@ export type Graphcms_ProjectWhereInput = {
   srcLink_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
   srcLink_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   srcLink_not_ends_with?: Maybe<Scalars['String']>;
-  descriptionEn?: Maybe<Scalars['String']>;
+  liveLink?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
-  descriptionEn_not?: Maybe<Scalars['String']>;
+  liveLink_not?: Maybe<Scalars['String']>;
   /** All values that are contained in given list. */
-  descriptionEn_in?: Maybe<Array<Scalars['String']>>;
+  liveLink_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
-  descriptionEn_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  descriptionEn_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  descriptionEn_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  descriptionEn_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  descriptionEn_gte?: Maybe<Scalars['String']>;
+  liveLink_not_in?: Maybe<Array<Scalars['String']>>;
   /** All values containing the given string. */
-  descriptionEn_contains?: Maybe<Scalars['String']>;
+  liveLink_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
-  descriptionEn_not_contains?: Maybe<Scalars['String']>;
+  liveLink_not_contains?: Maybe<Scalars['String']>;
   /** All values starting with the given string. */
-  descriptionEn_starts_with?: Maybe<Scalars['String']>;
+  liveLink_starts_with?: Maybe<Scalars['String']>;
   /** All values not starting with the given string. */
-  descriptionEn_not_starts_with?: Maybe<Scalars['String']>;
+  liveLink_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
-  descriptionEn_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  descriptionEn_not_ends_with?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['String']>;
+  liveLink_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  liveLink_not_ends_with?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_ProjectOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'year_ASC'
+  | 'year_DESC'
+  | 'srcLink_ASC'
+  | 'srcLink_DESC'
+  | 'liveLink_ASC'
+  | 'liveLink_DESC';
+
+export type Graphcms_ProjectUpdateInput = {
+  title?: Maybe<Scalars['String']>;
+  /** description input for default locale (en) */
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Graphcms_AssetUpdateOneInlineInput>;
+  technologies?: Maybe<Graphcms_TechnologyUpdateManyInlineInput>;
+  year?: Maybe<Scalars['String']>;
+  srcLink?: Maybe<Scalars['String']>;
+  liveLink?: Maybe<Scalars['String']>;
+  /** Manage document localizations */
+  localizations?: Maybe<Graphcms_ProjectUpdateLocalizationsInput>;
+};
+
+export type Graphcms_ProjectUpdateLocalizationDataInput = {
+  description?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_ProjectUpdateLocalizationInput = {
+  data: Graphcms_ProjectUpdateLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_ProjectUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: Maybe<Array<Graphcms_ProjectCreateLocalizationInput>>;
+  /** Localizations to update */
+  update?: Maybe<Array<Graphcms_ProjectUpdateLocalizationInput>>;
+  upsert?: Maybe<Array<Graphcms_ProjectUpsertLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: Maybe<Array<Graphcms_Locale>>;
+};
+
+export type Graphcms_ProjectUpdateManyInlineInput = {
+  /** Create and connect multiple Project documents */
+  create?: Maybe<Array<Graphcms_ProjectCreateInput>>;
+  /** Connect multiple existing Project documents */
+  connect?: Maybe<Array<Graphcms_ProjectConnectInput>>;
+  /** Override currently-connected documents with multiple existing Project documents */
+  set?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
+  /** Update multiple Project documents */
+  update?: Maybe<Array<Graphcms_ProjectUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Project documents */
+  upsert?: Maybe<Array<Graphcms_ProjectUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple Project documents */
+  disconnect?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
+  /** Delete multiple Project documents */
+  delete?: Maybe<Array<Graphcms_ProjectWhereUniqueInput>>;
+};
+
+export type Graphcms_ProjectUpdateManyInput = {
+  /** description input for default locale (en) */
+  description?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+  /** Optional updates to localizations */
+  localizations?: Maybe<Graphcms_ProjectUpdateManyLocalizationsInput>;
+};
+
+export type Graphcms_ProjectUpdateManyLocalizationDataInput = {
+  description?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_ProjectUpdateManyLocalizationInput = {
+  data: Graphcms_ProjectUpdateManyLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_ProjectUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<Graphcms_ProjectUpdateManyLocalizationInput>>;
+};
+
+export type Graphcms_ProjectUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: Graphcms_ProjectWhereInput;
+  /** Update many input */
+  data: Graphcms_ProjectUpdateManyInput;
+};
+
+export type Graphcms_ProjectUpdateOneInlineInput = {
+  /** Create and connect one Project document */
+  create?: Maybe<Graphcms_ProjectCreateInput>;
+  /** Update single Project document */
+  update?: Maybe<Graphcms_ProjectUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Project document */
+  upsert?: Maybe<Graphcms_ProjectUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing Project document */
+  connect?: Maybe<Graphcms_ProjectWhereUniqueInput>;
+  /** Disconnect currently connected Project document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected Project document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type Graphcms_ProjectUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_ProjectWhereUniqueInput;
+  /** Document to update */
+  data: Graphcms_ProjectUpdateInput;
+};
+
+export type Graphcms_ProjectUpsertInput = {
+  /** Create document if it didn't exist */
+  create: Graphcms_ProjectCreateInput;
+  /** Update document if it exists */
+  update: Graphcms_ProjectUpdateInput;
+};
+
+export type Graphcms_ProjectUpsertLocalizationInput = {
+  update: Graphcms_ProjectUpdateLocalizationDataInput;
+  create: Graphcms_ProjectCreateLocalizationDataInput;
+  locale: Graphcms_Locale;
+};
+
+export type Graphcms_ProjectUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_ProjectWhereUniqueInput;
+  /** Upsert data */
+  data: Graphcms_ProjectUpsertInput;
+};
+
+/** Identifies documents */
+export type Graphcms_ProjectWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<Graphcms_ProjectWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<Graphcms_ProjectWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<Graphcms_ProjectWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
-  date_not?: Maybe<Scalars['String']>;
+  id_not?: Maybe<Scalars['ID']>;
   /** All values that are contained in given list. */
-  date_in?: Maybe<Array<Scalars['String']>>;
+  id_in?: Maybe<Array<Scalars['ID']>>;
   /** All values that are not contained in given list. */
-  date_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  date_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  date_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  date_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  date_gte?: Maybe<Scalars['String']>;
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
   /** All values containing the given string. */
-  date_contains?: Maybe<Scalars['String']>;
+  id_contains?: Maybe<Scalars['ID']>;
   /** All values not containing the given string. */
-  date_not_contains?: Maybe<Scalars['String']>;
+  id_not_contains?: Maybe<Scalars['ID']>;
   /** All values starting with the given string. */
-  date_starts_with?: Maybe<Scalars['String']>;
+  id_starts_with?: Maybe<Scalars['ID']>;
   /** All values not starting with the given string. */
-  date_not_starts_with?: Maybe<Scalars['String']>;
+  id_not_starts_with?: Maybe<Scalars['ID']>;
   /** All values ending with the given string. */
-  date_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  date_not_ends_with?: Maybe<Scalars['String']>;
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  title_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  title_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  title_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  description_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  description_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  description_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  description_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  description_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  description_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  description_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  description_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  description_not_ends_with?: Maybe<Scalars['String']>;
   image?: Maybe<Graphcms_AssetWhereInput>;
   technologies_every?: Maybe<Graphcms_TechnologyWhereInput>;
   technologies_some?: Maybe<Graphcms_TechnologyWhereInput>;
   technologies_none?: Maybe<Graphcms_TechnologyWhereInput>;
+  year?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  year_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  year_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  year_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  year_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  year_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  year_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  year_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  year_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  year_not_ends_with?: Maybe<Scalars['String']>;
+  srcLink?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  srcLink_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  srcLink_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  srcLink_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  srcLink_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  srcLink_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  srcLink_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  srcLink_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  srcLink_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  srcLink_not_ends_with?: Maybe<Scalars['String']>;
+  liveLink?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  liveLink_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  liveLink_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  liveLink_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  liveLink_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  liveLink_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  liveLink_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  liveLink_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  liveLink_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  liveLink_not_ends_with?: Maybe<Scalars['String']>;
 };
 
+/** References Project record uniquely */
 export type Graphcms_ProjectWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
+  title?: Maybe<Scalars['String']>;
+  srcLink?: Maybe<Scalars['String']>;
+  liveLink?: Maybe<Scalars['String']>;
 };
 
-export type Graphcms_Status = 
-  | 'DRAFT'
+export type Graphcms_PublishLocaleInput = {
+  /** Locales to publish */
+  locale: Graphcms_Locale;
+  /** Stages to publish selected locales to */
+  stages: Array<Graphcms_Stage>;
+};
+
+/** Representing a RGBA color value: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba() */
+export type Graphcms_Rgba = {
+  r: Scalars['GRAPHCMS_RGBAHue'];
+  g: Scalars['GRAPHCMS_RGBAHue'];
+  b: Scalars['GRAPHCMS_RGBAHue'];
+  a: Scalars['GRAPHCMS_RGBATransparency'];
+};
+
+
+/** Input type representing a RGBA color value: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba() */
+export type Graphcms_RgbaInput = {
+  r: Scalars['GRAPHCMS_RGBAHue'];
+  g: Scalars['GRAPHCMS_RGBAHue'];
+  b: Scalars['GRAPHCMS_RGBAHue'];
+  a: Scalars['GRAPHCMS_RGBATransparency'];
+};
+
+
+/** Custom type representing a rich text value comprising of raw rich text ast, html, markdown and text values */
+export type Graphcms_RichText = {
+  /** Returns AST representation */
+  raw: Scalars['GRAPHCMS_RichTextAST'];
+  /** Returns HTMl representation */
+  html: Scalars['String'];
+  /** Returns Markdown representation */
+  markdown: Scalars['String'];
+  /** Returns plain-text contents of RichText */
+  text: Scalars['String'];
+};
+
+
+/** Stage system enumeration */
+export type Graphcms_Stage = 
+  /** The Published stage is where you can publish your content to. */
   | 'PUBLISHED'
-  | 'ARCHIVED';
+  /** The Draft is the default stage for all your content. */
+  | 'DRAFT';
+
+export type Graphcms_SystemDateTimeFieldVariation = 
+  | 'BASE'
+  | 'LOCALIZATION'
+  | 'COMBINED';
 
 export type Graphcms_Technology = Graphcms_Node & {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
+  /** System stage field */
+  stage: Graphcms_Stage;
+  /** Get the document in other stages */
+  documentInStages: Array<Graphcms_Technology>;
+  /** The unique identifier */
   id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GRAPHCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   name: Scalars['String'];
-  image?: Maybe<Graphcms_Asset>;
-  project?: Maybe<Array<Graphcms_Project>>;
+  image: Graphcms_Asset;
+  projects: Array<Graphcms_Project>;
+  url?: Maybe<Scalars['String']>;
+  /** List of Technology versions */
+  history: Array<Graphcms_Version>;
 };
 
 
-export type Graphcms_TechnologyProjectArgs = {
+export type Graphcms_TechnologyDocumentInStagesArgs = {
+  stages?: Array<Graphcms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type Graphcms_TechnologyImageArgs = {
+  locales?: Maybe<Array<Graphcms_Locale>>;
+};
+
+
+export type Graphcms_TechnologyProjectsArgs = {
   where?: Maybe<Graphcms_ProjectWhereInput>;
   orderBy?: Maybe<Graphcms_ProjectOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
@@ -2695,6 +3110,21 @@ export type Graphcms_TechnologyProjectArgs = {
   before?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  locales?: Maybe<Array<Graphcms_Locale>>;
+};
+
+
+export type Graphcms_TechnologyHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<Graphcms_Stage>;
+};
+
+export type Graphcms_TechnologyConnectInput = {
+  /** Document to connect */
+  where: Graphcms_TechnologyWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<Graphcms_ConnectPositionInput>;
 };
 
 /** A connection to a list of items. */
@@ -2702,37 +3132,31 @@ export type Graphcms_TechnologyConnection = {
   /** Information to aid in pagination. */
   pageInfo: Graphcms_PageInfo;
   /** A list of edges. */
-  edges: Array<Maybe<Graphcms_TechnologyEdge>>;
-  aggregate: Graphcms_AggregateTechnology;
+  edges: Array<Graphcms_TechnologyEdge>;
+  aggregate: Graphcms_Aggregate;
 };
 
 export type Graphcms_TechnologyCreateInput = {
-  status?: Maybe<Graphcms_Status>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   name: Scalars['String'];
-  image?: Maybe<Graphcms_AssetCreateOneWithoutImageTechnologyInput>;
-  project?: Maybe<Graphcms_ProjectCreateManyWithoutTechnologiesInput>;
+  image: Graphcms_AssetCreateOneInlineInput;
+  projects?: Maybe<Graphcms_ProjectCreateManyInlineInput>;
+  url?: Maybe<Scalars['String']>;
 };
 
-export type Graphcms_TechnologyCreateManyWithoutImageInput = {
-  create?: Maybe<Array<Graphcms_TechnologyCreateWithoutImageInput>>;
+export type Graphcms_TechnologyCreateManyInlineInput = {
+  /** Create and connect multiple existing Technology documents */
+  create?: Maybe<Array<Graphcms_TechnologyCreateInput>>;
+  /** Connect multiple existing Technology documents */
   connect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
 };
 
-export type Graphcms_TechnologyCreateManyWithoutProjectInput = {
-  create?: Maybe<Array<Graphcms_TechnologyCreateWithoutProjectInput>>;
-  connect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-};
-
-export type Graphcms_TechnologyCreateWithoutImageInput = {
-  status?: Maybe<Graphcms_Status>;
-  name: Scalars['String'];
-  project?: Maybe<Graphcms_ProjectCreateManyWithoutTechnologiesInput>;
-};
-
-export type Graphcms_TechnologyCreateWithoutProjectInput = {
-  status?: Maybe<Graphcms_Status>;
-  name: Scalars['String'];
-  image?: Maybe<Graphcms_AssetCreateOneWithoutImageTechnologyInput>;
+export type Graphcms_TechnologyCreateOneInlineInput = {
+  /** Create and connect one Technology document */
+  create?: Maybe<Graphcms_TechnologyCreateInput>;
+  /** Connect one existing Technology document */
+  connect?: Maybe<Graphcms_TechnologyWhereUniqueInput>;
 };
 
 /** An edge in a connection. */
@@ -2743,233 +3167,9 @@ export type Graphcms_TechnologyEdge = {
   cursor: Scalars['String'];
 };
 
-export type Graphcms_TechnologyOrderByInput = 
-  | 'status_ASC'
-  | 'status_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC';
-
-export type Graphcms_TechnologyPreviousValues = {
-  status: Graphcms_Status;
-  updatedAt: Scalars['GRAPHCMS_DateTime'];
-  createdAt: Scalars['GRAPHCMS_DateTime'];
-  id: Scalars['ID'];
-  name: Scalars['String'];
-};
-
-export type Graphcms_TechnologyScalarWhereInput = {
-  _search?: Maybe<Scalars['String']>;
-  /** Logical AND on all given filters. */
-  AND?: Maybe<Array<Graphcms_TechnologyScalarWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: Maybe<Array<Graphcms_TechnologyScalarWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<Graphcms_TechnologyScalarWhereInput>>;
-  status?: Maybe<Graphcms_Status>;
-  /** All values that are not equal to given value. */
-  status_not?: Maybe<Graphcms_Status>;
-  /** All values that are contained in given list. */
-  status_in?: Maybe<Array<Graphcms_Status>>;
-  /** All values that are not contained in given list. */
-  status_not_in?: Maybe<Array<Graphcms_Status>>;
-  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  createdAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  createdAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  createdAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  createdAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  id?: Maybe<Scalars['ID']>;
-  /** All values that are not equal to given value. */
-  id_not?: Maybe<Scalars['ID']>;
-  /** All values that are contained in given list. */
-  id_in?: Maybe<Array<Scalars['ID']>>;
-  /** All values that are not contained in given list. */
-  id_not_in?: Maybe<Array<Scalars['ID']>>;
-  /** All values less than the given value. */
-  id_lt?: Maybe<Scalars['ID']>;
-  /** All values less than or equal the given value. */
-  id_lte?: Maybe<Scalars['ID']>;
-  /** All values greater than the given value. */
-  id_gt?: Maybe<Scalars['ID']>;
-  /** All values greater than or equal the given value. */
-  id_gte?: Maybe<Scalars['ID']>;
-  /** All values containing the given string. */
-  id_contains?: Maybe<Scalars['ID']>;
-  /** All values not containing the given string. */
-  id_not_contains?: Maybe<Scalars['ID']>;
-  /** All values starting with the given string. */
-  id_starts_with?: Maybe<Scalars['ID']>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: Maybe<Scalars['ID']>;
-  /** All values ending with the given string. */
-  id_ends_with?: Maybe<Scalars['ID']>;
-  /** All values not ending with the given string. */
-  id_not_ends_with?: Maybe<Scalars['ID']>;
-  name?: Maybe<Scalars['String']>;
-  /** All values that are not equal to given value. */
-  name_not?: Maybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  name_in?: Maybe<Array<Scalars['String']>>;
-  /** All values that are not contained in given list. */
-  name_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  name_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  name_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  name_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  name_gte?: Maybe<Scalars['String']>;
-  /** All values containing the given string. */
-  name_contains?: Maybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  name_not_contains?: Maybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  name_starts_with?: Maybe<Scalars['String']>;
-  /** All values not starting with the given string. */
-  name_not_starts_with?: Maybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  name_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
-  name_not_ends_with?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_TechnologySubscriptionPayload = {
-  mutation: Graphcms_MutationType;
-  node?: Maybe<Graphcms_Technology>;
-  updatedFields?: Maybe<Array<Scalars['String']>>;
-  previousValues?: Maybe<Graphcms_TechnologyPreviousValues>;
-};
-
-export type Graphcms_TechnologySubscriptionWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: Maybe<Array<Graphcms_TechnologySubscriptionWhereInput>>;
-  /** Logical OR on all given filters. */
-  OR?: Maybe<Array<Graphcms_TechnologySubscriptionWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: Maybe<Array<Graphcms_TechnologySubscriptionWhereInput>>;
-  /** The subscription event gets dispatched when it's listed in mutation_in */
-  mutation_in?: Maybe<Array<Graphcms_MutationType>>;
-  /** The subscription event gets only dispatched when one of the updated fields names is included in this list */
-  updatedFields_contains?: Maybe<Scalars['String']>;
-  /** The subscription event gets only dispatched when all of the field names included in this list have been updated */
-  updatedFields_contains_every?: Maybe<Array<Scalars['String']>>;
-  /** The subscription event gets only dispatched when some of the field names included in this list have been updated */
-  updatedFields_contains_some?: Maybe<Array<Scalars['String']>>;
-  node?: Maybe<Graphcms_TechnologyWhereInput>;
-};
-
-export type Graphcms_TechnologyUpdateInput = {
-  status?: Maybe<Graphcms_Status>;
-  name?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetUpdateOneWithoutImageTechnologyInput>;
-  project?: Maybe<Graphcms_ProjectUpdateManyWithoutTechnologiesInput>;
-};
-
-export type Graphcms_TechnologyUpdateManyDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  name?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_TechnologyUpdateManyMutationInput = {
-  status?: Maybe<Graphcms_Status>;
-  name?: Maybe<Scalars['String']>;
-};
-
-export type Graphcms_TechnologyUpdateManyWithoutImageInput = {
-  create?: Maybe<Array<Graphcms_TechnologyCreateWithoutImageInput>>;
-  connect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  set?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  disconnect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  delete?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  update?: Maybe<Array<Graphcms_TechnologyUpdateWithWhereUniqueWithoutImageInput>>;
-  updateMany?: Maybe<Array<Graphcms_TechnologyUpdateManyWithWhereNestedInput>>;
-  deleteMany?: Maybe<Array<Graphcms_TechnologyScalarWhereInput>>;
-  upsert?: Maybe<Array<Graphcms_TechnologyUpsertWithWhereUniqueWithoutImageInput>>;
-};
-
-export type Graphcms_TechnologyUpdateManyWithoutProjectInput = {
-  create?: Maybe<Array<Graphcms_TechnologyCreateWithoutProjectInput>>;
-  connect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  set?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  disconnect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  delete?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
-  update?: Maybe<Array<Graphcms_TechnologyUpdateWithWhereUniqueWithoutProjectInput>>;
-  updateMany?: Maybe<Array<Graphcms_TechnologyUpdateManyWithWhereNestedInput>>;
-  deleteMany?: Maybe<Array<Graphcms_TechnologyScalarWhereInput>>;
-  upsert?: Maybe<Array<Graphcms_TechnologyUpsertWithWhereUniqueWithoutProjectInput>>;
-};
-
-export type Graphcms_TechnologyUpdateManyWithWhereNestedInput = {
-  where: Graphcms_TechnologyScalarWhereInput;
-  data: Graphcms_TechnologyUpdateManyDataInput;
-};
-
-export type Graphcms_TechnologyUpdateWithoutImageDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  name?: Maybe<Scalars['String']>;
-  project?: Maybe<Graphcms_ProjectUpdateManyWithoutTechnologiesInput>;
-};
-
-export type Graphcms_TechnologyUpdateWithoutProjectDataInput = {
-  status?: Maybe<Graphcms_Status>;
-  name?: Maybe<Scalars['String']>;
-  image?: Maybe<Graphcms_AssetUpdateOneWithoutImageTechnologyInput>;
-};
-
-export type Graphcms_TechnologyUpdateWithWhereUniqueWithoutImageInput = {
-  where: Graphcms_TechnologyWhereUniqueInput;
-  data: Graphcms_TechnologyUpdateWithoutImageDataInput;
-};
-
-export type Graphcms_TechnologyUpdateWithWhereUniqueWithoutProjectInput = {
-  where: Graphcms_TechnologyWhereUniqueInput;
-  data: Graphcms_TechnologyUpdateWithoutProjectDataInput;
-};
-
-export type Graphcms_TechnologyUpsertWithWhereUniqueWithoutImageInput = {
-  where: Graphcms_TechnologyWhereUniqueInput;
-  update: Graphcms_TechnologyUpdateWithoutImageDataInput;
-  create: Graphcms_TechnologyCreateWithoutImageInput;
-};
-
-export type Graphcms_TechnologyUpsertWithWhereUniqueWithoutProjectInput = {
-  where: Graphcms_TechnologyWhereUniqueInput;
-  update: Graphcms_TechnologyUpdateWithoutProjectDataInput;
-  create: Graphcms_TechnologyCreateWithoutProjectInput;
-};
-
-export type Graphcms_TechnologyWhereInput = {
+/** Identifies documents */
+export type Graphcms_TechnologyManyWhereInput = {
+  /** Contains search across all appropriate fields. */
   _search?: Maybe<Scalars['String']>;
   /** Logical AND on all given filters. */
   AND?: Maybe<Array<Graphcms_TechnologyWhereInput>>;
@@ -2977,28 +3177,25 @@ export type Graphcms_TechnologyWhereInput = {
   OR?: Maybe<Array<Graphcms_TechnologyWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
   NOT?: Maybe<Array<Graphcms_TechnologyWhereInput>>;
-  status?: Maybe<Graphcms_Status>;
+  id?: Maybe<Scalars['ID']>;
   /** All values that are not equal to given value. */
-  status_not?: Maybe<Graphcms_Status>;
+  id_not?: Maybe<Scalars['ID']>;
   /** All values that are contained in given list. */
-  status_in?: Maybe<Array<Graphcms_Status>>;
+  id_in?: Maybe<Array<Scalars['ID']>>;
   /** All values that are not contained in given list. */
-  status_not_in?: Maybe<Array<Graphcms_Status>>;
-  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are not equal to given value. */
-  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values that are contained in given list. */
-  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
-  /** All values less than the given value. */
-  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than the given value. */
-  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are not equal to given value. */
   createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
@@ -3014,33 +3211,36 @@ export type Graphcms_TechnologyWhereInput = {
   createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
-  id?: Maybe<Scalars['ID']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are not equal to given value. */
-  id_not?: Maybe<Scalars['ID']>;
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values that are contained in given list. */
-  id_in?: Maybe<Array<Scalars['ID']>>;
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
   /** All values that are not contained in given list. */
-  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
   /** All values less than the given value. */
-  id_lt?: Maybe<Scalars['ID']>;
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values less than or equal the given value. */
-  id_lte?: Maybe<Scalars['ID']>;
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than the given value. */
-  id_gt?: Maybe<Scalars['ID']>;
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   /** All values greater than or equal the given value. */
-  id_gte?: Maybe<Scalars['ID']>;
-  /** All values containing the given string. */
-  id_contains?: Maybe<Scalars['ID']>;
-  /** All values not containing the given string. */
-  id_not_contains?: Maybe<Scalars['ID']>;
-  /** All values starting with the given string. */
-  id_starts_with?: Maybe<Scalars['ID']>;
-  /** All values not starting with the given string. */
-  id_not_starts_with?: Maybe<Scalars['ID']>;
-  /** All values ending with the given string. */
-  id_ends_with?: Maybe<Scalars['ID']>;
-  /** All values not ending with the given string. */
-  id_not_ends_with?: Maybe<Scalars['ID']>;
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
   name?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   name_not?: Maybe<Scalars['String']>;
@@ -3048,14 +3248,6 @@ export type Graphcms_TechnologyWhereInput = {
   name_in?: Maybe<Array<Scalars['String']>>;
   /** All values that are not contained in given list. */
   name_not_in?: Maybe<Array<Scalars['String']>>;
-  /** All values less than the given value. */
-  name_lt?: Maybe<Scalars['String']>;
-  /** All values less than or equal the given value. */
-  name_lte?: Maybe<Scalars['String']>;
-  /** All values greater than the given value. */
-  name_gt?: Maybe<Scalars['String']>;
-  /** All values greater than or equal the given value. */
-  name_gte?: Maybe<Scalars['String']>;
   /** All values containing the given string. */
   name_contains?: Maybe<Scalars['String']>;
   /** All values not containing the given string. */
@@ -3066,16 +3258,269 @@ export type Graphcms_TechnologyWhereInput = {
   name_not_starts_with?: Maybe<Scalars['String']>;
   /** All values ending with the given string. */
   name_ends_with?: Maybe<Scalars['String']>;
-  /** All values not ending with the given string. */
+  /** All values not ending with the given string */
   name_not_ends_with?: Maybe<Scalars['String']>;
   image?: Maybe<Graphcms_AssetWhereInput>;
-  project_every?: Maybe<Graphcms_ProjectWhereInput>;
-  project_some?: Maybe<Graphcms_ProjectWhereInput>;
-  project_none?: Maybe<Graphcms_ProjectWhereInput>;
+  projects_every?: Maybe<Graphcms_ProjectWhereInput>;
+  projects_some?: Maybe<Graphcms_ProjectWhereInput>;
+  projects_none?: Maybe<Graphcms_ProjectWhereInput>;
+  url?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  url_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  url_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  url_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  url_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  url_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  url_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  url_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  url_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  url_not_ends_with?: Maybe<Scalars['String']>;
 };
 
+export type Graphcms_TechnologyOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'url_ASC'
+  | 'url_DESC';
+
+export type Graphcms_TechnologyUpdateInput = {
+  name?: Maybe<Scalars['String']>;
+  image?: Maybe<Graphcms_AssetUpdateOneInlineInput>;
+  projects?: Maybe<Graphcms_ProjectUpdateManyInlineInput>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_TechnologyUpdateManyInlineInput = {
+  /** Create and connect multiple Technology documents */
+  create?: Maybe<Array<Graphcms_TechnologyCreateInput>>;
+  /** Connect multiple existing Technology documents */
+  connect?: Maybe<Array<Graphcms_TechnologyConnectInput>>;
+  /** Override currently-connected documents with multiple existing Technology documents */
+  set?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
+  /** Update multiple Technology documents */
+  update?: Maybe<Array<Graphcms_TechnologyUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Technology documents */
+  upsert?: Maybe<Array<Graphcms_TechnologyUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple Technology documents */
+  disconnect?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
+  /** Delete multiple Technology documents */
+  delete?: Maybe<Array<Graphcms_TechnologyWhereUniqueInput>>;
+};
+
+export type Graphcms_TechnologyUpdateManyInput = {
+  /** No fields in updateMany data input */
+  _?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_TechnologyUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: Graphcms_TechnologyWhereInput;
+  /** Update many input */
+  data: Graphcms_TechnologyUpdateManyInput;
+};
+
+export type Graphcms_TechnologyUpdateOneInlineInput = {
+  /** Create and connect one Technology document */
+  create?: Maybe<Graphcms_TechnologyCreateInput>;
+  /** Update single Technology document */
+  update?: Maybe<Graphcms_TechnologyUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Technology document */
+  upsert?: Maybe<Graphcms_TechnologyUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing Technology document */
+  connect?: Maybe<Graphcms_TechnologyWhereUniqueInput>;
+  /** Disconnect currently connected Technology document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected Technology document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type Graphcms_TechnologyUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_TechnologyWhereUniqueInput;
+  /** Document to update */
+  data: Graphcms_TechnologyUpdateInput;
+};
+
+export type Graphcms_TechnologyUpsertInput = {
+  /** Create document if it didn't exist */
+  create: Graphcms_TechnologyCreateInput;
+  /** Update document if it exists */
+  update: Graphcms_TechnologyUpdateInput;
+};
+
+export type Graphcms_TechnologyUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: Graphcms_TechnologyWhereUniqueInput;
+  /** Upsert data */
+  data: Graphcms_TechnologyUpsertInput;
+};
+
+/** Identifies documents */
+export type Graphcms_TechnologyWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<Graphcms_TechnologyWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<Graphcms_TechnologyWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<Graphcms_TechnologyWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GRAPHCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GRAPHCMS_DateTime']>;
+  name?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  name_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  name_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  name_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  name_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  name_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  name_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  name_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  name_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  name_not_ends_with?: Maybe<Scalars['String']>;
+  image?: Maybe<Graphcms_AssetWhereInput>;
+  projects_every?: Maybe<Graphcms_ProjectWhereInput>;
+  projects_some?: Maybe<Graphcms_ProjectWhereInput>;
+  projects_none?: Maybe<Graphcms_ProjectWhereInput>;
+  url?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  url_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  url_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  url_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  url_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  url_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  url_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  url_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  url_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  url_not_ends_with?: Maybe<Scalars['String']>;
+};
+
+/** References Technology record uniquely */
 export type Graphcms_TechnologyWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type Graphcms_UnpublishLocaleInput = {
+  /** Locales to unpublish */
+  locale: Graphcms_Locale;
+  /** Stages to unpublish selected locales from */
+  stages: Array<Graphcms_Stage>;
+};
+
+/** System User Kind */
+export type Graphcms_UserKind = 
+  | 'MEMBER'
+  | 'PAT'
+  | 'PUBLIC'
+  | 'WEBHOOK';
+
+export type Graphcms_Version = {
+  id: Scalars['ID'];
+  stage: Graphcms_Stage;
+  revision: Scalars['Int'];
+  createdAt: Scalars['GRAPHCMS_DateTime'];
+};
+
+export type Graphcms_VersionWhereInput = {
+  id: Scalars['ID'];
+  stage: Graphcms_Stage;
+  revision: Scalars['Int'];
 };
 
 export type GraphQlSource = Node & {
@@ -3252,7 +3697,8 @@ export type ImageFormat =
   | 'AUTO'
   | 'JPG'
   | 'PNG'
-  | 'WEBP';
+  | 'WEBP'
+  | 'AVIF';
 
 export type ImageLayout = 
   | 'FIXED'
@@ -3394,6 +3840,7 @@ export type ImageSharpGatsbyImageDataArgs = {
   jpgOptions?: Maybe<JpgOptions>;
   pngOptions?: Maybe<PngOptions>;
   webpOptions?: Maybe<WebPOptions>;
+  avifOptions?: Maybe<AvifOptions>;
   transformOptions?: Maybe<TransformOptions>;
   background?: Maybe<Scalars['String']>;
 };
@@ -3602,6 +4049,10 @@ export type ImageSharpFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+};
+
+export type ImageSharpFilterListInput = {
+  elemMatch?: Maybe<ImageSharpFilterInput>;
 };
 
 export type ImageSharpFixed = {
@@ -3918,6 +4369,7 @@ export type QueryFileArgs = {
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenImageSharp?: Maybe<ImageSharpFilterListInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -3988,7 +4440,6 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
-  flags?: Maybe<SiteFlagsFilterInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -4118,7 +4569,6 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>;
   port?: Maybe<Scalars['Int']>;
   host?: Maybe<Scalars['String']>;
-  flags?: Maybe<SiteFlags>;
   pathPrefix?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   id: Scalars['ID'];
@@ -4325,8 +4775,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___keywords'
   | 'port'
   | 'host'
-  | 'flags___FAST_DEV'
-  | 'flags___FAST_REFRESH'
   | 'pathPrefix'
   | 'polyfill'
   | 'id'
@@ -4421,23 +4869,12 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
-  flags?: Maybe<SiteFlagsFilterInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-};
-
-export type SiteFlags = {
-  FAST_DEV?: Maybe<Scalars['Boolean']>;
-  FAST_REFRESH?: Maybe<Scalars['Boolean']>;
-};
-
-export type SiteFlagsFilterInput = {
-  FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
-  FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
@@ -4652,15 +5089,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___cacheDigest'
-  | 'pluginCreator___pluginOptions___indentedSyntax'
-  | 'pluginCreator___pluginOptions___indentType'
-  | 'pluginCreator___pluginOptions___indentWidth'
-  | 'pluginCreator___pluginOptions___linefeed'
-  | 'pluginCreator___pluginOptions___omitSourceMapUrl'
-  | 'pluginCreator___pluginOptions___precision'
-  | 'pluginCreator___pluginOptions___sourceComments'
-  | 'pluginCreator___pluginOptions___sourceMapContents'
-  | 'pluginCreator___pluginOptions___sourceMapEmbed'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
@@ -4879,15 +5307,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___crossOrigin'
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___cacheDigest'
-  | 'pluginOptions___indentedSyntax'
-  | 'pluginOptions___indentType'
-  | 'pluginOptions___indentWidth'
-  | 'pluginOptions___linefeed'
-  | 'pluginOptions___omitSourceMapUrl'
-  | 'pluginOptions___precision'
-  | 'pluginOptions___sourceComments'
-  | 'pluginOptions___sourceMapContents'
-  | 'pluginOptions___sourceMapEmbed'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
@@ -5034,15 +5453,6 @@ export type SitePluginPluginOptions = {
   crossOrigin?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
-  indentedSyntax?: Maybe<Scalars['Boolean']>;
-  indentType?: Maybe<Scalars['String']>;
-  indentWidth?: Maybe<Scalars['Int']>;
-  linefeed?: Maybe<Scalars['String']>;
-  omitSourceMapUrl?: Maybe<Scalars['Boolean']>;
-  precision?: Maybe<Scalars['Int']>;
-  sourceComments?: Maybe<Scalars['Boolean']>;
-  sourceMapContents?: Maybe<Scalars['Boolean']>;
-  sourceMapEmbed?: Maybe<Scalars['Boolean']>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
@@ -5077,15 +5487,6 @@ export type SitePluginPluginOptionsFilterInput = {
   crossOrigin?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
-  indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
-  indentType?: Maybe<StringQueryOperatorInput>;
-  indentWidth?: Maybe<IntQueryOperatorInput>;
-  linefeed?: Maybe<StringQueryOperatorInput>;
-  omitSourceMapUrl?: Maybe<BooleanQueryOperatorInput>;
-  precision?: Maybe<IntQueryOperatorInput>;
-  sourceComments?: Maybe<BooleanQueryOperatorInput>;
-  sourceMapContents?: Maybe<BooleanQueryOperatorInput>;
-  sourceMapEmbed?: Maybe<BooleanQueryOperatorInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
@@ -5172,10 +5573,10 @@ export type BackgroundQuery = { image?: Maybe<Pick<File, 'publicURL'>> };
 export type IconsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IconsQuery = { graphCmsData: { icons: Array<Maybe<(
-      Pick<Graphcms_Icon, 'id' | 'url'>
-      & { image?: Maybe<Pick<Graphcms_Asset, 'url'>> }
-    )>> } };
+export type IconsQuery = { graphCmsData: { icons: Array<(
+      Pick<Graphcms_Icon, 'id' | 'url' | 'title'>
+      & { image: Pick<Graphcms_Asset, 'url'> }
+    )> } };
 
 export type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5190,21 +5591,21 @@ export type AboutQuery = { image?: Maybe<{ childImageSharp?: Maybe<{ fluid?: May
 export type ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsQuery = { graphCmsData: { projects: Array<Maybe<(
-      Pick<Graphcms_Project, 'id' | 'title' | 'liveLink' | 'srcLink' | 'descriptionPl' | 'descriptionEn' | 'date'>
-      & { image?: Maybe<Pick<Graphcms_Asset, 'handle' | 'width' | 'height'>>, technologies?: Maybe<Array<(
+export type ProjectsQuery = { graphCmsData: { projects: Array<(
+      Pick<Graphcms_Project, 'id' | 'title' | 'liveLink' | 'srcLink' | 'year'>
+      & { localizations: Array<Pick<Graphcms_Project, 'locale' | 'description'>>, image: Pick<Graphcms_Asset, 'handle' | 'width' | 'height'>, technologies: Array<(
         Pick<Graphcms_Technology, 'id' | 'name'>
-        & { image?: Maybe<Pick<Graphcms_Asset, 'url'>> }
-      )>> }
-    )>> } };
+        & { image: Pick<Graphcms_Asset, 'url'> }
+      )> }
+    )> } };
 
 export type TechnologiesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TechnologiesQuery = { graphCmsData: { technologies: Array<Maybe<(
+export type TechnologiesQuery = { graphCmsData: { technologies: Array<(
       Pick<Graphcms_Technology, 'id' | 'name'>
-      & { image?: Maybe<Pick<Graphcms_Asset, 'url'>> }
-    )>> } };
+      & { image: Pick<Graphcms_Asset, 'url'> }
+    )> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
