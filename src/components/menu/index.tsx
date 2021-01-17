@@ -19,9 +19,9 @@ const Menu = () => {
   const { t } = useTranslation();
 
   //TODO
-  const menuItems = t<MenuItem[]>('menu', {
+  const menuItems = t('menu', {
     returnObjects: true,
-  });
+  }) as MenuItem[];
 
   return (
     <>

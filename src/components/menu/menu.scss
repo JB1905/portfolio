@@ -34,7 +34,10 @@ header {
   justify-content: flex-end;
   width: calc(100% - 250px);
   margin: 0;
+}
 
+.nav,
+.mobile {
   ul {
     display: flex;
     align-items: center;
