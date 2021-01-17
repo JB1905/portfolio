@@ -12,7 +12,7 @@ const Title = ({ children }: Props) => {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const layout = document.querySelector('.layout')!;
+    const layout = document.querySelector('.layout') as Element;
 
     // TODO refactor
     const fadeOut = () => {

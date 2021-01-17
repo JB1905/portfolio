@@ -18,10 +18,10 @@ const Technologies = ({ data }: Props) => {
     <Page title={t('technologies.title')} className="technologies">
       {data.graphCmsData.technologies.map((item, index) => (
         <Technology
-          key={item!.id}
+          key={item.id}
           index={index}
-          name={item!.name}
-          image={item!.image!.url}
+          name={item.name}
+          image={item.image.url}
         />
       ))}
     </Page>
