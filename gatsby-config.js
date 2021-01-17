@@ -5,7 +5,7 @@ module.exports = {
     title: `Portfolio`,
     description: `JavaScript Developer Portfolio`,
     author: `Jakub Biesiada`,
-    siteUrl: `https://jb1905.github.io`,
+    siteUrl: `https://biesiada.dev`,
     keywords: [
       "front end",
       "biesiada",
@@ -15,15 +15,11 @@ module.exports = {
       "react",
     ],
   },
-  flags: {
-    FAST_DEV: true,
-    FAST_REFRESH: true,
-  },
-  pathPrefix: `/portfolio`,
+  // pathPrefix: `/portfolio`,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-graphql-codegen`,
+    // `gatsby-plugin-graphql-codegen`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

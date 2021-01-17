@@ -16,7 +16,7 @@ const Icons = () => {
       <LanguageSwitch />
 
       {data.graphCmsData.icons.map((icon, index) => (
-        <Item key={icon!.id} item={icon} index={index} />
+        <Item key={icon.id} item={icon} index={index} />
       ))}
     </section>
   );
@@ -28,6 +28,7 @@ export const query = graphql`
       icons {
         id
         url
+        title
         image {
           url
         }

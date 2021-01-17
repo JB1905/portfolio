@@ -12,16 +12,17 @@ const Title = ({ children }: Props) => {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const layout = document.querySelector('.layout')!;
+    const layout = document.querySelector('.layout') as Element;
 
+    // TODO refactor
     const fadeOut = () => {
-      const scrolled = layout.scrollTop / 100;
+      const scrollValue = layout.scrollTop / 100;
 
       if (opacity > 0) {
-        setOpacity(opacity - scrolled);
+        setOpacity(opacity - scrollValue);
 
         if (layout.scrollTop >= 0) {
-          setScale(scale - scrolled / 5);
+          setScale(scale - scrollValue / 5);
         }
       }
     };

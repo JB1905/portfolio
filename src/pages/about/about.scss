@@ -3,7 +3,7 @@
   flex-direction: column;
   flex-wrap: wrap;
 
-  @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+  @media (min-width: 600px), (min-width: 520px) and (orientation: landscape) {
     flex-direction: row;
   }
 
@@ -26,7 +26,8 @@
     height: 100%;
     width: 100%;
 
-    @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+    @media (min-width: 600px),
+      (min-width: 480px) and (max-width: 600px) and (orientation: landscape) {
       margin: 0;
       position: sticky;
       max-width: 320px;
@@ -51,7 +52,7 @@
       margin: 0 auto var(--vertical-gap);
 
       @media (min-width: 600px),
-        (max-width: 600px) and (orientation: landscape) {
+        (min-width: 520px) and (orientation: landscape) {
         margin: var(--vertical-gap) var(--vertical-gap) auto 0;
         max-width: 100%;
       }
@@ -81,7 +82,7 @@
     padding: 0;
     flex: 1;
 
-    @media (min-width: 600px), (max-width: 600px) and (orientation: landscape) {
+    @media (min-width: 600px), (min-width: 520px) and (orientation: landscape) {
       padding: 0 15px;
       width: calc(100% / 3 * 2);
     }

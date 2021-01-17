@@ -20,7 +20,7 @@ const Projects = ({ data }: Props) => {
     <Page title={t('projects.title')} className="projects">
       {data.graphCmsData.projects.map((item, index) => (
         <Project
-          key={item!.id}
+          key={item.id}
           index={index}
           item={item}
           language={i18n.language as Language}
@@ -33,14 +33,16 @@ const Projects = ({ data }: Props) => {
 export const query = graphql`
   query Projects {
     graphCmsData {
-      projects(where: { status: PUBLISHED }) {
+      projects(locales: [pl, en]) {
         id
         title
         liveLink
         srcLink
-        descriptionPl
-        descriptionEn
-        date
+        year
+        localizations(includeCurrent: true) {
+          locale
+          description
+        }
         image {
           handle
           width

@@ -9,6 +9,15 @@ import './language.scss';
 const Language = () => {
   const { t, i18n } = useTranslation();
 
+  // TODO refactor
+  const toggleLanguage = () => {
+    i18n.changeLanguage(
+      i18n.language === LanguageName.Polish
+        ? LanguageName.English
+        : LanguageName.Polish
+    );
+  };
+
   return (
     <Delay wait={600}>
       <div className="icon">
@@ -16,13 +25,7 @@ const Language = () => {
           type="button"
           className="language"
           aria-label={t('labels.toggle.language')}
-          onClick={() =>
-            i18n.changeLanguage(
-              i18n.language === LanguageName.Polish
-                ? LanguageName.English
-                : LanguageName.Polish
-            )
-          }
+          onClick={toggleLanguage}
         >
           {i18n.language}
         </button>
