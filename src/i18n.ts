@@ -6,9 +6,11 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    detection: {
+      order: ['localStorage', 'navigator'],
+    },
     fallbackLng: 'en',
     whitelist: ['en', 'pl'],
-    // cleanCode: true,
     resources: {
       pl: {
         translations: require('./locales/pl/translations.json'),
