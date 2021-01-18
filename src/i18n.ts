@@ -10,7 +10,7 @@ i18n
       order: ['navigator'],
     },
     fallbackLng: 'en',
-    whitelist: ['pl', 'en'],
+    whitelist: ['en', 'pl'],
     resources: {
       pl: {
         translations: require('./locales/pl/translations.json'),
