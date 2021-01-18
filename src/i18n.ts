@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     detection: {
-      order: ['navigator'],
+      order: ['localStorage', 'navigator'],
     },
     fallbackLng: 'en',
     whitelist: ['en', 'pl'],
