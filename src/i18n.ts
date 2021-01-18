@@ -8,6 +8,7 @@ i18n
   .init({
     fallbackLng: 'en',
     whitelist: ['en', 'pl'],
+    // cleanCode: true,
     resources: {
       pl: {
         translations: require('./locales/pl/translations.json'),
