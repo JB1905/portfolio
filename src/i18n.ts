@@ -6,8 +6,11 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    detection: {
+      order: ['navigator'],
+    },
     fallbackLng: 'en',
-    whitelist: ['en', 'pl'],
+    whitelist: ['pl', 'en'],
     // cleanCode: true,
     resources: {
       pl: {
