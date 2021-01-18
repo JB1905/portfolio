@@ -11,7 +11,6 @@ i18n
     },
     fallbackLng: 'en',
     whitelist: ['pl', 'en'],
-    // cleanCode: true,
     resources: {
       pl: {
         translations: require('./locales/pl/translations.json'),
