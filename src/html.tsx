@@ -15,6 +15,11 @@ const HTML = (props: Props) => (
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
+      <link
+        rel="icon"
+        type="image/png"
+        href="assets/icon/manifest-icon-192.png"
+      />
       <meta
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"
