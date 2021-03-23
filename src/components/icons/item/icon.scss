@@ -22,6 +22,24 @@
     top: 0;
   }
 
+  &:focus {
+    // TODO mixin
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+
+    // TODO
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   width: inherit;
+    //   height: inherit;
+    //   left: 0;
+    //   top: 0;
+    //   box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+    //   border-radius: inherit;
+    // }
+  }
+
   &__image {
     font-size: 0;
     height: calc(var(--action-button-size) - var(--border-width) * 2);
