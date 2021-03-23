@@ -25,7 +25,7 @@ const Icons = () => {
 export const query = graphql`
   query Icons {
     graphCmsData {
-      icons {
+      icons(first: 4) {
         id
         url
         title
