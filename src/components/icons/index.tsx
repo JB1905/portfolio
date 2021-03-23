@@ -30,9 +30,7 @@ export const query = graphql`
         url
         title
         image {
-          handle
-          width
-          height
+          url
         }
       }
     }
