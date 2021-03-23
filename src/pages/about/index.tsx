@@ -3,22 +3,18 @@ import Delay from 'react-delay';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition } from 'react-transition-group';
-import Img, { FluidObject } from 'gatsby-image';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import SEO from '../../components/seo';
 import Title from '../../components/title';
 import Content from '../../components/content';
 import Paragraph from '../../components/paragraph';
 
-import { AboutQuery } from '../../../graphql-types';
-
 import './about.scss';
 
-interface Props {
-  readonly data: AboutQuery;
-}
+const PROFILE_IMAGE_URL = '../../images/me.jpg';
 
-const About = ({ data }: Props) => {
+const About = () => {
   const { t } = useTranslation();
 
   return (
@@ -32,11 +28,10 @@ const About = ({ data }: Props) => {
           <Delay wait={520}>
             <figure>
               <CSSTransition in appear timeout={1000} classNames="image">
-                {data.image && (
-                  <Img
-                    fluid={data.image.childImageSharp!.fluid as FluidObject}
-                  />
-                )}
+                <StaticImage
+                  src={PROFILE_IMAGE_URL}
+                  alt={t('about.profileImageAlt')}
+                />
               </CSSTransition>
             </figure>
           </Delay>
@@ -53,17 +48,5 @@ const About = ({ data }: Props) => {
     </article>
   );
 };
-
-export const query = graphql`
-  query About {
-    image: file(relativePath: { eq: "me.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 360, quality: 100) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 export default About;

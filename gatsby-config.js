@@ -75,8 +75,9 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-google-fonts`,

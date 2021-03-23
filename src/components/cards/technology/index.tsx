@@ -1,5 +1,6 @@
 import React from 'react';
 import Delay from 'react-delay';
+import GraphImg from 'graphcms-image';
 
 import './technology.scss';
 

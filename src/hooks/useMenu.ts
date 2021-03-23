@@ -3,7 +3,6 @@ import ResizeObserver from 'resize-observer-polyfill';
 
 import { MenuContext } from '../contexts/MenuContext';
 
-// TODO refactor
 export const useMenu = () => {
   const {
     isMainLayoutHidden,

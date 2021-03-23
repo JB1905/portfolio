@@ -14,7 +14,6 @@ const Title = ({ children }: Props) => {
   useEffect(() => {
     const layout = document.querySelector('.layout') as Element;
 
-    // TODO refactor
     const fadeOut = () => {
       const scrollValue = layout.scrollTop / 100;
 

@@ -9,13 +9,10 @@ import './language.scss';
 const Language = () => {
   const { t, i18n } = useTranslation();
 
-  // TODO refactor
   const toggleLanguage = () => {
-    i18n.changeLanguage(
-      i18n.language === LanguageName.Polish
-        ? LanguageName.English
-        : LanguageName.Polish
-    );
+    const isPolish = i18n.language === LanguageName.Polish;
+
+    i18n.changeLanguage(isPolish ? LanguageName.English : LanguageName.Polish);
   };
 
   return (
