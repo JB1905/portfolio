@@ -1,7 +1,5 @@
 import React from 'react';
 import Delay from 'react-delay';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-// import GraphImg from '@graphcms/react-image';
 import GraphImg from 'graphcms-image';
 
 import { IconsQuery } from '../../../../graphql-types';

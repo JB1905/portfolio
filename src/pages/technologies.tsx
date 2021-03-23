@@ -35,7 +35,6 @@ export const query = graphql`
         id
         name
         image {
-          # url
           handle
           width
           height

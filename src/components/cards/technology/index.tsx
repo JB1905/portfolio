@@ -1,9 +1,6 @@
 import React from 'react';
 import Delay from 'react-delay';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import GraphImg from 'graphcms-image';
-// import { StaticImage } from 'gatsby-plugin-image';
-// import GraphImg from '@graphcms/react-image';
 
 import './technology.scss';
 

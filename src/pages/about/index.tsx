@@ -3,66 +3,72 @@ import Delay from 'react-delay';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition } from 'react-transition-group';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { StaticImage, getImage } from 'gatsby-plugin-image';
 
 import SEO from '../../components/seo';
 import Title from '../../components/title';
 import Content from '../../components/content';
 import Paragraph from '../../components/paragraph';
 
-import { AboutQuery } from '../../../graphql-types';
+// import { AboutQuery } from '../../../graphql-types';
 
 import './about.scss';
 
-interface Props {
-  readonly data: AboutQuery;
-}
+// interface Props {
+//   readonly data: AboutQuery;
+// }
 
-const About = ({ data }: Props) => {
-  const { t } = useTranslation();
+const PROFILE_IMAGE_URL = '../../images/me.jpg';
 
-  return (
-    <article>
-      <SEO title={t('about.title')} />
+const About = () =>
+  // { data }: Props
+  {
+    const { t } = useTranslation();
 
-      <Title>{t('about.title')}</Title>
+    // const image = getImage(data.image); // TODO
 
-      <Content className="about">
-        <div className="image__container">
-          <Delay wait={520}>
-            <figure>
-              <CSSTransition in appear timeout={1000} classNames="image">
-                {data.image && (
-                  <GatsbyImage
-                    image={data.image.childImageSharp!.fluid}
+    return (
+      <article>
+        <SEO title={t('about.title')} />
+
+        <Title>{t('about.title')}</Title>
+
+        <Content className="about">
+          <div className="image__container">
+            <Delay wait={520}>
+              <figure>
+                <CSSTransition in appear timeout={1000} classNames="image">
+                  {/* {data.image && ( */}
+                  <StaticImage
+                    src={PROFILE_IMAGE_URL}
                     alt="" // TODO me
                   />
-                )}
-              </CSSTransition>
-            </figure>
-          </Delay>
-        </div>
+                  {/* )} */}
+                </CSSTransition>
+              </figure>
+            </Delay>
+          </div>
 
-        <div className="content__container">
-          {(t('about.content', { returnObjects: true }) as string[]).map(
-            (item, index) => (
-              <Paragraph key={index} content={item} index={index} />
-            )
-          )}
-        </div>
-      </Content>
-    </article>
-  );
-};
+          <div className="content__container">
+            {(t('about.content', { returnObjects: true }) as string[]).map(
+              (item, index) => (
+                <Paragraph key={index} content={item} index={index} />
+              )
+            )}
+          </div>
+        </Content>
+      </article>
+    );
+  };
 
-export const query = graphql`
-  query About {
-    image: file(relativePath: { eq: "me.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(width: 360, quality: 100, layout: CONSTRAINED)
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query About {
+//     image: file(relativePath: { eq: "me.jpg" }) {
+//       childImageSharp {
+//         gatsbyImageData(width: 360, quality: 100, layout: CONSTRAINED)
+//       }
+//     }
+//   }
+// `;
 
 export default About;

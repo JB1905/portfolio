@@ -2,8 +2,6 @@ import React from 'react';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import GraphImg from '@graphcms/react-image';
-// import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import GraphImg from 'graphcms-image';
 
 import { Language } from '../../../enums/Language';
@@ -50,7 +48,11 @@ export const Project = ({ item, language, index }: Props) => {
               <ul className="project__technologies">
                 {item.technologies.map((technology) => (
                   <li key={technology.id}>
-                    <GraphImg image={technology.image} alt={technology.name} />
+                    <GraphImg
+                      image={technology.image}
+                      alt={technology.name}
+                      blurryPlaceholder={false}
+                    />
                   </li>
                 ))}
               </ul>
