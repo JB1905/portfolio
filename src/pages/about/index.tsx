@@ -3,7 +3,7 @@ import Delay from 'react-delay';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition } from 'react-transition-group';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import SEO from '../../components/seo';
 import Title from '../../components/title';
@@ -33,8 +33,9 @@ const About = ({ data }: Props) => {
             <figure>
               <CSSTransition in appear timeout={1000} classNames="image">
                 {data.image && (
-                  <Img
-                    fluid={data.image.childImageSharp!.fluid as FluidObject}
+                  <GatsbyImage
+                    image={data.image.childImageSharp!.fluid}
+                    alt="" // TODO me
                   />
                 )}
               </CSSTransition>
@@ -58,9 +59,7 @@ export const query = graphql`
   query About {
     image: file(relativePath: { eq: "me.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 360, quality: 100) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 360, quality: 100, layout: CONSTRAINED)
       }
     }
   }

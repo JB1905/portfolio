@@ -52,7 +52,10 @@ export const query = graphql`
           id
           name
           image {
-            url
+            # url
+            handle
+            width
+            height
           }
         }
       }
