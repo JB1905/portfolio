@@ -48,11 +48,7 @@ export const Project = ({ item, language, index }: Props) => {
               <ul className="project__technologies">
                 {item.technologies.map((technology) => (
                   <li key={technology.id}>
-                    <GraphImg
-                      image={technology.image}
-                      alt={technology.name}
-                      blurryPlaceholder={false}
-                    />
+                    <img src={technology.image.url} alt={technology.name} />
                   </li>
                 ))}
               </ul>

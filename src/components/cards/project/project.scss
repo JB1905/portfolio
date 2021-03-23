@@ -131,28 +131,14 @@
     font-size: 1.25rem;
 
     li {
-      // height: inherit;
-      // object-fit: contain;
+      height: inherit;
       margin-right: 10px;
-      width: 30px;
-      height: 30px;
     }
 
-    // .graphcms-image-wrapper {
-    //   width: 30px;
-    //   height: 30px;
-    // }
-
     img {
-      // position: relative !important;
-      // width: 30px !important; // TODO
-      // height: 30px !important; // TODO
-      // width: 30px;
-      // height: 30px;
-      // width: inherit;
-      // height: inherit;
+      width: 30px;
+      height: 30px;
       object-fit: contain;
-      // margin-right: 10px;
     }
   }
 

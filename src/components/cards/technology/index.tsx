@@ -5,7 +5,7 @@ import GraphImg from 'graphcms-image';
 import './technology.scss';
 
 interface Props {
-  readonly image: any; // TODO
+  readonly image: string;
   readonly name: string;
   readonly index: number;
 }
@@ -13,12 +13,7 @@ interface Props {
 export const Technology = ({ image, name, index }: Props) => (
   <Delay wait={(index + 1) * 110 + 400}>
     <div className="technology__item">
-      <GraphImg
-        image={image}
-        alt={name}
-        blurryPlaceholder={false}
-        className="technology__image"
-      />
+      <img src={image} alt={name} className="technology__image" />
 
       <div className="technology__content">
         <p
