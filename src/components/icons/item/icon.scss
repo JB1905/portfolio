@@ -22,10 +22,6 @@
     top: 0;
   }
 
-  .graphcms-image-wrapper {
-    border-radius: 50%;
-  }
-
   &__image {
     font-size: 0;
     height: calc(var(--action-button-size) - var(--border-width) * 2);

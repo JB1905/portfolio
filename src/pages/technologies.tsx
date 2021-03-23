@@ -21,7 +21,7 @@ const Technologies = ({ data }: Props) => {
           key={item.id}
           index={index}
           name={item.name}
-          image={item.image}
+          image={item.image.url}
         />
       ))}
     </Page>
