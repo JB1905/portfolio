@@ -7457,6 +7457,11 @@ gatsby-source-graphql@^3.1.0:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
+gatsby-source-gravatar@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-gravatar/-/gatsby-source-gravatar-1.0.0.tgz#3d7564eb72d167dd58f39703aefb35cf4b02f252"
+  integrity sha512-pN48dBm1oinhhrtypdOOgRu0nO3ZPARdZYKdTwIm8Pyfql1BbHUHwLfYf8E14SFkthHkUnXLh63q/qiQIGvqbw==
+
 gatsby-telemetry@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-2.1.0.tgz#e7c0f8bc488a93bf4afcd10760f38b50471e754f"

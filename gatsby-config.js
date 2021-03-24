@@ -78,6 +78,13 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-gravatar`,
+      options: {
+        emails: [`biesiadajakub@icloud.com`],
+        query: `?size=300&m=dp`,
+      },
+    },
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-google-fonts`,
