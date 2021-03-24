@@ -18,9 +18,11 @@ const Technologies = ({ data }: Props) => {
     <Page title={t('technologies.title')} className="technologies">
       {data.graphCmsData.technologies.map((item, index) => (
         <Technology
+          // TODO pass full item
           key={item.id}
           index={index}
           name={item.name}
+          url={item.url}
           image={item.image.url}
         />
       ))}
@@ -34,6 +36,7 @@ export const query = graphql`
       technologies {
         id
         name
+        url
         image {
           url
         }
