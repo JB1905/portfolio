@@ -2,12 +2,7 @@ import React from 'react';
 import Normalize from 'react-normalize';
 import { I18nextProvider } from 'react-i18next';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faPhone,
-  faEnvelope,
-  faBars,
-  faEye,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faBars, faEye } from '@fortawesome/free-solid-svg-icons';
 
 import Menu from '../menu';
 import Transition from '../transition';
@@ -22,7 +17,7 @@ import './global.scss';
 import './animations.scss';
 import './layout.scss';
 
-library.add(faPhone, faEnvelope, faBars, faEye);
+library.add(faEnvelope, faBars, faEye);
 
 interface Props {
   readonly children: React.ReactNode;

@@ -10,6 +10,7 @@ import { ProjectsQuery } from '../../../../graphql-types';
 
 import './project.scss';
 
+// TODO replace types with generated types
 interface Props {
   readonly item: ProjectsQuery['graphCmsData']['projects'][number];
   readonly language: Language;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 export const Project = ({ item, language, index }: Props) => {
+  // TODO memo?
   const currentLocalizationData = item.localizations.find(
     ({ locale }) => locale === language
   );
@@ -56,12 +58,17 @@ export const Project = ({ item, language, index }: Props) => {
 
             <div className="project__links">
               {item.srcLink && (
+                // TODO translate aria-label
+                // TODO target blank?
                 <a href={item.srcLink} aria-label="Source preview">
+                  {/* TODO register icon */}
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               )}
 
               {item.liveLink && (
+                // TODO translate aria-label
+                // TODO target blank?
                 <a href={item.liveLink} aria-label="Live preview">
                   <FontAwesomeIcon icon="eye" />
                 </a>
