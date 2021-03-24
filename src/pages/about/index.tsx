@@ -28,10 +28,7 @@ const About = () => {
           <Delay wait={520}>
             <figure>
               <CSSTransition in appear timeout={1000} classNames="image">
-                <StaticImage
-                  src={PROFILE_IMAGE_URL}
-                  alt={t('about.profileImageAlt')}
-                />
+                <StaticImage src={PROFILE_IMAGE_URL} alt="Jakub Biesiada" />
               </CSSTransition>
             </figure>
           </Delay>
