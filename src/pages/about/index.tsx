@@ -12,9 +12,7 @@ import Paragraph from '../../components/paragraph';
 
 import './about.scss';
 
-const PROFILE_IMAGE_URL = '../../images/me.jpg';
-
-const About = () => {
+const About = ({ data }: any) => {
   const { t } = useTranslation();
 
   return (
@@ -29,7 +27,7 @@ const About = () => {
             <figure>
               <CSSTransition in appear timeout={1000} classNames="image">
                 <StaticImage
-                  src={PROFILE_IMAGE_URL}
+                  src={data.gravatar.url}
                   alt={t('about.profileImageAlt')}
                 />
               </CSSTransition>
@@ -48,5 +46,13 @@ const About = () => {
     </article>
   );
 };
+
+export const query = graphql`
+  query About {
+    gravatar(email: { eq: "biesiadajakub@icloud.com" }) {
+      url
+    }
+  }
+`;
 
 export default About;
