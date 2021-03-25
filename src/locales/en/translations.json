@@ -25,6 +25,10 @@
     "toggle": {
       "menu": "Toggle mobile menu",
       "language": "Switch language"
+    },
+    "preview": {
+      "source": "Source preview",
+      "live": "Live preview"
     }
   },
   "about": {

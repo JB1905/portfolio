@@ -23,7 +23,7 @@ const About = () => {
             <CSSTransition in appear timeout={1000} classNames="image">
               <StaticImage
                 src={PROFILE_IMAGE_URL}
-                alt={t('about.profileImageAlt')} // TODO
+                alt="Jakub Biesiada" // TODO
               />
             </CSSTransition>
           </figure>
