@@ -32,8 +32,8 @@ const Projects = ({ data }: Props) => {
 
 export const query = graphql`
   query Projects {
-    graphCmsData(where: { listed: true }) {
-      projects(locales: [pl, en]) {
+    graphCmsData {
+      projects(where: { listed: true }, locales: [pl, en]) {
         id
         title
         liveLink
