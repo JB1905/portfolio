@@ -2,6 +2,7 @@ import React from 'react';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { useTranslation } from 'react-i18next';
 import GraphImg from 'graphcms-image';
 
 import { Language } from '../../../enums/Language';
@@ -17,6 +18,8 @@ interface Props {
 }
 
 export const Project = ({ item, language, index }: Props) => {
+  const { t } = useTranslation();
+
   const currentLocalizationData = item.localizations.find(
     ({ locale }) => locale === language
   );
@@ -56,13 +59,13 @@ export const Project = ({ item, language, index }: Props) => {
 
             <div className="project__links">
               {item.srcLink && (
-                <a href={item.srcLink} aria-label="Source preview">
+                <a href={item.srcLink} aria-label={t('labels.preview.source')}>
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               )}
 
               {item.liveLink && (
-                <a href={item.liveLink} aria-label="Live preview">
+                <a href={item.liveLink} aria-label={t('labels.preview.live')}>
                   <FontAwesomeIcon icon="eye" />
                 </a>
               )}

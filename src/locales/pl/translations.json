@@ -25,6 +25,10 @@
     "toggle": {
       "menu": "Otwórz/zamknij menu",
       "language": "Przełącz język"
+    },
+    "preview": {
+      "source": "Zobacz źródło",
+      "live": "Zobacz na żywo"
     }
   },
   "about": {
