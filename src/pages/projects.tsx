@@ -33,7 +33,7 @@ const Projects = ({ data }: Props) => {
 export const query = graphql`
   query Projects {
     graphCmsData {
-      projects(locales: [pl, en]) {
+      projects(where: { listed: true }, locales: [pl, en]) {
         id
         title
         liveLink
@@ -48,7 +48,7 @@ export const query = graphql`
           width
           height
         }
-        technologies {
+        technologies(first: 3) {
           id
           name
           image {

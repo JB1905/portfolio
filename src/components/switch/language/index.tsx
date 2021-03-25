@@ -9,6 +9,7 @@ import './language.scss';
 const Language = () => {
   const { t, i18n } = useTranslation();
 
+  // TODO callback
   const toggleLanguage = () => {
     const isPolish = i18n.language === LanguageName.Polish;
 

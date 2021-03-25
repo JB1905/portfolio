@@ -5,6 +5,7 @@ import { IconsQuery } from '../../../../graphql-types';
 
 import './icon.scss';
 
+// TODO replace types with generated types
 interface Props {
   readonly item: IconsQuery['graphCmsData']['icons'][number];
   readonly index: number;

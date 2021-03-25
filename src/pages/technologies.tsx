@@ -31,7 +31,7 @@ const Technologies = ({ data }: Props) => {
 export const query = graphql`
   query Technologies {
     graphCmsData {
-      technologies {
+      technologies(where: { listed: true }) {
         id
         name
         image {

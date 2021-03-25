@@ -5,6 +5,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import './contact.scss';
 
+// TODO replace types with generated types
 interface Props {
   readonly delay: number;
   readonly icon: IconProp;
@@ -16,7 +17,7 @@ interface Props {
 export const Contact = ({ delay, icon, title, method, permalink }: Props) => (
   <Delay wait={delay}>
     <div className="contact__item">
-      <FontAwesomeIcon className="contact__icon" icon={icon} />
+      <FontAwesomeIcon icon={icon} className="contact__icon" />
 
       <div className="contact__content">
         <h3 className="contact__title">{title}:</h3>

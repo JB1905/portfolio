@@ -4,6 +4,7 @@ import GraphImg from 'graphcms-image';
 
 import './technology.scss';
 
+// TODO replace types with generated types
 interface Props {
   readonly image: string;
   readonly name: string;
