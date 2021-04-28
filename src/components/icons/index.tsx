@@ -3,12 +3,12 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { LanguageSwitch } from '../switch';
 import Item from './item';
 
-import { IconsQuery } from '../../../graphql-types';
+import { IconsQuery } from '../../__generated__/gatsby-types';
 
 import './icons.scss';
 
 const Icons = () => {
-  const data = useStaticQuery<IconsQuery>(query);
+  const data = useStaticQuery<GatsbyTypes.IconsQuery>(query);
 
   return (
     <section className="icons">

@@ -1,6 +1,6 @@
 import Delay from 'react-delay';
 
-import { IconsQuery } from '../../../../graphql-types';
+import { IconsQuery } from '../../../__generated__/gatsby-types';
 
 import './icon.scss';
 

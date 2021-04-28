@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { BackgroundQuery } from '../../../graphql-types';
+import { BackgroundQuery } from '../../__generated__/gatsby-types';
 
 import './background.scss';
 
 const Background = () => {
-  const { image } = useStaticQuery<BackgroundQuery>(query);
+  const { image } = useStaticQuery<GatsbyTypes.BackgroundQuery>(query);
 
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
