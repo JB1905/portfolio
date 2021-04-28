@@ -21,7 +21,7 @@ const Technologies = ({ data }: Props) => {
           key={item.id}
           index={index}
           name={item.name}
-          image={item.image.url}
+          image={item.image}
         />
       ))}
     </Page>
@@ -35,7 +35,9 @@ export const query = graphql`
         id
         name
         image {
-          url
+          handle
+          width
+          height
         }
       }
     }

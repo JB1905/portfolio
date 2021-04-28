@@ -1577,6 +1577,14 @@
     querystring "^0.2.0"
     strip-ansi "^6.0.0"
 
+"@graphcms/react-image@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@graphcms/react-image/-/react-image-1.0.1.tgz#1de29e4be1ed14d07113d923c47baf4ef1c819c7"
+  integrity sha512-ncHHa0Ud0yI9+JojC9X+DuRDmDT0nwBpGnPPsO88GkdUzE0UnwBEeF1nrdR/fJa9wQCc3CqV2HKhYC4LD26p8Q==
+  dependencies:
+    intersection-observer "^0.5.0"
+    prop-types "^15.6.0"
+
 "@graphql-codegen/core@^1.13.1":
   version "1.17.8"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/core/-/core-1.17.8.tgz#d70281bcf9f4b7b560ab5b16f7fc7a2853c49a8a"
@@ -8507,14 +8515,6 @@ graceful-fs@^4.1.5, graceful-fs@^4.2.4:
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
   integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
-
-graphcms-image@^1.1.0-beta4:
-  version "1.1.0-beta4"
-  resolved "https://registry.yarnpkg.com/graphcms-image/-/graphcms-image-1.1.0-beta4.tgz#7b12dffd8bb3ccef532622644907b40598698a70"
-  integrity sha1-exLf/YuzzO9TJiJkSQe0BZhpinA=
-  dependencies:
-    intersection-observer "^0.5.0"
-    prop-types "^15.6.0"
 
 grapheme-splitter@^1.0.4:
   version "1.0.4"
