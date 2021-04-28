@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { BackgroundQuery } from '../../../graphql-types';

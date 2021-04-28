@@ -1,4 +1,3 @@
-import React from 'react';
 import Delay from 'react-delay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';

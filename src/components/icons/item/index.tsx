@@ -1,4 +1,3 @@
-import React from 'react';
 import Delay from 'react-delay';
 
 import { IconsQuery } from '../../../../graphql-types';

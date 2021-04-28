@@ -1,4 +1,3 @@
-import React from 'react';
 import Delay from 'react-delay';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition } from 'react-transition-group';

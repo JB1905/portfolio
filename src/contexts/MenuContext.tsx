@@ -1,4 +1,5 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
+import * as React from 'react';
 
 interface ContextProps {
   readonly isMainLayoutHidden: boolean;
