@@ -1,0 +1,57 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: gatsby
+    versions:
+    - 2.31.1
+    - 2.32.8
+    - 3.1.2
+  - dependency-name: gatsby-plugin-sharp
+    versions:
+    - 2.13.4
+    - 2.14.3
+    - 3.1.2
+  - dependency-name: elliptic
+    versions:
+    - 6.5.4
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.14.1
+    - 4.15.2
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.22
+    - 14.14.31
+  - dependency-name: eslint
+    versions:
+    - 7.19.0
+    - 7.21.0
+  - dependency-name: i18next
+    versions:
+    - 19.8.5
+    - 19.9.0
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.14.1
+    - 4.15.2
+  - dependency-name: gatsby-plugin-offline
+    versions:
+    - 3.10.2
+  - dependency-name: typescript
+    versions:
+    - 4.2.2
+  - dependency-name: gatsby-source-filesystem
+    versions:
+    - 2.11.1
+  - dependency-name: node-sass
+    versions:
+    - 5.0.0
