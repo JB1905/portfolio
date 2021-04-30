@@ -6,7 +6,7 @@ import { Project } from '../components/cards';
 
 import { Language } from '../enums/Language';
 
-import { ProjectsQuery } from '../../graphql-types';
+import { ProjectsQuery } from '../__generated__/gatsby-types';
 
 interface Props {
   readonly data: ProjectsQuery;

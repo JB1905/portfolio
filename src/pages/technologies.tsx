@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Page from '../components/page';
 import { Technology } from '../components/cards';
 
-import { TechnologiesQuery } from '../../graphql-types';
+import { TechnologiesQuery } from '../__generated__/gatsby-types';
 
 interface Props {
   readonly data: TechnologiesQuery;

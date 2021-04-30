@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
-import { SeoQuery } from '../../graphql-types';
+import { SeoQuery } from '../__generated__/gatsby-types';
 
 type Meta = React.DetailedHTMLProps<
   React.MetaHTMLAttributes<HTMLMetaElement>,
@@ -20,7 +20,7 @@ interface Props {
 const SEO = ({ title, description, meta = [], keywords = [] }: Props) => {
   const { i18n } = useTranslation();
 
-  const { site } = useStaticQuery<SeoQuery>(query);
+  const { site } = useStaticQuery<GatsbyTypes.SEOQuery>(query);
 
   const metaDescription = description || site!.siteMetadata!.description;
 
