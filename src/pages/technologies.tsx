@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import Page from '../components/page';
@@ -6,11 +6,7 @@ import { Technology } from '../components/cards';
 
 import { TechnologiesQuery } from '../../graphql-types';
 
-interface Props {
-  readonly data: TechnologiesQuery;
-}
-
-const Technologies = ({ data }: Props) => {
+const Technologies = ({ data }: PageProps<TechnologiesQuery>) => {
   const { t } = useTranslation();
 
   return (

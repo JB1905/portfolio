@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import Page from '../components/page';
@@ -8,11 +8,7 @@ import { Language } from '../enums/Language';
 
 import { ProjectsQuery } from '../../graphql-types';
 
-interface Props {
-  readonly data: ProjectsQuery;
-}
-
-const Projects = ({ data }: Props) => {
+const Projects = ({ data }: PageProps<ProjectsQuery>) => {
   const { t, i18n } = useTranslation();
 
   return (
