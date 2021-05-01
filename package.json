@@ -46,7 +46,7 @@
     "react-delay": "^0.1.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-i18next": "^11.8.14",
+    "react-i18next": "^11.8.15",
     "react-normalize": "^0.4.4",
     "react-transition-group": "^4.4.1",
     "s-trimmer": "^1.0.0"
