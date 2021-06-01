@@ -49,7 +49,7 @@
     "react-i18next": "^11.8.14",
     "react-normalize": "^0.4.4",
     "react-transition-group": "^4.4.1",
-    "s-trimmer": "^1.0.0"
+    "s-trimmer": "^1.1.1"
   },
   "devDependencies": {
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",

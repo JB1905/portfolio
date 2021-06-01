@@ -13913,10 +13913,10 @@ rxjs@^6.4.0, rxjs@^6.6.0, rxjs@^6.6.3:
   dependencies:
     tslib "^1.9.0"
 
-s-trimmer@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/s-trimmer/-/s-trimmer-1.0.0.tgz#8aefb4752a640f48caa31a0f27df645ab521ff72"
-  integrity sha512-KiKdy0lEV5flQCaA/hslghGFdSDxqDNfGxK/Ble4fdVnCwc6lw7pomuigE2hLZKI8Pwm8TBWf5YmfMMC3jHbYQ==
+s-trimmer@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/s-trimmer/-/s-trimmer-1.1.1.tgz#95ec9294b8765f219563968106d7103ab7e51364"
+  integrity sha512-5FSOlx5UifNYC1K65a8TKY3JEsqtIVquOtM4abKzvkKXKioVso6aBlzhK1yGSpoid4Nr0wHVVCBF1dm4+C92Nw==
 
 safe-buffer@*, safe-buffer@>=5.1.0, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@~5.2.0:
   version "5.2.1"
